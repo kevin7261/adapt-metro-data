@@ -1,0 +1,1 @@
+{"failed":true,"error":"未寫出可用結果：llm-skeleton2grid","model":"DeepSeek V4 Pro","executor":"enforced","prompt":null,"finalOutput":"\n[stop: unknown err=Insufficient account balance; top up and retry.]\n","startedAt":1786493946218,"elapsedMs":13221,"generatedAt":1786529888090,"modifiedAt":1786529888090,"exitCode":0,"rounds":0,"endedAt":1786529888088,"endedAtSource":"process-close"}

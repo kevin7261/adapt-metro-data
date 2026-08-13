@@ -1,0 +1,1 @@
+{"elements":[{"type":"relation","id":8800000001,"tags":{"type":"route_master","route_master":"subway","ref":"1","name":"خط ۱","name:en":"Line 1","network":"مترو کرج","colour":"#008033","wikidata":"Q116978502","operator":"سازمان قطار شهری کرج و حومه"},"members":[{"type":"relation","ref":8800000002,"role":""},{"type":"relation","ref":8800000003,"role":""}]}]}

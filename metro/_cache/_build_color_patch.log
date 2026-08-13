@@ -1,0 +1,88 @@
+Loading cache...
+  night routes: dropped 32 (by_night=only / N*+yes)
+  route_tag_patches: r289331 ← {"name":"Ligne 1","name:en":"Line 1"}
+  route_tag_patches: r6545466 ← {"name":"Ligne 1","name:en":"Line 1"}
+  route_tag_patches: r8210887 ← {"name":"Ligne 1","name:en":"Line 1"}
+  route_tag_patches: r8210886 ← {"name":"Ligne 1","name:en":"Line 1"}
+  route_tag_patches: r15624911 ← {"ref":"L2","colour":"#48a23e"}
+  route_tag_patches: r4250380 ← {"name":"小碧潭支線","name:zh":"小碧潭支線","name:zh-Hant":"小碧潭支線"}
+  route_tag_patches: r4250352 ← {"name":"中和新蘆線","name:zh":"中和新蘆線","name:zh-Hant":"中和新蘆線"}
+  route_tag_patches: r9154523 ← {"name":"淡海輕軌綠山線","name:zh":"淡海輕軌綠山線","name:zh-Hant":"淡海輕軌綠山線"}
+  route_tag_patches: r8487050 ← {"name":"桃園國際機場捷運直達車","name:zh":"桃園國際機場捷運直達車","name:zh-Hant":"桃園國際機場捷運直達車"}
+  route_tag_patches: r9437206 ← {"name":"新北投支線","name:zh":"新北投支線","name:zh-Hant":"新北投支線","ref":"R","colour":"#F890A5"}
+  route_tag_patches: r2665129 ← {"name":"新北投支線","name:zh":"新北投支線","name:zh-Hant":"新北投支線","ref":"R","colour":"#F890A5"}
+  route_tag_patches: r13352937 ← {"name":"將軍澳綫","name:zh":"將軍澳綫","name:zh-Hant":"將軍澳綫"}
+  route_tag_patches: r4248590 ← {"name":"東鐵綫","name:zh":"東鐵綫","name:zh-Hant":"東鐵綫"}
+  route_tag_patches: r4250432 ← {"name":"東鐵綫","name:zh":"東鐵綫","name:zh-Hant":"東鐵綫"}
+  route_tag_patches: r11330479 ← {"ref":"TY-G"}
+  route_tag_patches: r19382689 ← {"ref":"CBE","colour":"#34ACE1"}
+  route_tag_patches: r2047576 ← {"ref":"Airport"}
+  route_tag_patches: r16672579 ← {"ref":"SEAFRD"}
+  route_tag_patches: r548496 ← {"ref":"T1"}
+  route_tag_patches: r6545828 ← {"ref":"T1","colour":"#0363ff"}
+  route_tag_patches: r16087452 ← {"name":"Yellow Line","name:en":"Yellow Line"}
+  route_tag_patches: r17332150 ← {"name":"Yellow Line","name:en":"Yellow Line"}
+  route_tag_patches: r7821579 ← {"name":"Трамвай 1","name:en":"Tram 1"}
+  route_tag_patches: r7821580 ← {"name":"Трамвай 1","name:en":"Tram 1"}
+  route_tag_patches: r2930171 ← {"ref":"N4","network":"Naumburger Straßenbahn","network:short":"NSB"}
+  route_excludes: dropped 46 under-construction/out-of-scope routes
+  NYC variant prune: dropped 55 late-night/rush/<diamond> variants (kept daytime pattern)
+  override disambiguation: reassigned 8/260, restored 13 rids to emptied cities
+  route_tag_patches (master): r7627370 ← {"name":"Ligne 1","name:en":"Line 1"}
+  route_tag_patches (master): r7869622 ← {"colour":"red"}
+  route_tag_patches (master): r9437778 ← {"name":"板南線","name:zh":"板南線","name:zh-Hant":"板南線"}
+  route_tag_patches (master): r4264893 ← {"name":"文湖線","name:zh":"文湖線","name:zh-Hant":"文湖線"}
+  route_tag_patches (master): r4250358 ← {"name":"松山新店線","name:zh":"松山新店線","name:zh-Hant":"松山新店線"}
+  route_tag_patches (master): r10658528 ← {"name":"環狀線","name:zh":"環狀線","name:zh-Hant":"環狀線"}
+  route_tag_patches (master): r4250359 ← {"name":"中和新蘆線","name:zh":"中和新蘆線","name:zh-Hant":"中和新蘆線"}
+  route_tag_patches (master): r5576487 ← {"name":"淡海輕軌藍海線","name:zh":"淡海輕軌藍海線","name:zh-Hant":"淡海輕軌藍海線"}
+  route_tag_patches (master): r21066082 ← {"name":"三鶯線","name:zh":"三鶯線","name:zh-Hant":"三鶯線"}
+  route_tag_patches (master): r9437207 ← {"name":"淡水信義線","name:zh":"淡水信義線","name:zh-Hant":"淡水信義線","ref":"R","colour":"#FF0000"}
+  route_tag_patches (master): r272133 ← {"name":"屯馬綫","name:zh":"屯馬綫","name:zh-Hant":"屯馬綫"}
+  route_tag_patches (master): r6452936 ← {"name":"觀塘綫","name:zh":"觀塘綫","name:zh-Hant":"觀塘綫"}
+  route_tag_patches (master): r269670 ← {"name":"港島綫","name:zh":"港島綫","name:zh-Hant":"港島綫"}
+  route_tag_patches (master): r9736531 ← {"name":"荃灣綫","name:zh":"荃灣綫","name:zh-Hant":"荃灣綫"}
+  route_tag_patches (master): r9736612 ← {"name":"將軍澳綫","name:zh":"將軍澳綫","name:zh-Hant":"將軍澳綫"}
+  route_tag_patches (master): r1139477 ← {"name":"迪士尼綫","name:zh":"迪士尼綫","name:zh-Hant":"迪士尼綫"}
+  route_tag_patches (master): r7894362 ← {"name":"NYCS - S Rockaway Park Shuttle"}
+  route_tag_patches (master): r6937084 ← {"ref":"TY-A"}
+  route_tag_patches (master): r17585171 ← {"colour":"#5786c5"}
+  route_tag_patches (master): r10391556 ← {"ref":"Airport"}
+  route_tag_patches (master): r15625847 ← {"ref":"Caboolture"}
+  route_tag_patches (master): r19224286 ← {"ref":"Caboolture"}
+  route_tag_patches (master): r19224700 ← {"ref":"Rosewood"}
+  route_tag_patches (master): r13903112 ← {"ref":"GAW"}
+  route_tag_patches (master): r16672157 ← {"ref":"GAW"}
+  route_tag_patches (master): r16672584 ← {"ref":"OUTHA"}
+  route_tag_patches (master): r15540826 ← {"ref":"2"}
+  route_tag_patches (master): r17332151 ← {"name":"Yellow Line","name:en":"Yellow Line"}
+  route_tag_patches (master): r14074756 ← {"colour":"#d5a72b"}
+  route_tag_patches (master): r7106760 ← {"colour":"#f1592a"}
+  route_tag_patches (master): r9449959 ← {"colour":"#fff200"}
+  member_appends: r7913594 +0 stops +1 inserts
+  member_appends: r8298253 +0 stops +1 inserts
+  member_appends: r2076291 +3 stops (loop closed)
+  member_appends: r18356557 +0 stops +3 inserts
+  member_appends: r13319538 +1 stops
+  member_appends: r7575713 +0 stops +1 inserts
+  member_appends: r9655662 +0 stops +1 inserts
+  member_appends: r173532 +0 stops
+  member_appends: r173940 +2 stops
+  member_appends: r7821579 replace_stops=10
+  member_appends: r7821580 replace_stops=10
+  member_appends: r8400989 replace_stops=6 (loop closed)
+  routes=7277 masters=2889 geom=7565 stations=116320 geocoded=1213
+  express-merge: kept 27 groups apart (different override cities)
+  manual line LG 萬大-中和-樹林線一期: 9 stations
+  manual line SB 汐東線: 6 stations
+  LRT scope: removed 201 light-rail lines (kept Taipei/Kaohsiung add-ons and baseline LRT-only systems)
+  city network allow-list: removed 19 non-listed lines (Tokyo = Metro + Toei only)
+  同城分檔清理：剔除 2894 個跑錯桶的站複本
+  Melbourne Tram: tram map-costop merge 1997 pairs
+  segmented: 3012 routes -> 6731 segment features (overlapping stretches drawn once)
+  merged 79291 duplicate same-named station points; dropped 5475 stations with no operational line; line vertices: 73445 = stations, 176 non-station bends removed, 14 station-less lines dropped; pruned 77 empty buckets
+
+Writing global layers: 6728 lines, 38278 stations
+  545 base + 16 combined systems written to /Users/kevincheng/Library/CloudStorage/Dropbox/__NTU/__Thesis/_website/adapt-metro/data/metro/metro-maps
+  matched 545 cities; 8 wikipedia systems unmatched by city name
+  index -> /Users/kevincheng/Library/CloudStorage/Dropbox/__NTU/__Thesis/_website/adapt-metro/data/metro/index.json

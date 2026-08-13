@@ -1,0 +1,23 @@
+
+> adapt-metro-gis-ui@0.1.0 metro:synctracks
+> node scripts/fetchMetroTracks.mjs && node scripts/buildMetroTrackGeojson.mjs && node scripts/buildMetroTrackCenterline.mjs
+
+6723 route relations referenced by metro systems; 419 need track geometry
+  [overpass] attempt 1/6 on overpass-api.de failed: HTTP 429; retry in 5s
+  [overpass] attempt 2/6 on overpass.kumi.systems failed: HTTP 504; retry in 10s
+  1/9: 50 routes
+  2/9: 50 routes
+  3/9: 50 routes
+  [overpass] attempt 1/6 on overpass-api.de failed: HTTP 429; retry in 5s
+  [overpass] attempt 2/6 on overpass.kumi.systems failed: HTTP 504; retry in 10s
+  4/9: 50 routes
+  [overpass] attempt 1/6 on overpass-api.de failed: HTTP 504; retry in 5s
+  [overpass] attempt 2/6 on overpass.kumi.systems failed: HTTP 504; retry in 10s
+  5/9: 50 routes
+  6/9: 50 routes
+  7/9: 50 routes
+  [overpass] attempt 1/6 on overpass-api.de failed: HTTP 429; retry in 5s
+  8/9: 50 routes
+  9/9: 19 routes
+Wrote 176855 OSM track features for 561 metro systems
+Wrote 2999 route centrelines for 561 metro systems

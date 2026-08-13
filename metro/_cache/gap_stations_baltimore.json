@@ -1,0 +1,30 @@
+{
+ "elements": [
+  {
+   "type": "node",
+   "id": 1148313194,
+   "lat": 39.3076213,
+   "lon": -76.6157549,
+   "tags": {
+    "name": "Baltimore Penn Station",
+    "railway": "stop",
+    "public_transport": "stop_position",
+    "network": "Baltimore Light RailLink",
+    "operator": "Maryland Transit Administration"
+   }
+  },
+  {
+   "type": "node",
+   "id": 265018851,
+   "lat": 39.1822268,
+   "lon": -76.669334,
+   "tags": {
+    "name": "BWI Airport",
+    "railway": "stop",
+    "public_transport": "stop_position",
+    "network": "Baltimore Light RailLink",
+    "operator": "Maryland Transit Administration"
+   }
+  }
+ ]
+}

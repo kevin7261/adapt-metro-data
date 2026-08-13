@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-07-25T13:19:31.637Z",
+  "note": "StyleInfoTab uses URBANRAIL_CITIES[layer.city] exact key; miss → continent fallback",
+  "missing_count": 1,
+  "missing": [
+    {
+      "city": "Cochabamba",
+      "country": "Bolivia",
+      "lines": 3,
+      "stations": 32,
+      "file": "metro-maps/americas/bolivia/am-bol-cochabamba/am-bol-cochabamba.geojson"
+    }
+  ]
+}

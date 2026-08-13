@@ -1,0 +1,1639 @@
+{
+  "generated": "2026-07-25T18:45:17.132Z",
+  "summary": {
+    "activeGroups": 545,
+    "official": 149,
+    "override": 26,
+    "urbanrail": 368,
+    "blank": 2,
+    "other": 0,
+    "missingFile": 0
+  },
+  "blank": [
+    {
+      "rel": "americas/united-states/am-usa-new-york-city",
+      "city": "New York City",
+      "note": "NYC 官方地鐵圖有版權（Commons 沒有自由授權版）；QID 解析曾誤命中 PATH 抓「PATH daytime.svg」冒充全系統圖。固定無圖，前端退回 Google 圖片搜尋。使用者裁決 2026-07。官方地圖頁＝https://www.mta.info/map/5256（2025-04 改版圖，官網釘選已指向此頁，見 site_overrides）。"
+    },
+    {
+      "rel": "europe/germany/eu-ger-naumburg",
+      "city": "Naumburg",
+      "note": null
+    }
+  ],
+  "other": [],
+  "officialFlags": [
+    {
+      "rel": "oceania/australia/oc-aus-gold-coast",
+      "city": "Gold Coast",
+      "license": "Official operator map (© Translink / Queensland; thesis use)",
+      "source": "urbanrail",
+      "source_url": "https://translink.widen.net/content/iajjlos4vd/pdf/Glink_route_map_Nov25.pdf",
+      "commons": null,
+      "size": 729213,
+      "flags": [
+        "url_says_urbanrail",
+        "source_urbanrail"
+      ]
+    }
+  ],
+  "urbanrail": [
+    "asia/china/as-chn-chongqing",
+    "asia/china/as-chn-shanghai",
+    "asia/china/as-chn-beijing",
+    "asia/china/as-chn-chengdu",
+    "asia/china/as-chn-guangzhou",
+    "asia/china/as-chn-hangzhou",
+    "europe/russia/eu-rus-moscow",
+    "asia/china/as-chn-tianjin",
+    "europe/sweden/eu-swe-stockholm",
+    "americas/mexico/am-mex-mexico-city",
+    "europe/romania/eu-rou-bucharest",
+    "americas/venezuela/am-ven-caracas",
+    "asia/china/as-chn-fuzhou",
+    "europe/belgium/eu-bel-brussels",
+    "asia/iran/as-iri-tehran",
+    "asia/china/as-chn-kunming",
+    "asia/china/as-chn-changsha",
+    "asia/china/as-chn-nanning",
+    "asia/qatar/as-qat-doha",
+    "europe/denmark/eu-den-copenhagen",
+    "asia/saudi-arabia/as-ksa-riyadh",
+    "europe/russia/eu-rus-saint-petersburg",
+    "asia/china/as-chn-shenyang",
+    "asia/china/as-chn-jinan",
+    "europe/italy/eu-ita-rome",
+    "asia/china/as-chn-changchun",
+    "asia/china/as-chn-wuxi",
+    "americas/canada/am-can-montreal",
+    "europe/france/eu-fra-lyon",
+    "asia/thailand/as-tha-bangkok",
+    "asia/uzbekistan/as-uzb-tashkent",
+    "asia/china/as-chn-nanchang",
+    "asia/china/as-chn-guiyang",
+    "asia/india/as-ind-ahmedabad",
+    "asia/china/as-chn-shaoxing",
+    "europe/belarus/eu-blr-minsk",
+    "asia/philippines/as-phi-manila",
+    "europe/ukraine/eu-ukr-kyiv",
+    "africa/algeria/af-alg-algiers",
+    "europe/ukraine/eu-ukr-kharkiv",
+    "europe/italy/eu-ita-naples",
+    "asia/south-korea/as-kor-busan",
+    "asia/china/as-chn-harbin",
+    "asia/china/as-chn-shijiazhuang",
+    "asia/georgia/as-geo-tbilisi",
+    "europe/russia/eu-rus-nizhny-novgorod",
+    "asia/armenia/as-arm-yerevan",
+    "asia/north-korea/as-prk-pyongyang",
+    "americas/dominican-republic/am-dom-santo-domingo",
+    "americas/peru/am-per-lima",
+    "europe/poland/eu-pol-warsaw",
+    "asia/japan/as-jpn-sendai",
+    "asia/china/as-chn-lanzhou",
+    "europe/france/eu-fra-marseille",
+    "asia/china/as-chn-dongguan",
+    "asia/india/as-ind-nagpur",
+    "asia/vietnam/as-vie-hanoi",
+    "asia/china/as-chn-changzhou",
+    "asia/china/as-chn-taiyuan",
+    "asia/china/as-chn-luoyang",
+    "asia/china/as-chn-foshan",
+    "europe/switzerland/eu-sui-lausanne",
+    "europe/russia/eu-rus-samara",
+    "europe/spain/eu-esp-seville",
+    "americas/brazil/am-bra-fortaleza",
+    "asia/india/as-ind-jaipur",
+    "asia/kazakhstan/as-kaz-almaty",
+    "asia/iran/as-iri-karaj",
+    "europe/greece/eu-gre-thessaloniki",
+    "asia/iran/as-iri-tabriz",
+    "europe/italy/eu-ita-catania",
+    "asia/south-korea/as-kor-daejeon",
+    "americas/venezuela/am-ven-maracaibo",
+    "asia/india/as-ind-kochi",
+    "asia/india/as-ind-lucknow",
+    "americas/mexico/am-mex-guadalajara",
+    "asia/indonesia/as-ina-palembang",
+    "americas/ecuador/am-ecu-quito",
+    "asia/vietnam/as-vie-ho-chi-minh-city",
+    "asia/china/as-chn-taizhou",
+    "asia/south-korea/as-kor-gwangju",
+    "asia/india/as-ind-kanpur",
+    "asia/bangladesh/as-ban-dhaka",
+    "africa/nigeria/af-ngr-lagos",
+    "americas/united-states/am-usa-honolulu",
+    "asia/india/as-ind-navi-mumbai",
+    "asia/india/as-ind-indore",
+    "asia/india/as-ind-patna",
+    "asia/india/as-ind-bhopal",
+    "europe/italy/eu-ita-genoa",
+    "asia/saudi-arabia/as-ksa-mecca",
+    "asia/south-korea/as-kor-uijeongbu",
+    "asia/china/as-chn-jiaxing",
+    "europe/russia/eu-rus-krasnodar",
+    "europe/poland/eu-pol-wroclaw",
+    "europe/poland/eu-pol-cracow",
+    "europe/poland/eu-pol-katowice",
+    "europe/poland/eu-pol-lodz",
+    "europe/russia/eu-rus-magnitogorsk",
+    "europe/germany/eu-ger-leipzig",
+    "europe/sweden/eu-swe-gothenburg",
+    "europe/germany/eu-ger-stuttgart",
+    "europe/poland/eu-pol-gdansk",
+    "europe/ukraine/eu-ukr-odessa",
+    "europe/switzerland/eu-sui-zurich",
+    "europe/germany/eu-ger-ludwigshafen",
+    "europe/ukraine/eu-ukr-kryvy-rih",
+    "europe/poland/eu-pol-bydgoszcz",
+    "africa/south-africa/af-rsa-johannesburg",
+    "europe/croatia/eu-cro-zagreb",
+    "europe/belgium/eu-bel-antwerp",
+    "europe/switzerland/eu-sui-basel",
+    "europe/russia/eu-rus-barnaul",
+    "europe/poland/eu-pol-szczecin",
+    "americas/united-states/am-usa-portland",
+    "europe/russia/eu-rus-irkutsk",
+    "europe/serbia/eu-srb-belgrade",
+    "europe/russia/eu-rus-chelyabinsk",
+    "europe/romania/eu-rou-iasi",
+    "europe/russia/eu-rus-ulyanovsk",
+    "africa/south-africa/af-rsa-cape-town",
+    "asia/kazakhstan/as-kaz-ust-kamenogorsk",
+    "europe/portugal/eu-por-almada",
+    "europe/austria/eu-aut-graz",
+    "europe/france/eu-fra-montpellier",
+    "europe/russia/eu-rus-volgograd",
+    "europe/slovakia/eu-svk-kosice",
+    "europe/romania/eu-rou-timisoara",
+    "europe/latvia/eu-lat-riga",
+    "europe/russia/eu-rus-ulan-ude",
+    "europe/france/eu-fra-strasbourg",
+    "europe/russia/eu-rus-izhevsk",
+    "europe/ukraine/eu-ukr-mykolaiv",
+    "europe/poland/eu-pol-torun",
+    "europe/poland/eu-pol-olsztyn",
+    "oceania/australia/oc-aus-brisbane",
+    "europe/united-kingdom/eu-gbr-manchester",
+    "europe/romania/eu-rou-oradea",
+    "americas/united-states/am-usa-san-francisco-bart",
+    "europe/russia/eu-rus-volzhskiy",
+    "europe/romania/eu-rou-arad",
+    "europe/slovakia/eu-svk-bratislava",
+    "americas/united-states/am-usa-san-diego",
+    "africa/south-africa/af-rsa-durban",
+    "europe/russia/eu-rus-kemerovo",
+    "europe/czechia/eu-cze-olomouc",
+    "europe/russia/eu-rus-omsk",
+    "europe/russia/eu-rus-pyatigorsk",
+    "europe/estonia/eu-est-tallinn",
+    "europe/ukraine/eu-ukr-vinnytsia",
+    "europe/switzerland/eu-sui-bern",
+    "europe/france/eu-fra-bordeaux",
+    "europe/russia/eu-rus-novotroitsk",
+    "asia/japan/as-jpn-toyama",
+    "europe/norway/eu-nor-bergen",
+    "europe/russia/eu-rus-angarsk",
+    "asia/turkey/as-tur-eskisehir",
+    "europe/germany/eu-ger-jena",
+    "europe/russia/eu-rus-kolomna",
+    "europe/belgium/eu-bel-charleroi",
+    "americas/united-states/am-usa-dallas",
+    "europe/switzerland/eu-sui-geneva",
+    "europe/belgium/eu-bel-ghent",
+    "europe/russia/eu-rus-ufa",
+    "europe/belarus/eu-blr-vitebsk",
+    "europe/romania/eu-rou-galati",
+    "europe/france/eu-fra-grenoble",
+    "europe/czechia/eu-cze-liberec",
+    "europe/russia/eu-rus-yaroslavl",
+    "americas/united-states/am-usa-san-jose",
+    "europe/latvia/eu-lat-daugavpils",
+    "europe/poland/eu-pol-elblag",
+    "asia/turkey/as-tur-kayseri",
+    "europe/russia/eu-rus-krasnoyarsk",
+    "europe/czechia/eu-cze-plzen",
+    "europe/russia/eu-rus-rostov-on-don",
+    "europe/united-kingdom/eu-gbr-sheffield",
+    "americas/united-states/am-usa-sacramento",
+    "europe/hungary/eu-hun-szeged",
+    "europe/france/eu-fra-nantes",
+    "europe/germany/eu-ger-heidelberg",
+    "europe/austria/eu-aut-linz",
+    "europe/germany/eu-ger-plauen",
+    "europe/france/eu-fra-saint-etienne",
+    "europe/bosnia-and-herzegovina/eu-bih-sarajevo",
+    "europe/russia/eu-rus-taganrog",
+    "africa/tunisia/af-tun-tunis",
+    "americas/united-states/am-usa-phoenix",
+    "europe/spain/eu-esp-alicante",
+    "europe/ukraine/eu-ukr-mariupol",
+    "europe/russia/eu-rus-novocherkassk",
+    "europe/russia/eu-rus-smolensk",
+    "europe/russia/eu-rus-usolye-sibirskoye",
+    "asia/india/as-ind-gurugram",
+    "europe/france/eu-fra-angers",
+    "europe/france/eu-fra-caen",
+    "europe/poland/eu-pol-czestochowa",
+    "europe/russia/eu-rus-dzerzhinsk",
+    "asia/turkey/as-tur-gaziantep",
+    "europe/germany/eu-ger-gotha",
+    "europe/ukraine/eu-ukr-konotop",
+    "europe/russia/eu-rus-kursk",
+    "americas/united-states/am-usa-new-orleans",
+    "europe/russia/eu-rus-novokuznetsk",
+    "europe/germany/eu-ger-schwerin",
+    "americas/united-states/am-usa-northern-new-jersey-newark",
+    "americas/canada/am-can-edmonton",
+    "europe/france/eu-fra-mulhouse",
+    "americas/canada/am-can-waterloo",
+    "europe/poland/eu-pol-gorzow",
+    "europe/russia/eu-rus-prokopyevsk",
+    "europe/russia/eu-rus-zlatoust",
+    "americas/united-states/am-usa-pittsburgh",
+    "europe/france/eu-fra-aubagne",
+    "europe/russia/eu-rus-biysk",
+    "europe/romania/eu-rou-braila",
+    "europe/germany/eu-ger-halberstadt",
+    "europe/ukraine/eu-ukr-kamianske",
+    "europe/france/eu-fra-le-havre",
+    "americas/united-states/am-usa-memphis",
+    "europe/italy/eu-ita-palermo",
+    "americas/united-states/am-usa-st-louis",
+    "africa/ethiopia/af-eth-addis-ababa",
+    "europe/finland/eu-fin-tampere",
+    "asia/turkey/as-tur-antalya",
+    "europe/romania/eu-rou-cluj-napoca",
+    "europe/france/eu-fra-dijon",
+    "europe/italy/eu-ita-firenze",
+    "europe/ukraine/eu-ukr-horlivka",
+    "asia/turkey/as-tur-konya",
+    "europe/france/eu-fra-le-mans",
+    "europe/france/eu-fra-nice",
+    "europe/united-kingdom/eu-gbr-nottingham",
+    "europe/russia/eu-rus-oryol",
+    "europe/spain/eu-esp-tenerife",
+    "europe/spain/eu-esp-vitoria-gasteiz",
+    "americas/united-states/am-usa-houston",
+    "europe/netherlands/eu-ned-utrecht",
+    "europe/spain/eu-esp-malaga",
+    "americas/brazil/am-bra-santos",
+    "africa/morocco/af-mar-casablanca",
+    "europe/romania/eu-rou-craiova",
+    "europe/germany/eu-ger-gera",
+    "europe/hungary/eu-hun-miskolc",
+    "europe/russia/eu-rus-nizhnekamsk",
+    "europe/croatia/eu-cro-osijek",
+    "europe/russia/eu-rus-saratov",
+    "africa/algeria/af-alg-sidi-bel-abbes",
+    "europe/ukraine/eu-ukr-yevpatoria",
+    "europe/germany/eu-ger-zwickau",
+    "europe/italy/eu-ita-bergamo",
+    "europe/spain/eu-esp-metro-palma-de-mallorca",
+    "europe/germany/eu-ger-strausberg",
+    "asia/israel/as-isr-tel-aviv",
+    "americas/canada/am-can-ottawa",
+    "asia/china/as-chn-tianshui",
+    "americas/united-states/am-usa-seattle",
+    "europe/russia/eu-rus-achinsk",
+    "europe/france/eu-fra-besancon",
+    "europe/hungary/eu-hun-debrecen",
+    "europe/germany/eu-ger-dessau",
+    "asia/japan/as-jpn-hakodate",
+    "europe/germany/eu-ger-mannheim",
+    "europe/ukraine/eu-ukr-yenakiieve",
+    "asia/japan/as-jpn-kagoshima",
+    "asia/japan/as-jpn-kumamoto",
+    "europe/russia/eu-rus-osinniki",
+    "europe/russia/eu-rus-orsk",
+    "asia/japan/as-jpn-okayama",
+    "europe/romania/eu-rou-ploiesti",
+    "europe/france/eu-fra-reims",
+    "asia/turkey/as-tur-samsun",
+    "europe/russia/eu-rus-staryi-oskol",
+    "asia/japan/as-jpn-takaoka",
+    "europe/france/eu-fra-valenciennes",
+    "europe/united-kingdom/eu-gbr-birmingham",
+    "europe/italy/eu-ita-cagliari",
+    "asia/japan/as-jpn-fukui",
+    "asia/japan/as-jpn-enoshima-shonan",
+    "americas/united-states/am-usa-detroit",
+    "americas/united-states/am-usa-tacoma",
+    "africa/nigeria/af-ngr-abuja",
+    "americas/united-states/am-usa-charlotte",
+    "americas/united-states/am-usa-las-vegas",
+    "europe/france/eu-fra-brest",
+    "europe/ireland/eu-irl-dublin",
+    "europe/united-kingdom/eu-gbr-edinburgh",
+    "americas/united-states/am-usa-little-rock",
+    "africa/algeria/af-alg-mostaganem",
+    "europe/spain/eu-esp-murcia",
+    "europe/france/eu-fra-orleans",
+    "europe/italy/eu-ita-venezia-mestre",
+    "europe/russia/eu-rus-salavat",
+    "asia/uzbekistan/as-uzb-samarkand",
+    "europe/italy/eu-ita-sassari",
+    "asia/israel/as-isr-jerusalem",
+    "americas/argentina/am-arg-mendoza",
+    "americas/united-states/am-usa-buffalo",
+    "europe/spain/eu-esp-granada",
+    "americas/united-states/am-usa-norfolk",
+    "europe/spain/eu-esp-cadiz",
+    "asia/china/as-chn-sanya",
+    "oceania/australia/oc-aus-canberra",
+    "asia/japan/as-jpn-kitakyushu",
+    "asia/japan/as-jpn-utsunomiya",
+    "asia/china/as-chn-huai-an",
+    "africa/egypt/af-egy-alexandria",
+    "europe/ukraine/eu-ukr-avdiivka",
+    "europe/france/eu-fra-avignon",
+    "europe/united-kingdom/eu-gbr-blackpool",
+    "americas/united-states/am-usa-cincinnati",
+    "europe/france/eu-fra-clermont-ferrand",
+    "africa/algeria/af-alg-constantine",
+    "africa/senegal/af-sen-dakar",
+    "americas/united-states/am-usa-el-paso",
+    "europe/austria/eu-aut-gmunden",
+    "asia/china/as-chn-huangshi",
+    "americas/united-states/am-usa-kansas-city",
+    "europe/russia/eu-rus-krasnoturyinsk",
+    "europe/belgium/eu-bel-kusttram",
+    "europe/united-kingdom/eu-gbr-liverpool",
+    "europe/russia/eu-rus-perm",
+    "europe/russia/eu-rus-tula",
+    "europe/russia/eu-rus-naberezhnye-chelny",
+    "europe/russia/eu-rus-kaliningrad",
+    "europe/czechia/eu-cze-most",
+    "asia/turkey/as-tur-izmit",
+    "europe/belgium/eu-bel-liege",
+    "europe/sweden/eu-swe-lund",
+    "europe/luxembourg/eu-lux-luxembourg",
+    "asia/japan/as-jpn-matsuyama",
+    "asia/china/as-chn-mengzi",
+    "europe/italy/eu-ita-messina",
+    "americas/united-states/am-usa-morgantown",
+    "europe/belarus/eu-blr-mozyr",
+    "asia/japan/as-jpn-naha",
+    "europe/belarus/eu-blr-novopolotsk",
+    "europe/denmark/eu-den-odense",
+    "africa/algeria/af-alg-oran",
+    "africa/algeria/af-alg-ouargla",
+    "europe/italy/eu-ita-padova",
+    "europe/spain/eu-esp-parla",
+    "europe/romania/eu-rou-resita",
+    "europe/france/eu-fra-rouen",
+    "africa/algeria/af-alg-setif",
+    "europe/portugal/eu-por-sintra",
+    "americas/united-states/am-usa-tampa",
+    "europe/france/eu-fra-tours",
+    "asia/japan/as-jpn-toyohashi",
+    "europe/italy/eu-ita-trieste",
+    "europe/norway/eu-nor-trondheim",
+    "americas/united-states/am-usa-tucson",
+    "americas/chile/am-chi-valparaiso",
+    "europe/russia/eu-rus-vladivostok",
+    "europe/russia/eu-rus-volchansk",
+    "europe/spain/eu-esp-zaragoza",
+    "asia/israel/as-isr-haifa",
+    "europe/spain/eu-esp-valencia",
+    "europe/italy/eu-ita-perugia",
+    "europe/germany/eu-ger-schoneiche",
+    "africa/south-africa/af-rsa-pretoria",
+    "europe/spain/eu-esp-donostia",
+    "europe/ukraine/eu-ukr-donetsk",
+    "europe/ukraine/eu-ukr-zaporizhia",
+    "europe/switzerland/eu-sui-neuchatel",
+    "europe/russia/eu-rus-khabarovsk",
+    "asia/kazakhstan/as-kaz-pavlodar",
+    "europe/ukraine/eu-ukr-zhytomyr"
+  ],
+  "official": [
+    {
+      "rel": "europe/united-kingdom/eu-gbr-london",
+      "city": "London",
+      "size": 1548042,
+      "source_url": "https://content.tfl.gov.uk/standard-tube-map.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/germany/eu-ger-berlin",
+      "city": "Berlin",
+      "size": 1151929,
+      "source_url": "https://www.bvg.de/dam/jcr:60a89e3b-f88d-4d48-b8a6-98ab340ada05/S_U-Bahn_07_2024_Internetversion_BVG.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/germany/eu-ger-frankfurt",
+      "city": "Frankfurt",
+      "size": 1616542,
+      "source_url": "https://www.vgf-ffm.de/fileadmin/VGF/Tickets__Tarife__Plaene/Fahrplaene/Images/Content/Schnellbahnplan_Grossraum_Frankfurt_2026.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/japan/as-jpn-tokyo",
+      "city": "Tokyo",
+      "size": 693483,
+      "source_url": "https://www.tokyometro.jp/tcn/subwaymap/index.html",
+      "commons": null
+    },
+    {
+      "rel": "europe/germany/eu-ger-munich",
+      "city": "Munich",
+      "size": 1662319,
+      "source_url": "https://www.mvv-muenchen.de/fileadmin/mediapool/downloads/plaene/netzplaene/2026/2026_layout_SUR_M_12.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/france/eu-fra-paris",
+      "city": "Paris",
+      "size": 4336182,
+      "source_url": "https://www.datocms-assets.com/56515/1634833205-plan-metro.pdf",
+      "commons": null
+    },
+    {
+      "rel": "oceania/australia/oc-aus-sydney",
+      "city": "Sydney",
+      "size": 880211,
+      "source_url": "https://opendata.transport.nsw.gov.au/data/dataset/c18f0e6c-2bfe-4c3f-b947-cbde01a7d2f6/resource/94ccf5dc-0f21-486c-8dfc-301d917c9514/download/sydney_trains_network_-map_arl_apxp_sag_wcag_20221107.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/germany/eu-ger-dusseldorf",
+      "city": "Dusseldorf",
+      "size": 957731,
+      "source_url": "https://cdn.rheinbahn.de/bc045c48bd4dad28/b5faea5d8e96/Duesseldorf_Schienennetz.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-shenzhen",
+      "city": "Shenzhen",
+      "size": 9052281,
+      "source_url": "https://www.szmc.net/SMARTC/upload/image/20260630/1782803829923076269.png",
+      "commons": null
+    },
+    {
+      "rel": "asia/south-korea/as-kor-seoul",
+      "city": "Seoul",
+      "size": 1757392,
+      "source_url": "http://www.seoulmetro.co.kr/download/map_korea.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-chicago",
+      "city": "Chicago",
+      "size": 664512,
+      "source_url": "https://www.transitchicago.com/assets/1/6/ctamap_Lsystem.png",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-hong-kong",
+      "city": "Hong Kong",
+      "size": 725675,
+      "source_url": "https://www.mtr.com.hk/archive/en/services/routemap.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/germany/eu-ger-nuremberg",
+      "city": "Nuremberg",
+      "size": 540309,
+      "source_url": "https://www.vag.de/fileadmin/user_upload/06_dokumente/Netz/UBahn_Liniennetz.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/germany/eu-ger-hamburg",
+      "city": "Hamburg",
+      "size": 964006,
+      "source_url": "https://www.hvv.de/resource/blob/3204/eb5ec962c2841c64e3b5918632e793ab/hvv_usar-plan.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/spain/eu-esp-madrid",
+      "city": "Madrid",
+      "size": 1509054,
+      "source_url": "https://www.crtm.es/media/hmllv0q3/0a-esqmetro-mar26-copia.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/taiwan/as-twn-taipei",
+      "city": "Taipei",
+      "size": 417427,
+      "source_url": "https://web.metro.taipei/pages2026/images/routemap202606.png",
+      "commons": null
+    },
+    {
+      "rel": "asia/singapore/as-sgp-singapore",
+      "city": "Singapore",
+      "size": 1025408,
+      "source_url": "https://www.lta.gov.sg/content/dam/ltagov/getting_around/public_transport/rail_network/pdf/SM_Eng_(Ver280225)_Hume.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/spain/eu-esp-barcelona",
+      "city": "Barcelona",
+      "size": 1306118,
+      "source_url": "https://www.tmb.cat/documents/20182/45206/Pl%C3%A0nol+xarxa+de+Metro.pdf/f5578f40-5a66-46ba-907c-cf31e0d368c0?t=1743600720567",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-wuhan",
+      "city": "Wuhan",
+      "size": 2129927,
+      "source_url": "https://www.wuhanrt.com/file/tempFile/1232459/线网线路图.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-nanjing",
+      "city": "Nanjing",
+      "size": 2744063,
+      "source_url": "https://www.njmetro.com.cn/njdtweb/dtweb/images/map_new.jpg",
+      "commons": null
+    },
+    {
+      "rel": "europe/norway/eu-nor-oslo",
+      "city": "Oslo",
+      "size": 681206,
+      "source_url": "https://cdn.sanity.io/files/5a84xxkm/prod/e46cf566dd5b9cc4e323b70b168115d7bc3c911f.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-zhengzhou",
+      "city": "Zhengzhou",
+      "size": 51117,
+      "source_url": "http://www.zzmetro.com/themes/zzmetro/Public/images/lx_tu.jpg",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-washington-d-c",
+      "city": "Washington, D.C.",
+      "size": 978770,
+      "source_url": "https://www.wmata.com/content/dam/wmata-com/maps/system-map-rail.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/india/as-ind-delhi",
+      "city": "Delhi",
+      "size": 1966467,
+      "source_url": "https://delhimetrorail.com/otherdocuments/route_map.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/turkey/as-tur-istanbul",
+      "city": "Istanbul",
+      "size": 1152010,
+      "source_url": "https://www.metro.istanbul/Content/assets/uploaded/A%C4%9F%20Haritas%C4%B1.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/japan/as-jpn-osaka",
+      "city": "Osaka",
+      "size": 1657288,
+      "source_url": "https://subway.osakametro.co.jp/img/osakametro_rosenzu_20250404.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-suzhou",
+      "city": "Suzhou",
+      "size": 21235408,
+      "source_url": "https://www.sz-mtr.com/images/苏州轨道交通路线图.jpg",
+      "commons": null
+    },
+    {
+      "rel": "americas/chile/am-chi-santiago",
+      "city": "Santiago",
+      "size": 786738,
+      "source_url": "https://web.archive.org/web/20240703025822if_/https://www.metro.cl/documentos/Metrored_COMPLETO_-_JULIO_2023.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-xi-an",
+      "city": "Xi'an",
+      "size": 1054390,
+      "source_url": "https://www.xianrail.com/storage/upload/image/20260629/bec22be2249d40959f0d1841127928bf.jpg",
+      "commons": null
+    },
+    {
+      "rel": "europe/italy/eu-ita-milan",
+      "city": "Milan",
+      "size": 1277259,
+      "source_url": "https://www.atm.it/it/AltriServizi/Trasporto/Documents/schema_rete_metro.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/netherlands/eu-ned-rotterdam",
+      "city": "Rotterdam",
+      "size": 1164311,
+      "source_url": "https://bestanden.ret.nl/user_upload/Documenten/PDF/Kaarten_en_plattegronden/RET_metrolijnenkaart.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/germany/eu-ger-bielefeld",
+      "city": "Bielefeld",
+      "size": 450400,
+      "source_url": "https://www.mobiel.de/fileadmin/user_upload/Downloads/Netzplaene_Karten/StadtBahn-Spinne-A_1200x420_5c_2025.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/canada/am-can-vancouver",
+      "city": "Vancouver",
+      "size": 607504,
+      "source_url": "https://www.translink.ca/-/media/translink/documents/schedules-and-maps/transit-system-maps/system-maps/skytrain_network_map.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-hefei",
+      "city": "Hefei",
+      "size": 11327753,
+      "source_url": "https://news.qq.com/rain/a/20251228A054BE00",
+      "commons": null
+    },
+    {
+      "rel": "europe/netherlands/eu-ned-amsterdam",
+      "city": "Amsterdam",
+      "size": 1097855,
+      "source_url": "https://assets.ctfassets.net/d6yaib7us1l3/6i4uoiDsLfoWeFPlpi5rgg/6fe174e3ce90a11e919a7fe363fd8048/metrokaart.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-philadelphia",
+      "city": "Philadelphia",
+      "size": 1668651,
+      "source_url": "https://www.visitphilly.com/wp-content/uploads/2024/04/New-SEPTA-metro-network-map.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/brazil/am-bra-sao-paulo",
+      "city": "São Paulo",
+      "size": 886868,
+      "source_url": "https://www.metro.sp.gov.br/wp-content/uploads/2026/07/mapaderede.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-qingdao",
+      "city": "Qingdao",
+      "size": 11035836,
+      "source_url": "http://www.qd-metro.com/images/bigmap.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-ningbo",
+      "city": "Ningbo",
+      "size": 3434407,
+      "source_url": "http://www.nbmetro.com/static/map-box_20250516/new-map.jpg",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-atlanta",
+      "city": "Atlanta",
+      "size": 1400571,
+      "source_url": "https://itsmarta.com/uploadedFiles/Interior-Rail-Map-33-33_2019_v2.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/azerbaijan/as-aze-baku",
+      "city": "Baku",
+      "size": 703351,
+      "source_url": "https://www.metro.gov.az/storage/pages/ccfPgQHOo1Kjj36oAo6fpSFmIgHDoYmRmWG6JUxn.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-dalian",
+      "city": "Dalian",
+      "size": 1594230,
+      "source_url": "https://imgbdb4.bendibao.com/dlbdb/traffic/20247/03/2024703130100_29346.png",
+      "commons": null
+    },
+    {
+      "rel": "americas/canada/am-can-toronto",
+      "city": "Toronto",
+      "size": 724719,
+      "source_url": "https://cdn.ttc.ca/-/media/Project/TTC/DevProto/Images/Home/Routes-and-Schedules/Landing-page-pdfs/TTC_SubwayLightRailStreetcarMap_Printable.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/argentina/am-arg-buenos-aires",
+      "city": "Buenos Aires",
+      "size": 891184,
+      "source_url": "https://emova.com.ar/wp-content/uploads/2025/06/mapa-esquematico-emova-web-2025.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/japan/as-jpn-nagoya",
+      "city": "Nagoya",
+      "size": 167318,
+      "source_url": "https://www.kotsu.city.nagoya.jp/rp/Jassets/img/subway/subway_routemap.png",
+      "commons": null
+    },
+    {
+      "rel": "asia/japan/as-jpn-sapporo",
+      "city": "Sapporo",
+      "size": 343858,
+      "source_url": "https://www.city.sapporo.jp/st/route_konaizu/images/subwayrosenzu3.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/malaysia/as-mas-kuala-lumpur",
+      "city": "Kuala Lumpur",
+      "size": 975367,
+      "source_url": "https://web.archive.org/web/20230324161030id_/https://myrapid.com.my/wp-content/uploads/2023/03/20230211_integrated_kv_transit_map.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/japan/as-jpn-yokohama",
+      "city": "Yokohama",
+      "size": 189954,
+      "source_url": "https://navi.hamabus.city.yokohama.lg.jp/blt-storage/pc/img/koutuu/railmap-pc.png",
+      "commons": null
+    },
+    {
+      "rel": "asia/india/as-ind-mumbai",
+      "city": "Mumbai",
+      "size": 3566352,
+      "source_url": "https://www.mmmocl.co.in/assets/images/mumbai-metro-map2.jpg",
+      "commons": null
+    },
+    {
+      "rel": "europe/austria/eu-aut-vienna",
+      "city": "Vienna",
+      "size": 1012085,
+      "source_url": "https://www.wien.info/resource/blob/379794/38903241743b79d84b744ee1501ffa8d/plan-zum-download-de-data.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/brazil/am-bra-rio-de-janeiro",
+      "city": "Rio de Janeiro",
+      "size": 243668,
+      "source_url": "https://metrorio.com.br/Content/imagens/mapas/diagrama_de_rede.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/bulgaria/eu-bul-sofia",
+      "city": "Sofia",
+      "size": 3786450,
+      "source_url": "https://www.metropolitan.bg/assets/resourceimages/945/Metro%20scheme.jpg",
+      "commons": null
+    },
+    {
+      "rel": "americas/brazil/am-bra-recife",
+      "city": "Recife",
+      "size": 952668,
+      "source_url": "https://www.gov.br/cbtu/pt-br/servicos/cbtu-recife/recife_mapa.pdf",
+      "commons": null
+    },
+    {
+      "rel": "africa/egypt/af-egy-cairo",
+      "city": "Cairo",
+      "size": 392925,
+      "source_url": "https://www.cairometro.gov.eg/images/2020-9.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/turkey/as-tur-ankara",
+      "city": "Ankara",
+      "size": 351483,
+      "source_url": "https://www.ego.gov.tr/resim/normal/34232.jpg",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-boston",
+      "city": "Boston",
+      "size": 2397359,
+      "source_url": "https://cdn.mbta.com/sites/default/files/styles/max_2600x2600/public/media/2026-06/2026-06-14-subway-map-v01.png",
+      "commons": null
+    },
+    {
+      "rel": "europe/spain/eu-esp-bilbao",
+      "city": "Bilbao",
+      "size": 574452,
+      "source_url": "https://www.metrobilbao.eus/img/line_maps/mapa_zonas.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/india/as-ind-kolkata",
+      "city": "Kolkata",
+      "size": 4830678,
+      "source_url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Kolkata_metro_system_map_%28updated%29.jpg",
+      "commons": "Kolkata_metro_system_map_(updated).jpg"
+    },
+    {
+      "rel": "asia/china/as-chn-wenzhou",
+      "city": "Wenzhou",
+      "size": 285843,
+      "source_url": "https://zj.cnr.cn/gedilianbo/wz/20230826/t20230826_526397094.shtml",
+      "commons": null
+    },
+    {
+      "rel": "europe/germany/eu-ger-essen",
+      "city": "Essen",
+      "size": 762496,
+      "source_url": "https://www.ruhrbahn.de/fileadmin/ruhrbahn_media/downloads/Netzplaene/SchienenNetzplan-Ruhrbahn-Barrierefrei.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/portugal/eu-por-lisbon",
+      "city": "Lisbon",
+      "size": 337253,
+      "source_url": "https://www.metrolisboa.pt/en/wp-content/uploads/sites/3/2025/11/Diagrama-da-Rede_site_2025.png",
+      "commons": null
+    },
+    {
+      "rel": "asia/united-arab-emirates/as-uae-dubai",
+      "city": "Dubai",
+      "size": 964305,
+      "source_url": "https://www.rta.ae/links/rail/rail-network-map.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/hungary/eu-hun-budapest",
+      "city": "Budapest",
+      "size": 1122968,
+      "source_url": "https://web.archive.org/web/20211025021944id_/https://bkk.hu/downloads/map/177/",
+      "commons": null
+    },
+    {
+      "rel": "europe/finland/eu-fin-helsinki",
+      "city": "Helsinki",
+      "size": 3078945,
+      "source_url": "https://helsinginmetro.fi/wp-content/uploads/2026/05/HELSINGIN-METROKARTTA.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-xuzhou",
+      "city": "Xuzhou",
+      "size": 246826,
+      "source_url": "https://pics.xzdtjt.com/upload/20241202163618.png",
+      "commons": null
+    },
+    {
+      "rel": "asia/turkey/as-tur-bursa",
+      "city": "Bursa",
+      "size": 619844,
+      "source_url": "https://www.burulas.com.tr/asset/img/bursaray/guzergah.jpg",
+      "commons": null
+    },
+    {
+      "rel": "europe/czechia/eu-cze-prague",
+      "city": "Prague",
+      "size": 820668,
+      "source_url": "https://www.dpp.cz/cs/data/Dopravn%C3%AD%20sch%C3%A9mata/Trval%C3%BD%20stav/zari_2025/Praha_orientacni_plan_metra_25.09.01.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/france/eu-fra-toulouse",
+      "city": "Toulouse",
+      "size": 580043,
+      "source_url": "https://www.projetsmetro.tisseo.fr/sites/default/files/media/images/plan_lignes_principales_022025-01.png",
+      "commons": null
+    },
+    {
+      "rel": "europe/greece/eu-gre-athens",
+      "city": "Athens",
+      "size": 1757840,
+      "source_url": "https://stasy.gr/wp-content/uploads/2022/10/MAP_STASY_2022.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-miami",
+      "city": "Miami",
+      "size": 698326,
+      "source_url": "https://www.miamidade.gov/transit/library/metrorail-map.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/india/as-ind-bengaluru",
+      "city": "Bengaluru",
+      "size": 6087379,
+      "source_url": "https://www.bmrc.co.in/images/metro/travel-info/sitemapimg.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/japan/as-jpn-fukuoka",
+      "city": "Fukuoka",
+      "size": 469385,
+      "source_url": "https://subway.city.fukuoka.lg.jp/eng/route/img/map.jpg",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-los-angeles",
+      "city": "Los Angeles",
+      "size": 619781,
+      "source_url": "https://cdn.beta.metro.net/wp-content/uploads/2025/06/05180222/25-1533_system_map.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/mexico/am-mex-monterrey",
+      "city": "Monterrey",
+      "size": 638115,
+      "source_url": "https://www.nl.gob.mx/sites/default/files/repositorio/Dependencias/Sistema%20de%20Transporte%20Colectivo%20%28Metrorrey%29/Repositorios/20260508_mapa_red_metrorrey.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/taiwan/as-twn-kaohsiung",
+      "city": "Kaohsiung",
+      "size": 843445,
+      "source_url": "https://www.krtc.com.tw/Content/userfiles/images/guide-map.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/india/as-ind-hyderabad",
+      "city": "Hyderabad",
+      "size": 1920523,
+      "source_url": "https://ltmetro.com/wp-content/uploads/2024/12/Hyderabad-Metro-Rail-Network-Map-scaled-legend-bottom.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/south-korea/as-kor-incheon",
+      "city": "Incheon",
+      "size": 207555,
+      "source_url": "https://www.ictr.or.kr/main/img/contents/railway_map.gif",
+      "commons": null
+    },
+    {
+      "rel": "americas/panama/am-pan-panama-city",
+      "city": "Panama City",
+      "size": 898190,
+      "source_url": "https://elmetrodepanama.com/wp-content/uploads/2025/07/Mapa-Metro-L1L2-webmetro.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/india/as-ind-chennai",
+      "city": "Chennai",
+      "size": 535111,
+      "source_url": "https://chennaimetrorail.org/wp-content/uploads/2023/11/Line-Map.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-xiamen",
+      "city": "Xiamen",
+      "size": 933191,
+      "source_url": "https://www.xmgdjt.com.cn/resources//uploads/20250409/1744180290842018442.png",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-macau",
+      "city": "Macau",
+      "size": 629981,
+      "source_url": "https://www.mlm.com.mo/images/stations/2024_map/ROUTE-2024-11_CN.png",
+      "commons": null
+    },
+    {
+      "rel": "americas/brazil/am-bra-brasilia",
+      "city": "Brasília",
+      "size": 1653527,
+      "source_url": "https://metro.df.gov.br/wp-content/uploads/2024/10/MAPA2022a-1.jpg",
+      "commons": null
+    },
+    {
+      "rel": "europe/france/eu-fra-rennes",
+      "city": "Rennes",
+      "size": 7379128,
+      "source_url": "https://data.rennesmetropole.fr/api/explore/v2.1/catalog/datasets/horaires-et-plans-du-reseau-star-au-format-pdf/files/6ff1f2e3b275f8a89be5fd8b628d665c",
+      "commons": null
+    },
+    {
+      "rel": "asia/iran/as-iri-mashhad",
+      "city": "Mashhad",
+      "size": 10420889,
+      "source_url": "https://metro.mashhad.ir/parameters/mashhad/modules/cdk/upload/content/portal_content/Image/157/map-new.jpg",
+      "commons": null
+    },
+    {
+      "rel": "europe/france/eu-fra-lille",
+      "city": "Lille",
+      "size": 262336,
+      "source_url": "https://www.ilevia.fr/cms/institutionnel/wp-content/uploads/sites/4/2019/12/plan-metro-dec2019.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/japan/as-jpn-kyoto",
+      "city": "Kyoto",
+      "size": 2145418,
+      "source_url": "https://www.city.kyoto.lg.jp/kotsu/cmsfiles/contents/0000008/8995/nihongo_240529.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/colombia/am-col-medellin",
+      "city": "Medellín",
+      "size": 3422879,
+      "source_url": "https://www.metrodemedellin.gov.co/hs-fs/hubfs/mapa-esquematico-30102025.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/japan/as-jpn-kobe",
+      "city": "Kobe",
+      "size": 485845,
+      "source_url": "https://kotsu.city.kobe.lg.jp/wp-content/uploads/02_/6lev57ea5zuz/rosen.jpg",
+      "commons": null
+    },
+    {
+      "rel": "europe/russia/eu-rus-novosibirsk",
+      "city": "Novosibirsk",
+      "size": 1383925,
+      "source_url": "http://www.nsk-metro.ru/docs/nsk_metro_map_2025_update_-68c17bd02c062.jpg",
+      "commons": null
+    },
+    {
+      "rel": "americas/brazil/am-bra-salvador",
+      "city": "Salvador",
+      "size": 494822,
+      "source_url": "https://trilhos.motiva.com.br/content/dam/conteudo-multicanal/mobilidade/conteudo/pt/midia/imagens/estacao/mapas/mapa_ba.png",
+      "commons": null
+    },
+    {
+      "rel": "asia/iran/as-iri-shiraz",
+      "city": "Shiraz",
+      "size": 1301682,
+      "source_url": "https://shirazmetro.ir/wp-content/uploads/2020/02/new_map-min.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-urumqi",
+      "city": "Ürümqi",
+      "size": 86655,
+      "source_url": "https://img.wanwang.xin/contents/sitefiles6228/31144339/images/175769645.png",
+      "commons": null
+    },
+    {
+      "rel": "asia/south-korea/as-kor-daegu",
+      "city": "Daegu",
+      "size": 240395,
+      "source_url": "https://www.dtro.or.kr/cmsh/dtro.or.kr/cyberstation/images/cyberstation_map2.png",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-hohhot",
+      "city": "Hohhot",
+      "size": 3162809,
+      "source_url": "https://www.hhhtmetro.com/UploadModule/uploads/hsdt/2024/06/07/095668.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-jinhua",
+      "city": "Jinhua",
+      "size": 89531,
+      "source_url": "http://www.jhmtr.net/wiringDiagram/",
+      "commons": null
+    },
+    {
+      "rel": "asia/india/as-ind-pune",
+      "city": "Pune",
+      "size": 656618,
+      "source_url": "https://www.punemetrorail.org/download/zoom/route-map.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-wuhu",
+      "city": "Wuhu",
+      "size": 342098,
+      "source_url": "https://imgbdb3.bendibao.com/wuhubdb/traffic/20259/12/2025912091910_52474.png",
+      "commons": null
+    },
+    {
+      "rel": "americas/brazil/am-bra-porto-alegre",
+      "city": "Porto Alegre",
+      "size": 290285,
+      "source_url": "https://www.gov.br/trensurb/pt-br/servicos/linha-metroviaria/Esquema_da_linha.jpg/@@images/image",
+      "commons": null
+    },
+    {
+      "rel": "asia/china/as-chn-nantong",
+      "city": "Nantong",
+      "size": 302654,
+      "source_url": "https://www.ntrailway.com/upload/1/cms/content/editor/1703662193713.png",
+      "commons": null
+    },
+    {
+      "rel": "europe/germany/eu-ger-bochum",
+      "city": "Bochum",
+      "size": 1184893,
+      "source_url": "https://api.bogestra.de/fileadmin/hetzner-storage-box/Stadtlinienplaene/Weitere_Plaene/Schienennetzplan_10-2025.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/united-kingdom/eu-gbr-glasgow",
+      "city": "Glasgow",
+      "size": 52166,
+      "source_url": "https://www.spt.co.uk/media/m5njn4mk/subway-map-accessible-lifts-connections.png",
+      "commons": null
+    },
+    {
+      "rel": "europe/italy/eu-ita-turin",
+      "city": "Turin",
+      "size": 676698,
+      "source_url": "https://www.gtt.to.it/cms/risorse/urbana/img/metrotorino3.jpg",
+      "commons": null
+    },
+    {
+      "rel": "americas/brazil/am-bra-belo-horizonte",
+      "city": "Belo Horizonte",
+      "size": 536098,
+      "source_url": "https://www.metrobh.com.br/wp-content/uploads/2023/08/Mapa_MetroBH.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/russia/eu-rus-kazan",
+      "city": "Kazan",
+      "size": 1495250,
+      "source_url": "https://kazanmetro.ru/wp-content/uploads/2023/08/схема-метро-а3-scaled.jpg",
+      "commons": null
+    },
+    {
+      "rel": "europe/ukraine/eu-ukr-dnipro",
+      "city": "Dnipro",
+      "size": 121158,
+      "source_url": "https://metro.dp.ua/wp-content/uploads/2022/05/dnipro_metro_map.png",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-baltimore",
+      "city": "Baltimore",
+      "size": 813026,
+      "source_url": "https://s3.amazonaws.com/mta-website-staging/mta-website-staging/files/System%20Maps/Bus%20and%20Rail%20Connections%20Map_fall2025.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-san-juan",
+      "city": "San Juan",
+      "size": 8274288,
+      "source_url": "https://docs.pr.gov/files/ATI/Mapas/Mapa%20Sistema/ATI%20Mapa%20Vag%C3%B3n_20241027.png",
+      "commons": null
+    },
+    {
+      "rel": "asia/turkey/as-tur-izmir",
+      "city": "İzmir",
+      "size": 3633465,
+      "source_url": "https://www.izmirmetro.com.tr/assets/ulasim-haritasi-DKVbx_0o.png",
+      "commons": null
+    },
+    {
+      "rel": "europe/italy/eu-ita-brescia",
+      "city": "Brescia",
+      "size": 1804649,
+      "source_url": "https://www.bresciamobilita.it/public/resources/brescia mobilita/utenti/metrobs/linea-completa.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/russia/eu-rus-yekaterinburg",
+      "city": "Yekaterinburg",
+      "size": 1958324,
+      "source_url": "http://metro-ektb.ru/uploadedFiles/images/SKhEMA_dlya_sayta_.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/japan/as-jpn-hiroshima",
+      "city": "Hiroshima",
+      "size": 1999101,
+      "source_url": "https://www.mlit.go.jp/common/001185332.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/iran/as-iri-isfahan",
+      "city": "Isfahan",
+      "size": 859874,
+      "source_url": "https://metroisfahan.ir/Portal/Post/Map2.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/japan/as-jpn-chiba-prefecture",
+      "city": "Chiba Prefecture",
+      "size": 38473,
+      "source_url": "https://chiba-monorail.co.jp/wp/wp-content/themes/twentyeleven-child/img/english/english_railway_map.png",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-cleveland",
+      "city": "Cleveland",
+      "size": 591943,
+      "source_url": "https://www.riderta.com/sites/default/files/pdf/maps/System_Map_Rapid.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/turkey/as-tur-adana",
+      "city": "Adana",
+      "size": 4082839,
+      "source_url": "https://www.adana.bel.tr/panel/uploads/slides_v/haber/hafif-rayli-sistem-guzergah.png",
+      "commons": null
+    },
+    {
+      "rel": "asia/indonesia/as-ina-jakarta",
+      "city": "Jakarta",
+      "size": 1738235,
+      "source_url": "https://transportforjakarta.or.id/wp-content/uploads/2026/01/Peta-Rute-MRT-Jakarta-Kabin-Jan26.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/taiwan/as-twn-taichung",
+      "city": "Taichung",
+      "size": 1629479,
+      "source_url": "https://www.tmrt.com.tw/metro-life/map",
+      "commons": null
+    },
+    {
+      "rel": "asia/pakistan/as-pak-lahore",
+      "city": "Lahore",
+      "size": 538041,
+      "source_url": "https://web.olmrts.com.pk/Content/assets/img/ol-lahore-routemap.jpeg",
+      "commons": null
+    },
+    {
+      "rel": "asia/india/as-ind-agra",
+      "city": "Agra",
+      "size": 805777,
+      "source_url": "https://cdn.s3waas.gov.in/s36855456e2fe46a9d49d3d3af4f57443d/uploads/2025/07/17527295349568.pdf",
+      "commons": null
+    },
+    {
+      "rel": "asia/india/as-ind-meerut",
+      "city": "Meerut",
+      "size": 11158569,
+      "source_url": "https://ncrtc.in/wp-content/uploads/2025/01/NEW-MAP.jpg",
+      "commons": null
+    },
+    {
+      "rel": "asia/kazakhstan/as-kaz-astana",
+      "city": "Astana",
+      "size": 2109694,
+      "source_url": "https://static.tengrinews.kz/userdata/u424/2026-05/resize/6ca38d00e456c9e4235c62ef2a702692.png",
+      "commons": null
+    },
+    {
+      "rel": "oceania/new-zealand/oc-nzl-auckland",
+      "city": "Auckland",
+      "size": 849275,
+      "source_url": "https://at.govt.nz/media/qbknmuld/auckland-transport-city-rail-link-new-network-map-2026.pdf",
+      "commons": null
+    },
+    {
+      "rel": "oceania/new-zealand/oc-nzl-wellington",
+      "city": "Wellington",
+      "size": 211215,
+      "source_url": "https://www.metlink.org.nz/assets/Network-maps/RegionalRailNetwork.pdf",
+      "commons": null
+    },
+    {
+      "rel": "oceania/australia/oc-aus-perth",
+      "city": "Perth",
+      "size": 395232,
+      "source_url": "https://www.transperth.wa.gov.au/Portals/0/SYSTEM%20MAP%20OCTOBER%202025.pdf",
+      "commons": null
+    },
+    {
+      "rel": "oceania/australia/oc-aus-melbourne",
+      "city": "Melbourne",
+      "size": 978307,
+      "source_url": "https://edge.sitecorecloud.io/stategovernc45d-cftw-production-c9ca/media/Project/TransportWebsite/Forms/victorian-train-network-map.pdf",
+      "commons": null
+    },
+    {
+      "rel": "oceania/australia/oc-aus-newcastle",
+      "city": "Newcastle",
+      "size": 263807,
+      "source_url": "https://newcastletransport.info/wp-content/uploads/2019/11/MAP-SIMPLE-Newcastle-Light-Rail.pdf",
+      "commons": null
+    },
+    {
+      "rel": "oceania/australia/oc-aus-melbourne-tram",
+      "city": "Melbourne Tram",
+      "size": 1511761,
+      "source_url": "https://edge.sitecorecloud.io/stategovernc45d-cftw-production-c9ca/media/Project/TransportWebsite/TransportWebsite/News-and-resources/Maps/tram/Melbourne-tram-network-map.pdf",
+      "commons": null
+    },
+    {
+      "rel": "oceania/australia/oc-aus-adelaide",
+      "city": "Adelaide",
+      "size": 355498,
+      "source_url": "https://www.adelaidemetro.com.au/__data/assets/pdf_file/0009/1386774/map_rail_network_25_08_24_web.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-denver",
+      "city": "Denver",
+      "size": 548140,
+      "source_url": "https://www.rtd-denver.com/system-map",
+      "commons": null
+    },
+    {
+      "rel": "europe/poland/eu-pol-poznan",
+      "city": "Poznan",
+      "size": 1154954,
+      "source_url": "https://www.ztm.poznan.pl/mapy-i-schematy-sieci/",
+      "commons": null
+    },
+    {
+      "rel": "europe/czechia/eu-cze-ostrava",
+      "city": "Ostrava",
+      "size": 831778,
+      "source_url": "https://www.dpo.cz/jizdni-rady/plan-site.html",
+      "commons": null
+    },
+    {
+      "rel": "europe/netherlands/eu-ned-the-hague",
+      "city": "The Hague",
+      "size": 1214697,
+      "source_url": "https://www.htm.nl/en/travel/maps-for-your-htm-trip/",
+      "commons": null
+    },
+    {
+      "rel": "europe/czechia/eu-cze-brno",
+      "city": "Brno",
+      "size": 3589573,
+      "source_url": "https://www.dpmb.cz/dalsi-informace-o-doprave",
+      "commons": null
+    },
+    {
+      "rel": "europe/austria/eu-aut-innsbruck",
+      "city": "Innsbruck",
+      "size": 1655886,
+      "source_url": "https://www.ivb.at/fahrgast/linien/linienuebersicht/",
+      "commons": null
+    },
+    {
+      "rel": "asia/japan/as-jpn-nagasaki",
+      "city": "Nagasaki",
+      "size": 1163914,
+      "source_url": "https://www.naga-den.com/files/libs/6996/202603271529469650.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-salt-lake-city",
+      "city": "Salt Lake City",
+      "size": 528930,
+      "source_url": "https://rideuta.com/-/media/Files/Rider-Tools/Current-System-Maps/Rail_Map_APR2026.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/canada/am-can-calgary",
+      "city": "Calgary",
+      "size": 418851,
+      "source_url": "https://www.calgarytransit.com/content/dam/transit/rider-information/CTrain-Map-June2023.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/germany/eu-ger-brandenburg-havel",
+      "city": "Brandenburg an der Havel",
+      "size": 2609024,
+      "source_url": "https://www.vbbr.de/pub/print/netzplan/Tagnetz.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/germany/eu-ger-heilbronn",
+      "city": "Heilbronn",
+      "size": 1899832,
+      "source_url": "http://www.avg.info/fileadmin/user_upload/avg/Stadtbahn_Heilbronn/Bilder/Liniennetzplan_Heilbronn_Nord.pdf",
+      "commons": "File:Stadtbahn heilbronn netzplan.jpg"
+    },
+    {
+      "rel": "europe/denmark/eu-den-aarhus",
+      "city": "Aarhus",
+      "size": 230075,
+      "source_url": "https://www.letbanen.dk/wp-content/uploads/Linjekort_web.png",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-milwaukee",
+      "city": "Milwaukee",
+      "size": 886160,
+      "source_url": "https://thehopmke.com/wp-content/uploads/2023/11/HOP-route-map-ML.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/germany/eu-ger-nordhausen",
+      "city": "Nordhausen",
+      "size": 1318481,
+      "source_url": "https://www.stadtwerke-nordhausen.de/fileadmin/Daten/Bus_und_Strassenbahn/PDF/Tarifanpassung_01.01.26/Liniennetz_Stadt_A4_neu_ab_14.12.25.pdf",
+      "commons": null
+    },
+    {
+      "rel": "europe/sweden/eu-swe-norrkoping",
+      "city": "Norrköping",
+      "size": 573846,
+      "source_url": "https://www.ostgotatrafiken.se/download/18.69a4532119c4795a577e24c/1771428399657/linjekarta-norrkoping-2025_a3.pdf",
+      "commons": null
+    },
+    {
+      "rel": "africa/morocco/af-mar-rabat",
+      "city": "Rabat",
+      "size": 3335090,
+      "source_url": "https://www.tram-way.ma/wp-content/uploads/2026/03/maps-web-FR-2026.jpg",
+      "commons": null
+    },
+    {
+      "rel": "europe/germany/eu-ger-gorlitz",
+      "city": "Görlitz",
+      "size": 1568467,
+      "source_url": "https://www.goerlitztakt.de/uploads/LNP/LNP_01.05.2026.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-minneapolis-st-paul",
+      "city": "Minneapolis/St. Paul",
+      "size": 553939,
+      "source_url": "https://www.metrotransit.org/Data/Sites/1/media/schedules-maps/In-Service-Full-Detail-METRO-Map-June-2025.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-jacksonville",
+      "city": "Jacksonville",
+      "size": 2020934,
+      "source_url": "https://www.jtafla.com/media/xt4gbo35/ops-25016-system-map-09-2025.pdf",
+      "commons": null
+    },
+    {
+      "rel": "americas/united-states/am-usa-oklahoma-city",
+      "city": "Oklahoma City",
+      "size": 799609,
+      "source_url": "https://www.embarkok.com/assets/files/maps/OKCStreetcarRouteMap.pdf",
+      "commons": null
+    },
+    {
+      "rel": "oceania/australia/oc-aus-gold-coast",
+      "city": "Gold Coast",
+      "size": 729213,
+      "source_url": "https://translink.widen.net/content/iajjlos4vd/pdf/Glink_route_map_Nov25.pdf",
+      "commons": null
+    }
+  ],
+  "override": [
+    {
+      "rel": "europe/germany/eu-ger-potsdam",
+      "city": "Potsdam",
+      "commons": "File:Potsdam Strassenbahn.svg",
+      "license": "CC BY-SA 3.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-duisburg",
+      "city": "Duisburg",
+      "commons": "File:DU Stadtbahn.png",
+      "license": "Public domain",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-karlsruhe",
+      "city": "Karlsruhe",
+      "commons": "File:Stadtbahn Karlsruhe 2011.png",
+      "license": "Public domain",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-dresden",
+      "city": "Dresden",
+      "commons": "File:Liniennetzplan der Straßenbahn in Dresden (Stand August 2025).svg",
+      "license": "CC0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-halle-saale",
+      "city": "Halle (Saale",
+      "commons": "File:Halle (Saale) tramway network.svg",
+      "license": "CC BY-SA 3.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-hannover",
+      "city": "Hannover",
+      "commons": "File:Stadtbahnnetzplan Hannover.svg",
+      "license": "CC BY-SA 3.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-kassel",
+      "city": "Kassel",
+      "commons": "File:Kassel Strassenbahn Netzplan Stand 03-2020.jpg",
+      "license": "CC BY-SA 4.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-magdeburg",
+      "city": "Magdeburg",
+      "commons": "File:MVB Liniennetzplan Strassenbahn 2020-12.svg",
+      "license": "CC BY-SA 4.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-bremen",
+      "city": "Bremen",
+      "commons": "File:Straßenbahn Bremen - Liniennetz.png",
+      "license": "CC BY-SA 2.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-cologne",
+      "city": "Cologne",
+      "commons": "File:2025 2026 Bahnen in Koeln Rail Services Cologne.jpg",
+      "license": "CC BY-SA 4.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-darmstadt",
+      "city": "Darmstadt",
+      "commons": "File:Liniennetzplan Tram Darmstadt 2010.png",
+      "license": "Public domain",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-wurzburg",
+      "city": "Würzburg",
+      "commons": "File:Liniennetzplan Straßenbahn Würzburg.svg",
+      "license": "CC BY-SA 4.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-chemnitz",
+      "city": "Chemnitz",
+      "commons": "File:Chemnitz Tram Netzplan.svg",
+      "license": "CC BY-SA 4.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-braunschweig",
+      "city": "Braunschweig",
+      "commons": "File:Straßenbahnnetz Braunschweig - Brunswick tramway network.png",
+      "license": "CC BY-SA 4.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-erfurt",
+      "city": "Erfurt",
+      "commons": "File:Liniennetz der Straßenbahn Erfurt.svg",
+      "license": "CC0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-bonn",
+      "city": "Bonn",
+      "commons": "File:Köln and Bonn public transport system map (with stations).png",
+      "license": "CC BY-SA 2.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-augsburg",
+      "city": "Augsburg",
+      "commons": "File:Augsburg - Straßenbahn - Netzplan.png",
+      "license": "CC BY-SA 2.5",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-dortmund",
+      "city": "Dortmund",
+      "commons": "File:StadtbahnDO.png",
+      "license": "CC BY-SA 3.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-rostock",
+      "city": "Rostock",
+      "commons": "File:Tram map of Rostock.svg",
+      "license": "CC BY-SA 2.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-freiburg",
+      "city": "Freiburg",
+      "commons": "File:Liniennetz Straßenbahn Freiburg.svg",
+      "license": "CC BY-SA 4.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-mainz",
+      "city": "Mainz",
+      "commons": "File:Liniennetz Straßenbahn Mainz.svg",
+      "license": "CC BY-SA 4.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-cottbus",
+      "city": "Cottbus",
+      "commons": "File:Tram map of Cottbus.png",
+      "license": "CC BY-SA 2.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-krefeld",
+      "city": "Krefeld",
+      "commons": "File:Tram map of Krefeld.png",
+      "license": "CC BY-SA 2.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-ulm",
+      "city": "Ulm",
+      "commons": "File:Straßenbahn Ulm Netzplan.png",
+      "license": "CC BY-SA 2.0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-saarbrucken",
+      "city": "Saarbrücken",
+      "commons": "File:Saarbahn.svg",
+      "license": "CC0",
+      "source": "override"
+    },
+    {
+      "rel": "europe/germany/eu-ger-wuppertal",
+      "city": "Wuppertal",
+      "commons": "File:Wuppertaler Schwebebahn Karte.png",
+      "license": "CC BY-SA 2.0",
+      "source": "override"
+    }
+  ]
+}
