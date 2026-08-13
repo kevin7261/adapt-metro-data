@@ -1,1 +1,0 @@
-{"elements":[{"type":"relation","id":88015668759,"tags":{"type":"route_master","route_master":"subway","ref":"Red","name":"Red Line","name:en":"Red Line","network":"Lagos Rail Mass Transit","operator":"Lagos Metropolitan Area Transport Authority","colour":"#e11d48"},"members":[{"type":"relation","ref":88015668760,"role":""},{"type":"relation","ref":88015668761,"role":""}]}]}
