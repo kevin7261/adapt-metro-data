@@ -9,3 +9,15 @@ metro/_job-history.json
 metro/_job-history.json.tmp
 **/.bake.lock
 metro/maps/_staging_*/
+
+# npm 誤落在資料夾裡的快取／日誌，不是資料
+.npm/
+**/.npm/
+
+# 政策：**這個庫收全部檔案**，只排除上面那幾類「非必要」（暫存／執行期狀態／系統垃圾）。
+# 衍生圖層（骨架／網格化／直線化／版面）一律**進版控**，不寫進本檔。
+#
+# ⚠ 這不只是為了完整性，是為了安全：**已追蹤的檔案 `git clean` 永遠不會刪**。
+#   未追蹤（含被 ignore）的檔在 git 眼中是可丟棄的，`git clean -fd[x]` 會整批清掉。
+#   3-straightening 底下的 **LLM 結果**尤其不能只靠本機——那類「重跑不保證相同」
+#   （見 adapt-metro 的 CLAUDE.md），一旦刪掉就不可復原。
