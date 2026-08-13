@@ -5,3 +5,11 @@ Thumbs.db
 # OSM / Wikipedia snapshots — keep local for reproducibility, do not version
 # (see metro/README.md)
 **/_cache/
+
+# 執行期狀態（每行程一份／可重建），不是地圖資料
+metro/_bake-status/
+metro/_llm-status/
+metro/_job-history.json
+metro/_job-history.json.tmp
+**/.bake.lock
+metro/maps/_staging_*/
