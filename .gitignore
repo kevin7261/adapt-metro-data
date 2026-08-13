@@ -1,0 +1,7 @@
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# OSM / Wikipedia snapshots — keep local for reproducibility, do not version
+# (see metro/README.md)
+**/_cache/

@@ -1,0 +1,16 @@
+{
+  "city": "Cherepovets",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    556263,
+    556264,
+    574557,
+    11644412,
+    11644420,
+    18206678,
+    18206679
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/cherepovets/cherepvets.htm",
+  "note": "Cherepovets（urbanrail gap；modes=tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔（保留 wikipedia/wikidata）。"
+}

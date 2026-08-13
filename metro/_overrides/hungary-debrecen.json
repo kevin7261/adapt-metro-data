@@ -1,0 +1,13 @@
+{
+  "city": "Debrecen",
+  "country": "Hungary",
+  "continent": "europe",
+  "osm_route_ids": [
+    2773495,
+    4459896
+  ],
+  "wikipedia": "en:Trams in Debrecen",
+  "wikidata": "Q1639031",
+  "source": "https://www.urbanrail.net/eu/hu/debrecen/debrecen.htm",
+  "note": "Debrecen（urbanrail gap；modes=tram）＝DKV villamos **1／2**。使用者 2026-07-27「抓錯」：OSM 兩條 relation 皆把去程＋回程串成一圈（Nagyállomás⇒Egyetem／Doberdó⇒Nagyállomás）→ order_suspect≈1.8、站序加倍。replace_stops 改單向（1＝Nagyállomás→Egyetem 13 站、2＝Nagyállomás→Doberdó 16 站；hu wiki 1-es／2-es villamos）。wiki 釘系統條目 Q1639031（勿用 Q1484153＝單線 1）。重跑保留 wikipedia/wikidata。"
+}

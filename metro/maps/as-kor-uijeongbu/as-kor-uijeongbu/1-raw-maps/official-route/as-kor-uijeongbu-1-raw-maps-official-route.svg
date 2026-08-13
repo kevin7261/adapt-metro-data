@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg2" width="1150" height="768" version="1.1">
+  <defs>
+    <style type="text/css">
+      <![CDATA[     text { font-family:Arial;font-size:32px;font-weight:bold;text-align:center;text-anchor:middle }    ]]>
+    </style>
+  </defs>
+  <!-- Lignes de métro -->
+  <path style="fill:none;fill-rule:evenodd;stroke:#ff4800;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" d="M 385.76687,604.8589 C 369.27607,659.04295 381.64417,710.28221 321.57056,677.30061 C 263.38792,645.35719 273.86503,651.97546 247.95092,650.20859 C 222.03681,648.44172 230.28221,634.89571 228.51534,583.65644 C 226.74847,532.41718 226.729,456.13542 224.9816,403.43558 C 224.65037,393.44614 230.87117,378.11043 201.42331,379.8773 C 179.14679,381.21389 130.57738,385.32669 101.87803,385.86831 C 86.360156,386.16117 83.254521,377.15016 83.042945,368.68712 C 82.312817,339.48201 80.746964,318.24574 80.123942,298.26217 C 79.668679,283.65953 86.221009,280.9103 97.177914,280.34356 C 131.33742,278.57669 267.08387,272.71649 343.36196,270.33129 C 359.24665,269.83458 358.91759,272.37508 372.22086,257.96319 C 386.35582,242.6503 398.6349,250.58732 417.57055,250.8957 C 432.03637,251.13885 428.92482,259.89028 459.97546,227.92638 C 500.61349,186.11043 494.13497,187.8773 591.90184,156.07362 C 689.66871,124.26994 705.57055,126.62577 735.60736,97.76687 C 765.64417,68.907975 783.90184,44.171778 804.51534,54.184048 C 821.83186,62.594927 835.36749,67.62675 852.92391,74.947385 C 866.98322,80.809801 871.02382,83.916837 878.13497,98.944785 C 891.37412,126.92301 904.60339,152.49534 894.62577,171.97546 C 882.25767,196.1227 892.26994,208.4908 894.62576,217.32515 C 896.98159,226.15951 974.72393,494.13497 974.72393,494.13497 C 974.72393,494.13497 988.8589,532.26994 1009.4724,536.9816 L 1005.6441,541.54601 L 1070.8712,590.87117 L 1079.3726,590.73149 L 1090.1595,577.17791 L 1065.4233,554.20859 L 1028.319,541.25153 L 1016.5399,531.23926 L 1009.4724,536.9816" id="path2384" />
+  <path style="fill:none;fill-rule:evenodd;stroke:#0000b0;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" d="M 276.80982,749.15337 C 276.77997,748.91456 283.77808,720.821 290.02884,689.19161 C 294.57309,666.19726 291.32034,645.19768 288.58896,617.22699 C 281.22452,541.8114 255.60736,256.19632 255.60736,256.19632 C 255.60736,256.19632 242.06135,146.65031 220.26994,114.25767" id="path2386" />
+  <!-- Stations du VAL -->
+  <path transform="matrix(1.0106647,0,0,1.0106647,-11.989626,-11.454348)" d="M 403.43557,619.87732 A 12.368098,12.368098 0 1 1 378.69938,619.87732 A 12.368098,12.368098 0 1 1 403.43557,619.87732 z" id="path3220" style="opacity:1;fill:#ff4800;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />  
+  <use x="0" y="0" xlink:href="#path3220" id="use3236" transform="translate(-154.89571,-32.392638)" width="1150" height="768" />
+  <use height="768" width="1150" transform="translate(-158.42945,-210.25767)" id="use3238" xlink:href="#path3220" y="0" x="0" />
+  <use x="0" y="0" xlink:href="#path3220" id="use3240" transform="translate(-299.77914,-250.89571)" width="1150" height="768" />
+  <use height="768" width="1150" transform="translate(-264.44172,-335.70553)" id="use3242" xlink:href="#path3220" y="0" x="0" />
+  <use x="0" y="0" xlink:href="#path3220" id="use3244" transform="translate(-51.239266,-343.95093)" width="1150" height="768" />
+  <use height="768" width="1150" transform="translate(65.374231,-373.98774)" id="use3246" xlink:href="#path3220" y="0" x="0" />
+  <use x="0" y="0" xlink:href="#path3220" id="use3248" transform="translate(181.98773,-448.78529)" width="1150" height="768" />
+  <use height="768" width="1150" transform="translate(300.3681,-486.47854)" id="use3250" xlink:href="#path3220" y="0" x="0" />
+  <use x="0" y="0" xlink:href="#path3220" id="use3252" transform="translate(399.90184,-558.92026)" width="1150" height="768" />
+  <use height="768" width="1150" transform="translate(507.68098,-485.30063)" id="use3254" xlink:href="#path3220" y="0" x="0" />
+  <use x="0" y="0" xlink:href="#path3220" id="use3256" transform="translate(531.82822,-329.81597)" width="1150" height="768" />
+  <use height="768" width="1150" transform="translate(566.57669,-209.66873)" id="use3258" xlink:href="#path3220" y="0" x="0" />
+  <use x="0" y="0" xlink:href="#path3220" id="use3260" transform="translate(588.95706,-131.9264)" width="1150" height="768" />
+  <!-- Stations du métro ligne 1 -->
+  <path transform="matrix(1.0106647,0,0,1.0106647,-126.2473,-225.24576)" d="M 403.43557,619.87732 A 12.368098,12.368098 0 1 1 378.69938,619.87732 A 12.368098,12.368098 0 1 1 403.43557,619.87732 z" id="path3264" style="fill:#0000b0;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+  <path style="fill:#0000b0;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" id="path3266" d="M 403.43557,619.87732 A 12.368098,12.368098 0 1 1 378.69938,619.87732 A 12.368098,12.368098 0 1 1 403.43557,619.87732 z" transform="matrix(1.0106647,0,0,1.0106647,-166.88534,-494.98809)" />
+  <!-- Station de correspondance VAL-Métro -->
+  <path style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" id="use3232" d="M 403.43557,619.87732 A 12.368098,12.368098 0 1 1 378.69938,619.87732 A 12.368098,12.368098 0 1 1 403.43557,619.87732 z" transform="matrix(0.8407262,0,0,0.8407262,-36.991394,140.58511)" />
+  <!-- Noms des stations du VAL -->
+  <text xml:space="preserve" x="407.55829" y="642.55212" id="text3268" transform="translate(58.895705,-15.90184)">
+    <tspan id="tspan3270" x="407.55829" y="642.55212">Jangam</tspan>
+  </text>
+  <text xml:space="preserve" x="126.62577" y="736.19635" id="text3272" transform="translate(70.674847,-45.349693)">
+    <tspan id="tspan3274" x="126.62577" y="736.19635">Hoeiryong</tspan>
+  </text>
+  <text transform="translate(-10.01227,-158.42945)" id="text3276" y="736.19635" x="126.62577" xml:space="preserve">
+    <tspan y="736.19635" x="126.62577" id="tspan3278">Central</tspan>
+    <tspan y="768.19635" x="126.62577" id="tspan3280">téléphonique</tspan>
+  </text>
+  <text xml:space="preserve" x="126.62577" y="736.19635" id="text3302" transform="translate(1.7668712,-305.66871)">
+    <tspan id="tspan3306" x="131.06326" y="736.19635">Gare</tspan>
+    <tspan x="126.62577" y="768.19635" id="tspan3310">d'Uijeongbu</tspan>
+  </text>
+  <text xml:space="preserve" x="107.19018" y="345.7178" id="text3312" transform="translate(48.294478,-6.4785276)">
+    <tspan id="tspan3314" x="111.62768" y="345.7178">Hôtel</tspan>
+    <tspan x="107.19018" y="377.7178" id="tspan3316">de ville</tspan>
+  </text>
+  <text xml:space="preserve" x="47.705521" y="215.55827" id="text3318" transform="translate(71.852761,42.993865)">
+    <tspan id="tspan3320" x="47.705521" y="215.55827">Heoungsun</tspan>
+  </text>
+  <text transform="translate(293.30062,96.588958)" id="text3322" y="215.55827" x="47.705521" xml:space="preserve">
+    <tspan y="215.55827" x="47.705521" id="tspan3324">Jungang</tspan>
+  </text>
+  <text xml:space="preserve" x="47.705521" y="215.55827" id="text3326" transform="translate(521.81595,58.895705)">
+    <tspan x="52.143021" y="215.55827" id="tspan3330">Terminus des</tspan>
+    <tspan x="47.705521" y="247.55827" id="tspan3332">bus régionaux</tspan>
+  </text>
+  <text xml:space="preserve" x="47.705521" y="215.55827" id="text3336" transform="translate(564.80981,-7.067486)">
+    <tspan id="tspan3338" x="47.705521" y="215.55827">Kumoh</tspan>
+  </text>
+  <text transform="translate(848.09815,-181.39878)" id="text3358" y="215.55827" x="47.705521" xml:space="preserve">
+    <tspan y="215.55827" x="47.705521" id="tspan3360">Hôpital Sungmo</tspan>
+  </text>
+  <text xml:space="preserve" x="47.705521" y="215.55827" id="text3362" transform="translate(917.00613,-106.60124)">
+    <tspan id="tspan3364" x="47.705521" y="215.55827">Jugong</tspan>
+    <tspan x="47.705521" y="247.55827" id="tspan3366">APT</tspan>
+  </text>
+  <text transform="translate(975.90184,77.153373)" id="text3368" y="215.55827" x="47.705521" xml:space="preserve">
+    <tspan y="215.55827" x="47.705521" id="tspan3370">Yonghyun</tspan>
+  </text>
+  <text xml:space="preserve" x="47.705521" y="215.55827" id="text3372" transform="translate(808.04904,199.06748)">
+    <tspan id="tspan3374" x="47.705521" y="215.55827">Songsan</tspan>
+  </text>
+  <text transform="translate(843.97542,276.80981)" id="text3376" y="215.55827" x="47.705521" xml:space="preserve">
+    <tspan y="215.55827" x="47.705521" id="tspan3378">Minrak</tspan>
+  </text>
+  <text xml:space="preserve" x="47.705521" y="215.55827" id="text3380" transform="translate(958.23309,393.42331)">
+    <tspan id="tspan3382" x="47.705521" y="215.55827">Dépôt</tspan>
+  </text>
+  <g id="g2487">
+    <text xml:space="preserve" x="47.705521" y="215.55827" id="text3340" transform="translate(492.61216,-138.99387)">
+      <tspan id="tspan3352" x="47.705521" y="215.55827">Administration</tspan>
+    </text>
+    <text transform="translate(471.97546,-121.17792)" id="text2465" y="215.55827" x="47.705521" style="font-size:18px" xml:space="preserve">
+      <tspan y="215.55827" x="47.705521" id="tspan2467">ème</tspan>
+    </text>
+    <text xml:space="preserve" x="47.705521" y="215.55827" id="text2455" transform="translate(403.31289,-106.99387)">
+      <tspan id="tspan2459" x="47.705521" y="215.55827">de la 2</tspan>
+    </text>
+    <text xml:space="preserve" x="47.705521" y="215.55827" id="text2469" transform="translate(562.72393,-106.99387)">
+      <tspan id="tspan2471" x="47.705521" y="215.55827">province</tspan>
+    </text>
+  </g>
+  <!-- Légende -->
+  <path style="fill:none;fill-rule:evenodd;stroke:#ff4800;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M 654.33129,661.39877 L 702.62577,661.39877" id="path3384" transform="translate(-60,20)" />
+  <path id="path3386" d="M 654.33129,661.39877 L 702.62577,661.39877" style="fill:none;fill-rule:evenodd;stroke:#0000b0;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" transform="translate(-60,70)" />
+  <text xml:space="preserve" x="728.53986" y="667.28833" id="text3388" transform="translate(61.32515,22.355828)">
+    <tspan id="tspan3390" x="728.53986" y="667.28833">VAL d'Uijeongbu</tspan>
+  </text>
+  <text transform="translate(152.6135,74.773006)" id="text3392" y="667.28833" x="728.53986" xml:space="preserve">
+    <tspan y="667.28833" x="728.53986" id="tspan3394">Ligne n°1 du métro de Séoul</tspan>
+  </text>
+</svg>

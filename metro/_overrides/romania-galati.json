@@ -1,0 +1,17 @@
+{
+  "city": "Galati",
+  "country": "Romania",
+  "continent": "europe",
+  "osm_route_ids": [
+    309018,
+    16337135,
+    16337326,
+    16337327,
+    16337534,
+    16337536
+  ],
+  "wikipedia": "ro:Tramvaiul din Galați",
+  "wikidata": "Q950690",
+  "source": "https://www.urbanrail.net/eu/ro/galati/galati.htm",
+  "note": "Galati（urbanrail gap；modes=tram）——Transurb 現行僅 7／39／44（wiki 2025）。使用者 2026-07-27「抓錯」：剔除舊 1／3／40／43；replace_stops 依 ro wiki Transportul public… 站街序。39 終點 Depoul 2（Cimitir israelit OSM 軌道未達）。重跑保留 wikipedia/wikidata。"
+}

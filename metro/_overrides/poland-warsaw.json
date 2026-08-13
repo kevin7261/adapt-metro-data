@@ -1,0 +1,13 @@
+{
+  "city": "Warsaw",
+  "country": "Poland",
+  "continent": "europe",
+  "osm_route_ids": [
+    4232533,
+    4232534,
+    4236800,
+    4236801
+  ],
+  "source": "https://www.urbanrail.net/",
+  "note": "Warsaw — 只要 Metro Warszawskie M1/M2（route=subway）。Tramwaje Warszawskie 路面電車不收（使用者 2026-07-25）。"
+}

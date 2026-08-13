@@ -1,0 +1,11 @@
+{
+  "city": "Vladivostok",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    6749318,
+    6749319
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/vladivostok/vladivostok.htm",
+  "note": "Vladivostok（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

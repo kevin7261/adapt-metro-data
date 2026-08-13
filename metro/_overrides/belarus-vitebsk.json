@@ -1,0 +1,23 @@
+{
+  "city": "Vitebsk",
+  "country": "Belarus",
+  "continent": "europe",
+  "osm_route_ids": [
+    3821234,
+    3821235,
+    3823033,
+    3823034,
+    3823368,
+    3823369,
+    3823518,
+    3823519,
+    3824261,
+    3824262,
+    3824283,
+    3824284,
+    3824313,
+    3824314
+  ],
+  "source": "https://www.urbanrail.net/eu/by/vitsebsk/vitsebsk.htm",
+  "note": "Vitebsk（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

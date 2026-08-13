@@ -1,0 +1,11 @@
+{
+  "city": "Parla",
+  "country": "Spain",
+  "continent": "europe",
+  "osm_route_ids": [
+    943957,
+    7968998
+  ],
+  "source": "https://www.urbanrail.net/",
+  "note": "Parla — purgeUrbanrailGapContamination.mjs 過濾跨城誤抓後重寫 (6→2 relations)。"
+}

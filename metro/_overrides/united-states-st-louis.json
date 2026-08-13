@@ -1,0 +1,15 @@
+{
+  "city": "St. Louis",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    1737996,
+    1737997,
+    11366426,
+    11366427
+  ],
+  "source": "https://www.urbanrail.net/am/slou/saint-louis.htm",
+  "wikipedia": "en:MetroLink (St. Louis)",
+  "wikidata": "Q1632001",
+  "note": "St. Louis（使用者 2026-07-29「st louis抓錯」）＝MetroLink Red＋Blue（29＋25 站；共線 16 → 38 站）。gap 誤收懷舊電車 Loop Trolley（r11558404；urbanrail 另欄；2019 停、2022 復駛）→3 線／48 站。只留 MetroLink 四向 rid；Loop→route_excludes；task modes=light_rail。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata／本 note。"
+}

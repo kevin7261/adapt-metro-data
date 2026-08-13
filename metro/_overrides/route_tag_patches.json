@@ -1,0 +1,1641 @@
+{
+  "patches": [
+    {
+      "relation": 7627370,
+      "set": {
+        "name": "Ligne 1",
+        "name:en": "Line 1"
+      },
+      "note": "Algiers Metro L1 route_master：見下方四條 route relation 的統一說明。master 也一併統一（repTags 取 master）。"
+    },
+    {
+      "relation": 289331,
+      "set": {
+        "name": "Ligne 1",
+        "name:en": "Line 1"
+      },
+      "note": "Algiers Ligne 1 統一名（見 8210886 說明）。"
+    },
+    {
+      "relation": 6545466,
+      "set": {
+        "name": "Ligne 1",
+        "name:en": "Line 1"
+      },
+      "note": "Algiers Ligne 1 統一名（見 8210886 說明）。"
+    },
+    {
+      "relation": 8210887,
+      "set": {
+        "name": "Ligne 1",
+        "name:en": "Line 1"
+      },
+      "note": "Algiers Ligne 1 統一名（見 8210886 說明）。"
+    },
+    {
+      "relation": 8210886,
+      "set": {
+        "name": "Ligne 1",
+        "name:en": "Line 1"
+      },
+      "note": "Algiers Metro Ligne 1 底下四個 relation（Metro L1 / L1R / L1-2 / L1R-2）是同一條官方 Ligne 1 的 Y 型分支變體（El-Harrach 支＋Aïn Naâdja 支），OSM 各給不同 name。分支帶新站→依設計各自成 route（line_count＝route 數會 >官方線數，同港鐵東鐵綫佔 3 的既定行為，非 bug），但因 name 不一致，車站 routes[]/lines 以 ref+name 去重時無法收斂、出現 ['L1','L1'] 重複、hover 像兩條線。四條 relation 全部統一官方名『Ligne 1』(en: Line 1) 使顯示身分一致、車站標記收斂成單一 L1。站數 19 本就正確。上游補齊統一名後可移除。"
+    },
+    {
+      "relation": 15624911,
+      "set": {
+        "ref": "L2",
+        "colour": "#48a23e"
+      },
+      "note": "Panama City: 'Ramal línea 2 : Corredor Sur → Aeropuerto' (OSM relation 15624911) is the 3-station airport branch of Line 2 (shares Corredor Sur with the main L2 route; ITSE/Aeropuerto are its own stations). Upstream OSM tags have no colour and no ref, so it grouped as its own untagged line and fell back to the default red — visually indistinguishable from Line 1. Wikipedia/mapa-metro.com confirm the airport branch is operationally part of Line 2 and shares its green livery. Setting ref=L2 lets it merge into Line 2's group via the normal same-network+ref grouping (colour then inherited from the coloured variant); colour is set directly too as belt-and-braces. Remove once upstream OSM adds these tags."
+    },
+    {
+      "relation": 7869622,
+      "set": {
+        "colour": "red"
+      },
+      "note": "Bursaray B2 route_master (r7869622, ref=B2 BursaRay 2): OSM tags colour=black, a placeholder (no line is black). The master colour overrides the variant colours, so the patch must target the master, not the route relations 7869620/7869621. Bursaray is one branching system sharing an eastern trunk; per user, both branches use B1's red. Setting colour=red (→ #e6194b). Remove if upstream OSM sets a real colour."
+    },
+    {
+      "relation": 9437778,
+      "set": {
+        "name": "板南線",
+        "name:zh": "板南線",
+        "name:zh-Hant": "板南線"
+      },
+      "note": "Taipei BL master：OSM name「臺北捷運 南港-板橋-土城線」為工程路線名；官方線名＝板南線（trtc.com.tw 路網圖，2026-07 使用者規則：路線名一律用官方名）。"
+    },
+    {
+      "relation": 4264893,
+      "set": {
+        "name": "文湖線",
+        "name:zh": "文湖線",
+        "name:zh-Hant": "文湖線"
+      },
+      "note": "Taipei BR master：OSM name「捷運文湖線」冠「捷運」前綴；官方線名＝文湖線。"
+    },
+    {
+      "relation": 4250358,
+      "set": {
+        "name": "松山新店線",
+        "name:zh": "松山新店線",
+        "name:zh-Hant": "松山新店線"
+      },
+      "note": "Taipei G master：OSM name 竟為端點站名「台電大樓」（上游命名錯誤）；官方線名＝松山新店線。"
+    },
+    {
+      "relation": 4250380,
+      "set": {
+        "name": "小碧潭支線",
+        "name:zh": "小碧潭支線",
+        "name:zh-Hant": "小碧潭支線"
+      },
+      "note": "Taipei G 支線 relation：OSM name「台北捷運小碧潭支線」冠系統前綴；官方＝小碧潭支線。"
+    },
+    {
+      "relation": 10658528,
+      "set": {
+        "name": "環狀線",
+        "name:zh": "環狀線",
+        "name:zh-Hant": "環狀線"
+      },
+      "note": "Taipei Y master：OSM name「臺北捷運環狀線（大坪林」截斷且含變體註記；官方線名＝環狀線。"
+    },
+    {
+      "relation": 4250359,
+      "set": {
+        "name": "中和新蘆線",
+        "name:zh": "中和新蘆線",
+        "name:zh-Hant": "中和新蘆線"
+      },
+      "note": "Taipei O master（南勢角–迴龍）：OSM name「台北捷運中和新蘆線(蘆洲)」冠前綴＋錯誤分支註記；官方線名＝中和新蘆線（迴龍/蘆洲雙分支同名）。"
+    },
+    {
+      "relation": 4250352,
+      "set": {
+        "name": "中和新蘆線",
+        "name:zh": "中和新蘆線",
+        "name:zh-Hant": "中和新蘆線"
+      },
+      "note": "Taipei O 蘆洲分支 relation（南勢角–蘆洲）：同上，官方線名＝中和新蘆線。"
+    },
+    {
+      "relation": 5576487,
+      "set": {
+        "name": "淡海輕軌藍海線",
+        "name:zh": "淡海輕軌藍海線",
+        "name:zh-Hant": "淡海輕軌藍海線"
+      },
+      "note": "New Taipei V master（紅樹林–淡水漁人碼頭 12 站，經濱海沙崙）：OSM name 只寫「淡海輕軌」；此營運模式為官方藍海線。"
+    },
+    {
+      "relation": 9154523,
+      "set": {
+        "name": "淡海輕軌綠山線",
+        "name:zh": "淡海輕軌綠山線",
+        "name:zh-Hant": "淡海輕軌綠山線"
+      },
+      "note": "New Taipei V relation（紅樹林–崁頂 11 站）：OSM name「淡海輕軌 紅樹林-崁頂」；官方＝綠山線（V01–V11）。"
+    },
+    {
+      "relation": 21066082,
+      "set": {
+        "name": "三鶯線",
+        "name:zh": "三鶯線",
+        "name:zh-Hant": "三鶯線"
+      },
+      "note": "New Taipei LB master：OSM name「捷運三鶯線」冠「捷運」前綴；官方線名＝三鶯線。"
+    },
+    {
+      "relation": 9437207,
+      "set": {
+        "name": "淡水信義線",
+        "name:zh": "淡水信義線",
+        "name:zh-Hant": "淡水信義線",
+        "ref": "R",
+        "colour": "#FF0000"
+      },
+      "note": "Taipei 新北投支線 route_master：OSM 把「捷運紅線 (新北投支線)」整串塞進 name/ref。設 ref=R 使其群組與紅線主線「快/慢車合併」為同一條線；master name 必須設為主線官方名（淡水信義線）——合併後代表 tags 由 master 覆蓋，若留支線名會把整條紅線改名（實測踩過）。支線自身的名稱在 relation 級補丁。另補 colour=#FF0000：合併後代表 tags 由此 master 覆蓋，其 OSM colour #F890A5（粉紅）曾毒到整條紅線主線（2026-07 修正，同 name 教訓）。"
+    },
+    {
+      "relation": 9437206,
+      "set": {
+        "name": "新北投支線",
+        "name:zh": "新北投支線",
+        "name:zh-Hant": "新北投支線",
+        "ref": "R",
+        "colour": "#F890A5"
+      },
+      "note": "Taipei 新北投支線 relation（master 成員）：官方名＝新北投支線、屬紅線 ref R；帶新站（新北投）的分支變體在合併群組內自成 route（同小碧潭支線模式），顯示此名。另補 colour=#FF0000：新北投支線官方屬紅線（與主線同色），OSM 的 #F890A5 非官方色。顏色＝官方粉紅 #F890A5（台北捷運官方路網圖新北投支線為粉紅、非紅線色；2026-07 使用者回報修正）。"
+    },
+    {
+      "relation": 2665129,
+      "set": {
+        "name": "新北投支線",
+        "name:zh": "新北投支線",
+        "name:zh-Hant": "新北投支線",
+        "ref": "R",
+        "colour": "#F890A5"
+      },
+      "note": "Taipei 新北投支線另一方向 relation（不在 master 成員內，曾自成一線帶著整串怪 ref）：同上補 ref/官方名，使其併入紅線分組、與 9437206 去重。另補 colour=#FF0000：新北投支線官方屬紅線（與主線同色），OSM 的 #F890A5 非官方色。顏色＝官方粉紅 #F890A5（台北捷運官方路網圖新北投支線為粉紅、非紅線色；2026-07 使用者回報修正）。"
+    },
+    {
+      "relation": 272133,
+      "set": {
+        "name": "屯馬綫",
+        "name:zh": "屯馬綫",
+        "name:zh-Hant": "屯馬綫"
+      },
+      "note": "香港港鐵官方路網圖線名無「港鐵」前綴（mtr.com.hk，2026-07 官方名規則）：屯馬綫"
+    },
+    {
+      "relation": 6452936,
+      "set": {
+        "name": "觀塘綫",
+        "name:zh": "觀塘綫",
+        "name:zh-Hant": "觀塘綫"
+      },
+      "note": "香港港鐵官方路網圖線名無「港鐵」前綴（mtr.com.hk，2026-07 官方名規則）：觀塘綫"
+    },
+    {
+      "relation": 269670,
+      "set": {
+        "name": "港島綫",
+        "name:zh": "港島綫",
+        "name:zh-Hant": "港島綫"
+      },
+      "note": "香港港鐵官方路網圖線名無「港鐵」前綴（mtr.com.hk，2026-07 官方名規則）：港島綫"
+    },
+    {
+      "relation": 9736531,
+      "set": {
+        "name": "荃灣綫",
+        "name:zh": "荃灣綫",
+        "name:zh-Hant": "荃灣綫"
+      },
+      "note": "香港港鐵官方路網圖線名無「港鐵」前綴（mtr.com.hk，2026-07 官方名規則）：荃灣綫"
+    },
+    {
+      "relation": 9736612,
+      "set": {
+        "name": "將軍澳綫",
+        "name:zh": "將軍澳綫",
+        "name:zh-Hant": "將軍澳綫"
+      },
+      "note": "香港港鐵官方路網圖線名無「港鐵」前綴（mtr.com.hk，2026-07 官方名規則）：將軍澳綫"
+    },
+    {
+      "relation": 13352937,
+      "set": {
+        "name": "將軍澳綫",
+        "name:zh": "將軍澳綫",
+        "name:zh-Hant": "將軍澳綫"
+      },
+      "note": "香港港鐵官方路網圖線名無「港鐵」前綴（mtr.com.hk，2026-07 官方名規則）：將軍澳綫（康城支線變體，官方同名）"
+    },
+    {
+      "relation": 1139477,
+      "set": {
+        "name": "迪士尼綫",
+        "name:zh": "迪士尼綫",
+        "name:zh-Hant": "迪士尼綫"
+      },
+      "note": "香港港鐵官方路網圖線名無「港鐵」前綴（mtr.com.hk，2026-07 官方名規則）：迪士尼綫"
+    },
+    {
+      "relation": 4248590,
+      "set": {
+        "name": "東鐵綫",
+        "name:zh": "東鐵綫",
+        "name:zh-Hant": "東鐵綫"
+      },
+      "note": "香港港鐵官方路網圖線名無「港鐵」前綴（mtr.com.hk，2026-07 官方名規則）：東鐵綫（羅湖變體；master rm272132 已是官方名，變體 relation 名補齊使三條一致）"
+    },
+    {
+      "relation": 4250432,
+      "set": {
+        "name": "東鐵綫",
+        "name:zh": "東鐵綫",
+        "name:zh-Hant": "東鐵綫"
+      },
+      "note": "香港港鐵官方路網圖線名無「港鐵」前綴（mtr.com.hk，2026-07 官方名規則）：東鐵綫（落馬洲/馬場變體）"
+    },
+    {
+      "relation": 7894362,
+      "set": {
+        "name": "NYCS - S Rockaway Park Shuttle"
+      },
+      "note": "NYC S 接駁：net+ref 群組合併把三條 S shuttle 併進同群，代表 tags 取 master 7894362（OSM 上是 Franklin 的 master）、但最長變體（kept[0]）是 Rockaway Park Shuttle 的 rows → 主 route 錯名 Franklin。把 master 顯示名改為 Rockaway（Franklin 分支變體用自己 relation 名、不受影響）。上游若把 Rockaway 拆成自己的 master 應刪除本筆。"
+    },
+    {
+      "relation": 6937084,
+      "set": {
+        "ref": "TY-A",
+        "colour": "#8246AF"
+      },
+      "note": "桃園國際機場捷運（機捷）route_master r6937084。① ref A→TY-A（與台北字母線區別，見 metro-city-taipei）。② colour 官方紫 #8246AF（zh wiki Module:Adjacent stations/桃園捷運／Pantone 2587 C）；OSM master 為 #800080、變體為淡紫 #d4cde7。③ 子線 ref 必須一併改 TY-A（見下四筆）——groupKey 若 child.ref≠master.ref 會拒掛 master，顏色就落到變體淡紫（2026-07-26 使用者回報顏色錯）。站碼 A1–A22 不動。"
+    },
+    {
+      "relation": 2108764,
+      "set": {
+        "ref": "TY-A",
+        "colour": "#8246AF"
+      },
+      "note": "機捷普通車西向：與 master r6937084 同 ref=TY-A／官方紫（見上）。"
+    },
+    {
+      "relation": 6937083,
+      "set": {
+        "ref": "TY-A",
+        "colour": "#8246AF"
+      },
+      "note": "機捷普通車東向：與 master r6937084 同 ref=TY-A／官方紫。"
+    },
+    {
+      "relation": 8487062,
+      "set": {
+        "ref": "TY-A",
+        "colour": "#8246AF"
+      },
+      "note": "機捷普通車台北→環北：與 master r6937084 同 ref=TY-A／官方紫。"
+    },
+    {
+      "relation": 8487050,
+      "set": {
+        "ref": "TY-A",
+        "colour": "#8246AF",
+        "name": "桃園國際機場捷運直達車",
+        "name:zh": "桃園國際機場捷運直達車",
+        "name:zh-Hant": "桃園國際機場捷運直達車"
+      },
+      "note": "機捷直達車：與 master 同 ref=TY-A／官方紫（線色＝紫線；車身為紫是營運辨識，示意圖用線色）。名稱見原 8487050 補丁（官方稱直達車）。"
+    },
+    {
+      "relation": 11330479,
+      "set": {
+        "ref": "TY-G"
+      },
+      "note": "桃園捷運綠線 route r11330479（未通車例外，走 uc_exceptions/gap_routes_uc），原 ref=G 與台北松山新店線/小碧潭支線同字母、在同一都會圈檔（桃園併入台北）易混淆。使用者規則 2026-07：桃園捷運的 G → TY-G。此線無 route_master，patch 直接打在 route relation；只改線 id/route_ref。"
+    },
+    {
+      "relation": 17585171,
+      "set": {
+        "colour": "#5786c5"
+      },
+      "note": "Incheon International Airport Shuttle Train route_master r17585171（及 4 條 route 變體）OSM 完全沒標 colour／ref → route_color=null、前端退回預設紅。NamuWiki（ko:인천국제공항 셔틀트레인）象徵色：Blue Line（T1↔탑승동）#5786c5、Orange Line（T2↔탑승동）#f99d1b；合併成單一 route_master 後取 Blue 為代表色。Remove once upstream OSM adds colour."
+    },
+    {
+      "relation": 19382689,
+      "set": {
+        "ref": "CBE",
+        "colour": "#34ACE1"
+      },
+      "note": "墨爾本 Metro Tunnel（2025 通車）貫通運營：relation 19382689「Watergardens => Cranbourne」的 OSM ref 是箭頭寫法「WGS=>CBE」且不屬於任何 route_master，會自成一條無名的「Metro Tunnel」線（32 站）與 Cranbourne 線並存。實際上它就是 Cranbourne 線經地鐵隧道的全程班次（PTV 官方路網圖：Cranbourne 線 Cranbourne↔Sunbury 方向）。設 ref=CBE 讓它併入 Cranbourne 線分組（原本只剩 Dandenong–Cranbourne 接駁段 4 站），colour 補官方淺藍。上游改用正規 ref 後可移除。"
+    },
+    {
+      "relation": 10391556,
+      "set": {
+        "ref": "Airport"
+      },
+      "note": "布里斯本機場線 route_master（ref=BDBR，Roma Street → Airport）：同一條線的兩個方向在 OSM 用相反的四碼 ref（BDBR／BRBD），會被 network+ref 分組拆成兩條線。統一成官方線名 ref=Airport（另一方向的 route 2047576 同步）。"
+    },
+    {
+      "relation": 2047576,
+      "set": {
+        "ref": "Airport"
+      },
+      "note": "布里斯本機場線反向 route（ref=BRBD，無 master）：同上，統一 ref=Airport 併回機場線。"
+    },
+    {
+      "relation": 15625847,
+      "set": {
+        "ref": "Caboolture"
+      },
+      "note": "布里斯本卡布爾徹線 route_master（ref=CABR）：CABR／BRCA 是同一條線的兩個方向，另有 ref=Caboolture 的 Nightlink 變體，三者統一成官方線名 ref=Caboolture。"
+    },
+    {
+      "relation": 19224286,
+      "set": {
+        "ref": "Caboolture"
+      },
+      "note": "布里斯本卡布爾徹線反向 route_master（ref=BRCA）：同上。"
+    },
+    {
+      "relation": 19224700,
+      "set": {
+        "ref": "Rosewood"
+      },
+      "note": "布里斯本羅斯伍德/伊普斯威奇線 route_master（ref=RWIP，Rosewood => Ipswich 區間車）：與 ref=Rosewood 的全程線是同一條，統一 ref=Rosewood。"
+    },
+    {
+      "relation": 13903112,
+      "set": {
+        "ref": "GAW"
+      },
+      "note": "阿德萊德高勒線 route_master（ref=GAWC，Gawler Central）：GAW／GAWC／SALIS 是同一條 Gawler 線的全程、延伸終點與 Salisbury 區間，統一成 ref=GAW（官方 Gawler line）。"
+    },
+    {
+      "relation": 16672157,
+      "set": {
+        "ref": "GAW"
+      },
+      "note": "阿德萊德高勒線 Salisbury 區間 route_master（ref=SALIS）：同上，併入 GAW。"
+    },
+    {
+      "relation": 16672584,
+      "set": {
+        "ref": "OUTHA"
+      },
+      "note": "阿德萊德奧斯本區間 route_master（ref=OSBORN）：Osborne 是 Outer Harbor 線上的中間站，區間車併入 ref=OUTHA。"
+    },
+    {
+      "relation": 16672579,
+      "set": {
+        "ref": "SEAFRD"
+      },
+      "note": "阿德萊德諾蘭加區間 route（ref=NOAR，無 master）：Noarlunga Centre 是 Seaford 線上的中間站，區間車併入 ref=SEAFRD。"
+    },
+    {
+      "relation": 548496,
+      "set": {
+        "ref": "T1",
+        "colour": "#52a83e"
+      },
+      "note": "阿爾及爾電車（SETRAM）：① 同一條線兩方向 OSM ref「T1 A」/「T1 R」→統一 ref=T1。② colour＝官方綜合圖（Commons「Map of train-metro-tram of Algiers」＝本城 official-route.svg）圖例「Lignes de tramway」綠 #52a83e；OSM 去程 #0363ff／回程 #6633FF 是車輛塗裝藍，不是示意圖線色。使用者 2026-08-12「確定顏色沒抓錯」核對後改綠。"
+    },
+    {
+      "relation": 6545828,
+      "set": {
+        "ref": "T1",
+        "colour": "#52a83e"
+      },
+      "note": "阿爾及爾電車反向 route：同 548496——ref=T1＋官方圖綠 #52a83e（蓋掉 OSM #6633FF）。"
+    },
+    {
+      "relation": 15540826,
+      "set": {
+        "ref": "2"
+      },
+      "note": "莫斯塔加內姆電車 Ligne 2 的 route_master（r15540826）在 OSM 被誤標 ref=1，與 Ligne 1 的 master（r15540825）同 ref＋同 operator(SETRAM) → 被「network＋ref」合併成同一條線，兩段互不相連（verify broken_routes：Ligne 1 斷成 2 段）。改回官方 ref=2。上游修正後可移除。"
+    },
+    {
+      "relation": 17332151,
+      "set": {
+        "name": "Yellow Line",
+        "name:en": "Yellow Line"
+      },
+      "note": "阿格拉 Yellow Line：OSM route_master name=Metro 1（官方內部編號），alt_name／wikipedia 為 Yellow Line。顯示用官方色線名。使用者 2026-07-25「抓錯」。"
+    },
+    {
+      "relation": 16087452,
+      "set": {
+        "name": "Yellow Line",
+        "name:en": "Yellow Line"
+      },
+      "note": "阿格拉 Yellow Line 去程（同 master 17332151）。"
+    },
+    {
+      "relation": 17332150,
+      "set": {
+        "name": "Yellow Line",
+        "name:en": "Yellow Line"
+      },
+      "note": "阿格拉 Yellow Line 回程（同 master 17332151）。"
+    },
+    {
+      "relation": 7821579,
+      "set": {
+        "name": "Трамвай 1",
+        "name:en": "Tram 1"
+      },
+      "note": "克拉斯諾圖林斯克：OSM name:en 為「Bogoslovsky Aluminum Plant → Naberezhnaya Street」，cleanRouteName 清成終點站名。統一為 Трамвай 1／Tram 1。使用者 2026-07-25 抓錯。"
+    },
+    {
+      "relation": 7821580,
+      "set": {
+        "name": "Трамвай 1",
+        "name:en": "Tram 1"
+      },
+      "note": "同上反向。"
+    },
+    {
+      "relation": 2930171,
+      "set": {
+        "ref": "N4",
+        "network": "Naumburger Straßenbahn",
+        "network:short": "NSB"
+      },
+      "note": "Naumburg Tram 4：OSM network=MDV、ref=4 會與 Leipzig Tram 4 誤併；改獨立 network/ref。使用者 2026-07-26 抓路面電車。"
+    },
+    {
+      "relation": 14074756,
+      "set": {
+        "colour": "#d5a72b"
+      },
+      "note": "Tashkent Circle/Halqa (route_master)：OSM colour=#9933FF 紫與官方金／黃不符（wiki Adjacent stations／官方路網圖）。改 #d5a72b。使用者 2026-07-26 全量色核對。"
+    },
+    {
+      "relation": 7106760,
+      "set": {
+        "colour": "#f1592a"
+      },
+      "note": "Bilbao Metro L1：OSM colour=red（→#e6194b）實際官方為橘 #f1592a（wiki Adjacent stations／Metro Bilbao 官方圖）。使用者 2026-07-26 全量色核對。"
+    },
+    {
+      "relation": 9449959,
+      "set": {
+        "colour": "#fff200"
+      },
+      "note": "Turin Metro M1：OSM colour=red（→#e6194b）實際官方為黃 #fff200（wiki Adjacent stations／Turin Metro）。使用者 2026-07-26 全量色核對。"
+    },
+    {
+      "relation": 3171605,
+      "set": {
+        "colour": "#26ac9f"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 1."
+    },
+    {
+      "relation": 3171607,
+      "set": {
+        "colour": "#009abd"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 3."
+    },
+    {
+      "relation": 3171635,
+      "set": {
+        "colour": "#f08365"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 5."
+    },
+    {
+      "relation": 2375053,
+      "set": {
+        "colour": "#a8d4af"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 8."
+    },
+    {
+      "relation": 3171689,
+      "set": {
+        "colour": "#a2d9f7"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 9."
+    },
+    {
+      "relation": 3171684,
+      "set": {
+        "colour": "#f3c13d"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 10."
+    },
+    {
+      "relation": 14542032,
+      "set": {
+        "colour": "#45b09f"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 11."
+    },
+    {
+      "relation": 3171685,
+      "set": {
+        "colour": "#d73c31"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 13."
+    },
+    {
+      "relation": 3171686,
+      "set": {
+        "colour": "#e5097f"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 14."
+    },
+    {
+      "relation": 3171687,
+      "set": {
+        "colour": "#3dab46"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 16."
+    },
+    {
+      "relation": 3171695,
+      "set": {
+        "colour": "#b96638"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 17."
+    },
+    {
+      "relation": 3171688,
+      "set": {
+        "colour": "#962983"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 18."
+    },
+    {
+      "relation": 3171692,
+      "set": {
+        "colour": "#3dab46"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 20."
+    },
+    {
+      "relation": 3171693,
+      "set": {
+        "colour": "#86755d"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 21."
+    },
+    {
+      "relation": 3171694,
+      "set": {
+        "colour": "#0094d6"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 22."
+    },
+    {
+      "relation": 18640637,
+      "set": {
+        "colour": "#a2d9f7"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 49."
+    },
+    {
+      "relation": 3171697,
+      "set": {
+        "colour": "#f39430"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 50."
+    },
+    {
+      "relation": 16103275,
+      "set": {
+        "ref": "52",
+        "colour": "#19aacd"
+      },
+      "note": "Cracow tram 52：route_master r16103275 有 name=Tram 52 但缺 ref；補 ref=52＋ZTP 官方圖例色 #19aacd。OSM 補齊後可刪。"
+    },
+    {
+      "relation": 223307,
+      "set": {
+        "route": "tram",
+        "type": "route",
+        "colour": "#d19563"
+      },
+      "note": "Cracow tram 4／24：OSM 因 KST IV／Bagatela 施工標 type=disused:route＋state=connection（2026-06），但 wiki／urbanrail／MPK 常態日間幹線仍列 4／24；示意圖收常態網。補 route=tram＋type=route 以便 isTram 合併雙向；並補 ZTP 官方圖例色（OSM 無 colour）。上游恢復營運標籤／補色後刪。"
+    },
+    {
+      "relation": 3154923,
+      "set": {
+        "route": "tram",
+        "type": "route",
+        "colour": "#d19563"
+      },
+      "note": "Cracow tram 4／24：OSM 因 KST IV／Bagatela 施工標 type=disused:route＋state=connection（2026-06），但 wiki／urbanrail／MPK 常態日間幹線仍列 4／24；示意圖收常態網。補 route=tram＋type=route 以便 isTram 合併雙向；並補 ZTP 官方圖例色（OSM 無 colour）。上游恢復營運標籤／補色後刪。"
+    },
+    {
+      "relation": 175221,
+      "set": {
+        "route": "tram",
+        "type": "route",
+        "colour": "#b2ad81"
+      },
+      "note": "Cracow tram 4／24：OSM 因 KST IV／Bagatela 施工標 type=disused:route＋state=connection（2026-06），但 wiki／urbanrail／MPK 常態日間幹線仍列 4／24；示意圖收常態網。補 route=tram＋type=route 以便 isTram 合併雙向；並補 ZTP 官方圖例色（OSM 無 colour）。上游恢復營運標籤／補色後刪。"
+    },
+    {
+      "relation": 3169457,
+      "set": {
+        "route": "tram",
+        "type": "route",
+        "colour": "#b2ad81"
+      },
+      "note": "Cracow tram 4／24：OSM 因 KST IV／Bagatela 施工標 type=disused:route＋state=connection（2026-06），但 wiki／urbanrail／MPK 常態日間幹線仍列 4／24；示意圖收常態網。補 route=tram＋type=route 以便 isTram 合併雙向；並補 ZTP 官方圖例色（OSM 無 colour）。上游恢復營運標籤／補色後刪。"
+    },
+    {
+      "relation": 960169,
+      "set": {
+        "colour": "#19aacd"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 52 (route variant)."
+    },
+    {
+      "relation": 3147285,
+      "set": {
+        "colour": "#19aacd"
+      },
+      "note": "Cracow tram：OSM／gap cache 完全無 colour 標籤→route_color=null、前端退回預設紅。色碼取自 ZTP 官方示意圖「Linie tramwajowe」圖例色塊（maps/europe/poland/eu-pol-cracow.png，source ztp.krakow.pl 2025-09-01）。官方圖多線共用色（如 16＝20 綠、9＝49 淺藍）照樣保留。上游 OSM 補 colour 後可刪。 Line 52 (route variant)."
+    },
+    {
+      "relation": 2305412,
+      "set": {
+        "colour": "#91c7d4"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T1."
+    },
+    {
+      "relation": 11922903,
+      "set": {
+        "colour": "#6c969e"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T2."
+    },
+    {
+      "relation": 2305411,
+      "set": {
+        "colour": "#91c7d4"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T4."
+    },
+    {
+      "relation": 2396696,
+      "set": {
+        "colour": "#6c969e"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T5."
+    },
+    {
+      "relation": 2850494,
+      "set": {
+        "colour": "#bbdcbf"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T6."
+    },
+    {
+      "relation": 3571840,
+      "set": {
+        "colour": "#ec655f"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T7."
+    },
+    {
+      "relation": 3981764,
+      "set": {
+        "colour": "#f6b2b5"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T9."
+    },
+    {
+      "relation": 3118287,
+      "set": {
+        "colour": "#ffd500"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T11."
+    },
+    {
+      "relation": 3981303,
+      "set": {
+        "colour": "#398ccb"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T13."
+    },
+    {
+      "relation": 3984435,
+      "set": {
+        "colour": "#ffd500"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T15."
+    },
+    {
+      "relation": 3281921,
+      "set": {
+        "colour": "#5ebfed"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T16."
+    },
+    {
+      "relation": 3118383,
+      "set": {
+        "colour": "#6fbd84"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T19."
+    },
+    {
+      "relation": 3221748,
+      "set": {
+        "colour": "#ec655f"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T20."
+    },
+    {
+      "relation": 3990849,
+      "set": {
+        "colour": "#927cb8"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T21."
+    },
+    {
+      "relation": 3990873,
+      "set": {
+        "colour": "#927cb8"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T22."
+    },
+    {
+      "relation": 5755248,
+      "set": {
+        "colour": "#ec655f"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T23."
+    },
+    {
+      "relation": 3990046,
+      "set": {
+        "colour": "#d1b8d9"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T24."
+    },
+    {
+      "relation": 3991032,
+      "set": {
+        "colour": "#f3943e"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T26."
+    },
+    {
+      "relation": 3991031,
+      "set": {
+        "colour": "#d1b8d9"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T27."
+    },
+    {
+      "relation": 3984589,
+      "set": {
+        "colour": "#927cb8"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T28."
+    },
+    {
+      "relation": 16998183,
+      "set": {
+        "colour": "#6c969e"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T30."
+    },
+    {
+      "relation": 2536098,
+      "set": {
+        "colour": "#bb6585"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T38."
+    },
+    {
+      "relation": 16253188,
+      "set": {
+        "colour": "#5ebfed"
+      },
+      "note": "Katowice tram：OSM／gap cache 完全無 colour→route_color=null、前端退回預設紅。色碼取自 Transport GZM 官方示意圖「Linie tramwajowe」圖例圓點（maps/europe/poland/eu-pol-katowice.png，rj.transportgzm.pl 2026-06-09）。官方圖多線共用色照樣保留。上游 OSM 補 colour 後可刪。 T46."
+    },
+    {
+      "relation": 16337326,
+      "note": "Galați Transurb：OSM route 缺 network，補 Transurb 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Transurb"
+      }
+    },
+    {
+      "relation": 16337327,
+      "note": "Galați Transurb：OSM route 缺 network，補 Transurb 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Transurb"
+      }
+    },
+    {
+      "relation": 309018,
+      "note": "Galați Transurb：OSM route 缺 network，補 Transurb 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Transurb"
+      }
+    },
+    {
+      "relation": 16337135,
+      "note": "Galați Transurb：OSM route 缺 network，補 Transurb 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Transurb"
+      }
+    },
+    {
+      "relation": 16337534,
+      "note": "Galați Transurb：OSM route 缺 network，補 Transurb 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Transurb"
+      }
+    },
+    {
+      "relation": 16337536,
+      "note": "Galați Transurb：OSM route 缺 network，補 Transurb 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Transurb"
+      }
+    },
+    {
+      "relation": 358090,
+      "note": "Galați Transurb：OSM route 缺 network，補 Transurb 以便雙向併組；使用者 2026-07-27。 master。",
+      "set": {
+        "network": "Transurb",
+        "ref": "7",
+        "name": "7"
+      }
+    },
+    {
+      "relation": 16337136,
+      "note": "Galați Transurb：OSM route 缺 network，補 Transurb 以便雙向併組；使用者 2026-07-27。 master。",
+      "set": {
+        "network": "Transurb",
+        "ref": "39",
+        "name": "Tramvai 39"
+      }
+    },
+    {
+      "relation": 16337535,
+      "note": "Galați Transurb：OSM route 缺 network，補 Transurb 以便雙向併組；使用者 2026-07-27。 master。",
+      "set": {
+        "network": "Transurb",
+        "ref": "44",
+        "name": "44"
+      }
+    },
+    {
+      "relation": 14412280,
+      "note": "Brăila Braicar：OSM route 缺／殘缺 network，補 Braicar 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Braicar"
+      }
+    },
+    {
+      "relation": 14412281,
+      "note": "Brăila Braicar：OSM route 缺／殘缺 network，補 Braicar 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Braicar"
+      }
+    },
+    {
+      "relation": 14412290,
+      "note": "Brăila Braicar：OSM route 缺／殘缺 network，補 Braicar 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Braicar"
+      }
+    },
+    {
+      "relation": 14412291,
+      "note": "Brăila Braicar：OSM route 缺／殘缺 network，補 Braicar 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Braicar"
+      }
+    },
+    {
+      "relation": 16317267,
+      "note": "Brăila Braicar：OSM route 缺／殘缺 network，補 Braicar 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Braicar",
+        "ref": "22",
+        "name": "Tram 22"
+      }
+    },
+    {
+      "relation": 16318291,
+      "note": "Brăila Braicar：OSM route 缺／殘缺 network，補 Braicar 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Braicar",
+        "ref": "22",
+        "name": "Tram 22"
+      }
+    },
+    {
+      "relation": 16318123,
+      "note": "Brăila Braicar：OSM route 缺／殘缺 network，補 Braicar 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Braicar",
+        "ref": "25",
+        "name": "Tram 25"
+      }
+    },
+    {
+      "relation": 16318124,
+      "note": "Brăila Braicar：OSM route 缺／殘缺 network，補 Braicar 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Braicar",
+        "ref": "25",
+        "name": "Tram 25"
+      }
+    },
+    {
+      "relation": 14412282,
+      "note": "Brăila Braicar：OSM route 缺／殘缺 network，補 Braicar 以便雙向併組；使用者 2026-07-27。 master。",
+      "set": {
+        "network": "Braicar",
+        "ref": "21",
+        "name": "Tram 21"
+      }
+    },
+    {
+      "relation": 14412292,
+      "note": "Brăila Braicar：OSM route 缺／殘缺 network，補 Braicar 以便雙向併組；使用者 2026-07-27。 master。",
+      "set": {
+        "network": "Braicar",
+        "ref": "24",
+        "name": "Tram 24"
+      }
+    },
+    {
+      "relation": 16317268,
+      "note": "Brăila Braicar：OSM route 缺／殘缺 network，補 Braicar 以便雙向併組；使用者 2026-07-27。 master。",
+      "set": {
+        "network": "Braicar",
+        "ref": "22",
+        "name": "Tram 22"
+      }
+    },
+    {
+      "relation": 16318125,
+      "note": "Brăila Braicar：OSM route 缺／殘缺 network，補 Braicar 以便雙向併組；使用者 2026-07-27。 master。",
+      "set": {
+        "network": "Braicar",
+        "ref": "25",
+        "name": "Tram 25"
+      }
+    },
+    {
+      "relation": 19855632,
+      "note": "Усть-Каменогорск：OSM 缺 network／route_master，補 network 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Усть-Каменогорский трамвай"
+      }
+    },
+    {
+      "relation": 19856172,
+      "note": "Усть-Каменогорск：OSM 缺 network／route_master，補 network 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Усть-Каменогорский трамвай"
+      }
+    },
+    {
+      "relation": 19861701,
+      "note": "Усть-Каменогорск：OSM 缺 network／route_master，補 network 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Усть-Каменогорский трамвай"
+      }
+    },
+    {
+      "relation": 19984886,
+      "note": "Усть-Каменогорск：OSM 缺 network／route_master，補 network 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Усть-Каменогорский трамвай"
+      }
+    },
+    {
+      "relation": 20007413,
+      "note": "Усть-Каменогорск：OSM 缺 network／route_master，補 network 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Усть-Каменогорский трамвай"
+      }
+    },
+    {
+      "relation": 20007414,
+      "note": "Усть-Каменогорск：OSM 缺 network／route_master，補 network 以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Усть-Каменогорский трамвай"
+      }
+    },
+    {
+      "relation": 900000001,
+      "note": "Усть-Каменогорск：OSM 缺 network／route_master，補 network 以便雙向併組；使用者 2026-07-27。 synth master。",
+      "set": {
+        "network": "Усть-Каменогорский трамвай",
+        "ref": "1",
+        "name": "Трамвай 1"
+      }
+    },
+    {
+      "relation": 900000003,
+      "note": "Усть-Каменогорск：OSM 缺 network／route_master，補 network 以便雙向併組；使用者 2026-07-27。 synth master。",
+      "set": {
+        "network": "Усть-Каменогорский трамвай",
+        "ref": "3",
+        "name": "Трамвай 3"
+      }
+    },
+    {
+      "relation": 900000004,
+      "note": "Усть-Каменогорск：OSM 缺 network／route_master，補 network 以便雙向併組；使用者 2026-07-27。 synth master。",
+      "set": {
+        "network": "Усть-Каменогорский трамвай",
+        "ref": "4",
+        "name": "Трамвай 4"
+      }
+    },
+    {
+      "relation": 1805888,
+      "note": "Хабаровск：OSM 缺 network，補以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Хабаровский трамвай"
+      }
+    },
+    {
+      "relation": 1805889,
+      "note": "Хабаровск：OSM 缺 network，補以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Хабаровский трамвай"
+      }
+    },
+    {
+      "relation": 1805890,
+      "note": "Хабаровск：OSM 缺 network，補以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Хабаровский трамвай"
+      }
+    },
+    {
+      "relation": 1805891,
+      "note": "Хабаровск：OSM 缺 network，補以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Хабаровский трамвай"
+      }
+    },
+    {
+      "relation": 1805892,
+      "note": "Хабаровск：OSM 缺 network，補以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Хабаровский трамвай"
+      }
+    },
+    {
+      "relation": 1805893,
+      "note": "Хабаровск：OSM 缺 network，補以便雙向併組；使用者 2026-07-27。",
+      "set": {
+        "network": "Хабаровский трамвай"
+      }
+    },
+    {
+      "relation": 1805897,
+      "note": "Хабаровск：OSM 缺 network，補以便雙向併組；使用者 2026-07-27。 master。",
+      "set": {
+        "network": "Хабаровский трамвай",
+        "ref": "1",
+        "name": "Трамвай 1"
+      }
+    },
+    {
+      "relation": 1805898,
+      "note": "Хабаровск：OSM 缺 network，補以便雙向併組；使用者 2026-07-27。 master。",
+      "set": {
+        "network": "Хабаровский трамвай",
+        "ref": "2",
+        "name": "Трамвай 2"
+      }
+    },
+    {
+      "relation": 900000005,
+      "note": "Хабаровск：OSM 缺 network，補以便雙向併組；使用者 2026-07-27。 master。",
+      "set": {
+        "network": "Хабаровский трамвай",
+        "ref": "5",
+        "name": "Трамвай 5"
+      }
+    },
+    {
+      "relation": 17803778,
+      "note": "Olsztyn tram 3：補 ref=3；使用者 2026-07-27。",
+      "set": {
+        "ref": "3",
+        "network": "ZDZiT Olsztyn"
+      }
+    },
+    {
+      "relation": 5659016,
+      "note": "Olsztyn tram 3：補 ref=3；使用者 2026-07-27。",
+      "set": {
+        "ref": "3",
+        "network": "ZDZiT Olsztyn"
+      }
+    },
+    {
+      "relation": 21012828,
+      "note": "Toyama（使用者 2026-07-27「抓錯」）。地鉄市内電車 1–6 系統（含富山港線直通）；高岡万葉線誤併進 Takaoka 搶 rid。OSM 1／2 站序錯亂、4／5／6 只掛港線段。replace_stops 依 wiki 系統走廊。釘 ja:富山地方鉄道富山軌道線。舊 Portram 單線＋殘缺市内軌道線→route_excludes。 tag r21012828。",
+      "set": {
+        "ref": "1",
+        "name": "1系統",
+        "network": "富山地方鉄道",
+        "from": "南富山駅前",
+        "to": "富山駅"
+      }
+    },
+    {
+      "relation": 21012768,
+      "note": "Toyama（使用者 2026-07-27「抓錯」）。地鉄市内電車 1–6 系統（含富山港線直通）；高岡万葉線誤併進 Takaoka 搶 rid。OSM 1／2 站序錯亂、4／5／6 只掛港線段。replace_stops 依 wiki 系統走廊。釘 ja:富山地方鉄道富山軌道線。舊 Portram 單線＋殘缺市内軌道線→route_excludes。 tag r21012768。",
+      "set": {
+        "ref": "2",
+        "name": "2系統",
+        "network": "富山地方鉄道",
+        "from": "南富山駅前",
+        "to": "富山大学前"
+      }
+    },
+    {
+      "relation": 21012792,
+      "note": "Toyama（使用者 2026-07-27「抓錯」）。地鉄市内電車 1–6 系統（含富山港線直通）；高岡万葉線誤併進 Takaoka 搶 rid。OSM 1／2 站序錯亂、4／5／6 只掛港線段。replace_stops 依 wiki 系統走廊。釘 ja:富山地方鉄道富山軌道線。舊 Portram 單線＋殘缺市内軌道線→route_excludes。 tag r21012792。",
+      "set": {
+        "ref": "3",
+        "name": "3系統",
+        "network": "富山地方鉄道",
+        "from": "丸の内",
+        "to": "丸の内"
+      }
+    },
+    {
+      "relation": 20668865,
+      "note": "Toyama（使用者 2026-07-27「抓錯」）。地鉄市内電車 1–6 系統（含富山港線直通）；高岡万葉線誤併進 Takaoka 搶 rid。OSM 1／2 站序錯亂、4／5／6 只掛港線段。replace_stops 依 wiki 系統走廊。釘 ja:富山地方鉄道富山軌道線。舊 Portram 單線＋殘缺市内軌道線→route_excludes。 tag r20668865。",
+      "set": {
+        "ref": "4",
+        "name": "4系統",
+        "network": "富山地方鉄道",
+        "from": "南富山駅前",
+        "to": "岩瀬浜"
+      }
+    },
+    {
+      "relation": 20668868,
+      "note": "Toyama（使用者 2026-07-27「抓錯」）。地鉄市内電車 1–6 系統（含富山港線直通）；高岡万葉線誤併進 Takaoka 搶 rid。OSM 1／2 站序錯亂、4／5／6 只掛港線段。replace_stops 依 wiki 系統走廊。釘 ja:富山地方鉄道富山軌道線。舊 Portram 單線＋殘缺市内軌道線→route_excludes。 tag r20668868。",
+      "set": {
+        "ref": "4",
+        "name": "4系統",
+        "network": "富山地方鉄道",
+        "from": "岩瀬浜",
+        "to": "南富山駅前"
+      }
+    },
+    {
+      "relation": 20668864,
+      "note": "Toyama（使用者 2026-07-27「抓錯」）。地鉄市内電車 1–6 系統（含富山港線直通）；高岡万葉線誤併進 Takaoka 搶 rid。OSM 1／2 站序錯亂、4／5／6 只掛港線段。replace_stops 依 wiki 系統走廊。釘 ja:富山地方鉄道富山軌道線。舊 Portram 單線＋殘缺市内軌道線→route_excludes。 tag r20668864。",
+      "set": {
+        "ref": "5",
+        "name": "5系統",
+        "network": "富山地方鉄道",
+        "from": "富山大学前",
+        "to": "岩瀬浜"
+      }
+    },
+    {
+      "relation": 20668867,
+      "note": "Toyama（使用者 2026-07-27「抓錯」）。地鉄市内電車 1–6 系統（含富山港線直通）；高岡万葉線誤併進 Takaoka 搶 rid。OSM 1／2 站序錯亂、4／5／6 只掛港線段。replace_stops 依 wiki 系統走廊。釘 ja:富山地方鉄道富山軌道線。舊 Portram 單線＋殘缺市内軌道線→route_excludes。 tag r20668867。",
+      "set": {
+        "ref": "5",
+        "name": "5系統",
+        "network": "富山地方鉄道",
+        "from": "岩瀬浜",
+        "to": "富山大学前"
+      }
+    },
+    {
+      "relation": 20668866,
+      "note": "Toyama（使用者 2026-07-27「抓錯」）。地鉄市内電車 1–6 系統（含富山港線直通）；高岡万葉線誤併進 Takaoka 搶 rid。OSM 1／2 站序錯亂、4／5／6 只掛港線段。replace_stops 依 wiki 系統走廊。釘 ja:富山地方鉄道富山軌道線。舊 Portram 單線＋殘缺市内軌道線→route_excludes。 tag r20668866。",
+      "set": {
+        "ref": "6",
+        "name": "6系統",
+        "network": "富山地方鉄道",
+        "from": "岩瀬浜",
+        "to": "岩瀬浜"
+      }
+    },
+    {
+      "relation": 10325944,
+      "note": "Takaoka（使用者 2026-07-27「抓錯」）。万葉線併成 1 線；釘系統 wiki（勿用高岡軌道線分段條目）。站序見 member_appends（25 站）。",
+      "set": {
+        "ref": "万葉線",
+        "name": "万葉線",
+        "name:ja": "万葉線",
+        "network": "万葉線",
+        "from": "高岡駅",
+        "to": "越ノ潟",
+        "wikipedia": "ja:万葉線",
+        "wikidata": "Q1582213"
+      }
+    },
+    {
+      "relation": 1664246,
+      "note": "Sóller Tranvía：補 wikipedia／wikidata／network；使用者 2026-07-27。",
+      "set": {
+        "wikipedia": "ca:Tramvia de Sóller",
+        "wikidata": "Q3137173",
+        "network": "Ferrocarril de Sóller",
+        "ref": "1",
+        "name": "Tranvía de Sóller"
+      }
+    },
+    {
+      "relation": 2773495,
+      "note": "Debrecen DKV tram 1：OSM network=local→補 DKV；使用者 2026-07-27「抓錯」。",
+      "set": {
+        "network": "DKV",
+        "wikipedia": "hu:1-es villamos (Debrecen)",
+        "wikidata": "Q1484153"
+      }
+    },
+    {
+      "relation": 4459896,
+      "note": "Debrecen DKV tram 2：OSM network=local→補 DKV；使用者 2026-07-27「抓錯」。",
+      "set": {
+        "network": "DKV",
+        "wikipedia": "hu:2-es villamos (Debrecen)",
+        "wikidata": "Q1488530"
+      }
+    },
+    {
+      "relation": 2309633,
+      "note": "Matsuyama 伊予鉄 1：補系統 wiki；使用者 2026-07-27「抓錯」。",
+      "set": {
+        "network": "伊予鉄",
+        "wikipedia": "ja:伊予鉄道",
+        "wikidata": "Q112337797"
+      }
+    },
+    {
+      "relation": 2309634,
+      "note": "Matsuyama 伊予鉄 2：補系統 wiki；使用者 2026-07-27「抓錯」。",
+      "set": {
+        "network": "伊予鉄",
+        "wikipedia": "ja:伊予鉄道",
+        "wikidata": "Q112337797"
+      }
+    },
+    {
+      "relation": 2309655,
+      "note": "Matsuyama 伊予鉄 5：補系統 wiki；使用者 2026-07-27「抓錯」。",
+      "set": {
+        "network": "伊予鉄",
+        "wikipedia": "ja:伊予鉄道",
+        "wikidata": "Q112337797"
+      }
+    },
+    {
+      "relation": 5335064,
+      "note": "Matsuyama 伊予鉄 6：補系統 wiki／線名；使用者 2026-07-27「抓錯」。",
+      "set": {
+        "network": "伊予鉄",
+        "name": "伊予鉄道6系統 本町線",
+        "wikipedia": "ja:伊予鉄道",
+        "wikidata": "Q112337797"
+      }
+    },
+    {
+      "relation": 8900000003,
+      "note": "Matsuyama 伊予鉄 3 synthetic：釘 ref／network／名稱；使用者 2026-07-27「抓錯」。",
+      "set": {
+        "ref": "3",
+        "network": "伊予鉄",
+        "name": "伊予鉄道3系統 松山市駅線",
+        "wikipedia": "ja:伊予鉄道",
+        "wikidata": "Q112337797"
+      }
+    },
+    {
+      "relation": 6497377,
+      "set": {
+        "ref": "T",
+        "name": "Ligne T",
+        "name:en": "Line T"
+      },
+      "note": "Aubagne ligne T（wiki 稱 ligne T；OSM 標 T1 易與馬賽 RTM T1 混淆）。"
+    },
+    {
+      "relation": 6497378,
+      "set": {
+        "ref": "T",
+        "name": "Ligne T",
+        "name:en": "Line T"
+      },
+      "note": "Aubagne ligne T（wiki 稱 ligne T；OSM 標 T1 易與馬賽 RTM T1 混淆）。"
+    },
+    {
+      "relation": 20736865,
+      "set": {
+        "ref": "主线",
+        "name": "主线",
+        "name:zh": "主线",
+        "name:en": "Main Line",
+        "network": "都江堰M-TR旅游客运专线",
+        "colour": "#E85D04"
+      },
+      "note": "Dujiangyan M-TR：OSM ref/name 整段長串、無 colour；縮成主线並上色（使用者 2026-07-27 抓錯）。"
+    },
+    {
+      "relation": 20736864,
+      "set": {
+        "ref": "支线",
+        "name": "都江堰支线",
+        "name:zh": "都江堰支线",
+        "name:en": "Dujiangyan Branch",
+        "network": "都江堰M-TR旅游客运专线",
+        "colour": "#2A9D8F"
+      },
+      "note": "Dujiangyan M-TR 支线：同上。"
+    },
+    {
+      "relation": 161212,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 1715554,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 1715555,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 1722434,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 1722435,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 1722455,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 1722456,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 1722737,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 1722738,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 7514382,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 9081920,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 9082027,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 9082089,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 9082106,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 9082107,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 9082112,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 9082113,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 14060546,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 14060547,
+      "set": {
+        "network": "Новосибирский трамвай"
+      },
+      "note": "Novosibirsk tram：OSM 無 network；補 Новосибирский трамвай（與 метрополитен 分網）。使用者 2026-07-27。"
+    },
+    {
+      "relation": 1406633,
+      "set": {
+        "ref": "LR",
+        "name": "Light RailLink Hunt Valley–BWI",
+        "name:en": "Light RailLink Hunt Valley–BWI"
+      },
+      "note": "Baltimore Light RailLink（使用者 2026-07-27「也要抓railway」）。同 ref=LR 三服務會糊成一團→幹線／Glen Burnie／Penn 分 ref。"
+    },
+    {
+      "relation": 2711782,
+      "set": {
+        "ref": "LR-GB",
+        "name": "Light RailLink Fairgrounds–Glen Burnie",
+        "name:en": "Light RailLink Fairgrounds–Glen Burnie"
+      },
+      "note": "Baltimore Light RailLink Glen Burnie／Cromwell 支線（使用者 2026-07-27）。"
+    },
+    {
+      "relation": 2711781,
+      "set": {
+        "ref": "LR-Penn",
+        "name": "Light RailLink Camden–Penn",
+        "name:en": "Light RailLink Camden–Penn"
+      },
+      "note": "Baltimore Light RailLink Penn Station shuttle（使用者 2026-07-27）。"
+    },
+    {
+      "relation": 386395,
+      "set": {
+        "network": "MetroCagliari",
+        "name": "MetroCagliari 1 Repubblica–Policlinico",
+        "name:en": "MetroCagliari 1 Repubblica–Policlinico",
+        "from": "Repubblica",
+        "to": "Policlinico"
+      },
+      "note": "Cagliari（使用者 2026-07-27「抓錯」）。OSM network=Cagliari 過泛；釘 MetroCagliari。"
+    },
+    {
+      "relation": 5252356,
+      "set": {
+        "network": "MetroCagliari",
+        "name": "MetroCagliari 2 Settimo–San Gottardo",
+        "name:en": "MetroCagliari 2 Settimo–San Gottardo",
+        "from": "Settimo San Pietro",
+        "to": "San Gottardo",
+        "ref": "2"
+      },
+      "note": "Cagliari №2（使用者 2026-07-27「抓錯」）。OSM 誤標 from=San Gottardo／對向 to=Policlinico；釘 MetroCagliari 走廊名。"
+    },
+    {
+      "relation": 19382688,
+      "set": {
+        "ref": "PKM",
+        "colour": "#34ACE1"
+      },
+      "note": "墨爾本 Metro Tunnel 貫通運營（2025 通車）：relation 19382688「Sunbury => East Pakenham」的 OSM ref 是箭頭寫法、不屬任何 route_master，會自成一條無名「Metro Tunnel」線（去回各一條，使用者 2026-07-27「為何好像你抓了去回2次」）。依官方 PTV 路網圖『Cranbourne, Pakenham and Sunbury Line』，往 East Pakenham 的班次歸 PKM、往 Cranbourne 的歸 CBE，設 ref 讓它併入該線分組；colour 補官方淺藍。上游改用正規 ref 後可移除。"
+    },
+    {
+      "relation": 20145133,
+      "set": {
+        "ref": "PKM",
+        "colour": "#34ACE1"
+      },
+      "note": "墨爾本 Metro Tunnel 貫通運營（2025 通車）：relation 20145133「East Pakenham => Sunbury」的 OSM ref 是箭頭寫法、不屬任何 route_master，會自成一條無名「Metro Tunnel」線（去回各一條，使用者 2026-07-27「為何好像你抓了去回2次」）。依官方 PTV 路網圖『Cranbourne, Pakenham and Sunbury Line』，往 East Pakenham 的班次歸 PKM、往 Cranbourne 的歸 CBE，設 ref 讓它併入該線分組；colour 補官方淺藍。上游改用正規 ref 後可移除。"
+    },
+    {
+      "relation": 20236057,
+      "set": {
+        "ref": "PKM",
+        "colour": "#34ACE1"
+      },
+      "note": "墨爾本 Metro Tunnel 貫通運營（2025 通車）：relation 20236057「Sunbury => East Pakenham (Express)」的 OSM ref 是箭頭寫法、不屬任何 route_master，會自成一條無名「Metro Tunnel」線（去回各一條，使用者 2026-07-27「為何好像你抓了去回2次」）。依官方 PTV 路網圖『Cranbourne, Pakenham and Sunbury Line』，往 East Pakenham 的班次歸 PKM、往 Cranbourne 的歸 CBE，設 ref 讓它併入該線分組；colour 補官方淺藍。上游改用正規 ref 後可移除。"
+    },
+    {
+      "relation": 20236058,
+      "set": {
+        "ref": "PKM",
+        "colour": "#34ACE1"
+      },
+      "note": "墨爾本 Metro Tunnel 貫通運營（2025 通車）：relation 20236058「East Pakenham => Sunbury (Express)」的 OSM ref 是箭頭寫法、不屬任何 route_master，會自成一條無名「Metro Tunnel」線（去回各一條，使用者 2026-07-27「為何好像你抓了去回2次」）。依官方 PTV 路網圖『Cranbourne, Pakenham and Sunbury Line』，往 East Pakenham 的班次歸 PKM、往 Cranbourne 的歸 CBE，設 ref 讓它併入該線分組；colour 補官方淺藍。上游改用正規 ref 後可移除。"
+    },
+    {
+      "relation": 20671565,
+      "set": {
+        "ref": "PKM",
+        "colour": "#34ACE1"
+      },
+      "note": "墨爾本 Metro Tunnel 貫通運營（2025 通車）：relation 20671565「East Pakenham => Watergardens」的 OSM ref 是箭頭寫法、不屬任何 route_master，會自成一條無名「Metro Tunnel」線（去回各一條，使用者 2026-07-27「為何好像你抓了去回2次」）。依官方 PTV 路網圖『Cranbourne, Pakenham and Sunbury Line』，往 East Pakenham 的班次歸 PKM、往 Cranbourne 的歸 CBE，設 ref 讓它併入該線分組；colour 補官方淺藍。上游改用正規 ref 後可移除。"
+    },
+    {
+      "relation": 20145132,
+      "set": {
+        "ref": "CBE",
+        "colour": "#34ACE1"
+      },
+      "note": "墨爾本 Metro Tunnel 貫通運營（2025 通車）：relation 20145132「Cranbourne => Watergardens」的 OSM ref 是箭頭寫法、不屬任何 route_master，會自成一條無名「Metro Tunnel」線（去回各一條，使用者 2026-07-27「為何好像你抓了去回2次」）。依官方 PTV 路網圖『Cranbourne, Pakenham and Sunbury Line』，往 East Pakenham 的班次歸 PKM、往 Cranbourne 的歸 CBE，設 ref 讓它併入該線分組；colour 補官方淺藍。上游改用正規 ref 後可移除。"
+    },
+    {
+      "relation": 20195318,
+      "set": {
+        "ref": "CBE",
+        "colour": "#34ACE1"
+      },
+      "note": "墨爾本 Metro Tunnel 貫通運營（2025 通車）：relation 20195318「West Footscray => Cranbourne」的 OSM ref 是箭頭寫法、不屬任何 route_master，會自成一條無名「Metro Tunnel」線（去回各一條，使用者 2026-07-27「為何好像你抓了去回2次」）。依官方 PTV 路網圖『Cranbourne, Pakenham and Sunbury Line』，往 East Pakenham 的班次歸 PKM、往 Cranbourne 的歸 CBE，設 ref 讓它併入該線分組；colour 補官方淺藍。上游改用正規 ref 後可移除。"
+    },
+    {
+      "relation": 20195319,
+      "set": {
+        "ref": "CBE",
+        "colour": "#34ACE1"
+      },
+      "note": "墨爾本 Metro Tunnel 貫通運營（2025 通車）：relation 20195319「Cranbourne => West Footscray」的 OSM ref 是箭頭寫法、不屬任何 route_master，會自成一條無名「Metro Tunnel」線（去回各一條，使用者 2026-07-27「為何好像你抓了去回2次」）。依官方 PTV 路網圖『Cranbourne, Pakenham and Sunbury Line』，往 East Pakenham 的班次歸 PKM、往 Cranbourne 的歸 CBE，設 ref 讓它併入該線分組；colour 補官方淺藍。上游改用正規 ref 後可移除。"
+    },
+    {
+      "relation": 7702663,
+      "set": {
+        "ref": "A"
+      },
+      "note": "廣島 Astram（広島高速交通広島新交通1号線）route_master r7702663：OSM ref=1 與廣電 1 號線撞車。buildGeojson 的 tagMeta 以 ref 先到先贏，站 lines 標籤「1」被指到其中一條、另一條站又經 __stations 掛上自己 → 大量廣電站錯誤雙掛 Astram（26 站），骨架／網格像線網黏錯又拆不開（使用者 2026-08-12「線計算好像分離了」）。改 ref=A（乘客側 Astram Line，不跟廣電搶 1）；子 route 4598702／7702657 同步。見 metro-city-hiroshima。"
+    },
+    {
+      "relation": 4598702,
+      "set": {
+        "ref": "A"
+      },
+      "note": "廣島 Astram route（同 master 7702663）：ref 1→A，避免與廣電 1 號線撞車。見 master 說明。"
+    },
+    {
+      "relation": 7702657,
+      "set": {
+        "ref": "A"
+      },
+      "note": "廣島 Astram 反向 route（同 master 7702663）：ref 1→A，避免與廣電 1 號線撞車。見 master 說明。"
+    }
+  ]
+}

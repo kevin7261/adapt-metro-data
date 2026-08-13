@@ -1,0 +1,17 @@
+{
+  "city": "Prokopyevsk",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    2869042,
+    2869043,
+    6524500,
+    6524501,
+    6532727,
+    6532728,
+    11720823,
+    11720835
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/prokopyevsk/prokopyevsk.htm",
+  "note": "Prokopyevsk（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

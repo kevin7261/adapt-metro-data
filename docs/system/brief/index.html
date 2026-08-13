@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>系統簡介 · Adapt-Metro</title>
+<link rel="icon" href="../../../../favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../../../favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../favicon-32.png" />
+<link rel="apple-touch-icon" href="../../../../apple-touch-icon.png" />
+<meta name="description" content="Adapt-Metro 系統簡介（短版投影片）：一頁一個重點——這套系統要回應的問題、四階段管線、資料流（一條主幹三條泳道）、十一條演算法鏈對照、movewise 四步鏈、LLM 的角色、四條硬規則、指定形狀、評價、資料落檔與視圖規矩。完整版見「系統介紹」。" />
+<!-- header 與首頁 TopToolbar 共用：Material Symbols + Inter/Noto + _shared/app-toolbar -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Noto+Sans+TC:wght@400..700&display=swap" />
+<!-- 設計 token（唯一來源 src/tokens.css，見 /design） -->
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/design-shell.css" />
+<link rel="stylesheet" href="../../_shared/app-toolbar.css" />
+<link rel="stylesheet" href="../../_shared/gslides.css?v=20260804c" />
+<link rel="stylesheet" href="../../_shared/slide-deck.css" />
+<style>
+  /* 殼層別名（勿覆寫 --border HSL 元件）；畫布排版見 slide-deck.css */
+  :root{
+    --page-bg: hsl(var(--background));
+    --dot: transparent;
+    --card-bg: hsl(var(--popover));
+    --ink: hsl(var(--foreground));
+    --muted: hsl(var(--muted-foreground));
+    --muted2: hsl(var(--muted-foreground));
+    --blue: hsl(var(--primary));
+    --purple: var(--node-purple);
+    --rose: var(--node-red);
+    --amber: var(--edge-forced);
+    --green: var(--node-green);
+    --code-bg: hsl(var(--foreground));
+    --code-ink: hsl(var(--border));
+    --mono: var(--font-mono);
+    --sans: var(--font-sans);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html,body{height:100%;margin:0;}
+  body{
+    font-family:var(--sans); color:var(--ink);
+    overflow:hidden; -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column;
+  }
+  a{color:inherit;}
+  strong,b{font-weight:700;}
+  /* 安全網（勿刪）：`_shared/gslides.css` 沒載到時，這兩條撐住版面——
+     少了 .workspace 的 flex，畫布區會收成 0 高，畫面只剩導覽條與 footer。 */
+  .workspace{ display:flex; flex:1; min-height:0; }
+  /* 寬幅示意圖（資料流那張）——.svgbox 的 260px 上限只適合並排小圖 */
+  .widefig{ margin-top:var(--space-4); }
+  .widefig svg{ width:100%; height:auto; }
+  /* 與 FlowDiagram 同一套：同 flow 邊線同色 */
+  .widefig svg{
+    --flow-trunk: hsl(0 0% 40%);
+    --flow-grid: hsl(160 52% 34%);
+    --flow-skel: hsl(198 58% 38%);
+    --flow-work: hsl(28 72% 42%);
+    --flow-oneshot: hsl(320 50% 44%);
+    --llm-stroke: var(--purple);
+    --llm-fill: color-mix(in srgb, var(--purple) 14%, var(--card-bg));
+    --sk-stroke: var(--blue);
+    --sk-fill: color-mix(in srgb, var(--blue) 14%, var(--card-bg));
+    --dim-fill: color-mix(in srgb, var(--border) 40%, var(--card-bg));
+  }
+  html.dark .widefig svg{
+    --flow-trunk: hsl(0 0% 62%);
+    --flow-grid: hsl(160 42% 52%);
+    --flow-skel: hsl(198 45% 58%);
+    --flow-work: hsl(28 58% 58%);
+    --flow-oneshot: hsl(320 40% 68%);
+    --llm-fill: color-mix(in srgb, var(--purple) 22%, var(--card-bg));
+    --sk-fill: color-mix(in srgb, var(--blue) 22%, var(--card-bg));
+    --dim-fill: color-mix(in srgb, var(--border) 28%, var(--card-bg));
+  }
+  /* 四階段的圖比並排小圖再大一點；文字說明留在 cap */
+  .stagerow .svgbox svg{ max-width:230px; }
+  .stagerow .cap b{ display:block; color:var(--ink); font-weight:650; }
+  /* 09：Frame 三支怎麼用——投影片字級，不吃 UI token 的 15px */
+  .grid.frame-llm .card{ padding:var(--space-5) var(--space-6); }
+  .grid.frame-llm .card .label{ font-size:13px; margin-bottom:var(--space-3); }
+  .grid.frame-llm .card h3{ font-size:22px; margin-bottom:var(--space-3); }
+  .grid.frame-llm .card p{ font-size:18px; line-height:1.65; }
+</style>
+<script src="../../_shared/theme-boot.js"></script>
+</head>
+<body>
+<header id="appToolbar" class="app-toolbar"></header>
+<script src="../../_shared/app-toolbar.js"></script>
+<script>AdaptMetroToolbar.mount('#appToolbar', { base: '../../../../', active: 'brief' });</script>
+
+<div id="gslidesMount"></div>
+<script src="../../_shared/design-select.js"></script>
+<script src="../../_shared/gslides.js?v=20260804c"></script>
+<script>if (window.AdaptMetroGSlides) AdaptMetroGSlides.mount('#gslidesMount', { title: '系統簡介——一頁一個重點', storageKey: 'brief-slides' });</script>
+<script>
+  /* 安全網（勿刪）：`_shared/gslides.js` 沒載到（dev server 重啟／網路中斷）時，
+     上一行的 mount 會丟 ReferenceError，於是 body 少了 gslides-page、畫布停在
+     visibility:hidden——畫面就只剩導覽條與 footer。這裡把兩者補回去。 */
+  if (!window.AdaptMetroGSlides) {
+    var amFallback = function () {
+      document.body.classList.add('gslides-page');
+      var st = document.getElementById('stage');
+      if (st) st.classList.add('is-fitted');
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', amFallback);
+    else amFallback();
+  }
+</script>
+
+<div class="workspace">
+<aside class="side-panel filmstrip" aria-label="投影片縮圖">
+  <div class="side-panel-body" id="filmstrip"></div>
+</aside>
+<div class="deck" id="deck">
+<div class="stage" id="stage">
+
+  <!-- 1: TITLE -->
+  <section class="slide titleslide active" data-title="1–4 · 系統簡介">
+    <div class="kicker"><span class="bullet"></span> Adapt-Metro · SYSTEM BRIEF · STEP 1–4</div>
+    <h1 class="title">把真實路網<br/>畫成地鐵示意圖</h1>
+    <p class="subtitle">四階段管線，十一條演算法鏈並列比較，LLM 當離線最佳化器。<br/>要回應的問題：真實路網能不能依版面自動畫成示意圖——重要的突顯、次要的簡化，版面一變就重排。<br/>短版簡介——完整內容見 header 的「系統介紹」。</p>
+    <div class="grid cols-4" style="max-width:960px;">
+      <div class="card blue"><div class="label">INPUT</div><h3>真實路網</h3><p>OpenStreetMap，599 個都市軌道系統。</p></div>
+      <div class="card purple"><div class="label">PIPELINE</div><h3>四個階段</h3><p>抓圖 → 網格化 → 直線化 → 版面畫線。</p></div>
+      <div class="card rose"><div class="label">COMPARE</div><h3>十一條鏈</h3><p>論文①〜⑨＋LLM，同一座城市並列。</p></div>
+      <div class="card amber"><div class="label">OUTPUT</div><h3>示意圖</h3><p>水平／垂直／45°，版面一變就重排。</p></div>
+    </div>
+  </section>
+
+  <!-- 2: WHAT IT DOES -->
+  <section class="slide" data-title="1–4 · 在做什麼">
+    <div class="eyebrow"><span class="stepchip sall" title="本頁對應的管線階段"><span class="sw"></span>STEP 1–4 · 全管線</span><span class="tag"><b>01</b>系統目的</span><span class="rule"></span><span class="eng">WHAT IT DOES</span></div>
+    <h1 class="title">把左邊變成右邊</h1>
+    <div class="svgrow">
+      <div class="svgbox">
+        <svg viewBox="0 0 220 150" role="img" aria-label="真實地理路網：彎曲的線">
+          <path d="M18,116 C48,96 54,66 84,60 S132,76 152,46 188,30 204,38" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+          <path d="M16,38 C48,50 64,88 100,96 S152,116 204,126" fill="none" stroke="#e11d48" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="18" cy="116" r="4.5" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+          <circle cx="204" cy="38" r="4.5" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+          <circle cx="16" cy="38" r="4.5" fill="#fff" stroke="#e11d48" stroke-width="2.5"/>
+          <circle cx="204" cy="126" r="4.5" fill="#fff" stroke="#e11d48" stroke-width="2.5"/>
+          <circle cx="98" cy="94" r="5.5" fill="#fff" stroke="#1f1f1f" stroke-width="2.5"/>
+        </svg>
+        <div class="cap">真實地理位置（OSM）</div>
+      </div>
+      <div class="svgbox">
+        <svg viewBox="0 0 220 150" role="img" aria-label="八向示意圖：只有水平、垂直與 45 度">
+          <path d="M20,100 H100 L140,60 H200" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20,40 H60 L100,80 V100 L140,140 H200" fill="none" stroke="#e11d48" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="20" cy="100" r="4.5" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+          <circle cx="60" cy="100" r="4" fill="#fff" stroke="#9a9a9a" stroke-width="2"/>
+          <circle cx="200" cy="60" r="4.5" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+          <circle cx="20" cy="40" r="4.5" fill="#fff" stroke="#e11d48" stroke-width="2.5"/>
+          <circle cx="200" cy="140" r="4.5" fill="#fff" stroke="#e11d48" stroke-width="2.5"/>
+          <circle cx="100" cy="100" r="5.5" fill="#fff" stroke="#1f1f1f" stroke-width="2.5"/>
+        </svg>
+        <div class="cap">示意圖（水平／垂直／45°）</div>
+      </div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;">中間那顆深色點是<strong>轉乘站</strong>：位置可以動，但誰跟誰相連、誰在誰的哪一邊，全程不准變。<br/>資料規模：都市軌道 <strong>599</strong> 系統（80 國）＋指定形狀城市檔 <strong>13</strong>；另有國家鐵路 <strong>9</strong>、高速公路 <strong>3</strong> 個都會區。</p>
+  </section>
+
+  <!-- 3: PIPELINE -->
+  <section class="slide" data-title="1–4 · 四階段管線">
+    <div class="eyebrow"><span class="stepchip sall" title="本頁對應的管線階段"><span class="sw"></span>STEP 1–4 · 全管線</span><span class="tag"><b>02</b>管線</span><span class="rule"></span><span class="eng">PIPELINE</span></div>
+    <h1 class="title">同一座城市，四個階段長這樣</h1>
+    <div class="svgrow stagerow">
+      <div class="svgbox">
+        <svg viewBox="0 0 200 140" role="img" aria-label="第一階：真實路網與骨架">
+          <path d="M16,106 C42,88 50,60 78,56 S120,70 138,44 172,28 188,36" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M14,36 C42,46 58,80 92,88 S140,106 186,116" fill="none" stroke="#e11d48" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="16" cy="106" r="4" fill="#fff" stroke="#2563eb" stroke-width="2.2"/>
+          <circle cx="188" cy="36" r="4" fill="#fff" stroke="#2563eb" stroke-width="2.2"/>
+          <circle cx="14" cy="36" r="4" fill="#fff" stroke="#e11d48" stroke-width="2.2"/>
+          <circle cx="186" cy="116" r="4" fill="#fff" stroke="#e11d48" stroke-width="2.2"/>
+          <circle cx="90" cy="86" r="5" fill="#fff" stroke="#1f1f1f" stroke-width="2.2"/>
+        </svg>
+        <div class="cap"><b>1 RAW MAPS</b>抓真實路網，收縮成拓撲骨架</div>
+      </div>
+      <div class="svgbox">
+        <svg viewBox="0 0 200 140" role="img" aria-label="第二階：吸附到整數格">
+          <g stroke="#dedede" stroke-width="1">
+            <path d="M20,20 H180 M20,50 H180 M20,80 H180 M20,110 H180"/>
+            <path d="M20,20 V110 M60,20 V110 M100,20 V110 M140,20 V110 M180,20 V110"/>
+          </g>
+          <path d="M20,110 L60,80 L100,80 L140,50 L180,20" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20,20 L60,50 L100,80 L140,110 L180,110" fill="none" stroke="#e11d48" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="20" cy="110" r="4" fill="#fff" stroke="#2563eb" stroke-width="2.2"/>
+          <circle cx="180" cy="20" r="4" fill="#fff" stroke="#2563eb" stroke-width="2.2"/>
+          <circle cx="20" cy="20" r="4" fill="#fff" stroke="#e11d48" stroke-width="2.2"/>
+          <circle cx="180" cy="110" r="4" fill="#fff" stroke="#e11d48" stroke-width="2.2"/>
+          <circle cx="100" cy="80" r="5" fill="#fff" stroke="#1f1f1f" stroke-width="2.2"/>
+        </svg>
+        <div class="cap"><b>2 GRIDDING</b>每個站落到一個整數格子</div>
+      </div>
+      <div class="svgbox">
+        <svg viewBox="0 0 200 140" role="img" aria-label="第三階：拉直並收緊">
+          <g stroke="#ededed" stroke-width="1">
+            <path d="M40,20 H160 M40,50 H160 M40,80 H160 M40,110 H160"/>
+            <path d="M40,20 V110 M70,20 V110 M100,20 V110 M130,20 V110 M160,20 V110"/>
+          </g>
+          <path d="M40,80 H100 L130,50 H160" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M40,20 H70 L100,50 V80 L130,110 H160" fill="none" stroke="#e11d48" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="40" cy="80" r="4" fill="#fff" stroke="#2563eb" stroke-width="2.2"/>
+          <circle cx="160" cy="50" r="4" fill="#fff" stroke="#2563eb" stroke-width="2.2"/>
+          <circle cx="40" cy="20" r="4" fill="#fff" stroke="#e11d48" stroke-width="2.2"/>
+          <circle cx="160" cy="110" r="4" fill="#fff" stroke="#e11d48" stroke-width="2.2"/>
+          <circle cx="100" cy="80" r="5" fill="#fff" stroke="#1f1f1f" stroke-width="2.2"/>
+        </svg>
+        <div class="cap"><b>3 STRAIGHTENING</b>拉成水平／垂直／45°，再收緊格數</div>
+      </div>
+      <div class="svgbox">
+        <svg viewBox="0 0 200 140" role="img" aria-label="第四階：依版面畫線">
+          <rect x="8" y="24" width="106" height="92" rx="6" fill="none" stroke="#c9c9c9" stroke-width="1.5"/>
+          <path d="M18,86 H58 L78,66 H104" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18,40 H38 L58,60 V86 L78,106 H104" fill="none" stroke="#e11d48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="58" cy="86" r="4" fill="#fff" stroke="#1f1f1f" stroke-width="2"/>
+          <rect x="130" y="10" width="62" height="120" rx="6" fill="none" stroke="#c9c9c9" stroke-width="1.5"/>
+          <path d="M138,92 H154 L166,80 H184" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M138,34 H150 L162,46 V80 L172,90 V118" fill="none" stroke="#e11d48" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="162" cy="80" r="4" fill="#fff" stroke="#1f1f1f" stroke-width="2"/>
+        </svg>
+        <div class="cap"><b>4 FRAME MAPS</b>版面一變就在新座標重畫</div>
+      </div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;">階段代碼＝磁碟資料夾名（<code class="mono">1-raw-maps</code>／<code class="mono">2-gridding</code>／<code class="mono">3-straightening</code>／<code class="mono">4-frame-maps</code>）。每一階都看得到、可回溯，不是黑盒子。</p>
+  </section>
+
+  <!-- 4: DATA FLOW —— 與 FlowDiagram.vue 同視覺契約：同 flow 同色、垂直槽錯開、卡片只留顯示名、無 tag／無虛線／無左側色條；底列＝oneshot -->
+  <section class="slide" data-title="1–4 · 資料流">
+    <div class="eyebrow"><span class="stepchip sall" title="本頁對應的管線階段"><span class="sw"></span>STEP 1–4 · 全管線</span><span class="tag"><b>03</b>資料流</span><span class="rule"></span><span class="eng">DATA FLOW</span></div>
+    <h1 class="title">一條主幹，三條泳道</h1>
+    <div class="widefig">
+      <svg viewBox="0 0 1060 400" role="img" aria-label="資料流：三條泳道加上底列 LLM 工作地圖直線化路線，各自走到 Frame 路網">
+        <defs>
+          <marker id="ar-trunk" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="var(--flow-trunk)"/>
+          </marker>
+          <marker id="ar-grid" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="var(--flow-grid)"/>
+          </marker>
+          <marker id="ar-skel" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="var(--flow-skel)"/>
+          </marker>
+          <marker id="ar-work" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="var(--flow-work)"/>
+          </marker>
+          <marker id="ar-oneshot" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="var(--flow-oneshot)"/>
+          </marker>
+        </defs>
+        <g font-family="var(--mono)" font-size="12" fill="var(--muted)" letter-spacing="1">
+          <text x="20" y="16">1 RAW MAPS</text>
+          <text x="400" y="16">2 GRIDDING</text>
+          <text x="620" y="16">3 STRAIGHTENING</text>
+          <text x="870" y="16">4 FRAME MAPS</text>
+        </g>
+        <!-- 主幹：工作→骨架→網格化 -->
+        <g stroke="var(--flow-trunk)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M170,160 H196" marker-end="url(#ar-trunk)"/>
+          <path d="M350,160 C378,160 378,76 396,76" marker-end="url(#ar-trunk)"/>
+        </g>
+        <!-- 網格地圖路徑 -->
+        <g stroke="var(--flow-grid)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M570,76 H616" marker-end="url(#ar-grid)"/>
+          <path d="M820,76 H866" marker-end="url(#ar-grid)"/>
+        </g>
+        <!-- 骨架網格路徑 -->
+        <g stroke="var(--flow-skel)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M350,160 H396" marker-end="url(#ar-skel)"/>
+          <path d="M570,160 H616" marker-end="url(#ar-skel)"/>
+          <path d="M820,160 H866" marker-end="url(#ar-skel)"/>
+        </g>
+        <!-- 工作網格路徑：底緣偏右下走 -->
+        <g stroke="var(--flow-work)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M95,186 H109 Q121,186 121,198 V234 Q121,246 133,246 H396" marker-end="url(#ar-work)"/>
+          <path d="M570,246 H616" marker-end="url(#ar-work)"/>
+          <path d="M820,246 H866" marker-end="url(#ar-work)"/>
+        </g>
+        <!-- 路線（oneshot）：底緣偏左下走 → 直線化底列卡片 → Frame 底列 -->
+        <g stroke="var(--flow-oneshot)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M95,186 H81 Q69,186 69,198 V328 Q69,340 81,340 H616" marker-end="url(#ar-oneshot)"/>
+          <path d="M820,340 H866" marker-end="url(#ar-oneshot)"/>
+        </g>
+        <!-- 卡片（無 tag：只留顯示名） -->
+        <g fill="var(--card-bg)" stroke="var(--border)" stroke-width="1.5">
+          <rect x="20" y="130" width="150" height="56" rx="8"/>
+          <rect x="200" y="130" width="150" height="56" rx="8"/>
+          <rect x="400" y="48" width="170" height="56" rx="8"/>
+          <rect x="400" y="132" width="170" height="56" rx="8"/>
+          <rect x="400" y="216" width="170" height="56" rx="8"/>
+          <rect x="620" y="48" width="200" height="56" rx="8"/>
+          <rect x="620" y="132" width="200" height="56" rx="8"/>
+          <rect x="620" y="216" width="200" height="56" rx="8"/>
+          <rect x="620" y="312" width="200" height="56" rx="8"/>
+          <rect x="870" y="48" width="170" height="56" rx="8"/>
+          <rect x="870" y="132" width="170" height="56" rx="8"/>
+          <rect x="870" y="216" width="170" height="56" rx="8"/>
+          <rect x="870" y="312" width="170" height="56" rx="8"/>
+        </g>
+        <g fill="var(--ink)" font-size="14" font-weight="650">
+          <text x="36" y="163">工作地圖</text>
+          <text x="216" y="163">骨架地圖</text>
+          <text x="416" y="81">網格地圖</text>
+          <text x="416" y="165">LLM 骨架地圖網格化 <tspan fill="var(--muted)" font-size="11" font-weight="600">×13</tspan></text>
+          <text x="416" y="249">LLM 工作地圖網格化 <tspan fill="var(--muted)" font-size="11" font-weight="600">×13</tspan></text>
+          <text x="636" y="81">論文①〜⑨ <tspan fill="var(--muted)" font-size="11" font-weight="600">×9</tspan></text>
+          <text x="636" y="165">LLM 直線化</text>
+          <text x="636" y="249">LLM 直線化</text>
+          <text x="636" y="345">LLM 工作地圖直線化 <tspan fill="var(--muted)" font-size="11" font-weight="600">×13</tspan></text>
+          <text x="886" y="81">Frame 路網</text>
+          <text x="886" y="165">Frame 路網</text>
+          <text x="886" y="249">Frame 路網</text>
+          <text x="886" y="345">Frame 路網</text>
+        </g>
+      </svg>
+    </div>
+    <p class="subtitle" style="margin-top:12px;">有規定形狀的城市，每條泳道在鏈之前先插一格 <strong>LLM 指定形狀</strong>（標「依需求」）。底列紫線＝<strong>LLM 工作地圖直線化</strong>（跳過網格化與論文鏈，一趟進 Frame）。這張圖就是程式本身（<code class="mono">flowGraph.js</code>），每個方塊＝磁碟上一個資料夾。</p>
+  </section>
+
+  <!-- 5: CHAINS -->
+  <section class="slide" data-title="3 STRAIGHTENING · 十一條鏈">
+    <div class="eyebrow"><span class="stepchip s3" title="本頁對應的管線階段"><span class="sw"></span>STEP 3 · 3 STRAIGHTENING</span><span class="tag"><b>04</b>演算法鏈</span><span class="rule"></span><span class="eng">ELEVEN CHAINS</span></div>
+    <h1 class="title">九條論文鏈＋兩條 LLM 來源鏈</h1>
+    <p class="subtitle">同一份網格化結果，十一種作法各算一張，放在一起比。</p>
+    <div class="pillrow">
+      <span class="pill">①筆畫法</span><span class="pill">②直角爬山</span><span class="pill">③MILP 規劃</span><span class="pill">④力導向</span><span class="pill">⑤最小平方</span><span class="pill">⑥八向格網</span><span class="pill">⑦路徑簡化</span><span class="pill">⑧SAT 規劃</span><span class="pill">⑨彈性格網</span>
+    </div>
+    <div class="grid cols-2" style="margin-top:16px;">
+      <div class="card blue"><div class="label">論文鏈 ①〜⑨</div><h3>照論文實作，不自創</h3><p>每一條對應一篇演算法文獻；純程式、確定性，同輸入同輸出。</p></div>
+      <div class="card purple"><div class="label">LLM 鏈</div><h3>模型自己想解法</h3><p>LLM 直線化＋兩條 LLM 網格化來源；策略每次由模型構思，程式只驗證。</p></div>
+    </div>
+  </section>
+
+  <!-- 5: WHAT EACH ALGORITHM DOES -->
+  <section class="slide" data-title="3 STRAIGHTENING · 九條演算法">
+    <div class="eyebrow"><span class="stepchip s3" title="本頁對應的管線階段"><span class="sw"></span>STEP 3 · 3 STRAIGHTENING</span><span class="tag"><b>05</b>演算法</span><span class="rule"></span><span class="eng">NINE ALGORITHMS</span></div>
+    <h1 class="title">九條論文鏈，各有各的拉直方式</h1>
+    <div class="grid cols-3">
+      <div class="card blue"><div class="label">① Li &amp; Dong 2010</div><h3>筆畫法</h3><p>把段串成「筆畫」，每一筆先試水平／垂直，被擋才退 45°。</p></div>
+      <div class="card blue"><div class="label">② Stott 2011</div><h3>直角爬山</h3><p>爬山法的直角變體：45° 判得最貴，在爬山結果上再爬到不動點。</p></div>
+      <div class="card purple"><div class="label">③ Nöllenburg &amp; Wolff 2011</div><h3>MILP 規劃</h3><p>每段給三個八方向候選，精確求解整張圖的方向指派，再重建座標。</p></div>
+      <div class="card green"><div class="label">④ Hong 2006</div><h3>力導向</h3><p>引力、斥力再加上八方向磁場力，逐個車站迭代到穩定。</p></div>
+      <div class="card green"><div class="label">⑤ Wang &amp; Chi 2011</div><h3>最小平方</h3><p>每段轉到最近的八方向當目標，解一次最小平方系統。</p></div>
+      <div class="card amber"><div class="label">⑥ Bast 2020</div><h3>八向格網</h3><p>邊照「線度數」排序逐邊定案，一個格子只放一站。</p></div>
+      <div class="card blue"><div class="label">⑦ Merrick &amp; Gudmundsson 2007</div><h3>路徑簡化</h3><p>把每條路線當折線，用八方向求「最少線段」的簡化。</p></div>
+      <div class="card purple"><div class="label">⑧ Fuchs 2022</div><h3>SAT 規劃</h3><p>與③同一個模型，求解器換成 SAT 分支定界。</p></div>
+      <div class="card amber"><div class="label">⑨ Bast 2021</div><h3>彈性格網</h3><p>⑥的延伸：候選格點改成八向 Hanan 格網，網格不必等距。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;">九條都<strong>照論文實作、不自創</strong>（paper fidelity）；同一份輸入、同一套硬規則，所以可以直接比。</p>
+  </section>
+
+  <!-- 6: MOVEWISE -->
+  <section class="slide" data-title="3 STRAIGHTENING · 四步鏈循環">
+    <div class="eyebrow"><span class="stepchip s3" title="本頁對應的管線階段"><span class="sw"></span>STEP 3 · 3 STRAIGHTENING</span><span class="tag"><b>06</b>循環</span><span class="rule"></span><span class="eng">MOVEWISE LOOP</span></div>
+    <h1 class="title">直線化之後，再收緊一輪</h1>
+    <p class="subtitle">四個步驟輪流跑到不能動為止，四個都沒動就停。虛線＝移動前，實線＝移動後。</p>
+    <div class="bendrow">
+      <div class="bendcard">
+        <svg viewBox="0 0 110 70" role="img" aria-label="移點：單一車站移一格">
+          <g stroke="#dedede" stroke-width="1"><path d="M15,15 H95 M15,35 H95 M15,55 H95 M15,15 V55 M35,15 V55 M55,15 V55 M75,15 V55 M95,15 V55"/></g>
+          <path d="M15,35 H55 L75,15" fill="none" stroke="#c8c8c8" stroke-width="2.5" stroke-dasharray="4 3"/>
+          <path d="M15,35 H75" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="75" cy="15" r="4" fill="#fff" stroke="#c8c8c8" stroke-width="2"/>
+          <circle cx="75" cy="35" r="4.5" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+          <path d="M75,22 V30" stroke="#2563eb" stroke-width="1.5"/>
+        </svg>
+        <div class="t">移點</div><div class="d">單一車站移一格</div>
+      </div>
+      <div class="bendcard">
+        <svg viewBox="0 0 110 70" role="img" aria-label="移線：整條直線一起平移">
+          <g stroke="#dedede" stroke-width="1"><path d="M15,15 H95 M15,35 H95 M15,55 H95 M15,15 V55 M35,15 V55 M55,15 V55 M75,15 V55 M95,15 V55"/></g>
+          <path d="M35,15 V55" fill="none" stroke="#c8c8c8" stroke-width="2.5" stroke-dasharray="4 3"/>
+          <path d="M55,15 V55" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="55" cy="15" r="4" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+          <circle cx="55" cy="55" r="4" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+        </svg>
+        <div class="t">移線</div><div class="d">整條直線一起平移</div>
+      </div>
+      <div class="bendcard">
+        <svg viewBox="0 0 110 70" role="img" aria-label="移枝：吊在外面的整團一起移">
+          <g stroke="#dedede" stroke-width="1"><path d="M15,15 H95 M15,35 H95 M15,55 H95 M15,15 V55 M35,15 V55 M55,15 V55 M75,15 V55 M95,15 V55"/></g>
+          <path d="M15,35 H55" fill="none" stroke="#9a9a9a" stroke-width="3" stroke-linecap="round"/>
+          <path d="M55,35 L75,15 M55,35 L75,55" fill="none" stroke="#c8c8c8" stroke-width="2.5" stroke-dasharray="4 3"/>
+          <path d="M55,35 H75 M75,35 V15 M75,35 V55" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="55" cy="35" r="4" fill="#fff" stroke="#1f1f1f" stroke-width="2"/>
+          <circle cx="75" cy="15" r="4" fill="#fff" stroke="#16a34a" stroke-width="2.5"/>
+          <circle cx="75" cy="55" r="4" fill="#fff" stroke="#16a34a" stroke-width="2.5"/>
+        </svg>
+        <div class="t">移枝</div><div class="d">吊在外面的整團一起移</div>
+      </div>
+      <div class="bendcard">
+        <svg viewBox="0 0 110 70" role="img" aria-label="併格：空的行列合併掉">
+          <g stroke="#dedede" stroke-width="1"><path d="M15,15 H95 M15,35 H95 M15,55 H95 M15,15 V55 M35,15 V55 M55,15 V55 M75,15 V55 M95,15 V55"/></g>
+          <rect x="35" y="15" width="20" height="40" fill="#f1f1f1"/>
+          <path d="M45,20 V50" stroke="#d97706" stroke-width="2" stroke-dasharray="3 3"/>
+          <path d="M15,35 H35 M55,35 H95" fill="none" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+          <path d="M40,35 h10" stroke="#d97706" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="15" cy="35" r="4" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+          <circle cx="95" cy="35" r="4" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+        </svg>
+        <div class="t">併格</div><div class="d">沒有站的行列壓掉</div>
+      </div>
+    </div>
+    <p class="subtitle" style="margin-top:18px;">收斂後再跑一次「優化」，把同一條路線上的銳角換成直穿。這一段是<strong>純程式</strong>，不是 LLM。</p>
+  </section>
+
+  <!-- 6: LLM -->
+  <section class="slide" data-title="1–4 · LLM 的角色">
+    <div class="eyebrow"><span class="stepchip sall" title="本頁對應的管線階段"><span class="sw"></span>STEP 1–4 · 跨階段</span><span class="tag"><b>07</b>程式 vs skill</span><span class="rule"></span><span class="eng">CODE VS SKILL</span></div>
+    <h1 class="title">兩種求解者，寫法完全不同</h1>
+    <p class="subtitle">同一條管線上有兩種東西在算圖：<strong>程式</strong>把方法寫死，<strong>skill</strong> 只把契約寫死。<br/>skill 共 <strong>42</strong> 支（資料流內 13、外 29），由 <strong>13</strong> 個模型 × <strong>3</strong> 支命令列工具離線執行。</p>
+    <div class="widefig">
+      <svg viewBox="0 0 1060 190" role="img" aria-label="程式與 skill 的差別：程式是輸入到輸出寫死；skill 是程式出題、模型想解法、程式驗收">
+        <defs>
+          <marker id="ar2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="var(--muted)"/>
+          </marker>
+        </defs>
+        <text x="20" y="16" font-family="var(--mono)" font-size="12" fill="var(--muted)" letter-spacing="1">程式（確定性）</text>
+        <g fill="#fff" stroke="var(--border)" stroke-width="1.5">
+          <rect x="20" y="30" width="130" height="42" rx="7"/>
+          <rect x="200" y="30" width="150" height="42" rx="7"/>
+          <rect x="400" y="30" width="130" height="42" rx="7"/>
+        </g>
+        <g stroke="var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#ar2)">
+          <path d="M150,51 H196"/><path d="M350,51 H396"/>
+        </g>
+        <g fill="var(--ink)" font-size="14" font-weight="650">
+          <text x="36" y="56">輸入</text><text x="216" y="56">寫死的演算法</text><text x="416" y="56">輸出</text>
+        </g>
+        <text x="560" y="56" font-size="13" fill="var(--muted)">同輸入永遠同輸出・每一步可重播・改行為＝改碼</text>
+
+        <text x="20" y="106" font-family="var(--mono)" font-size="12" fill="var(--muted)" letter-spacing="1">skill（LLM 鏈）</text>
+        <g fill="#fff" stroke="var(--border)" stroke-width="1.5">
+          <rect x="20" y="120" width="130" height="42" rx="7"/>
+          <rect x="200" y="120" width="150" height="42" rx="7"/>
+          <rect x="400" y="120" width="130" height="42" rx="7"/>
+          <rect x="580" y="120" width="130" height="42" rx="7"/>
+        </g>
+        <g stroke-width="3" stroke-linecap="round">
+          <path d="M22,126 V156" stroke="var(--blue)"/><path d="M202,126 V156" stroke="#7c3aed"/>
+          <path d="M402,126 V156" stroke="var(--blue)"/><path d="M582,126 V156" stroke="var(--blue)"/>
+        </g>
+        <g stroke="var(--muted)" stroke-width="1.5" fill="none" marker-end="url(#ar2)">
+          <path d="M150,141 H196"/><path d="M350,141 H396"/><path d="M530,141 H576"/>
+        </g>
+        <path d="M465,162 V180 H236 V166" stroke="var(--muted)" stroke-width="1.5" fill="none" stroke-dasharray="5 4" marker-end="url(#ar2)"/>
+        <text x="480" y="177" font-size="12" fill="var(--muted)">沒過就退回重想</text>
+        <g fill="var(--ink)" font-size="14" font-weight="650">
+          <text x="36" y="146">程式出題</text><text x="216" y="146">模型想解法</text><text x="416" y="146">程式驗收</text><text x="596" y="146">落檔</text>
+        </g>
+        <g fill="var(--muted)" font-size="11.5">
+          <text x="36" y="160">匯出脈絡</text><text x="216" y="160">策略每次自己想</text><text x="416" y="160">硬規則檢查</text><text x="596" y="160">記模型與耗時</text>
+        </g>
+      </svg>
+    </div>
+    <div class="grid cols-2" style="margin-top:12px;">
+      <div class="card blue"><div class="label">程式</div><h3>方法寫死</h3><p>骨架化、網格化、論文①〜⑨、四步鏈循環、評價分數——規格寫在系統說明，程式是權威。</p></div>
+      <div class="card purple"><div class="label">skill</div><h3>只有契約寫死</h3><p>固定的是匯出格式、硬規則、結果檔；<strong>怎麼解每次由模型自己構思</strong>。所以只有快照級可重現，不與①〜⑨並列比效能。</p></div>
+    </div>
+  </section>
+
+  <!-- 8: LLM SKILLS —— 與「一條主幹，三條泳道」同一張圖，只把 skill chip 標上 -->
+  <section class="slide" data-title="2–4 · LLM skill">
+    <div class="eyebrow"><span class="stepchip sall" title="本頁對應的管線階段"><span class="sw"></span>STEP 2–4 · GRIDDING→FRAME</span><span class="tag"><b>08</b>LLM skill</span><span class="rule"></span><span class="eng">LLM SKILLS</span></div>
+    <h1 class="title">十支 LLM skill，各站在資料流的哪一格</h1>
+    <div class="widefig">
+      <svg viewBox="0 0 1060 400" role="img" aria-label="與資料流頁同一張圖：一條主幹三條泳道，紫格是有 LLM skill 的格子">
+        <defs>
+          <marker id="ar8-trunk" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--flow-trunk)"/></marker>
+          <marker id="ar8-grid" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--flow-grid)"/></marker>
+          <marker id="ar8-skel" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--flow-skel)"/></marker>
+          <marker id="ar8-work" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--flow-work)"/></marker>
+          <marker id="ar8-oneshot" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--flow-oneshot)"/></marker>
+        </defs>
+        <g font-family="var(--mono)" font-size="12" fill="var(--muted)" letter-spacing="1">
+          <text x="20" y="16">1 RAW MAPS</text>
+          <text x="400" y="16">2 GRIDDING</text>
+          <text x="620" y="16">3 STRAIGHTENING</text>
+          <text x="870" y="16">4 FRAME MAPS</text>
+        </g>
+        <g stroke="var(--flow-trunk)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M170,160 H196" marker-end="url(#ar8-trunk)"/>
+          <path d="M350,160 C378,160 378,76 396,76" marker-end="url(#ar8-trunk)"/>
+        </g>
+        <g stroke="var(--flow-grid)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M570,76 H616" marker-end="url(#ar8-grid)"/>
+          <path d="M820,76 H866" marker-end="url(#ar8-grid)"/>
+        </g>
+        <g stroke="var(--flow-skel)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M350,160 H396" marker-end="url(#ar8-skel)"/>
+          <path d="M570,160 H616" marker-end="url(#ar8-skel)"/>
+          <path d="M820,160 H866" marker-end="url(#ar8-skel)"/>
+        </g>
+        <g stroke="var(--flow-work)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M95,186 H109 Q121,186 121,198 V234 Q121,246 133,246 H396" marker-end="url(#ar8-work)"/>
+          <path d="M570,246 H616" marker-end="url(#ar8-work)"/>
+          <path d="M820,246 H866" marker-end="url(#ar8-work)"/>
+        </g>
+        <g stroke="var(--flow-oneshot)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M95,186 H81 Q69,186 69,198 V328 Q69,340 81,340 H616" marker-end="url(#ar8-oneshot)"/>
+          <path d="M820,340 H866" marker-end="url(#ar8-oneshot)"/>
+        </g>
+        <!-- 與第 03 頁同一組卡片；無 tag -->
+        <g fill="var(--card-bg)" stroke="var(--border)" stroke-width="1.5">
+          <rect x="20" y="130" width="150" height="56" rx="8"/>
+          <rect x="200" y="130" width="150" height="56" rx="8"/>
+          <rect x="400" y="48" width="170" height="56" rx="8"/>
+          <rect x="620" y="48" width="200" height="56" rx="8"/>
+        </g>
+        <g fill="var(--llm-fill)" stroke="var(--llm-stroke)" stroke-width="1.5">
+          <rect x="400" y="132" width="170" height="56" rx="8"/>
+          <rect x="400" y="216" width="170" height="56" rx="8"/>
+          <rect x="620" y="132" width="200" height="56" rx="8"/>
+          <rect x="620" y="216" width="200" height="56" rx="8"/>
+          <rect x="620" y="312" width="200" height="56" rx="8"/>
+          <rect x="870" y="48" width="170" height="56" rx="8"/>
+          <rect x="870" y="132" width="170" height="56" rx="8"/>
+          <rect x="870" y="216" width="170" height="56" rx="8"/>
+          <rect x="870" y="312" width="170" height="56" rx="8"/>
+        </g>
+        <g fill="var(--ink)" font-size="14" font-weight="650">
+          <text x="36" y="163">工作地圖</text>
+          <text x="216" y="163">骨架地圖</text>
+          <text x="416" y="81">網格地圖</text>
+          <text x="416" y="165">LLM 骨架地圖網格化 <tspan fill="var(--muted)" font-size="11" font-weight="600">×13</tspan></text>
+          <text x="416" y="249">LLM 工作地圖網格化 <tspan fill="var(--muted)" font-size="11" font-weight="600">×13</tspan></text>
+          <text x="636" y="81">論文①〜⑨ <tspan fill="var(--muted)" font-size="11" font-weight="600">×9</tspan></text>
+          <text x="636" y="165">LLM 直線化</text>
+          <text x="636" y="249">LLM 直線化</text>
+          <text x="636" y="345">LLM 工作地圖直線化 <tspan fill="var(--muted)" font-size="11" font-weight="600">×13</tspan></text>
+          <text x="886" y="70">Frame 路網</text>
+          <text x="886" y="154">Frame 路網</text>
+          <text x="886" y="238">Frame 路網</text>
+          <text x="886" y="334">Frame 路網</text>
+        </g>
+        <g fill="var(--muted)" font-size="11.5">
+          <text x="886" y="90">評價／互動／比較</text>
+          <text x="886" y="174">評價／互動／比較</text>
+          <text x="886" y="258">評價／互動／比較</text>
+          <text x="886" y="354">評價／互動／比較</text>
+        </g>
+      </svg>
+    </div>
+    <p class="subtitle" style="margin-top:12px;">紫格＝有 LLM skill。Frame 那三支是分析工具，不進計算管線、不會自動跑。鏈前依需求插 <strong>指定形狀</strong>；LLM 直線化泳道另可跑 <strong>網絡循環</strong>。下一頁寫評價／互動／比較怎麼用。</p>
+  </section>
+
+  <!-- 09: FRAME LLM HOW-TO -->
+  <section class="slide" data-title="4 · 評價／互動／比較">
+    <div class="eyebrow"><span class="stepchip s4" title="本頁對應的管線階段"><span class="sw"></span>STEP 4 · 4 FRAME MAPS</span><span class="tag"><b>09</b>評價／互動／比較</span><span class="rule"></span><span class="eng">FRAME LLM TOOLS</span></div>
+    <h1 class="title">Frame 上的三支 LLM，可以怎麼用</h1>
+    <p class="subtitle">都在 Frame Maps 右側按。系統不會自動跑。評價與互動寫完還要按「執行調整」才改畫面；比較只看不改。</p>
+    <div class="grid cols-3 frame-llm">
+      <div class="card purple">
+        <div class="label">評價</div>
+        <h3>請 AI 看這張版面</h3>
+        <p>右側按一下。AI 寫意見，必要時附上移動建議。原本的圖不會被改；要套用再按「執行調整」，也可以還原。</p>
+      </div>
+      <div class="card purple">
+        <div class="label">互動</div>
+        <h3>一句話改欄寬列高</h3>
+        <p>打一句話，例如「把市中心拉開一點」。站點格子不搬，只改各欄各列在畫面上的比例。跑完按「執行調整」才重畫。</p>
+      </div>
+      <div class="card purple">
+        <div class="label">比較</div>
+        <h3>一次評多張、指出贏家</h3>
+        <p>對照九種作法與可用的 LLM 直線化，寫優缺點並選較好的。只看不改，任何候選的座標都不會動。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10: HARD RULES -->
+  <section class="slide" data-title="2–3 · 硬規則">
+    <div class="eyebrow"><span class="stepchip sall" title="本頁對應的管線階段"><span class="sw"></span>STEP 2–3 · GRIDDING＋STRAIGHTENING</span><span class="tag"><b>10</b>硬規則</span><span class="rule"></span><span class="eng">INVARIANTS</span></div>
+    <h1 class="title">不管誰算，這四條不能違反</h1>
+    <div class="bendrow">
+      <div class="bendcard">
+        <svg viewBox="0 0 110 70" role="img" aria-label="唯一的移動關口">
+          <path d="M20,20 H44 M20,35 H44 M20,50 H44" stroke="#9a9a9a" stroke-width="2.5" stroke-linecap="round"/>
+          <rect x="48" y="12" width="14" height="46" rx="3" fill="#fff" stroke="#1f1f1f" stroke-width="2"/>
+          <path d="M66,35 H90" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="90" cy="35" r="4" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+        </svg>
+        <div class="t">唯一的移動關口</div><div class="d">誰要移站都走同一個檢查</div>
+      </div>
+      <div class="bendcard">
+        <svg viewBox="0 0 110 70" role="img" aria-label="整條管線零交叉">
+          <path d="M18,18 L52,52 M18,52 L52,18" stroke="#e11d48" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="35" cy="35" r="9" fill="none" stroke="#e11d48" stroke-width="2"/>
+          <path d="M60,35 H72" stroke="#9a9a9a" stroke-width="2" stroke-linecap="round"/>
+          <path d="M78,18 H100 M78,52 H100" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="t">整條管線零交叉</div><div class="d">網格化那關就修掉</div>
+      </div>
+      <div class="bendcard">
+        <svg viewBox="0 0 110 70" role="img" aria-label="直的不准變彎">
+          <path d="M14,26 H96" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="55" cy="26" r="4" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+          <path d="M14,52 H40 L55,44 L70,52 H96" fill="none" stroke="#c8c8c8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M44,58 L66,38" stroke="#e11d48" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <div class="t">直的不准變彎</div><div class="d">本來直穿的站不可變轉角</div>
+      </div>
+      <div class="bendcard">
+        <svg viewBox="0 0 110 70" role="img" aria-label="位移上限">
+          <circle cx="55" cy="35" r="22" fill="none" stroke="#c8c8c8" stroke-width="2" stroke-dasharray="4 3"/>
+          <circle cx="55" cy="35" r="3.5" fill="#9a9a9a"/>
+          <circle cx="69" cy="26" r="4.5" fill="#fff" stroke="#2563eb" stroke-width="2.5"/>
+          <path d="M55,35 L69,26" stroke="#2563eb" stroke-width="2"/>
+          <path d="M55,35 L92,14" stroke="#e11d48" stroke-width="2" stroke-dasharray="3 3"/>
+          <path d="M86,10 L96,20 M96,10 L86,20" stroke="#e11d48" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <div class="t">位移上限 20%</div><div class="d">離原位太遠一律不收</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8: PRESCRIBED SHAPE -->
+  <section class="slide" data-title="3 STRAIGHTENING · 指定形狀">
+    <div class="eyebrow"><span class="stepchip s3" title="本頁對應的管線階段"><span class="sw"></span>STEP 3 · 3 STRAIGHTENING</span><span class="tag"><b>11</b>指定形狀</span><span class="rule"></span><span class="eng">PRESCRIBED SHAPE</span></div>
+    <h1 class="title">有些路線規定要長成某個形狀</h1>
+    <p class="subtitle">環狀線畫成方框、河流拉成 45° 斜線——<strong>13</strong> 座城市有這種規定，達成了才准往下算。</p>
+    <div class="bendrow">
+      <div class="bendcard">
+        <svg viewBox="0 0 110 70" role="img" aria-label="正方形環線">
+          <rect x="28" y="14" width="44" height="44" fill="none" stroke="#d97706" stroke-width="3.5"/>
+          <circle cx="28" cy="14" r="3.5" fill="#fff" stroke="#d97706" stroke-width="2"/>
+          <circle cx="72" cy="14" r="3.5" fill="#fff" stroke="#d97706" stroke-width="2"/>
+          <circle cx="28" cy="58" r="3.5" fill="#fff" stroke="#d97706" stroke-width="2"/>
+          <circle cx="72" cy="58" r="3.5" fill="#fff" stroke="#d97706" stroke-width="2"/>
+        </svg>
+        <div class="t">正方形</div><div class="d">環狀線，如山手線</div>
+      </div>
+      <div class="bendcard">
+        <svg viewBox="0 0 110 70" role="img" aria-label="45 度斜線">
+          <path d="M22,58 L88,14" fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="22" cy="58" r="3.5" fill="#fff" stroke="#2563eb" stroke-width="2"/>
+          <circle cx="55" cy="36" r="3.5" fill="#fff" stroke="#2563eb" stroke-width="2"/>
+          <circle cx="88" cy="14" r="3.5" fill="#fff" stroke="#2563eb" stroke-width="2"/>
+        </svg>
+        <div class="t">45° 斜線</div><div class="d">河流，如多瑙河</div>
+      </div>
+      <div class="bendcard">
+        <svg viewBox="0 0 110 70" role="img" aria-label="水平線">
+          <path d="M18,36 H92" fill="none" stroke="#16a34a" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="18" cy="36" r="3.5" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+          <circle cx="55" cy="36" r="3.5" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+          <circle cx="92" cy="36" r="3.5" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+        </svg>
+        <div class="t">水平線</div><div class="d">整段拉平</div>
+      </div>
+      <div class="bendcard">
+        <svg viewBox="0 0 110 70" role="img" aria-label="垂直線">
+          <path d="M55,12 V60" fill="none" stroke="#16a34a" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="55" cy="12" r="3.5" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+          <circle cx="55" cy="36" r="3.5" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+          <circle cx="55" cy="60" r="3.5" fill="#fff" stroke="#16a34a" stroke-width="2"/>
+        </svg>
+        <div class="t">垂直線</div><div class="d">整段立直</div>
+      </div>
+      <div class="bendcard">
+        <svg viewBox="0 0 110 70" role="img" aria-label="任意輪廓">
+          <path d="M20,52 L34,20 L56,44 L74,16 L92,52" fill="none" stroke="#7c3aed" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20,58 L34,26 L56,50 L74,22 L92,58" fill="none" stroke="#c8c8c8" stroke-width="2" stroke-dasharray="4 3"/>
+        </svg>
+        <div class="t">任意輪廓</div><div class="d">照模板走，附容差</div>
+      </div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;">規定寫在<strong>地圖檔</strong>裡（不是寫在程式），模型讀規定自己想怎麼收；<strong>沒收成就不存檔</strong>，下游也就算不出來。</p>
+  </section>
+
+  <!-- 8b: ROTATED CITIES -->
+  <section class="slide" data-title="1–4 · 旋轉後計算">
+    <div class="eyebrow"><span class="stepchip sall" title="本頁對應的管線階段"><span class="sw"></span>STEP 1–4 · 從骨架起</span><span class="tag"><b>12</b>旋轉</span><span class="rule"></span><span class="eng">ROTATE THEN COMPUTE</span></div>
+    <h1 class="title">主軸歪的城市，可以轉正再算</h1>
+    <p class="subtitle">不是預覽一下——獨立城市檔（<code class="mono">-l33</code> 左轉、<code class="mono">-r39</code> 右轉）從<strong>骨架地圖起</strong>整條管線都在轉過的投影上算，結果與本體並列。</p>
+    <div class="grid cols-3">
+      <div class="card blue"><div class="label">不轉</div><h3>原始／工作地圖</h3><p>真實地理座標原封不動——轉了就不是實際路線。</p></div>
+      <div class="card purple"><div class="label">投影角</div><h3>骨架以後全轉</h3><p>網格化、九條鏈、循環、Frame、LLM 一律吃同一個投影角。</p></div>
+      <div class="card green"><div class="label">現役</div><h3>四座變體城</h3><p>紐約／紐約＋地標左轉 33°；巴塞隆納右轉 39°；伊斯坦堡右轉 42°。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;">這跟 Straightening 變體鍵 <code class="mono">rot</code>（已自清單移除）不是同一件事；規格見系統說明 <code class="mono">route-city-rotation</code>。</p>
+  </section>
+
+  <!-- 9: EVALUATION -->
+  <section class="slide" data-title="3 STRAIGHTENING · 怎麼比優劣">
+    <div class="eyebrow"><span class="stepchip s3" title="本頁對應的管線階段"><span class="sw"></span>STEP 3 · 3 STRAIGHTENING</span><span class="tag"><b>13</b>評價</span><span class="rule"></span><span class="eng">EVALUATION</span></div>
+    <h1 class="title">七個指標，加權排名</h1>
+    <div class="grid cols-4">
+      <div class="card green"><div class="label">01</div><h3>水平垂直線越多越好</h3></div>
+      <div class="card green"><div class="label">02</div><h3>45° 線段越多越好</h3></div>
+      <div class="card green"><div class="label">03</div><h3>同路線越直越好</h3></div>
+      <div class="card green"><div class="label">04</div><h3>銳角越少越好</h3></div>
+      <div class="card green"><div class="label">05</div><h3>總線段越短越好</h3></div>
+      <div class="card green"><div class="label">06</div><h3>網格越少越好</h3></div>
+      <div class="card green"><div class="label">07</div><h3>形狀越方正越好</h3></div>
+      <div class="card blue"><div class="label">結果</div><h3>最高分掛「最佳」</h3></div>
+    </div>
+    <p class="subtitle" style="margin-top:18px;">這是<strong>程式算的分數，不是請 LLM 評分</strong>；即時算、不落檔。</p>
+  </section>
+
+  <!-- 10: DATA -->
+  <section class="slide" data-title="1–4 · 資料怎麼存">
+    <div class="eyebrow"><span class="stepchip sall" title="本頁對應的管線階段"><span class="sw"></span>STEP 1–4 · 全管線</span><span class="tag"><b>14</b>落檔</span><span class="rule"></span><span class="eng">DATA ON DISK</span></div>
+    <h1 class="title">看得到的圖，都有一個檔</h1>
+    <div class="grid cols-3">
+      <div class="card blue"><div class="label">一對一</div><h3>圖層＝資料夾</h3><p>資料流圖上有節點，磁碟上就有那個資料夾，檔名照路徑串出來。</p></div>
+      <div class="card purple"><div class="label">一個檔一張圖</div><h3>中間過程不存</h3><p>會顯示出來的才落檔；要用的中間結果現算。</p></div>
+      <div class="card green"><div class="label">版本化</div><h3>永不刪除</h3><p>每次重算都寫新檔，舊版本留著可以回頭看。</p></div>
+    </div>
+  </section>
+
+  <!-- 11: VIEW + STACK -->
+  <section class="slide" data-title="殼層 · 畫面與技術">
+    <div class="eyebrow"><span class="stepchip" title="本頁對應的管線階段"><span class="sw"></span>系統殼層 · 視圖≡顯示</span><span class="tag"><b>15</b>畫面</span><span class="rule"></span><span class="eng">VIEW &amp; STACK</span></div>
+    <h1 class="title">縮圖與主視圖一定一樣</h1>
+    <p class="subtitle">畫廊卡、資料流節點縮圖、主畫布讀同一批檔案、用同一套幾何現畫——看到的就是算出來的。</p>
+    <div class="grid cols-3">
+      <div class="card blue"><div class="label">前端</div><h3>Vue 3 · Pinia · D3</h3><p>純前端算佈局，不依賴外部求解器。</p></div>
+      <div class="card purple"><div class="label">資料管線</div><h3>Node 腳本</h3><p>抓 OSM、組 GeoJSON、批次烘結果。</p></div>
+      <div class="card green"><div class="label">長期記憶</div><h3>42 支 skill</h3><p>規則寫成文件，模型與人照同一份做。</p></div>
+    </div>
+  </section>
+
+  <!-- 12: THE PROBLEM -->
+  <section class="slide" data-title="系統 · 要回應的問題">
+    <div class="eyebrow"><span class="stepchip" title="本頁對應的管線階段"><span class="sw"></span>系統目的</span><span class="tag"><b>16</b>問題</span><span class="rule"></span><span class="eng">THE PROBLEM</span></div>
+    <h1 class="title">這套系統要回應三個問題</h1>
+    <p class="subtitle">真實路網畫成示意圖時，版面會變、人要認得、還可能用一句話指定需求。</p>
+    <div class="grid cols-3">
+      <div class="card blue"><div class="label">01 · 演算法</div><h3>能不能自動重畫</h3><p>能不能依版面大小自動生成網絡圖，突顯重要、簡化次要？<br/><strong>→ 四階段管線＋movewise 四步鏈</strong></p></div>
+      <div class="card green"><div class="label">02 · 使用者</div><h3>還認得出來嗎</h3><p>版面變了，使用者認得出哪些內容被調整、對得回真實位置嗎？<br/><strong>→ 使用者評估（設計中）</strong></p></div>
+      <div class="card purple"><div class="label">03 · 人工智慧</div><h3>一句話調得動嗎</h3><p>能不能用自然語言指定需求、讓模型參與調整？<br/><strong>→ LLM 離線整合＋消融實驗</strong></p></div>
+    </div>
+    <p class="subtitle" style="margin-top:16px;">分工是刻意的：<strong>提案歸模型、合法性歸規則</strong>——正確性的下界由確定性演算法保證，所以主張不隨模型換代而失效。</p>
+  </section>
+
+  <!-- 13: HOW THE SYSTEM ANSWERS -->
+  <section class="slide" data-title="系統 · 怎麼回應">
+    <div class="eyebrow"><span class="stepchip" title="本頁對應的管線階段"><span class="sw"></span>系統目的</span><span class="tag"><b>17</b>回應</span><span class="rule"></span><span class="eng">HOW IT ANSWERS</span></div>
+    <h1 class="title">四件事對上那三個問題</h1>
+    <div class="grid cols-2">
+      <div class="card blue"><div class="label">01 · 問題 1</div><h3>通用演算法框架</h3><p>真實路網 → 響應式示意圖的確定性管線，全量驗證；版面一變就在新座標重解。</p></div>
+      <div class="card blue"><div class="label">02 · 問題 1</div><h3>movewise 四步鏈</h3><p>四種各守嚴格不變式的移動，全量收斂、秒級、每一步都能重播——可稽核是設計目標。</p></div>
+      <div class="card purple"><div class="label">03 · 問題 3</div><h3>LLM-in-the-loop 架構</h3><p>生成式 AI 畫流動網絡圖的方法架構；消融實測指出「拓撲收縮是模型能安全參與的分界線」。</p></div>
+      <div class="card green"><div class="label">04 · 資料</div><h3>全球尺度佈局基準</h3><p>統一 schema 的資料集＋九種經典演算法在同一約束下的結果，示意圖佈局能全量公平比較。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:16px;">問題 2（人還認不認得）目前靠使用者評估回答，設計中。</p>
+  </section>
+
+  <!-- 14: WHERE TO LOOK -->
+  <section class="slide closing" data-title="導覽 · 接著看哪裡">
+    <div class="eyebrow"><span class="stepchip" title="本頁對應的管線階段"><span class="sw"></span>導覽</span><span class="tag"><b>18</b>導覽</span><span class="rule"></span><span class="eng">WHERE TO LOOK</span></div>
+    <h1 class="title">接著可以看這些</h1>
+    <div class="grid cols-2">
+      <div class="card blue"><div class="label">系統內容</div><h3>系統介紹／系統架構</h3><p>完整版投影片與模組架構。</p></div>
+      <div class="card purple"><div class="label">資料流／Skills</div><h3>資料流圖・Skills</h3><p>資料怎麼流、每一步由誰算。</p></div>
+      <div class="card green"><div class="label">系統說明</div><h3>各演算法規格</h3><p>骨架化、網格化、四步鏈、畫線的細節。</p></div>
+      <div class="card amber"><div class="label">論文內容</div><h3>文獻與實驗</h3><p>相關文獻、實驗設計與評估結果。</p></div>
+    </div>
+  </section>
+
+</div><!-- /stage -->
+</div><!-- /deck -->
+</div><!-- /workspace -->
+
+<!-- 導覽＝獨立 tool-bar；footer＝檔案位置＋更新時間（右下） -->
+<div class="tool-bar slide-seek doc-chrome" role="toolbar" aria-label="投影片導覽">
+  <button class="btn-icon" id="prevBtn" type="button" aria-label="上一頁" title="上一頁 (←)">‹</button>
+  <div class="seekbar" id="seekbar" title="點擊跳到該頁">
+    <div class="seek-fill" id="seekFill"></div>
+    <div class="seek-knob" id="seekKnob"></div>
+    <div class="seek-tip" id="seekTip"></div>
+  </div>
+  <button class="btn-icon" id="nextBtn" type="button" aria-label="下一頁" title="下一頁 (→)">›</button>
+  <span class="counter" id="counter">1 / 17</span>
+</div>
+<footer class="status-bar doc-chrome" id="docFooter"></footer>
+<script src="../../_shared/doc-footer.js"></script>
+<script>
+  AdaptMetroDocFooter.bind('#docFooter', {
+    path: 'data/docs/system/brief/index.html',
+    url: './index.html',
+    updated: '2026-08-13',
+  });
+</script>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var STORAGE_KEY = 'brief-slides';
+  var PAGE_LS = 'adapt-metro:' + STORAGE_KEY + '-page';
+  // 頁碼：hash 優先，否則 localStorage（重新整理還原，同主頁 session 精神）
+  function savedPage1() {
+    var n = parseInt((location.hash || '').replace('#', ''), 10);
+    if (!isNaN(n) && n >= 1) return n;
+    try {
+      n = parseInt(localStorage.getItem(PAGE_LS) || '', 10);
+      if (!isNaN(n) && n >= 1) return n;
+    } catch (e) {}
+    if (window.AdaptMetroGSlides && AdaptMetroGSlides.readSavedPage) {
+      return AdaptMetroGSlides.readSavedPage(STORAGE_KEY, total);
+    }
+    return 1;
+  }
+  var idx = Math.max(0, Math.min(total - 1, savedPage1() - 1));
+
+  // 縮放／投影播放由 AdaptMetroGSlides（_shared/gslides.js）負責
+
+  // ---- 左側縮圖膠捲：每頁一張實時等比縮小的 clone，可點也可鍵盤跳頁 ----
+  var filmstrip = document.getElementById('filmstrip');
+  var thumbItems = [];
+  slides.forEach(function(s, i){
+    var item = document.createElement('div');
+    item.className = 'list-row filmstrip-item';
+    item.setAttribute('role', 'button');
+    item.tabIndex = 0;   // 全站可鍵盤操作：點得到就要 Tab 到得了
+    item.title = (i + 1) + '　' + (s.getAttribute('data-title') || '');
+    var num = document.createElement('span');
+    num.className = 'fs-num'; num.textContent = (i + 1);
+    var thumb = document.createElement('div');
+    thumb.className = 'thumb';
+    var inner = document.createElement('div');
+    inner.className = 'thumb-inner';
+    var clone = s.cloneNode(true);
+    clone.removeAttribute('id');
+    inner.appendChild(clone);
+    thumb.appendChild(inner);
+    item.appendChild(num); item.appendChild(thumb);
+    item.addEventListener('click', function(){ go(i); });
+    item.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(i); }
+    });
+    filmstrip.appendChild(item);
+    thumbItems.push(item);
+  });
+  function scaleThumbs(){
+    thumbItems.forEach(function(item){
+      var thumb = item.querySelector('.thumb'), inner = item.querySelector('.thumb-inner');
+      var w = thumb.clientWidth; if (w) inner.style.transform = 'scale(' + (w / 1280) + ')';
+    });
+  }
+  window.addEventListener('resize', scaleThumbs);
+  scaleThumbs();
+
+  var seekFill = document.getElementById('seekFill');
+  var seekKnob = document.getElementById('seekKnob');
+  var seekbar = document.getElementById('seekbar');
+  var seekTip = document.getElementById('seekTip');
+  var counterEl = document.getElementById('counter');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+
+  function clamp(n){ return Math.max(0, Math.min(total - 1, n)); }
+
+  function render(){
+    slides.forEach(function(s, i){ s.classList.toggle('active', i === idx); });
+    if (slides[idx]) slides[idx].scrollTop = 0;
+    counterEl.textContent = (idx + 1) + ' / ' + total;
+    var pct = (total <= 1) ? 100 : (idx / (total - 1) * 100);
+    seekFill.style.width = pct + '%';
+    seekKnob.style.left = pct + '%';
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === total - 1;
+    thumbItems.forEach(function(item, i){ item.classList.toggle('active', i === idx); });
+    if (thumbItems[idx]) thumbItems[idx].scrollIntoView({ block: 'nearest' });
+    var title = slides[idx].getAttribute('data-title') || '';
+    document.title = (title ? title + ' · ' : '') + '系統簡介 · Adapt-Metro';
+    history.replaceState(null, '', '#' + (idx + 1));
+  }
+
+  function persistPage() {
+    try { localStorage.setItem(PAGE_LS, String(idx + 1)); } catch (e) {}
+    if (window.AdaptMetroGSlides && AdaptMetroGSlides.writeSavedPage) {
+      AdaptMetroGSlides.writeSavedPage(STORAGE_KEY, idx + 1);
+    }
+  }
+  function go(n){
+    idx = clamp(n);
+    render();
+    persistPage();
+  }
+  function next(){ go(idx + 1); }
+  function prev(){ go(idx - 1); }
+
+  // seek bar：點哪一段就跳到那一張 slide；hover 顯示該位置的頁碼
+  function seekIndex(e){
+    var r = seekbar.getBoundingClientRect();
+    var f = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+    return clamp(Math.round(f * (total - 1)));
+  }
+  seekbar.addEventListener('click', function(e){ go(seekIndex(e)); });
+  seekbar.addEventListener('mousemove', function(e){
+    var r = seekbar.getBoundingClientRect();
+    var n = seekIndex(e);
+    seekTip.textContent = (n + 1) + ' / ' + total;
+    seekTip.style.left = ((e.clientX - r.left)) + 'px';
+  });
+
+  render();
+  persistPage();
+  // 縮放可能在 flex 量完尺寸後才 is-fitted——再叫一次 fit
+  if (window.AdaptMetroGSlides && AdaptMetroGSlides.fit) {
+    requestAnimationFrame(function () { AdaptMetroGSlides.fit(); });
+  }
+
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+  // 簡報模式（全螢幕）：點畫布前進、右鍵後退
+  var deckEl = document.getElementById('deck');
+  if (deckEl) {
+    deckEl.addEventListener('click', function(){ if (document.fullscreenElement) next(); });
+    deckEl.addEventListener('contextmenu', function(e){ if (document.fullscreenElement) { e.preventDefault(); prev(); } });
+  }
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') { e.preventDefault(); go(0); }
+    else if (e.key === 'End') { e.preventDefault(); go(total - 1); }
+    else if (e.key === 'f' || e.key === 'F') {
+      if (window.AdaptMetroGSlides && AdaptMetroGSlides.toggleFullscreen) AdaptMetroGSlides.toggleFullscreen();
+    }
+    else if (e.key === 'Escape' && document.fullscreenElement) { document.exitFullscreen(); }
+  });
+
+  var touchStartX = null;
+  document.addEventListener('touchstart', function(e){ touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', function(e){
+    if (touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 44) { dx < 0 ? next() : prev(); }
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+
+<script src="../../_shared/table-col-resize.js"></script>
+</body>
+</html>

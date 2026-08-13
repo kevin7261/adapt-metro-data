@@ -1,0 +1,11 @@
+{
+  "city": "Valparaíso",
+  "country": "Chile",
+  "continent": "south-america",
+  "osm_route_ids": [
+    1408080,
+    7114437
+  ],
+  "source": "https://www.urbanrail.net/am/valp/valparaiso.htm",
+  "note": "Valparaíso（urbanrail gap；Tren Limache–Puerto）。OSM 兩向曾把 Valencia 掛尾（role 空白）→ member_appends.replace_stops 校正（見 metro-cities）。重跑 fetchUrbanrailGap 會覆寫本檔（保留 wikipedia/wikidata／本 note 若被蓋掉以 metro-cities 為準）。"
+}

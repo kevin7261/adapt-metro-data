@@ -1,0 +1,29 @@
+{
+  "city": "Nizhniy Tagil",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    1615527,
+    1615636,
+    1660395,
+    1660396,
+    1660397,
+    1660398,
+    1660399,
+    1660400,
+    1660401,
+    1660402,
+    1660403,
+    1660404,
+    1660405,
+    1660406,
+    1660407,
+    1660408,
+    2170197,
+    2170198,
+    2170199,
+    2170200
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/nizhniy-tagil/nizhniy-tagil.htm",
+  "note": "Nizhniy Tagil（urbanrail gap；modes=tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔（保留 wikipedia/wikidata）。"
+}

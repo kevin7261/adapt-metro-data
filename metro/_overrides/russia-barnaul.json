@@ -1,0 +1,25 @@
+{
+  "city": "Barnaul",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    391573,
+    392039,
+    393013,
+    1856423,
+    1856424,
+    1858330,
+    1859937,
+    1860228,
+    1860230,
+    7065806,
+    7601653,
+    7621518,
+    7626856,
+    7626897
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/barnaul/barnaul.htm",
+  "wikipedia": "ru:Барнаульский трамвай",
+  "wikidata": "Q1968892",
+  "note": "Barnaul tram（urbanrail；營運 1/2/3/4/5/7/9/10）。wiki 釘 ru:Барнаульский трамвай／Q1968892。5 號雙向拼折返、7 號 Кордон 誤掛車廠端、9 號閉環後多掛 Больница шинного завода→member_appends。площадь/пл. Свободы→station_names。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata／member_appends。"
+}

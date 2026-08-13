@@ -1,0 +1,27 @@
+{
+  "city": "Gdansk",
+  "country": "Poland",
+  "continent": "europe",
+  "osm_route_ids": [
+    953254,
+    953269,
+    953276,
+    953277,
+    953278,
+    953317,
+    2216342,
+    3816221,
+    3816222,
+    5412686,
+    5412705,
+    5424493,
+    5587312,
+    5821630,
+    18114665,
+    18114666
+  ],
+  "wikipedia": "pl:Tramwaje w Gdańsku",
+  "wikidata": "Q1997403",
+  "source": "https://www.urbanrail.net/eu/pl/gdan/gdansk-tram.htm",
+  "note": "Gdansk（urbanrail gap；modes=tram）——ZTM／GAiT 日間 tram **2–12**（wiki／urbanrail＝11 線；無常規 1）。使用者 2026-07-27「抓錯」：各線 OSM 短交路／進場／Strzyża 截斷與不完整回程被 tram 合併串成折返（3／5／2 曾跳 7–9 km）。每線只留 wiki 全日幹線一對（或缺完整回程則單向）：2 Lawendowe↔Jelitkowo、3 Łostowice→Brzeźno、4 Lawendowe→Jelitkowo、5 Oliwa→Nowy Port Oliwska（回程經 Wczasy 不對稱）、6 Łostowice→Jelitkowo、7 Łostowice→Nowy Port、8 Jelitkowo↔Głęboka、9 Strzyża↔Głęboka、10 Brętowo→Nowy Port、11 Lawendowe↔Strzyża、12 Ujeścisko↔Zaspa。wiki 釘 Tramwaje w Gdańsku／Q1997403（勿用 Q9387123＝ZTM）。季節 60／63／68／N0／聖誕 1 與短交路→route_excludes。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata／本 note。"
+}

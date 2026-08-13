@@ -1,0 +1,29 @@
+{
+  "city": "Chemnitz",
+  "country": "Germany",
+  "continent": "europe",
+  "osm_route_ids": [
+    68055,
+    68067,
+    68068,
+    70670,
+    72580,
+    1809688,
+    1860361,
+    1860402,
+    1860419,
+    1862031,
+    2806129,
+    2956929,
+    7204220,
+    7204221,
+    7211720,
+    7795768,
+    7795769,
+    13751722
+  ],
+  "source": "https://www.urbanrail.net/eu/de/c/chemnitz.htm",
+  "wikipedia": "de:Straßenbahn Chemnitz",
+  "wikidata": "Q316708",
+  "note": "Chemnitz（urbanrail；CVAG tram 1–5＋City-Bahn C11/C13–C15）。不含 Parkeisenbahn Chemnitz（公園鐵 r409790→route_excludes）。wiki 釘 Straßenbahn Chemnitz（勿用 VMS＝Q1145755）。5 號 OSM 尾誤掛 Gablenz 造成 Hutholz→Gablenz 尖刺→member_appends。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata／member_appends。"
+}

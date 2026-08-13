@@ -1,0 +1,30 @@
+{
+  "city": "Novosibirsk",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    161212,
+    1715554,
+    1715555,
+    1722434,
+    1722435,
+    1722455,
+    1722456,
+    1722737,
+    1722738,
+    7514382,
+    9081920,
+    9082027,
+    9082089,
+    9082106,
+    9082107,
+    9082112,
+    9082113,
+    14060546,
+    14060547
+  ],
+  "wikipedia": "ru:Новосибирский метрополитен",
+  "wikidata": "Q272558",
+  "source": "https://www.urbanrail.net/eu/ru/novosib/novosibirsk-tram.htm",
+  "note": "Novosibirsk（使用者 2026-07-27「也要抓 tram」；2026-08-12「抓錯」續修）。метро 2 線（基準查詢）＋ трамвай 10 線（refs 2/3/8/10/11/13/14/15/16/18；urbanrail tram／ru:Новосибирский трамвай／Q1969459）。wiki 釘 Новосибирский метрополитен／Q272558（勿用 Ленинская линия 單線頁）。tram 8／13 站序見 member_appends（08-12 改為全日幹線，勿再砍中段）。gap modes=tram；override 豁免純 LRT 剔除。重跑 fetchUrbanrailGap 保留 wikipedia/wikidata／note／osm_route_ids。"
+}

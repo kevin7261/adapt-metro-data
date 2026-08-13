@@ -1,0 +1,13 @@
+{
+  "city": "Bergamo",
+  "country": "Italy",
+  "continent": "europe",
+  "osm_route_ids": [
+    399912,
+    2423981
+  ],
+  "source": "https://www.urbanrail.net/eu/it/berg/bergamo.htm",
+  "wikipedia": "it:Tranvia Bergamo-Albino",
+  "wikidata": "Q950794",
+  "note": "Bergamo（使用者 2026-07-26「抓錯」）＝只要 TEB **T1 Bergamo–Albino**（Tram delle Valli；16 站）。bbox 曾過大→誤收米蘭 M2（STIBM）與布雷西亞 Metro rid；wiki 被釘成 STIBM。task.modes=tram＋窄 bbox。Line 2（Villa d'Almè）建設中不收。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata。"
+}

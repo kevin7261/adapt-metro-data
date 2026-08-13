@@ -1,0 +1,15 @@
+{
+  "city": "Macau",
+  "country": "China",
+  "continent": "asia",
+  "osm_route_ids": [
+    10402162,
+    10402173,
+    18238277,
+    18238278,
+    18361945,
+    18361946
+  ],
+  "source": "https://www.urbanrail.net/",
+  "note": "Macau — purgeUrbanrailGapContamination.mjs 過濾跨城誤抓後重寫 (6→6 relations)。"
+}

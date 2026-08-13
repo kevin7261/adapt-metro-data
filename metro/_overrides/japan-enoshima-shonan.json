@@ -1,0 +1,13 @@
+{
+  "city": "Enoshima (Shonan)",
+  "country": "Japan",
+  "continent": "asia",
+  "osm_route_ids": [
+    1943301,
+    9499956
+  ],
+  "wikipedia": "ja:江ノ島電鉄",
+  "wikidata": "Q250760",
+  "source": "https://www.urbanrail.net/as/jp/shonan/shonan.htm",
+  "note": "Enoshima (Shonan)（urbanrail gap）。使用者 2026-07-27：曾誤掛横浜市営地下鉄ブルーライン（湘南台延伸進 bbox）→ 改只留江ノ島電鉄 r1943301/9499956；藍線歸 japan-yokohama.json。重跑保留 wikipedia/wikidata／osm_route_ids／note。"
+}

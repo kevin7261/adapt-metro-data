@@ -1,0 +1,21 @@
+{
+  "city": "Olsztyn",
+  "country": "Poland",
+  "continent": "europe",
+  "osm_route_ids": [
+    5659014,
+    5659015,
+    5659016,
+    15203533,
+    16942219,
+    16942220,
+    16942295,
+    16942296,
+    17803777,
+    17803778
+  ],
+  "wikipedia": "pl:Tramwaje w Olsztynie",
+  "wikidata": "Q9360990",
+  "source": "https://www.urbanrail.net/eu/pl/olsztyn/olsztyn.htm",
+  "note": "Olsztyn（urbanrail gap；modes=tram）——wiki 5 線。使用者 2026-07-27「抓錯」：1／3 缺終點、5 誤閉環、2 混 platform；replace_stops 依 pl/en wiki。重跑保留 wikipedia/wikidata。"
+}

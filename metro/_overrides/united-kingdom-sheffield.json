@@ -1,0 +1,17 @@
+{
+  "city": "Sheffield",
+  "country": "United Kingdom",
+  "continent": "europe",
+  "osm_route_ids": [
+    165852,
+    165857,
+    165858,
+    9701599,
+    9701743,
+    9701823,
+    9701871,
+    9701872
+  ],
+  "source": "https://www.urbanrail.net/eu/uk/sheff/sheffield.htm",
+  "note": "Sheffield（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

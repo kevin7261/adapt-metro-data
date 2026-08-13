@@ -1,0 +1,17 @@
+{
+  "city": "Bergen",
+  "country": "Norway",
+  "continent": "europe",
+  "osm_route_ids": [
+    7271947,
+    7271948,
+    14933911,
+    14933918
+  ],
+  "source": "https://www.urbanrail.net/eu/no/bergen/bergen.htm",
+  "note": "Bergen Bybane linje 1＋2 only（urbanrail gap）。剔除 Fyllingsdalen 施工階段 relation（見 route_excludes）。使用者 2026-07-26「卑爾根抓錯」。modes=subway|light_rail|tram；豁免純 LRT 剔除。",
+  "modes": [
+    "light_rail",
+    "tram"
+  ]
+}

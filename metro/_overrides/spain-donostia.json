@@ -1,0 +1,23 @@
+{
+  "city": "Donostia",
+  "country": "Spain",
+  "continent": "europe",
+  "osm_route_ids": [
+    7239351,
+    7241159,
+    7353798,
+    7353812,
+    10025159,
+    10025269,
+    10025311,
+    10025312,
+    10025404,
+    10025405,
+    10025406,
+    10025407,
+    10025408,
+    10025409
+  ],
+  "source": "https://www.urbanrail.net/eu/es/doss/donostia.htm",
+  "note": "Donostia（urbanrail gap；modes=subway|light_rail|tram|train）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔（保留 wikipedia/wikidata）。 | purged contamination 2026-07-25"
+}

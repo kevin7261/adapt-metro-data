@@ -1,0 +1,19 @@
+{
+  "city": "Tomsk",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    11657209,
+    16189780,
+    16189832,
+    16189833,
+    16197589,
+    16197590,
+    16198591,
+    16198592,
+    16198645,
+    16198646
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/tomsk/tomsk.htm",
+  "note": "Tomsk（urbanrail gap；modes=tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔（保留 wikipedia/wikidata）。"
+}

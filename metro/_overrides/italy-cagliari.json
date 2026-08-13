@@ -1,0 +1,13 @@
+{
+  "city": "Cagliari",
+  "country": "Italy",
+  "continent": "europe",
+  "osm_route_ids": [
+    386395,
+    5252356
+  ],
+  "wikipedia": "it:Rete tranviaria di Cagliari",
+  "wikidata": "Q1548435",
+  "source": "https://www.urbanrail.net/eu/it/cagl/cagliari.htm",
+  "note": "Cagliari／MetroCagliari（urbanrail gap；modes=light_rail）＝ARST **1／2**（Linea 3 建設中不收）。使用者 2026-07-27「抓錯」：①wiki 曾誤綁 Q112081451＝單線 1→改系統條目 Q1548435；②№2 OSM 成員序錯（Selargius 跑到 Gottardo 後）＋對向糊成一團→只留 r5252356＋replace_stops Settimo→Camelie→Gottardo；③Centro Commerciale 2025-10-27 起 soppressa（it wiki）→№1 replace_stops 剔除。對向 2176550／5252355→route_excludes。重跑 fetchUrbanrailGap 請保留 wikipedia/wikidata／本 note。"
+}

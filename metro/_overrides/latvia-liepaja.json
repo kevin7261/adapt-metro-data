@@ -1,0 +1,12 @@
+{
+  "city": "Liepaja",
+  "country": "Latvia",
+  "continent": "europe",
+  "osm_route_ids": [
+    15698531
+  ],
+  "source": "https://www.urbanrail.net/eu/lv/liepa/liepaja.htm",
+  "wikipedia": "en:Trams in Liepāja",
+  "wikidata": "Q22673722",
+  "note": "Liepāja（使用者 2026-07-27「urbanrail抓錯／地圖少抓」）＝Liepājas tramvajs 1 線 18 站（Brīvības–Mirdzas Ķempes）。OSM 漏 Dzelzceļnieku／Rožu→member_appends.replace_stops。urbanrail 曾誤抓歷史軌道街圖→改存正確 liepaja-map.png（*.urbanrail.png）；official 釘 Commons 2020 示意圖。重跑請保留 wikipedia/wikidata／本 note。"
+}

@@ -1,0 +1,20 @@
+{
+  "city": "Plzen",
+  "country": "Czechia",
+  "continent": "europe",
+  "osm_route_ids": [
+    1995932,
+    1995933,
+    3430331,
+    3430332,
+    3430557,
+    3430558,
+    10427674,
+    10427675,
+    14668682,
+    14668713,
+    14722301
+  ],
+  "source": "https://www.urbanrail.net/eu/cz/plzen/plzen.htm",
+  "note": "Plzen（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

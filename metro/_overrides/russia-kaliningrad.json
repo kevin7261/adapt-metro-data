@@ -1,0 +1,15 @@
+{
+  "city": "Kaliningrad",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    13118859,
+    13118860,
+    14999192,
+    14999193
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/kaliningrad/kaliningrad.htm",
+  "wikipedia": "en:Trams in Kaliningrad",
+  "wikidata": "Q574164",
+  "note": "Kaliningrad（使用者 2026-07-29「eu-rus-kaliningrad抓錯」）＝tram №3＋№5（urbanrail 2 線；№3 2022-12 復駛）。№5 OSM 成員錯亂→tram 合併 64 站折返；№3 對向殘缺。member_appends.replace_stops 兩線各兩向同序（Бассейная→Дюнная／ЦПКиО→Южный）。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata／本 note。"
+}

@@ -1,0 +1,11 @@
+{
+  "city": "Zhytomyr",
+  "country": "Ukraine",
+  "continent": "europe",
+  "osm_route_ids": [
+    8169280,
+    18271769
+  ],
+  "source": "https://www.urbanrail.net/eu/ua/zhytomyr/zhytomyr.htm",
+  "note": "Zhytomyr（urbanrail gap tram；id-fetch）"
+}

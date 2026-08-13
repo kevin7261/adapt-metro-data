@@ -1,0 +1,32 @@
+{
+  "city": "Ulyanovsk",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    2336329,
+    2694563,
+    3392975,
+    3891251,
+    3987416,
+    4443860,
+    4659504,
+    5640260,
+    7095017,
+    7095091,
+    14106849,
+    18241007,
+    18241008,
+    18243279,
+    18245318,
+    18245319,
+    18245320,
+    18245321,
+    18245322,
+    18245323,
+    18245361,
+    18245362,
+    18245430
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/ulyanovsk/ulyanovsk.htm",
+  "note": "Ulyanovsk（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

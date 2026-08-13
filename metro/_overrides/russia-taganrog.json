@@ -1,0 +1,25 @@
+{
+  "city": "Taganrog",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    367546,
+    367548,
+    3258439,
+    3258551,
+    3258571,
+    3258574,
+    3258581,
+    3258582,
+    3258587,
+    3258590,
+    3258596,
+    3258599,
+    3272062,
+    3272066,
+    3285145,
+    14644778
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/taganrog/taganrog.htm",
+  "note": "Taganrog（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

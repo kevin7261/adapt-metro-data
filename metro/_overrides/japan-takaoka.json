@@ -1,0 +1,12 @@
+{
+  "city": "Takaoka",
+  "country": "Japan",
+  "continent": "asia",
+  "osm_route_ids": [
+    10325944
+  ],
+  "wikipedia": "ja:万葉線",
+  "wikidata": "Q1582213",
+  "source": "https://www.urbanrail.net/as/jp/takaoka/takaoka.htm",
+  "note": "Takaoka（使用者 2026-07-27「抓錯」）＝万葉線 1 線（高岡駅↔越ノ潟，wiki／urbanrail 25 站）。新湊港線 r10325986→route_excludes（併進 r10325944 replace_stops）。補末広町・海王丸、校正第一イン站序。重跑請保留 wikipedia/wikidata／本 note。"
+}

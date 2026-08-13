@@ -1,0 +1,17 @@
+{
+  "city": "Khabarovsk",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    1805888,
+    1805889,
+    1805890,
+    1805891,
+    1805892,
+    1805893
+  ],
+  "wikipedia": "ru:Хабаровский трамвай",
+  "wikidata": "Q938789",
+  "source": "https://www.urbanrail.net/eu/ru/khabarovsk/khabarovosk.htm",
+  "note": "Khabarovsk（urbanrail gap；modes=tram）——wiki 現行 1／2／5。使用者 2026-07-27「抓錯」：補 5；replace_stops 清 2 號 Гастелло 錯位＋tram_crossing；補 network＋synth master 5。重跑保留 wikipedia/wikidata。"
+}

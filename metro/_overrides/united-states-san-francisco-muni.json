@@ -1,0 +1,23 @@
+{
+  "city": "San Francisco Muni",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    63223,
+    63250,
+    2124174,
+    2877693,
+    3433311,
+    3433312,
+    3433314,
+    3433316,
+    3435875,
+    3435877,
+    6071916,
+    6071917
+  ],
+  "wikipedia": "en:San Francisco Municipal Railway",
+  "wikidata": "Q1370206",
+  "source": "https://www.urbanrail.net/am/snfr/san-francisco.htm",
+  "note": "舊金山 Muni Metro（J/K/L/M/N/S/T）——中介桶，供 buildSanFranciscoVariants 產出 舊金山（na-usa-san-francisco＝BART＋Muni）與 舊金山 LRT（na-usa-san-francisco-lrt，純 Muni）。不進前端 index（sfvariants 會刪）。使用者 2026-07-27：與 BART 分檔。使用者 2026-08-05「K M怪怪的」：K／M 返向 r63572／91022→route_excludes；K／M／L outbound 末尾空 role Castro→member_appends.replace_stops。同日合併 id＝na-usa-san-francisco、LRT id＝…-lrt。"
+}

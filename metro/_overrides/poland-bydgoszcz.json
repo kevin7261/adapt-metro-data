@@ -1,0 +1,31 @@
+{
+  "city": "Bydgoszcz",
+  "country": "Poland",
+  "continent": "europe",
+  "osm_route_ids": [
+    17952671,
+    17967233,
+    18052933,
+    18052934,
+    18052937,
+    18052938,
+    18052939,
+    18052940,
+    18052941,
+    18052942,
+    18052943,
+    18052944,
+    18052945,
+    18052946,
+    18052947,
+    18052948,
+    20085432,
+    20085433,
+    20085435,
+    20085436
+  ],
+  "source": "https://www.urbanrail.net/eu/pl/bydg/bydgoszcz.htm",
+  "wikipedia": "pl:Tramwaje w Bydgoszczy",
+  "wikidata": "Q933188",
+  "note": "Bydgoszcz（使用者 2026-07-26「抓錯」）＝ZDMiKP／MZK 日間 tram **2–11**（urbanrail／wiki＝11 線；**1 號**因 Las Gdański 整修 2026-01 起 OSM 無營運 relation）。不含施工短交路 *z（→Kazimierza Wielkiego）與臨時延長 10A／11A→route_excludes。OSM stop 成員序嚴重錯亂（示意圖跨城直線）→ member_appends.replace_stops 依 ZDMiKP GTFS 2026-07-07 站序覆寫；**6 號** OSM 仍標 Łęgnowo、現行終點 Wyścigowa。wiki 釘 Tramwaje w Bydgoszczy（勿用 ZDMiKP 機構頁）。task.modes=tram。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata／本 note。"
+}

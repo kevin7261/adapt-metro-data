@@ -1,0 +1,47 @@
+{
+  "note": "台灣高速公路 wiki 里程表裁決——OSM 有／wiki 缺、或 wiki 有／OSM 無（上游無 motorway_junction）時標記，避免 verify 假性 warn。",
+  "missing_ok": [
+    {
+      "ref": "66",
+      "name": "平鎮一交流道",
+      "note": "OSM 無 motorway_junction 名為平鎮一；上游缺節點，非抓取錯誤"
+    }
+  ],
+  "extra_ok": [
+    {
+      "ref": "4",
+      "name": "潭子系統交流道",
+      "note": "國4／台74 共構系統交流道；wiki 國4 表只列潭子交流道，系統交流道在台74 表"
+    },
+    {
+      "ref": "74",
+      "name": "西屯三交流道",
+      "note": "OSM 有、wiki 台74 表未列（或異名）"
+    },
+    {
+      "ref": "62",
+      "name": "八斗子交流道",
+      "note": "OSM 有；wiki 台62 表未列或異名"
+    },
+    {
+      "ref": "68",
+      "name": "新竹一交流道",
+      "note": "OSM 有；wiki 台68 表未列"
+    },
+    {
+      "ref": "68",
+      "name": "竹東端",
+      "note": "路線端點；wiki 表常省略端點"
+    },
+    {
+      "ref": "65",
+      "name": "泰山交流道",
+      "note": "OSM 有；wiki 台65 表以五股端→土城二為主，泰山／土城異名或漏列"
+    },
+    {
+      "ref": "65",
+      "name": "土城交流道",
+      "note": "OSM 有；wiki 台65 列土城二，土城交流道為異名／舊名"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "city": "Sarajevo",
+  "country": "Bosnia and Herzegovina",
+  "continent": "europe",
+  "osm_route_ids": [
+    2171296,
+    2530510,
+    2534968,
+    3279172,
+    3279204,
+    3281834,
+    3281835,
+    3284410,
+    3284411,
+    3285669,
+    3285944,
+    3285975
+  ],
+  "wikipedia": "en:Trams in Sarajevo",
+  "wikidata": "Q1520654",
+  "source": "https://www.urbanrail.net/eu/ba/sarajevo/sarajevo.htm",
+  "note": "Sarajevo（使用者 2026-07-27「抓錯」）。gras.ba／en wiki＝GRAS tram 1–6（Baščaršija／Željeznička／Čengić Vila／Ilidža／Nedžarići／Skenderija 走廊）。wiki infobox 仍列 Route 7（Nedžarići↔Skenderija）但 gras.ba sektori 與 OSM 皆無 ref=7→不收。OSM tram 6（r2530510／3285975）漏 Skenderija 停靠成員→member_appends；Čengić vila Terminus→Čengić vila（station_names）。重跑 fetchUrbanrailGap 請保留 wikipedia/wikidata／note。"
+}

@@ -1,0 +1,13 @@
+{
+  "city": "Las Vegas",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    5936155,
+    5936157
+  ],
+  "source": "https://www.urbanrail.net/am/lveg/las-vegas.htm",
+  "wikipedia": "en:Las Vegas Monorail",
+  "wikidata": "Q935072",
+  "note": "拉斯維加斯＝Las Vegas Monorail（OSM route=monorail，7 站 MGM Grand↔SAHARA）。urbanrail 頁只有單軌；modes=[monorail] 勿含 tram（會誤收 Aria Express／Mandalay Bay Tram）。站名見 station_names（官網 lvmonorail.com）。使用者 2026-07-25 抓錯修正。"
+}

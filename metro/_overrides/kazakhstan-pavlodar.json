@@ -1,0 +1,11 @@
+{
+  "city": "Pavlodar",
+  "country": "Kazakhstan",
+  "continent": "asia",
+  "osm_route_ids": [
+    20078238,
+    20238276
+  ],
+  "source": "https://www.urbanrail.net/as/kz/pavlodar/pavlodar.htm",
+  "note": "Pavlodar（urbanrail gap tram；id-fetch）"
+}

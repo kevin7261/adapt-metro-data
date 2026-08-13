@@ -1,0 +1,250 @@
+/* 全站靜態頁共用 header——視覺／Frame 對齊 src/components/TopToolbar.vue。
+   色值一律吃 tokens.css（與主應用同一份），禁再抄一份 --app-*。 */
+.app-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 6px 12px;
+  flex-shrink: 0;
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-width: 0;
+  overflow: visible;
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+}
+.app-toolbar .brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px 0 4px;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: hsl(var(--foreground));
+  border: none;
+  background: transparent;
+}
+.app-toolbar .brand:hover { color: hsl(var(--foreground)); background: transparent; }
+.app-toolbar .brand .m-icon { color: hsl(var(--primary)); }
+
+.app-toolbar .toolbar-end {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+.app-toolbar .nav-wide {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+.app-toolbar .nav-narrow { display: none; }
+
+.app-toolbar .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+  padding: 0 11px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-size: var(--fs-md);
+  font-weight: 500;
+  white-space: nowrap;
+  color: hsl(var(--muted-foreground));
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+}
+.app-toolbar .btn-ghost:hover {
+  background: transparent;
+  color: hsl(var(--foreground));
+  border-color: transparent;
+}
+.app-toolbar .btn-ghost.active {
+  color: hsl(var(--list-fg-active));
+  background: hsl(var(--primary) / 0.16);
+}
+.app-toolbar .btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  color: hsl(var(--muted-foreground));
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: inherit;
+}
+.app-toolbar .btn-icon:hover { color: hsl(var(--foreground)); }
+.app-toolbar .theme-toggle { flex-shrink: 0; }
+.app-toolbar .lang-toggle {
+  gap: 3px !important;
+  padding: 0 9px !important;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  border-color: hsl(var(--border)) !important;
+  flex-shrink: 0;
+}
+.app-toolbar .lang-opt {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+  opacity: 0.55;
+}
+.app-toolbar .lang-opt.on {
+  color: hsl(var(--foreground));
+  font-weight: 700;
+  opacity: 1;
+}
+.app-toolbar .lang-sep {
+  font-size: var(--fs-xs);
+  color: hsl(var(--muted-foreground));
+  opacity: 0.45;
+}
+.app-toolbar .info-wrap,
+.app-toolbar .docs-wrap,
+.app-toolbar .more-wrap { position: relative; flex-shrink: 0; }
+.app-toolbar .m-icon {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+  -webkit-font-feature-settings: 'liga';
+  transition: none;
+}
+.app-toolbar .menu-pop {
+  position: absolute;
+  z-index: 200;
+  top: 36px;
+  right: 0;
+  left: auto;
+  min-width: 220px;
+  max-width: min(300px, calc(100vw - 24px));
+  background: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg, var(--shadow));
+  padding: 4px;
+  font-size: var(--fs-md);
+}
+.app-toolbar .menu-pop.links-menu {
+  --menu-w-min: min(360px, calc(100vw - 24px));
+  --menu-w-max: min(420px, calc(100vw - 24px));
+}
+.app-toolbar .menu-pop[hidden] { display: none; }
+.app-toolbar .menu-label {
+  padding: 6px 8px 3px;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  color: hsl(var(--muted-foreground));
+  letter-spacing: 0.02em;
+}
+/* 相關連結：標題＋白話＋細節 */
+.app-toolbar .related-link {
+  height: auto;
+  min-height: 0;
+  align-items: stretch;
+  padding: 0;
+}
+.app-toolbar .related-link-hit {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  padding: 8px 10px;
+  white-space: normal;
+  line-height: 1.35;
+  height: auto;
+  min-height: 0;
+}
+.app-toolbar .related-link-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: var(--fw-medium);
+  color: hsl(var(--foreground));
+}
+.app-toolbar .related-link-blurb {
+  font-size: var(--fs-sm);
+  color: hsl(var(--foreground));
+}
+.app-toolbar .related-link-detail {
+  font-size: var(--fs-xs);
+  color: hsl(var(--muted-foreground));
+}
+/* 列結構與 DocMenuPop／style.css 同構（.menu-item > .menu-item-hit）；樣式吃 design-shell */
+
+/* ≤1100：平鋪連結 →「更多」 */
+@media (max-width: 1100px) {
+  .app-toolbar .nav-wide { display: none; }
+  .app-toolbar .nav-narrow { display: block; }
+}
+/* ≤720：藏品牌文字 */
+@media (max-width: 720px) {
+  .app-toolbar .brand-name { display: none; }
+  .app-toolbar { padding: 6px 8px; gap: 4px; }
+}
+/* header 項目一律帶 icon（與 TopToolbar.vue 同步；窄屏藏 .lbl 後仍靠它辨識） */
+.app-toolbar .skills-ico { display: inline-block; flex-shrink: 0; }
+.app-toolbar .btn-ghost .m-icon[style*='14px'] { opacity: 0.75; flex-shrink: 0; }
+/* ≤520：Skills／更多改圖示為主；文件／相關連結留 ∨ */
+@media (max-width: 520px) {
+  .app-toolbar .btn-ghost { padding: 0 8px; }
+  .app-toolbar .lbl { display: none; }
+  .app-toolbar .more-btn { padding: 0 8px; }
+  .app-toolbar .docs-wrap .m-icon,
+  .app-toolbar .info-wrap .m-icon { opacity: 1; }
+  .app-toolbar .lang-toggle { padding: 0 7px !important; }
+  .app-toolbar .lang-toggle .lang-opt,
+  .app-toolbar .lang-toggle .lang-sep { display: inline; }
+}
+
+/* /doc iframe 內嵌：只藏第二層 header——勿改 gslides／gdocs 版面（禁 flex 重排） */
+html.embed .app-toolbar,
+body.embed .app-toolbar,
+.app-toolbar[hidden] { display: none !important; }
+
+/* 跳到主內容——與主應用 src/style.css 的 .skip-link 同一份規則（靜態文件頁由
+   app-toolbar.js 的 ensureSkipLink 注入）。平常收在畫面外，只有鍵盤聚焦才滑進來。 */
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 8px 12px;
+  font-size: var(--fs-sm);
+  color: hsl(var(--primary-foreground));
+  background: hsl(var(--primary));
+  border-radius: 0 0 var(--radius-sm) 0;
+  transform: translateY(-130%);
+  transition: transform 120ms ease;
+}
+.skip-link:focus-visible {
+  transform: translateY(0);
+}

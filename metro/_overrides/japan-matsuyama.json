@@ -1,0 +1,16 @@
+{
+  "city": "Matsuyama",
+  "country": "Japan",
+  "continent": "asia",
+  "osm_route_ids": [
+    2309633,
+    2309634,
+    8900000003,
+    2309655,
+    5335064
+  ],
+  "wikipedia": "ja:伊予鉄道",
+  "wikidata": "Q112337797",
+  "source": "https://www.urbanrail.net/as/jp/matsuyama/matsuyama.htm",
+  "note": "Matsuyama（urbanrail gap；modes=tram）＝伊予鉄市内電車 **1／2／3／5／6**（無 4）。使用者 2026-07-27「抓錯」：OSM 缺 3 系統→synthetic r8900000003；1／2 環状 JR／大手町顛倒＋北段序錯；5 漏市役所前／大街道／勝山町。replace_stops 依 ja wiki 電停數（1／2＝21、3＝11、5＝13、6＝7）。wiki 釘 Q112337797（勿用 Q140305924＝花園線）。重跑保留 wikipedia/wikidata／synthetic rid。"
+}

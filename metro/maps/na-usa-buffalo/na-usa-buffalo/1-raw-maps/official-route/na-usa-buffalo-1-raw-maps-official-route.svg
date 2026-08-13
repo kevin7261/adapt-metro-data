@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="750" height="1550" version="1.1" viewBox="0 0 750 1550" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(0 427.48)" fill="none">
+  <path d="m71.651 1085-5.0375-2.9084s-7.3493-4.243-10.597-12.083-1.0512-16.038-1.0512-16.038l95.095-354.9s1.7037-6.3585 4.9949-12.059 7.946-10.355 7.946-10.355l276.4-276.4s7.0328-7.0328 10.839-16.221 3.806-19.134 3.806-19.134l2.2e-4 -379.29s-2e-5 -10.355 7.3223-17.678 17.678-7.3223 17.678-7.3223l85.566 4.6e-5s6.6988 3e-6 12.5-3.3493 9.1506-9.1507 9.1506-9.1507l23.066-39.952s3.3494-5.8013 9.1506-9.1506c5.8012-3.3493 12.5-3.3493 12.5-3.3493l35.566 1e-5s10.355 1e-5 17.678-7.3223 7.3223-17.678 7.3223-17.678l1e-5 -39.645s1e-5 -4.9729 1.903-9.5671 5.4194-8.1106 5.4194-8.1106l32.146-32.146s6.0008-6.0008 7.1085-14.414-3.1355-15.763-3.1355-15.763l-15.408-26.688s-9.1237-15.865-10.796-22.107-1.7036-12.941-1.7036-12.941l3e-5 -61.602" stroke="#fdba61" stroke-width="12"/>
+  <g stroke="#fff">
+   <g stroke-width="3">
+    <path transform="translate(0 -427.48)" d="m591.55 366.46 17.783-30.801s3.3494-5.8013 9.1506-9.1506 12.5-3.3493 12.5-3.3493l35.566 1e-5s10.355 1e-5 17.678-7.3223 7.3223-17.678 7.3223-17.678l1e-5 -39.645s1e-5 -4.9729 1.903-9.5671 5.4194-8.1106 5.4194-8.1106l32.146-32.146s6.0008-6.0008 7.1085-14.414-3.1355-15.763-3.1355-15.763l-15.408-26.688s-9.1237-15.865-10.796-22.107-1.7036-12.941-1.7036-12.941l3e-5 -61.602"/>
+    <path transform="translate(0 -427.48)" d="m454.05 763.11 2.1e-4 -350s-2e-5 -10.355 7.3223-17.678 17.678-7.3223 17.678-7.3223l74.999 4e-5"/>
+    <path transform="translate(0 -427.48)" d="m71.651 1512.5-5.0375-2.9084s-7.3493-4.243-10.597-12.083-1.0512-16.038-1.0512-16.038l40.329-150.51"/>
+   </g>
+   <path transform="translate(0 -427.48)" d="m450.24 811.53c3.8059-9.1883 3.806-19.134 3.806-19.134l2.2e-4 -379.29s-2e-5 -10.355 7.3223-17.678 17.678-7.3223 17.678-7.3223l85.566 5e-5s6.6988 0 12.5-3.3493 9.1506-9.1507 9.1506-9.1507l23.066-39.952s3.3494-5.8013 9.1506-9.1506 12.5-3.3493 12.5-3.3493l35.566 1e-5s10.355 1e-5 17.678-7.3223 7.3223-17.678 7.3223-17.678l1e-5 -39.645s1e-5 -4.9729 1.903-9.5671 5.4194-8.1106 5.4194-8.1106l32.146-32.146s6.0008-6.0008 7.1085-14.414-3.1355-15.763-3.1355-15.763l-15.408-26.688s-9.1237-15.865-10.796-22.107-1.7036-12.941-1.7036-12.941l3e-5 -61.602" stroke-dasharray="7, 7" stroke-opacity=".53333" stroke-width="14"/>
+  </g>
+ </g>
+ <g transform="translate(0 427.48)">
+  <g fill="none" stroke="#000" stroke-width="2">
+   <path d="m137.3 895.37h-15l-39.943 56.408"/>
+   <path d="m126.94 934.01h-15l-36.061 41.919"/>
+   <path d="m116.59 972.65h-15l-32.179 27.43"/>
+   <path d="m106.24 1011.3h-15l-28.296 12.941"/>
+   <path d="m95.884 1049.9h-15l-24.414-1.548"/>
+   <path d="m85.532 1088.6h-15l-14.516-18.529"/>
+  </g>
+  <g fill="#080" stroke="#000" stroke-width="4">
+   <circle cx="56.016" cy="1070" r="10"/>
+   <circle cx="56.47" cy="1048.4" r="10"/>
+   <circle cx="62.941" cy="1024.2" r="10"/>
+   <circle cx="69.411" cy="1000.1" r="10"/>
+   <circle cx="75.882" cy="975.93" r="10"/>
+   <circle cx="82.352" cy="951.78" r="10"/>
+  </g>
+  <g fill="#fff" stroke-width="4">
+   <g stroke="#000">
+    <circle cx="114.7" cy="831.04" r="10"/>
+    <circle cx="127.65" cy="782.74" r="10"/>
+    <circle cx="140.59" cy="734.45" r="10"/>
+    <circle cx="206.56" cy="633.12" r="10"/>
+    <circle cx="259.59" cy="580.08" r="10"/>
+    <circle cx="347.98" cy="491.7" r="10"/>
+    <circle cx="450.24" cy="384.05" r="10"/>
+    <circle cx="401.01" cy="438.66" r="10"/>
+   </g>
+   <g stroke="#888">
+    <circle cx="454.05" cy="110.63" r="10"/>
+    <circle cx="454.05" cy="210.63" r="10"/>
+    <circle cx="454.05" cy="10.631" r="10"/>
+    <circle cx="529.05" cy="-39.369" r="10"/>
+    <circle cx="604.05" cy="-82.67" r="10"/>
+    <circle cx="666.55" cy="-104.32" r="10"/>
+    <circle cx="691.55" cy="-154.32" r="10"/>
+    <circle cx="709.23" cy="-197" r="10"/>
+    <circle cx="707.08" cy="-372.3" r="10"/>
+    <circle cx="719.58" cy="-275.65" r="10"/>
+   </g>
+  </g>
+ </g>
+ <g transform="translate(0 427.48)" font-family="sans-serif" font-size="40px" word-spacing="0px">
+  <text x="106.06087" y="1030.6011" fill="#000000" letter-spacing="0px" stroke="#ffffff" stroke-width="3" style="line-height:1.25" xml:space="preserve"><tspan x="106.06087" y="1030.6011">Seneca</tspan></text>
+  <text x="95.708107" y="1069.238" fill="#000000" letter-spacing="0px" stroke="#ffffff" stroke-width="3" style="line-height:1.25" xml:space="preserve"><tspan x="95.708107" y="1069.238">Erie Canal Harbor</tspan></text>
+  <g fill="#888888">
+   <text x="685.42999" y="-364.8049" letter-spacing="0px" text-align="end" text-anchor="end" style="line-height:1.25" xml:space="preserve"><tspan x="685.42999" y="-364.8049">I-990</tspan></text>
+   <text x="694.58057" y="-275.65445" letter-spacing="-1px" text-align="end" text-anchor="end" style="line-height:1.25" xml:space="preserve"><tspan x="693.58057" y="-275.65445">Audubon Town Center</tspan></text>
+   <g letter-spacing="0px">
+    <text x="688.61249" y="-207.00404" text-align="end" text-anchor="end" style="line-height:1.25" xml:space="preserve"><tspan x="688.61249" y="-207.00404">Ellicott Complex</tspan></text>
+    <text x="669.89691" y="-146.82039" text-align="end" text-anchor="end" style="line-height:1.25" xml:space="preserve"><tspan x="669.89691" y="-146.82039">Lee</tspan></text>
+    <text x="638.42255" y="-55.606564" style="line-height:1.25" xml:space="preserve"><tspan x="638.42255" y="-55.606564">Flint</tspan></text>
+    <text x="583.43494" y="-92.675972" text-align="end" text-anchor="end" style="line-height:1.25" xml:space="preserve"><tspan x="583.43494" y="-92.675972">Sweet Home</tspan></text>
+    <text x="500.92279" y="9.3451614" style="line-height:1.25" xml:space="preserve"><tspan x="500.92279" y="9.3451614">Maple</tspan></text>
+    <text x="432.39725" y="-1.8688898" text-align="end" text-anchor="end" style="line-height:1" xml:space="preserve"><tspan x="432.39725" y="-1.8688898">Blvd</tspan><tspan x="432.39725" y="38.131111">Mall</tspan></text>
+    <text x="475.69846" y="123.13093" style="line-height:1.25" xml:space="preserve"><tspan x="475.69846" y="123.13093">Eggert</tspan></text>
+    <text x="475.69839" y="223.13075" style="line-height:1.25" xml:space="preserve"><tspan x="475.69839" y="223.13075">Decatur</tspan></text>
+   </g>
+  </g>
+  <g fill="#000000">
+   <g letter-spacing="0px">
+    <text x="471.89236" y="396.55392" style="line-height:1.25" xml:space="preserve"><tspan x="471.89236" y="396.55392">University</tspan></text>
+    <text x="421.32703" y="464.27893" style="line-height:1.25" xml:space="preserve"><tspan x="421.32703" y="464.27893">LaSalle</tspan></text>
+    <text x="368.29407" y="517.31183" style="line-height:1.25" xml:space="preserve"><tspan x="368.29407" y="517.31183">Amherst </tspan></text>
+    <text x="279.90585" y="605.69995" style="line-height:1.25" xml:space="preserve"><tspan x="279.90585" y="605.69995">Humboldt-Hospital</tspan></text>
+    <text x="226.87291" y="658.73285" style="line-height:1.25" xml:space="preserve"><tspan x="226.87291" y="658.73285">Delavan/Canisius College</tspan></text>
+    <text x="158.26436" y="752.12396" style="line-height:1.25" xml:space="preserve"><tspan x="158.26436" y="752.12396">Utica</tspan></text>
+    <text x="145.32339" y="800.42017" style="line-height:1.25" xml:space="preserve"><tspan x="145.32339" y="800.42017">Summer-Best</tspan></text>
+   </g>
+   <text x="132.38245" y="848.71637" letter-spacing="-.5px" style="line-height:1.25" xml:space="preserve"><tspan x="132.38245" y="848.71637">Allen/Medical Campus</tspan></text>
+   <text x="137.11916" y="914.69" letter-spacing="0px" style="line-height:1.25" xml:space="preserve"><tspan x="137.11916" y="914.69">Fountain Plaza</tspan></text>
+   <text x="126.7664" y="953.32697" letter-spacing="-1px" style="line-height:1.25" xml:space="preserve"><tspan x="126.7664" y="953.32697">Lafayette Sq</tspan></text>
+   <g letter-spacing="0px">
+    <text x="116.41364" y="991.96399" style="line-height:1.25" xml:space="preserve"><tspan x="116.41364" y="991.96399">Church</tspan></text>
+    <text x="106.06087" y="1030.6011" style="line-height:1.25" xml:space="preserve"><tspan x="106.06087" y="1030.6011">Seneca</tspan></text>
+    <text x="95.708107" y="1069.238" style="line-height:1.25" xml:space="preserve"><tspan x="95.708107" y="1069.238">Erie Canal Harbor</tspan></text>
+    <text x="85.355339" y="1107.875" style="line-height:1.25" xml:space="preserve"><tspan x="85.355339" y="1107.875">Special Events</tspan></text>
+   </g>
+  </g>
+ </g>
+</svg>

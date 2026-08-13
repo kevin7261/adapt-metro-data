@@ -1,0 +1,13 @@
+{
+  "city": "Cuenca",
+  "country": "Ecuador",
+  "continent": "south-america",
+  "osm_route_ids": [
+    9562447,
+    9562448
+  ],
+  "source": "https://www.urbanrail.net/am/cuenca/cuenca.htm",
+  "note": "Cuenca（urbanrail gap；modes=tram）——Tranvía de Cuenca／Cuatro Ríos（Linea 1）。使用者 2026-07-27「抓錯」再修：主線＝北走廊 20 站；Ida＝南線 couplet（Tomebamba↔Chola）九站兩端接軌，避免 Parque Industrial 後跳回尖刺。wiki／urbanrail＝27。重跑保留 wikipedia/wikidata。",
+  "wikipedia": "es:Tranvía de Cuenca",
+  "wikidata": "Q6151807"
+}

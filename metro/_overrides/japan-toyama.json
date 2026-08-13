@@ -1,0 +1,19 @@
+{
+  "city": "Toyama",
+  "country": "Japan",
+  "continent": "asia",
+  "osm_route_ids": [
+    21012828,
+    21012768,
+    21012792,
+    20668865,
+    20668868,
+    20668864,
+    20668867,
+    20668866
+  ],
+  "wikipedia": "ja:富山地方鉄道富山軌道線",
+  "wikidata": "Q11456359",
+  "source": "https://www.urbanrail.net/as/jp/toyama/toyama.htm",
+  "note": "Toyama（使用者 2026-07-27「抓錯」）＝地鉄市内電車 1–6（含港線直通）。曾與 Takaoka 共用 rid→4/5/6／万葉線被搶。舊 Portram 單線 r1895506/9720086＋殘缺 r1895505→route_excludes；万葉線屬 japan-takaoka。replace_stops 見 member_appends。重跑 fetchUrbanrailGap 請保留 wikipedia/wikidata／本 note。"
+}

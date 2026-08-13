@@ -1,0 +1,13 @@
+{
+  "city": "Uijeongbu",
+  "country": "South Korea",
+  "continent": "asia",
+  "osm_route_ids": [
+    7530880,
+    7530881,
+    13738410,
+    13738411
+  ],
+  "source": "https://www.urbanrail.net/",
+  "note": "Uijeongbu — tight-bbox refetch after contamination purge."
+}

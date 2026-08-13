@@ -1,0 +1,17 @@
+{
+  "city": "Kryvyi Rih",
+  "country": "Ukraine",
+  "continent": "europe",
+  "osm_route_ids": [
+    1710018,
+    1710019,
+    8744272,
+    8746993,
+    8765532,
+    8765533,
+    8765534,
+    8765535
+  ],
+  "source": "https://www.urbanrail.net/eu/ua/kry/kryvy-rih.htm",
+  "note": "Kryvyi Rih Metrotram（швидкісний трамвай）只收 light_rail 1М/2М/3М/4М；剔除市區 route=tram №1–27（使用者 2026-07-25「抓錯」）。重跑 fetchUrbanrailGap 請用 modes=light_rail（tasks 已改）。"
+}

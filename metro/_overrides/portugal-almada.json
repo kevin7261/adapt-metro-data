@@ -1,0 +1,17 @@
+{
+  "city": "Almada",
+  "country": "Portugal",
+  "continent": "europe",
+  "osm_route_ids": [
+    6680813,
+    7817932,
+    7817935,
+    14611342,
+    14611397,
+    14611426
+  ],
+  "source": "https://www.urbanrail.net/eu/pt/lisboa/almada.htm",
+  "wikipedia": "pt:Metropolitano Sul do Tejo",
+  "wikidata": "Q24663",
+  "note": "Almada＝Metro Sul do Tejo／MTS（urbanrail；3 線 light_rail：1 Cacilhas–Corroios、2 Corroios–Pragal、3 Cacilhas–Universidade；19 站）。bbox 曾蓋到里斯本北岸→誤收 Metropolitano de Lisboa＋Carris tram；污染物進 route_excludes。task.modes 收窄為 light_rail、bbox 收窄到南岸。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata。"
+}

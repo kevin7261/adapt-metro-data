@@ -1,0 +1,15 @@
+{
+  "city": "Yenakiieve",
+  "country": "Ukraine",
+  "continent": "europe",
+  "osm_route_ids": [
+    1769636,
+    1769637,
+    1940192,
+    1940193,
+    1940194,
+    1940195
+  ],
+  "source": "https://www.urbanrail.net/eu/ua/yenakiieve/yenakiieve.htm",
+  "note": "Yenakiieve（urbanrail gap）。ru wiki 營運 №1／3／4（Красный Городок／Красный Октябрь／Брайляна）。OSM 站成員極簡（2 站或空）——與 Горлівка 的 №8（r2401621／2401622）無關；後者已歸 ukraine-horlivka。使用者 2026-07-26 horlivka 誤併修正。"
+}

@@ -1,0 +1,130 @@
+/* 文件版面（論文本文／系統架構共用）。
+   Chrome＝design-shell（.tool-bar／.select／.btn-chip／.side-panel／.list-row）——
+   本檔只做大綱收合／紙張／捲動，禁自創第二套按鈕色。 */
+:root {
+  --mono: var(--font-mono);
+  --sans: var(--font-sans);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body.gdocs-page {
+  font-family: var(--sans);
+  font-size: var(--fs-base);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+body.gdocs-page a { color: inherit; }
+
+/* ---- 主體：左側大綱（.side-panel）＋內容 ---- */
+.gd-body {
+  flex: 1; min-height: 0; display: flex; position: relative;
+  background: hsl(var(--background));
+}
+.gd-outline.side-panel {
+  --side-panel-width: 200px;
+  overflow: hidden;
+}
+.gd-outline .side-panel-body {
+  padding: 0;
+  gap: 0;
+  background: hsl(var(--card));
+  /* 捲軸＝tokens.css --scrollbar-*（禁本檔另寫寬度／色） */
+}
+/* 大綱列版面（縮排／ellipsis）；無橫線靠父層 .list-pane--no-sep——與主站同，勿另寫一套 border */
+.gd-outline .list-row {
+  border-radius: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block; /* 大綱文字單行 ellipsis */
+  line-height: 1.4;
+}
+.gd-outline .list-row.l1 {
+  font-weight: var(--fw-semibold);
+  color: hsl(var(--list-fg));
+  padding-left: var(--list-row-px);
+}
+.gd-outline .list-row.l2 { padding-left: 22px; }
+.gd-outline .list-row.l3 {
+  padding-left: 34px;
+  font-size: var(--list-font-meta);
+}
+.ol-empty {
+  padding: var(--list-row-py) var(--list-row-px);
+  font-size: var(--list-font-meta);
+  color: hsl(var(--list-fg-muted));
+}
+
+.ol-resizer.resize-x {
+  flex: 0 0 5px;
+  width: 5px;
+  margin-left: -2px;
+  position: relative;
+  z-index: 10;
+}
+.ol-resizer.resize-x::before {
+  content: ''; position: absolute; left: 2px; top: 0; bottom: 0;
+  width: 1px; background: hsl(var(--border));
+}
+.ol-resizer.resize-x:hover::before,
+.ol-resizer.resize-x.dragging::before {
+  width: 2px; left: 1px; background: hsl(var(--primary));
+}
+.gd-body.ol-collapsed .gd-outline,
+.gd-body.ol-collapsed .ol-resizer { display: none; }
+.ol-open {
+  position: absolute; left: 10px; top: 12px; z-index: 70;
+  display: none;
+  box-shadow: var(--shadow);
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+}
+.gd-body.ol-collapsed .ol-open { display: inline-flex; }
+.gd-body.ol-raw .gd-outline,
+.gd-body.ol-raw .ol-resizer,
+.gd-body.ol-raw .ol-open { display: none !important; }
+body.ol-dragging { cursor: col-resize; user-select: none; }
+
+.gd-scroll {
+  flex: 1; min-width: 0; min-height: 0;
+  overflow-y: auto;
+  background: hsl(var(--tab-active-bg));
+}
+.gd-pageless {
+  max-width: 900px; margin: 0 auto;
+  padding: var(--space-6) var(--space-6) 120px;
+}
+
+@media (max-width: 860px) {
+  .gd-pageless { padding: var(--space-5) var(--space-4) 80px; }
+  .gd-outline.side-panel { --side-panel-width: 168px; }
+}
+@media (max-width: 720px) {
+  .gd-body { flex-direction: column; }
+  .gd-outline.side-panel {
+    width: 100%;
+    max-height: 160px;
+    border-right: none;
+    border-bottom: 1px solid hsl(var(--border));
+  }
+  .ol-resizer { display: none; }
+}
+
+@media print {
+  .app-toolbar, .doc-chrome, .gd-outline, .ol-open, .ol-resizer { display: none !important; }
+  .gd-scroll { overflow: visible; }
+  .gd-pageless { zoom: 1 !important; }
+}
+
+/* 文件紙張：永遠淺色「紙」——內容本體不隨 chrome 深色化。
+   用 .light token 集，不是寫死色碼；chrome／大綱仍跟隨主題。 */
+.gd-pageless,
+.gd-rawsheet {
+  color-scheme: light;
+  background: hsl(var(--popover));
+  color: hsl(var(--foreground));
+}

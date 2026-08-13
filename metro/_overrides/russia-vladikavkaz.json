@@ -1,0 +1,22 @@
+{
+  "city": "Vladikavkaz",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    3518524,
+    3518525,
+    3518526,
+    3518527,
+    3518528,
+    3518529,
+    3518530,
+    3518531,
+    3518532,
+    3522726,
+    3522727,
+    3522728,
+    3534399
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/vladikavkaz/vladikavkaz.htm",
+  "note": "Vladikavkaz（urbanrail gap；modes=tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔（保留 wikipedia/wikidata）。"
+}

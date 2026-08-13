@@ -1,0 +1,17 @@
+{
+  "city": "Schwerin",
+  "country": "Germany",
+  "continent": "europe",
+  "osm_route_ids": [
+    1430659,
+    1430660,
+    1430661,
+    1430662,
+    1430668,
+    1430669,
+    1430670,
+    1430671
+  ],
+  "source": "https://www.urbanrail.net/eu/de/sn/schwerin.htm",
+  "note": "Schwerin（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

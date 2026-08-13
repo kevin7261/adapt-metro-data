@@ -1,0 +1,11 @@
+{
+  "city": "Tampa",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    4789201,
+    12321304
+  ],
+  "source": "https://www.urbanrail.net/am/tampa/tampa.htm",
+  "note": "Tampa＝HART TECO streetcar only。TPA SkyConnect／Airside A–F 航廈 APM 不收（isAirportApm）。重跑 fetchUrbanrailGap 時勿把機場 relation 寫回本檔。"
+}

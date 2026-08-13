@@ -1,0 +1,958 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>論文內容 · Adapt-Metro</title>
+<link rel="icon" href="../../../favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../../favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32.png" />
+<link rel="apple-touch-icon" href="../../../apple-touch-icon.png" />
+<meta name="description" content="博士論文內容投影片：從兩份計畫書（博士論文計畫書「自適應版面的地理空間網絡資料視覺化」與國科會計畫書「強化交通網絡流量視覺的自適應圖形繪製演算法」）到 Adapt-Metro 系統——研究源流、緒論、文獻回顧、研究方法（四階段管線）、實驗評估、章節規劃與預期貢獻。" />
+<!-- header 與首頁 TopToolbar 共用 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Noto+Sans+TC:wght@400..700&display=swap" />
+<!-- 設計 token（唯一來源 src/tokens.css，見 /design） -->
+<link rel="stylesheet" href="../_shared/tokens.css" />
+<link rel="stylesheet" href="../_shared/design-shell.css" />
+<link rel="stylesheet" href="../_shared/app-toolbar.css" />
+<link rel="stylesheet" href="../_shared/gslides.css?v=20260804c" />
+<link rel="stylesheet" href="../_shared/slide-deck.css" />
+<style>
+  /* 殼層別名；畫布排版見 slide-deck.css（不改 HTML 內容） */
+  :root{
+    --page-bg: hsl(var(--background));
+    --dot: transparent;
+    --card-bg: hsl(var(--popover));
+    --ink: hsl(var(--foreground));
+    --muted: hsl(var(--muted-foreground));
+    --muted2: hsl(var(--muted-foreground));
+    --blue: hsl(var(--primary));
+    --purple: var(--node-purple);
+    --rose: var(--node-red);
+    --amber: var(--edge-forced);
+    --green: var(--node-green);
+    --code-bg: hsl(var(--foreground));
+    --code-ink: hsl(var(--border));
+    --mono: var(--font-mono);
+    --sans: var(--font-sans);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html,body{height:100%;margin:0;}
+  body{
+    font-family:var(--sans); color:var(--ink);
+    overflow:hidden; -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column;
+  }
+  a{color:inherit;}
+  strong,b{font-weight:700;}
+  /* 安全網（勿刪）：`_shared/gslides.css` 沒載到時，這兩條撐住版面——
+     少了 .workspace 的 flex，畫布區會收成 0 高，畫面只剩導覽條與 footer。 */
+  .workspace{ display:flex; flex:1; min-height:0; }
+</style>
+<script src="../_shared/theme-boot.js"></script>
+</head>
+<body>
+<header id="appToolbar" class="app-toolbar"></header>
+<script src="../_shared/app-toolbar.js"></script>
+<script>AdaptMetroToolbar.mount('#appToolbar', { base: '../../../', active: 'thesis' });</script>
+
+<div id="gslidesMount"></div>
+<script src="../_shared/design-select.js"></script>
+<script src="../_shared/gslides.js?v=20260804c"></script>
+<script>if (window.AdaptMetroGSlides) AdaptMetroGSlides.mount('#gslidesMount', { title: '論文內容——自適應版面的地理空間網絡資料視覺化', storageKey: 'thesis-slides' });</script>
+<script>
+  /* 安全網（勿刪）：`_shared/gslides.js` 沒載到（dev server 重啟／網路中斷）時，
+     上一行的 mount 會丟 ReferenceError，於是 body 少了 gslides-page、畫布停在
+     visibility:hidden——畫面就只剩導覽條與 footer。這裡把兩者補回去。 */
+  if (!window.AdaptMetroGSlides) {
+    var amFallback = function () {
+      document.body.classList.add('gslides-page');
+      var st = document.getElementById('stage');
+      if (st) st.classList.add('is-fitted');
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', amFallback);
+    else amFallback();
+  }
+</script>
+
+<div class="workspace">
+<aside class="side-panel filmstrip" aria-label="投影片縮圖">
+  <div class="side-panel-body" id="filmstrip"></div>
+</aside>
+<div class="deck" id="deck">
+<div class="stage" id="stage">
+
+  <!-- 1: TITLE -->
+  <section class="slide titleslide active" data-title="論文內容">
+    <div class="kicker"><span class="bullet"></span> 博士論文 · DOCTORAL DISSERTATION</div>
+    <h1 class="title">自適應版面的<br/>地理空間網絡資料視覺化</h1>
+    <p class="subtitle" style="font-family:var(--mono); font-size:15px; letter-spacing:.02em;">Adaptive Layout Display Method for Geospatial Network Data</p>
+    <p class="subtitle">鄭凱文 Kai-Wen Cheng ・ 指導教授：溫在弘 博士<br/>國立臺灣大學理學院地理環境資源學系</p>
+    <div class="grid cols-3" style="max-width:1080px;">
+      <div class="card blue">
+        <div class="label">PILOT STUDY 1</div>
+        <h3>博士論文計畫書（無 AI）</h3>
+        <p>「自適應版面的地理空間網絡資料視覺化」——確立問題、文獻架構與網格式演算法框架。</p>
+      </div>
+      <div class="card purple">
+        <div class="label">PILOT STUDY 2</div>
+        <h3>國科會計畫書（含 AI）</h3>
+        <p>「強化交通網絡流量視覺的自適應圖形繪製演算法」——兩年期：演算法框架＋AI Agent 與 RAG。</p>
+      </div>
+      <div class="card amber">
+        <div class="label">現行系統</div>
+        <h3>Adapt-Metro</h3>
+        <p>兩份計畫書的構想落地為全量管線（599 系統）、四階段管線、九條演算法鏈＋LLM 鏈與 LLM 離線整合的可運行系統。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2: ROADMAP -->
+  <section class="slide" data-title="簡報結構">
+    <div class="eyebrow"><span class="tag"><b>00</b>簡報結構</span><span class="rule"></span><span class="eng">ROADMAP</span></div>
+    <h1 class="title">從兩個 Pilot Study 到一本博士論文</h1>
+    <p class="subtitle">本論文的內容由兩份計畫書（pilot studies）演進而來：先在計畫書中確立研究問題、文獻架構與演算法框架，再以 <strong>Adapt-Metro 系統</strong>把框架完整實作並擴充到全球尺度。<strong>論文全文已成文</strong>（APA 7、Markdown）——header 的「<strong>論文本文</strong>」可切換渲染顯示與 .md 原文；本簡報依論文章節順序摘要：</p>
+    <div class="grid cols-3">
+      <div class="card blue"><div class="label">PART I</div><h3>研究源流</h3><p>兩份計畫書的定位、共同架構、初步結果，以及「計畫書 → 系統」的逐項對應。</p></div>
+      <div class="card purple"><div class="label">PART II · CH1</div><h3>緒論</h3><p>研究背景與動機、三個研究問題、研究目的、範圍與限制。</p></div>
+      <div class="card rose"><div class="label">PART III · CH2</div><h3>文獻回顧</h3><p>自動繪製路網圖／自適應視覺化／生成式 AI 視覺化三大領域與研究空缺。</p></div>
+      <div class="card amber"><div class="label">PART IV · CH3–4</div><h3>研究方法與系統實作</h3><p>四階段管線：資料＋骨架 → 網格化 → 爬山＋四步鏈 → Frame 畫線；LLM 離線整合。</p></div>
+      <div class="card green"><div class="label">PART V · CH5</div><h3>實驗與評估</h3><p>系統級全量實測（已完成）＋使用者評估設計（承計畫書規劃）。</p></div>
+      <div class="card blue"><div class="label">PART VI · CH6–7</div><h3>貢獻與規劃</h3><p>論文章節規劃、預期貢獻、發表與時程。</p></div>
+    </div>
+  </section>
+
+  <!-- 3: DIVIDER I -->
+  <section class="slide divider" data-title="研究源流">
+    <div class="roman">I</div>
+    <div class="stagechip"><span class="sw" style="background:var(--blue);"></span>PART I · PILOT STUDIES</div>
+    <h1 class="title">研究源流 ——<br/>兩份計畫書</h1>
+    <p class="subtitle">同一個研究母題的兩次凝視：先確立「自適應路網圖」的演算法框架（無 AI 版），再加入 AI Agent 與 RAG 的智慧化路線（國科會版）——最後在 Adapt-Metro 中合流。</p>
+    <div class="pillrow">
+      <span class="pill">博士論文計畫書（2024/10）</span><span class="pill">國科會計畫書</span><span class="pill">共同演算法框架</span><span class="pill">初步結果與教訓</span><span class="pill">計畫書 → 系統對應</span>
+    </div>
+  </section>
+
+  <!-- 4: PILOT 1 -->
+  <section class="slide" data-title="Pilot 1：博士論文計畫書">
+    <div class="eyebrow"><span class="tag"><b>01</b>Pilot Study 1</span><span class="rule"></span><span class="eng">DISSERTATION PROPOSAL (NO AI)</span></div>
+    <h1 class="title">博士論文計畫書：自適應版面的地理空間網絡資料視覺化</h1>
+    <p class="subtitle">2024 年 10 月提交。<strong>不含 AI 概念</strong>，聚焦把「含流量屬性的空間網絡」合理顯示在各種尺寸版面上：以<strong>網格</strong>為基本運算單位、以<strong>路網圖（示意圖）</strong>為表現形式、以<strong>地圖屬性概括化</strong>處理版面塞不下的內容，並可動態縮放重要資料區域。</p>
+    <div class="grid cols-2" style="margin-top:14px;">
+      <div class="card blue">
+        <div class="label">章節結構（7 章）</div>
+        <p>第 1 章 緒論（背景動機／目的／目標／範圍）・第 2 章 文獻回顧（響應式與自適應資料視覺化／空間路網圖視覺化／地圖概括化）・第 3 章 研究架構（資料收集／處理／實驗目標／實驗設計／開發）・第 4 章 實驗評估（受訪者／測試地圖／問卷）・第 5 章 初步結果・第 6 章 預期結果・第 7 章 研究時程。</p>
+      </div>
+      <div class="card blue">
+        <div class="label">核心論點</div>
+        <p>審視三個領域可發現：<strong>網格</strong>最適合作為自適應視覺化的基本運算單位；<strong>路網圖</strong>能簡化矩形與方向、保留拓撲、去除非關鍵元素；而<strong>針對路網圖做屬性概括化</strong>的研究相對稀少——這是明確的研究空缺。</p>
+      </div>
+      <div class="card green">
+        <div class="label">實驗資料</div>
+        <p>OpenStreetMap 台北捷運路網（站點、路線拓撲）＋台北捷運悠遊卡刷卡紀錄轉成的<strong>路線流量</strong>（多可能路線取最短路徑分配；年／月／日／時多時間尺度）。</p>
+      </div>
+      <div class="card green">
+        <div class="label">關鍵字</div>
+        <p>資料視覺化・地理視覺化・地鐵路線圖・路網圖・示意圖・地圖概括化・自適應設計・響應式設計。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5: PILOT 2 -->
+  <section class="slide" data-title="Pilot 2：國科會計畫書">
+    <div class="eyebrow"><span class="tag"><b>02</b>Pilot Study 2</span><span class="rule"></span><span class="eng">NSTC PROPOSAL (WITH AI)</span></div>
+    <h1 class="title">國科會計畫書：強化交通網絡流量視覺的自適應圖形繪製演算法</h1>
+    <p class="subtitle">在同一演算法框架上<strong>加入生成式 AI 路線</strong>（An Adaptive Layout Algorithm for Enhanced Visualization of Traffic Flow Networks）。兩年期設計：第一年建演算法、第二年讓 AI 接手調參數。</p>
+    <div class="grid cols-2" style="margin-top:12px;">
+      <div class="card blue">
+        <div class="label">第一年期 · 演算法框架</div>
+        <h3>建立演算法與確定繪製參數</h3>
+        <p>基於網格的自適應網絡圖演算法：資料預處理 → 定義起始參數 → 參數調整處理 → 版面顯示處理 → 繪圖處理，<strong>迭代試錯</strong>調整繪製參數找可行解；以使用者測試驗收。</p>
+      </div>
+      <div class="card purple">
+        <div class="label">第二年期 · AI 化</div>
+        <h3>LLM ＋ AI Agent ＋ RAG</h3>
+        <p>四個協作 Agent 接手第一年的四個處理階段：<strong>NLP Agent</strong>（自然語言 → 起始參數）、<strong>Parameter Setting Agent</strong>（依屬性重要性概括化）、<strong>Evaluation Agent</strong>（評估可否合理繪於版面、退回重調）、<strong>Generate Network Agent</strong>（外觀樣式與地標）；並建<strong>繪製參數 RAG 向量資料庫</strong>累積可被接受的參數組合。</p>
+      </div>
+    </div>
+    <table class="tbl dense">
+      <tr><th>研究問題</th><th>內容</th></tr>
+      <tr><td class="num">RQ1</td><td>如何發展<strong>通用演算法框架</strong>，依版面大小自動生成含流量屬性的交通網絡圖，突出重要內容、簡化次要資訊？</td></tr>
+      <tr><td class="num">RQ2</td><td>使用者能否<strong>識別因版面變化而調整的內容</strong>，並把圖上位置對應回真實位置？</td></tr>
+      <tr><td class="num">RQ3</td><td>如何引入 <strong>LLM＋AI Agent＋RAG</strong>，以自然語言指定繪製需求、依裝置尺寸與屬性內容動態優化地圖？</td></tr>
+    </table>
+  </section>
+
+  <!-- 6: COMMON FRAMEWORK -->
+  <section class="slide" data-title="共同演算法框架">
+    <div class="eyebrow"><span class="tag"><b>03</b>共同架構</span><span class="rule"></span><span class="eng">SHARED FRAMEWORK</span></div>
+    <h1 class="title">四個輸入、五個處理階段</h1>
+    <p class="subtitle">兩份計畫書共用同一個演算法框架——這也是本論文方法論的骨架。<strong>四個輸入</strong>：原始網絡（拓撲）、流量資料（屬性）、繪製版面（矩形大小）、繪製條件（使用情境）。</p>
+    <div class="flowrow">
+      <div class="card blue fstep"><div class="label">1</div><h3>資料預處理</h3><p>尋找最適空間網格大小（一格一站）→ 尋找最適直線化演算法 → 合併網絡與屬性成「空間網絡網格」。</p></div>
+      <div class="farrow">→</div>
+      <div class="card blue fstep"><div class="label">2</div><h3>定義起始參數</h3><p>依繪製條件設定所有繪製參數的起始值（版面網格最小單位長度等），降低試錯次數。</p></div>
+      <div class="farrow">→</div>
+      <div class="card blue fstep"><div class="label">3＋4</div><h3>參數調整＋版面顯示</h3><p>空間網絡網格投影到版面網格；塞不下就依屬性重要性<strong>概括化</strong>（合併不重要的節點與連結）、迭代到能置入；再依屬性重要性<strong>縮放網格</strong>（放大擁擠路段）。</p></div>
+      <div class="farrow">→</div>
+      <div class="card blue fstep"><div class="label">5</div><h3>繪圖處理</h3><p>加入顏色、線寬等視覺參數與重要地標，提升可讀性與美感。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:16px;">第二年期的四個 AI Agent 與此一一對應：定義起始參數＝<strong>NLP Agent</strong>、參數調整＝<strong>Parameter Setting Agent</strong>、版面顯示＝<strong>Evaluation Agent</strong>、繪圖處理＝<strong>Generate Network Agent</strong>——「AI 是框架的另一種實現」是計畫書的核心主張。</p>
+  </section>
+
+  <!-- 7: PRELIMINARY RESULTS -->
+  <section class="slide" data-title="初步結果與教訓">
+    <div class="eyebrow"><span class="tag"><b>04</b>初步結果</span><span class="rule"></span><span class="eng">PRELIMINARY RESULTS</span></div>
+    <h1 class="title">初步實作與它教會我們的事</h1>
+    <p class="subtitle">計畫書階段完成了「資料預處理」的初步實作——也暴露了單一演算法的極限，直接促成現行系統「多演算法並列比較」的設計。</p>
+    <div class="grid cols-2" style="margin-top:10px;">
+      <div class="card green">
+        <div class="label">已完成 ①</div>
+        <h3>車站分配到空間網絡網格</h3>
+        <p>以<strong>最近相鄰站距</strong>決定網格大小，台北捷運路網投影到網格、每格至多一站，再刪除整行／整列沒有車站的網格軸——得到分佈均勻的網格結構。</p>
+      </div>
+      <div class="card green">
+        <div class="label">已完成 ②</div>
+        <h3>Stroke-based 線段直線化</h3>
+        <p>依 Li &amp; Dong (2010)：計算線段方向決定投影軸 → 建投影多邊形檢查是否壓到其他車站（壓到就外移）→ 投影到網格線 → 斜線轉直角。</p>
+      </div>
+      <div class="card rose" style="grid-column:1/-1;">
+        <div class="label">教訓 → 設計決策</div>
+        <h3>「路線直線化後仍不夠筆直」</h3>
+        <p>計畫書自承：車站相對位置保留完好，但直線化結果不夠筆直——線段在投影過程未能有效串接。這個觀察成為現行系統兩個關鍵決策的起點：（1）<strong>不押注單一直線化演算法</strong>——把九篇經典論文各實作成一條可並列比較的「直線鏈」；（2）直線化之後還需要<strong>專門的壓縮機構</strong>——這催生了 movewise 四步鏈循環（移點 → 移線 → 移枝 → 併格）。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8: PROPOSAL -> SYSTEM MAPPING -->
+  <section class="slide" data-title="計畫書 → 系統對應">
+    <div class="eyebrow"><span class="tag"><b>05</b>計畫書 → 系統</span><span class="rule"></span><span class="eng">FROM PROPOSALS TO SYSTEM</span></div>
+    <h1 class="title">每一個計畫書概念，都有系統落點</h1>
+    <table class="tbl dense">
+      <tr><th>計畫書概念</th><th>Adapt-Metro 實作</th></tr>
+      <tr><td>資料預處理（台北單城、OSM＋流量）</td><td><strong>三條資料管線</strong>（Metro 599 系統／Railway 9 系統・2 國／Highway 3 都會區），fetch ⇄ audit 迴圈、逐城驗證收斂</td></tr>
+      <tr><td>尋找最適空間網格大小（一格一站）</td><td>Stage 2 <strong>示意網格化</strong>：非中途站以 x/y 排名吸附到整數格、一格一點、撞格外擴</td></tr>
+      <tr><td>尋找最適直線化演算法</td><td><strong>直線演算法十一條鏈</strong>：九條演算法鏈①〜⑨＋兩條 LLM 鏈並列實作、同一硬規則、可逐城比較擇優</td></tr>
+      <tr><td>依屬性重要性概括化／迭代尋找最佳解</td><td><strong>movewise 四步鏈循環</strong>：移點→移線→移枝→併格，每步守單調不變式、迭代到全靜止</td></tr>
+      <tr><td>依屬性重要性縮放網格（放大擁擠路段）</td><td>Frame <strong>流量權重</strong>：link weight → 非均勻欄寬列高、中途站自動隱藏；<strong>魚眼放大鏡</strong>區域縮放</td></tr>
+      <tr><td>版面顯示處理（繪製版面輸入）</td><td>Frame <strong>版面模擬</strong>：手機直橫／iPad／IG 貼文等 artboard，版面一變就在新像素座標重新求解</td></tr>
+      <tr><td>繪圖處理＋加入重要地標</td><td>D3 渲染（官方線色、線寬、站點樣式）＋獨立 <strong>Landmark 圖層</strong>（河流骨架線、皇居／中央公園面域）</td></tr>
+      <tr><td>NLP Agent（自然語言 → 參數）</td><td><strong>LLM 指定對齊</strong>／<strong>LLM 互動</strong>：使用者一句話 → 模型推理佈局調整或欄列權重</td></tr>
+      <tr><td>Parameter Setting ＋ Evaluation Agent 迭代</td><td><strong>LLM 直線化／評價</strong>：模型提案 → 確定性硬規則驗證，違反退回迭代（提案是模型的、合法性不是）</td></tr>
+      <tr><td>Generate Network Agent</td><td><strong>LLM 指定形狀</strong>（規定路段收成該城指定形狀）＋ Frame 重繪；<strong>LLM 比較</strong>當唯讀評審選最佳結果</td></tr>
+      <tr><td>繪製參數 RAG 向量資料庫</td><td>離線結果檔（<code class="mono">llm-straighten/ llm-grid/ llm-eval/ llm-compare/</code>，收於 <code class="mono">3-straightening</code>／<code class="mono">4-frame-maps</code> 步驟資料夾）＋ fingerprint 驗證＋ 66 份 skill 契約——參數與裁決不失傳</td></tr>
+    </table>
+  </section>
+
+  <!-- 9: DIVIDER II -->
+  <section class="slide divider" data-title="緒論">
+    <div class="roman">II</div>
+    <div class="stagechip"><span class="sw" style="background:var(--purple);"></span>PART II · CHAPTER 1</div>
+    <h1 class="title">緒論 ——<br/>背景、問題與範圍</h1>
+    <p class="subtitle">為什麼「自適應的路網圖」是一個值得做的博士題目：從 Harry Beck 到行動裝置，再到生成式 AI。</p>
+    <div class="pillrow">
+      <span class="pill">研究背景與動機</span><span class="pill">三個研究問題</span><span class="pill">研究目的</span><span class="pill">範圍與限制</span>
+    </div>
+  </section>
+
+  <!-- 10: BACKGROUND -->
+  <section class="slide" data-title="研究背景與動機">
+    <div class="eyebrow"><span class="tag"><b>06</b>研究背景</span><span class="rule"></span><span class="eng">BACKGROUND &amp; MOTIVATION</span></div>
+    <h1 class="title">五條動機線，交會在同一個問題上</h1>
+    <div class="stack">
+      <div class="row"><div class="num-badge">1</div><div class="rowtext"><h4>拓撲地圖的傳統：Harry Beck 1933</h4><p>倫敦地鐵圖以水平／垂直／45° 直線取代地理曲線，成為全球交通路線圖的設計標準——但至今大多仍是<strong>人工繪製、風格互異</strong>，每張新圖都要重新學習閱讀；Cerovic (2016) 的「One Metro World」標準化元件是統一化的先聲。</p></div></div>
+      <div class="row"><div class="num-badge">2</div><div class="rowtext"><h4>城市數據與 IoT：空間網絡資料暴增</h4><p>行動裝置與物聯網讓城市運營數據成為含空間資訊的中大型網絡資料；近年文獻致力於城市空間網絡動態數據的視覺化系統，但多為<strong>特定數據、特定目的</strong>而設計，缺乏統一標準（Nobre et al. 2019；Schöttler et al. 2021）。</p></div></div>
+      <div class="row"><div class="num-badge">3</div><div class="rowtext"><h4>行動裝置超越桌機：版面適應成為硬需求</h4><p>行動裝置市佔已超過桌上型電腦（Rathore et al. 2024）；網絡圖必須能在各種尺寸的顯示平台上合理呈現——線性縮放讓整體趨勢難以理解，需要真正的<strong>自適應</strong>。</p></div></div>
+      <div class="row"><div class="num-badge">4</div><div class="rowtext"><h4>屬性資料的加入：主題化的路網圖</h4><p>把流量（擁擠度）等屬性疊上路網圖，需要「重要的放大、次要的簡化」——而<strong>網絡主題圖的概括化與縮放</strong>在文獻中幾乎沒有被處理。</p></div></div>
+      <div class="row"><div class="num-badge">5</div><div class="rowtext"><h4>生成式 AI 的機會</h4><p>LLM＋AI Agent＋RAG 能以自然語言驅動視覺化流程（「顯示擁擠路段」→ 自動生成突顯結果）——但現有 NL2VIS 研究僅止於統計圖表，<strong>路網圖沒有方法架構</strong>。</p></div></div>
+    </div>
+  </section>
+
+  <!-- 11: RQ & PURPOSE -->
+  <section class="slide" data-title="研究問題與目的">
+    <div class="eyebrow"><span class="tag"><b>07</b>研究問題</span><span class="rule"></span><span class="eng">RESEARCH QUESTIONS</span></div>
+    <h1 class="title">一個目的、三個研究問題</h1>
+    <p class="subtitle"><strong>研究目的</strong>：開發能夠適應不同大小／矩形版面的<strong>通用資料視覺化演算法框架</strong>——整合路網圖自動繪製與地圖屬性概括化，讓含流量屬性的網絡圖在不更改空間結構的前提下合理顯示於任何版面，同時突顯關鍵資訊、簡化次要內容。</p>
+    <div class="grid cols-3" style="margin-top:14px;">
+      <div class="card blue">
+        <div class="label">RQ1 · 演算法</div>
+        <h3>通用框架怎麼建？</h3>
+        <p>如何依顯示版面大小自動生成含流量屬性的交通網絡圖，合理突出重要內容並簡化次要資訊，且易於透過參數調整、具擴充性？</p>
+      </div>
+      <div class="card purple">
+        <div class="label">RQ2 · 使用者</div>
+        <h3>讀圖的人看得懂嗎？</h3>
+        <p>使用者查看交通網絡圖時，是否容易識別因版面大小變化而調整的內容，並理解圖上位置對應到真實世界的何處？</p>
+      </div>
+      <div class="card rose">
+        <div class="label">RQ3 · AI</div>
+        <h3>AI 能接手嗎？</h3>
+        <p>如何引入 LLM 並結合 AI Agent 與 RAG 機制，透過自然語言指定繪製需求，依裝置尺寸與屬性內容動態優化地圖？</p>
+      </div>
+    </div>
+    <p class="subtitle" style="margin-top:16px;">RQ1 由四階段管線與四步鏈回答；RQ2 由使用者評估設計回答；RQ3 由 LLM 離線整合（對齊／互動／評價／比較／矩形）回答——三條線在後面各有專節。</p>
+  </section>
+
+  <!-- 12: SCOPE -->
+  <section class="slide" data-title="研究範圍與限制">
+    <div class="eyebrow"><span class="tag"><b>08</b>研究範圍</span><span class="rule"></span><span class="eng">SCOPE</span></div>
+    <h1 class="title">做什麼、不做什麼</h1>
+    <div class="grid cols-2" style="margin-top:8px;">
+      <div class="card green">
+        <div class="label">IN SCOPE</div>
+        <h3>本論文處理</h3>
+        <p>路網圖的<strong>自動佈局</strong>（layout）與<strong>自適應繪製</strong>；<strong>屬性概括化</strong>與重要區域縮放；<strong>網格</strong>為計算單位（含四／八／十六方向約束畫線）；LLM 輔助的佈局調整與評價；以 OSM 為來源的<strong>可重現資料管線</strong>。</p>
+      </div>
+      <div class="card rose">
+        <div class="label">OUT OF SCOPE</div>
+        <h3>暫不處理</h3>
+        <p>車站<strong>標籤繪製</strong>（labelling）、<strong>佈線問題</strong>（wiring）、線段方向性；即時流量串接；深度學習端到端生成（本論文的 AI 路線是「模型提案＋確定性驗證」而非黑盒生成）。</p>
+      </div>
+    </div>
+    <div class="grid cols-3" style="margin-top:12px;">
+      <div class="card blue"><div class="label">為什麼用網格</div><p>節點／連結的聚合計算有依據、不破壞拓撲；與示意圖的固定方向線條天然相容；易於快取與縮放特定位置。</p></div>
+      <div class="card blue"><div class="label">為什麼用路網圖</div><p>兼具「圖表」的抽象表達與「地圖」的空間結構（Cartwright 2015）；簡化矩形方向、保留拓撲、去除非關鍵元素。</p></div>
+      <div class="card blue"><div class="label">為什麼用台北捷運起步</div><p>OSM 資料完整、悠遊卡流量可得；框架驗證後擴充到 599 個系統、並自地鐵擴及路面電車與通勤鐵路——通用性由「同一套程式吃三種資料」證明。</p></div>
+    </div>
+  </section>
+
+  <!-- 13: DIVIDER III -->
+  <section class="slide divider" data-title="文獻回顧">
+    <div class="roman">III</div>
+    <div class="stagechip"><span class="sw" style="background:var(--rose);"></span>PART III · CHAPTER 2</div>
+    <h1 class="title">文獻回顧 ——<br/>三大領域與研究空缺</h1>
+    <p class="subtitle">自動繪製路網圖、自適應資料視覺化、生成式 AI 視覺化——三條文獻脈絡各自成熟，但它們的交集是空的。</p>
+    <div class="pillrow">
+      <span class="pill">路網圖自動繪製</span><span class="pill">自適應圖表／地圖</span><span class="pill">生成式 AI 視覺化</span><span class="pill">研究空缺</span>
+    </div>
+  </section>
+
+  <!-- 14: LIT OVERVIEW -->
+  <section class="slide" data-title="文獻三大領域">
+    <div class="eyebrow"><span class="tag"><b>09</b>文獻總覽</span><span class="rule"></span><span class="eng">LITERATURE MAP</span></div>
+    <h1 class="title">三條脈絡的交集是空的——那就是本論文</h1>
+    <div class="grid cols-3" style="margin-top:8px;">
+      <div class="card blue">
+        <div class="label">領域 1</div>
+        <h3>路網圖自動繪製</h3>
+        <p>1933 年以降的示意圖傳統，自動化演算法在<strong>速度與品質之間拉鋸</strong>：爬山（Stott 2005/2011）、MILP（Nöllenburg &amp; Wolff 2011）品質高但慢；stroke-based（Li &amp; Dong 2010）、力導向（Chivers 2014）快但需驗證；預定義網格（Bast 2020/2021）折衷但網格密度難調。</p>
+      </div>
+      <div class="card purple">
+        <div class="label">領域 2</div>
+        <h3>自適應資料視覺化</h3>
+        <p><strong>自適應圖表</strong>重資訊重組：資訊顯示密度與訊息保留程度的權衡（Kim et al. 2021）；<strong>自適應地圖</strong>重區域縮放：魚眼、四角／三角網格縮放單位（Haunert 2011、Ti 2014/2015）——多數縮放參數難控、未必考慮版面大小。</p>
+      </div>
+      <div class="card rose">
+        <div class="label">領域 3</div>
+        <h3>生成式 AI 視覺化</h3>
+        <p>NL2VIS／GenAI4VIS：Chat2VIS（LLM 生成繪圖程式碼）、MatPlotAgent（Agent 模擬人類繪圖流程）、VisEval／MatPlotBench（GPT-4V 評估基準）——<strong>全部止步於統計圖表</strong>。</p>
+      </div>
+    </div>
+    <div class="card amber" style="margin-top:14px;">
+      <div class="label">研究空缺（本論文的立足點）</div>
+      <p>（1）空間網絡上<strong>同時對節點與連結做屬性抽象化</strong>的方法稀少（Schöttler et al. 2021）；（2）<strong>網絡主題圖（含流量屬性）的概括化與縮放</strong>沒有文獻處理——現有縮放研究只管線段不管車站分佈（Ti），或限單一導航路線（Wang 2011）；（3）用 <strong>LLM 繪製／調整流動網絡圖</strong>尚無方法架構。</p>
+    </div>
+  </section>
+
+  <!-- 15: LIT AUTO-DRAWING -->
+  <section class="slide" data-title="文獻：自動繪製">
+    <div class="eyebrow"><span class="tag"><b>10</b>領域 1</span><span class="rule"></span><span class="eng">AUTOMATIC SCHEMATIC DRAWING</span></div>
+    <h1 class="title">九篇經典，各實作成一條可比較的鏈</h1>
+    <p class="subtitle">文獻回顧不停在「讀過」——九篇代表性論文<strong>各自完整實作</strong>成系統中的「直線鏈」，在同一輸入、同一硬規則下並列比較。這是本論文文獻回顧的方法論特色：<strong>用實作回顧文獻</strong>。</p>
+    <table class="tbl dense">
+      <tr><th>#</th><th>文獻</th><th>方法要旨</th><th>系統落點</th></tr>
+      <tr><td class="num">①</td><td>Li &amp; Dong 2010</td><td>段串成筆畫、依方向扭曲切分、投影到 H/V/45° 定向直線</td><td>筆畫法 <code class="mono">route-stroke-align</code></td></tr>
+      <tr><td class="num">②</td><td>Stott et al. 2011 (TVCG)</td><td>多準則爬山（角解析度／邊長／平衡／平直／八方向＋硬規則）</td><td>爬山主依據＋直角爬山 <code class="mono">route-ortho-polish</code></td></tr>
+      <tr><td class="num">③</td><td>Nöllenburg &amp; Wolff 2011</td><td>混合整數規劃的方向指派＋座標重建</td><td>MILP規劃 <code class="mono">route-milp-align</code></td></tr>
+      <tr><td class="num">④</td><td>Hong et al. 2006</td><td>磁力彈簧力導向（引力＋斥力＋八方向磁場力）</td><td>力導向 <code class="mono">route-force-align</code></td></tr>
+      <tr><td class="num">⑤</td><td>Wang &amp; Chi 2011</td><td>Focus+Context 最小平方（目標向量旋到最近八方向）</td><td>最小平方 <code class="mono">route-lsq-align</code></td></tr>
+      <tr><td class="num">⑥</td><td>Bast et al. 2020</td><td>八向格網逐邊定案（一格一站、成本含彎折）</td><td>八向格網 <code class="mono">route-octi-align</code></td></tr>
+      <tr><td class="num">⑦</td><td>Merrick &amp; Gudmundsson 2007</td><td>C-directed 路徑簡化（ε-圓刺穿最少 link）</td><td>路徑簡化 <code class="mono">route-path-align</code></td></tr>
+      <tr><td class="num">⑧</td><td>Fuchs 2022</td><td>與③同模型、求解器換 SAT／DPLL 分支定界</td><td>SAT規劃 <code class="mono">route-sat-align</code></td></tr>
+      <tr><td class="num">＋</td><td>Batik et al. 2022</td><td>形狀導引：規定路段貼成指定幾何（正方／45° 等）</td><td>LLM 指定形狀 <code class="mono">route-shape-rect-align</code>／<code class="mono">llm-shape</code>（掛循環之後）</td></tr>
+    </table>
+  </section>
+
+  <!-- 16: LIT ADAPTIVE -->
+  <section class="slide" data-title="文獻：自適應視覺化">
+    <div class="eyebrow"><span class="tag"><b>11</b>領域 2</span><span class="rule"></span><span class="eng">RESPONSIVE &amp; ADAPTIVE VIS</span></div>
+    <h1 class="title">路網圖＝「圖表」×「地圖」，兩邊文獻都要</h1>
+    <p class="subtitle">路網圖同時具備圖表的抽象表達與地圖的空間結構（Cartwright 2015）——因此自適應設計必須同時回顧兩邊。</p>
+    <div class="grid cols-2" style="margin-top:10px;">
+      <div class="card purple">
+        <div class="label">自適應圖表 · 著重資訊重組</div>
+        <h3>密度與保留的權衡</h3>
+        <p>Kim et al. (2021)：響應式視覺化的兩大問題是<strong>資訊顯示密度</strong>（最小物件尺寸要肉眼可辨）與<strong>訊息保留程度</strong>（概括化不能過度到誤解）。對應本論文：版面網格的最小單位長度定義、依屬性重要性的節點／連結概括化——不同版面的讀者要對相同數據有一致理解。</p>
+      </div>
+      <div class="card purple">
+        <div class="label">自適應地圖 · 著重區域縮放</div>
+        <h3>放大重要、縮小次要</h3>
+        <p>魚眼縮放（Yamamoto 2009）、四角／三角網格縮放單位（Haunert 2011、Wu 2012、Ti 2015、van Dijk 2013）、專用演算法（Wang 2011、Galvão 2023）。本論文取<strong>縮放不超出原始邊界</strong>（顯示畫面固定）且<strong>可多位置縮放</strong>的路線——現有方法只縮線段不管車站分佈（Ti 2014/2015），或限單一導航路線放大（Wang 2011）。</p>
+      </div>
+    </div>
+    <div class="card blue" style="margin-top:12px;">
+      <div class="label">在系統中的體現</div>
+      <p>資訊密度 → Frame 最小站距與中途站自動隱藏；訊息保留 → 拓撲鐵律（概括化絕不改變拓撲與相對位置關係）；區域縮放 → 流量權重欄寬列高＋魚眼放大鏡（焦點細格撐開、遠處壓扁、外框固定、每幀重繞線）。</p>
+    </div>
+  </section>
+
+  <!-- 17: LIT GENAI -->
+  <section class="slide" data-title="文獻：生成式 AI">
+    <div class="eyebrow"><span class="tag"><b>12</b>領域 3</span><span class="rule"></span><span class="eng">GENERATIVE AI FOR VIS</span></div>
+    <h1 class="title">NL2VIS 止步於統計圖表——路網圖是空缺</h1>
+    <p class="subtitle">核心式 <code class="mono">V = f(x, D)</code>：使用者以自然語言指令 x 與資料集 D，讓 AI 系統 f 生成正確、合理、易懂的圖表 V（Yang et al. 2024）。但 LLM 訓練文本廣而不精，直接生成常失敗——需生成繪圖程式碼、檢索重用、或引入 Agent 與 RAG。</p>
+    <table class="tbl dense">
+      <tr><th>研究</th><th>做法</th><th>限制</th></tr>
+      <tr><td>Chat2VIS（Maddigan 2023）</td><td>LLM 依指令生成繪圖程式碼、自選圖表形式</td><td>圖表美感控制不足</td></tr>
+      <tr><td>MatPlotAgent（Yang 2024）</td><td>AI Agent 模擬人類專家繪圖流程（指令轉換／生碼／檢視）</td><td>以科學數據視覺化為基準，未涵蓋其他領域</td></tr>
+      <tr><td>RGVisNet（Song 2022)</td><td>檢索＋重用相似程式碼的混合框架</td><td>依賴既有程式碼庫</td></tr>
+      <tr><td>VisEval／MatPlotBench（Chen 2024／Yang 2024）</td><td>GPT-4V 評估生成圖表的有效性／契合性／可讀性</td><td>評的是統計圖表</td></tr>
+    </table>
+    <div class="card rose" style="margin-top:12px;">
+      <div class="label">本論文的回應</div>
+      <p>不讓 LLM 直接「畫」：LLM 只<strong>提案</strong>（移動、權重、評語、矩形），所有提案經<strong>確定性硬規則</strong>驗證後才落地（拓撲不變、H/V 淨變差整批退回）——「提案是模型的判斷，合法性不是」。同時以 LLM 比較（唯讀評審）承接 VisEval 式的品質評估思路。</p>
+    </div>
+  </section>
+
+  <!-- 18: DIVIDER IV -->
+  <section class="slide divider" data-title="研究方法">
+    <div class="roman">IV</div>
+    <div class="stagechip"><span class="sw" style="background:var(--amber);"></span>PART IV · CHAPTERS 3–4</div>
+    <h1 class="title">研究方法 ——<br/>四階段管線與系統實作</h1>
+    <p class="subtitle">計畫書的五階段框架，落地為 Adapt-Metro 的四階段管線：純函式、確定性、零求解器依賴、全部在瀏覽器內完成。</p>
+    <div class="pillrow">
+      <span class="pill">Stage 1 · 資料＋骨架</span><span class="pill">Stage 2 · 網格化</span><span class="pill">Stage 3 · 爬山＋四步鏈</span><span class="pill">Stage 4 · Frame 畫線</span><span class="pill">LLM 離線整合</span>
+    </div>
+  </section>
+
+  <!-- 19: PIPELINE OVERVIEW -->
+  <section class="slide" data-title="四階段管線總覽">
+    <div class="eyebrow"><span class="tag"><b>13</b>方法總覽</span><span class="rule"></span><span class="eng">FOUR-STAGE PIPELINE</span></div>
+    <h1 class="title">真實路網 → 響應式示意圖，四步走完</h1>
+    <div class="grid cols-4" style="margin-top:10px;">
+      <div class="card blue"><div class="label">STAGE 1 · RAW MAPS</div><h3>真實路網＋拓撲骨架</h3><p>OSM 抓取的城市地鐵／輕軌 GeoJSON（原始地理座標與官方線色），再拓撲收縮成骨架。對應計畫書「資料預處理」的資料面。<code class="mono">1-raw-maps</code>（<code class="mono">working</code>＋<code class="mono">skeleton</code>）</p></div>
+      <div class="card purple"><div class="label">STAGE 2 · GRIDDING</div><h3>網格化</h3><p>把骨架以排名吸附到整數格；另含兩條 LLM 消融基線。對應「尋找最適空間網格大小」。<code class="mono">2-gridding</code>（<code class="mono">grid</code>＋<code class="mono">llm-skeleton2grid</code>＋<code class="mono">llm-working2grid</code>）</p></div>
+      <div class="card rose"><div class="label">STAGE 3 · STRAIGHTENING</div><h3>爬山＋四步鏈循環</h3><p>多準則爬山＋十一條直線鏈＋movewise 循環壓縮。對應「直線化＋概括化迭代」。<code class="mono">3-straightening</code></p></div>
+      <div class="card amber"><div class="label">STAGE 4 · FRAME MAPS</div><h3>版面畫線</h3><p>4／8／16 方向折線、版面模擬、流量權重、魚眼。對應「版面顯示＋繪圖處理」。<code class="mono">4-frame-maps</code></p></div>
+    </div>
+    <p class="subtitle" style="margin-top:10px;">四個階段＝四個<strong>帶序號的步驟資料夾</strong>（顯示名＝資料夾名）；全站命名鐵律「<strong>代碼＝介面標籤＝資料夾＝檔名</strong>」，唯一對照表 <code class="mono">layerRegistry</code>，顯示於「資料流」分頁右欄 Layers / Skills。<strong>2026-08-04 起骨架化歸 Stage 1</strong>——它只收縮拓撲、不動格網也不換座標系，與工作地圖同屬「原始資料」那一階；Stage 2 從此只有網格化一件事（階段↔step 的單一真相＝<code class="mono">adjustStages.js</code> 的 <code class="mono">ADJUST_STAGE_STEP</code>）。</p>
+    <div class="grid cols-3" style="margin-top:12px;">
+      <div class="card green"><div class="label">確定性</div><p>每階段都是純函式、無亂數——同輸入永遠同輸出；唯一例外是選用性的 LLM 功能（離線預算、存檔、網頁只載入）。</p></div>
+      <div class="card green"><div class="label">可回溯</div><p>「圖層即產線」：每階段是 Layers 面板一個帶序號的群組（1 Raw Maps〜4 Frame Maps），可逐步檢視、比較、回溯——不是黑盒子一次生成。</p></div>
+      <div class="card green"><div class="label">可重現</div><p><strong>66 份 skill</strong> 是演算法與資料管線的實作契約——改演算法必同步改 skill，設計裁決不失傳。</p></div>
+    </div>
+  </section>
+
+  <!-- 20: STAGE 1 DATA -->
+  <section class="slide" data-title="Stage 1：資料">
+    <div class="eyebrow"><span class="tag"><b>14</b>Stage 1</span><span class="rule"></span><span class="eng">DATA PIPELINES</span></div>
+    <h1 class="title">一套 schema、三種路網：通用性的證明</h1>
+    <p class="subtitle">計畫書以台北單城起步；論文以「<strong>同一套演算法與渲染器完全不改就能吃三種資料</strong>」證明框架的通用性——這直接回答 RQ1 的「通用」二字。</p>
+    <table class="tbl">
+      <tr><th></th><th>Metro（地鐵／輕軌）</th><th>Railway（國家鐵路）</th><th>Highway（高速公路）</th></tr>
+      <tr><td>單位</td><td>一城市一檔</td><td>一國家（高鐵／一般兩檔；日本再拆 JR 六社）</td><td>一都會區一檔</td></tr>
+      <tr><td>「站」</td><td>地鐵站</td><td>車站（吸附到軌道圖）</td><td>交流道</td></tr>
+      <tr><td class="num">規模</td><td class="num">599 系統 / 5,898 線 / 37,313 站</td><td class="num">9 系統（2 國）/ 173 線 / 4,808 站</td><td class="num">3 都會區 / 25 線 / 251 交流道</td></tr>
+    </table>
+    <div class="grid cols-2" style="margin-top:12px;">
+      <div class="card blue"><div class="label">fetch ⇄ audit 迴圈</div><p>Overpass 抓取 → Nominatim 反查 → 組檔 → 逐城 audit 到收斂；驗證不變式（站必有名、站必有線、逐線站數以 Wikipedia 為準…）error 級必修到 0；人工裁決一律落地 <code class="mono">_overrides/</code>，重抓自動套用。</p></div>
+      <div class="card blue"><div class="label">幾何三鐵律</div><p>線永遠壓在站點上（折點都是車站）；重疊路段只畫一條、每段必連續；快車不另成線（跳站標 <code class="mono">pass</code>）——這讓下游拓撲計算有乾淨的輸入。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:12px;">城市資料樹：<code class="mono">data/metro/maps/{group}/{city}/{step}/{layer}/</code>，檔名＝<code class="mono">{city}-{step}-{layer}…</code>（代碼＝資料夾＝檔名）。Stage 1 含「<strong>工作地圖</strong> working」「<strong>骨架地圖</strong> skeleton」（2026-08-04 自 Stage 2 移入）與唯讀備份「<strong>原始地圖</strong> source」，另有 tracks／center／official-route／urbanrail。衍生層（含 skeleton）自 2026-08-07 起**全球保留**（599 城全量，每城骨架／網格／直線化俱在）；資料欄位精簡：<code class="mono">operator</code>／<code class="mono">wikidata</code> 已自 metro 輸出移除，保留 <code class="mono">wikipedia</code>／<code class="mono">official_website</code>。</p>
+  </section>
+
+  <!-- 21: STAGE 2 -->
+  <section class="slide" data-title="Stage 1b–2：骨架與格網">
+    <div class="eyebrow"><span class="tag"><b>15</b>Stage 1b–2</span><span class="rule"></span><span class="eng">SKELETON &amp; GRID</span></div>
+    <h1 class="title">先收縮拓撲（Stage 1），再吸附整數格（Stage 2）</h1>
+    <div class="grid cols-2" style="margin-top:8px;">
+      <div class="card purple">
+        <div class="label">骨架化 · route-skeleton-connect（Stage 1，<code class="mono">1-raw-maps/skeleton/</code>）</div>
+        <h3>拓撲收縮、不拉直、不新增</h3>
+        <p>以 route 站序建無向圖，節點依 degree 分<strong>紅</strong>（分歧／轉乘）／<strong>藍</strong>（端點）／<strong>黑</strong>（直通）；幾何真交叉補<strong>黃</strong>點；degree-2 黑點鏈收成保留原折線的「邊」——保留地理矩形、只做拓撲收縮與標記。</p>
+      </div>
+      <div class="card purple">
+        <div class="label">示意網格化 · route-skeleton-grid（Stage 2，<code class="mono">2-gridding/grid/</code>）</div>
+        <h3>排名吸附：一格一點</h3>
+        <p>非中途站以 x/y「排名」吸附到整數格（撞格 Chebyshev 外擴），每條路線在非中途站切開、端點吸附拉直、中途站沿新邊平均放回。格網規模依城市：台北約 68×68、紐約約 160×160——正是計畫書「一格一站、刪空欄列」構想的一般化。</p>
+      </div>
+    </div>
+    <div class="card blue" style="margin-top:12px;">
+      <div class="label">變體軸 ＝ 方向 × 來源 × 限定線形</div>
+      <p><strong>方向</strong>：以長度加權<strong>方向熵</strong>與 φ 指標（φ = 1 − ((H−H<sub>grid</sub>)/(H<sub>max</sub>−H<sub>grid</sub>))²；Boeing 2019）描述方向秩序；建議旋轉角改為最大化旋轉後 H/V 長度佔比（\|tilt\| ≥ 30° 且增益 ≥ 8% 才建議；見 <code class="mono">orientation.js</code>／系統說明 <code class="mono">route-orientation</code>）。曾對主軸明顯的城市另做 Straightening「旋轉」變體鍵；<strong>2026-07 起鍵 <code class="mono">rot</code> 已自清單移除</strong>（<code class="mono">STRAIGHTENING_DIRECTIONS = ['orig']</code>），互動「轉 n 度」與清單建議仍保留。另以<strong>內建旋轉城市</strong>（<code class="mono">-l33</code>／<code class="mono">-r39</code>…）旋轉後算完整管線（規格 <code class="mono">route-city-rotation</code>）。<br/>
+      <strong>來源</strong>（現在的變體重心）：<code class="mono">grid</code> 排名吸附／<code class="mono">llm-skeleton2grid</code> LLM 骨架地圖網格化／<code class="mono">llm-working2grid</code> LLM 工作地圖網格化——後兩者即消融基線，介面各為一層、層內切 <strong>13 個模型</strong>，檔案變體形如 <code class="mono">orig-llm-*-grid-&lt;model&gt;</code>（舊稱 <code class="mono">cell</code>／<code class="mono">map</code> 僅遷移別名）。<br/>
+      <strong>限定線形</strong>（<code class="mono">-shape-rect</code>）：規定路段須收成指定幾何的城市另成變體（獨立城市資料夾）。</p>
+    </div>
+  </section>
+
+  <!-- 22: STAGE 3 HILLCLIMB + CHAINS -->
+  <section class="slide" data-title="Stage 3：爬山與各鏈">
+    <div class="eyebrow"><span class="tag"><b>16</b>Stage 3（上）</span><span class="rule"></span><span class="eng">HILL CLIMBING &amp; 9 CHAINS</span></div>
+    <h1 class="title">爬山整理佈局，各鏈比較直線化</h1>
+    <div class="grid cols-2" style="margin-top:8px;">
+      <div class="card rose">
+        <div class="label">多準則爬山 · Stott et al. 2011</div>
+        <h3>5 準則 ＋ 4 硬規則</h3>
+        <p>角解析度／邊長／平衡邊長／平直／八方向五個加權準則，邊界／象限／遮蔽／邊環繞序四條硬規則；逐頂點爬山、半徑 [2,1,1] 冷卻、超長邊群集平移；黑點沿新邊平均放回。</p>
+      </div>
+      <div class="card rose">
+        <div class="label">直線演算法 · 十一條鏈</div>
+        <h3>論文①〜⑨ ＋ LLM 直線化</h3>
+        <p>爬山之後，<strong>九條確定性演算法鏈（①〜⑨）</strong>與 <strong>LLM 鏈</strong>以同一介面並列執行、互相比較：每條鏈短距離移動彩色頂點讓水平／垂直段最多，共用 WINDOW ±2 夾擠、逐批漸進＋嚴格改善、對齊感知量化、同一套硬規則，各自迭代到不動點。（LLM 鏈刻意不編號為⑨——契約固定但方法不固定，見論文 3.7.4 節。）②直角爬山實測<strong>全網 H/V +42.9%</strong>。</p>
+      </div>
+    </div>
+    <div class="card amber" style="margin-top:12px;">
+      <div class="label">回應計畫書「尋找最適直線化演算法」</div>
+      <p>計畫書原本要「選一個」直線化演算法；初步結果證明單一方法不夠筆直。論文的答案是<strong>全部實作、並列比較、逐城擇優</strong>——並以 LLM 比較（唯讀評審）自動選出每城最佳結果。這把「尋找最適」從人工挑選變成系統性實驗。</p>
+    </div>
+  </section>
+
+  <!-- 23: STAGE 3 MOVEWISE -->
+  <section class="slide" data-title="Stage 3：四步鏈循環">
+    <div class="eyebrow"><span class="tag"><b>17</b>Stage 3（下）</span><span class="rule"></span><span class="eng">MOVEWISE 4-STEP LOOP</span></div>
+    <h1 class="title">核心貢獻：movewise 四步鏈循環壓縮</h1>
+    <p class="subtitle">直線化之後，用自製的四步鏈把網格壓到最小、線拉到最直——對應計畫書「依屬性重要性概括化、迭代尋找最佳解」的一般化實作。</p>
+    <table class="tbl dense">
+      <tr><th>步</th><th>演算法</th><th>移動</th><th>採納條件</th><th>收斂單調量</th></tr>
+      <tr><td class="num">1</td><td><strong>移點</strong> <code class="mono">endp</code></td><td>每個非中途站移 1 格（八方向含 45°）</td><td>消交叉優先；其次 H/V 淨增；否則入射段縮最短（<code class="mono">STRICT_NO_BEND</code>）</td><td>(−H/V, 總長) 字典序嚴格下降</td></tr>
+      <tr><td class="num">2</td><td><strong>移線</strong> <code class="mono">line</code></td><td>跨相交點串接的整條直線平移 ±1 格</td><td>H/V 變多優先；否則邊界段縮最短</td><td>(−H/V, 邊界總長) 字典序下降</td></tr>
+      <tr><td class="num">3</td><td><strong>移枝</strong> <code class="mono">branch</code></td><td>橋切出的整團子圖剛體平移 1 格（八方向含 45°）</td><td>與移線共用（團內不變形，只有那條橋會變）</td><td>同移線</td></tr>
+      <tr><td class="num">4</td><td><strong>併格</strong> <code class="mono">gather</code></td><td>相鄰 row／col 兩兩合併（半平面整體移 1 格）</td><td>validShift 硬規則全過（不壓點／不新增交叉／拓撲不變）</td><td>網格欄列數每次 −1</td></tr>
+    </table>
+    <div class="grid cols-3" style="margin-top:12px;">
+      <div class="card green"><div class="label">共同機構</div><p>每一個單一移動後<strong>立即全域壓縮</strong>（movewise）；一次只移一格；跨距上限（<code class="mono">SPAN_CAP</code>，預設 4，舊長段豁免）；位移上限（<code class="mono">DRIFT_CAP</code> 0.20）；拓撲鐵律全程不破。</p></div>
+      <div class="card green"><div class="label">循環語意</div><p>每輪＝四個演算法各跑到不動點再輪替，一輪全靜止才停，收斂後再跑一次拉直 pass——<strong>599 系統全量實測全部收斂、總計約 5 秒</strong>（NYC 160×160 → 約 31×34）。</p></div>
+      <div class="card green"><div class="label">逐步驗證</div><p>「下一小步」單一移動前後比對（舊位置虛線圈、軌跡、新位置橘圈）、快照復原、全速跑到收斂與循環 tab 完全一致——演算法行為可逐移動檢視。</p></div>
+    </div>
+  </section>
+
+  <!-- 24: STAGE 4 Frame -->
+  <section class="slide" data-title="Stage 4：Frame 畫線">
+    <div class="eyebrow"><span class="tag"><b>18</b>Stage 4</span><span class="rule"></span><span class="eng">RESPONSIVE DRAWING</span></div>
+    <h1 class="title">版面一變，就在新像素座標重新求解</h1>
+    <p class="subtitle">把循環收斂結果重繪成<strong>嚴格方向約束</strong>折線——方向以「畫面像素」為準（不是格索引），resize／換版面／改權重都會重跑整個佈線器。這是計畫書「版面顯示處理」的完整實現。</p>
+    <div class="grid cols-2" style="margin-top:10px;">
+      <div class="card amber"><div class="label">方向數 4 / 8 / 16</div><p>預設 H/V/45° 八向；4 向純直角（45° 腿展開成階梯）；16 向加 22.5° 族。方向級是 tie-break 不是硬閘：零衝突的 22.5° 贏過有衝突的 45°，兩者乾淨時 45° 一定優先。</p></div>
+      <div class="card amber"><div class="label">絕不交叉</div><p>候選折線依轉折數絕對優先（直線＞單折＞雙折…）；多層衝突消解依序升級：成對聯合重算 → A* 走廊佈線 → rip-up &amp; reroute → 共線救援——同一對線最多交叉一次、節點環狀順序不可變。</p></div>
+      <div class="card amber"><div class="label">版面模擬＋流量權重</div><p>手機直橫／iPad／IG 貼文等固定尺寸 artboard；link weight → 非均勻欄寬列高、中途站自動隱藏、~700ms 格線內插動畫——「放大擁擠路段」的計畫書構想在此以權重連續化。</p></div>
+      <div class="card amber"><div class="label">魚眼放大鏡</div><p>游標所在細格為焦點、附近欄列撐開遠處壓扁（外框固定），每幀在變形後的像素空間重繞線——多位置、不超出邊界的區域縮放。</p></div>
+    </div>
+  </section>
+
+  <!-- 25: LLM INTEGRATION -->
+  <section class="slide" data-title="LLM 離線整合">
+    <div class="eyebrow"><span class="tag"><b>19</b>AI 路線</span><span class="rule"></span><span class="eng">LLM-IN-THE-LOOP</span></div>
+    <h1 class="title">第二年期構想的實現：LLM 離線整合</h1>
+    <p class="subtitle">瀏覽器端沒有 API key、不做即時推論——全部「<strong>離線預算、存檔、網頁載入</strong>」。國科會計畫書的四個 AI Agent 構想，在此以九個 LLM 功能落地（直線化／循環／直接完成／矩形／骨架地圖網格化／工作地圖網格化／互動／評價／比較）：</p>
+    <table class="tbl dense">
+      <tr><th>功能</th><th>對應 Agent 構想</th><th>做法</th></tr>
+      <tr><td><strong>LLM 直線化</strong>（自動／指定對齊）</td><td>Parameter Setting Agent</td><td>模型讀佈局提案短距離移動 → 經與論文鏈<strong>相同硬規則</strong>套用，淨 H/V 變差整批退回；指定對齊依使用者一句話</td></tr>
+      <tr><td><strong>LLM 互動</strong></td><td>NLP Agent</td><td>一句話（「把市中心那幾欄拉開」）→ 模型推理逐欄／列顯示權重 → 新像素座標重畫</td></tr>
+      <tr><td><strong>LLM 評價</strong></td><td>Evaluation Agent</td><td>模型讀幾何脈絡寫評語（哪些線可更直／彎太多／銳角在哪站）＋建議轉具體 moves 經硬規則 apply</td></tr>
+      <tr><td><strong>LLM 比較</strong></td><td>Evaluation Agent（評審面）</td><td>唯讀評審：比較同一變體下九條演算法鏈＋可用的 LLM 直線化結果，依方正／直線／轉折／平衡／硬失敗選最佳並列優缺點</td></tr>
+      <tr><td><strong>LLM 指定形狀</strong>（限定線形）</td><td>Generate Network Agent</td><td>把規定路段收成該城指定形狀（正方／45° 直線等；山手線／新加坡環狀線／大江戶線／多瑙河…）後餵下游；<strong>唯一允許資料流自動代跑</strong>的 LLM 功能（它是指定形狀泳道的輸入）</td></tr>
+      <tr><td><strong>LLM 網絡循環</strong></td><td>Parameter Setting（壓縮面）</td><td>與演算法 movewise 四步鏈<strong>並存</strong>的另一條壓縮路徑：以直線化結果為起點再拉直、再壓密，另餵一張版面；<strong>由使用者自行啟動</strong>（直線化跑完接的是程式的 movewise 四步鏈）</td></tr>
+      <tr><td><strong>LLM 工作地圖直線化</strong></td><td>—（消融捷徑）</td><td>一次執行從工作地圖直接做到「循環後」的結果，量測「整段管線一次交給模型」的代價</td></tr>
+      <tr><td><strong>LLM 骨架地圖網格化</strong>／<strong>工作地圖網格化</strong></td><td>—（消融基線 L1／L2）</td><td>把網格化（或連骨架化）交給模型，見「LLM 消融梯度」頁；各 ×13 模型獨立存檔</td></tr>
+    </table>
+    <div class="card rose" style="margin-top:10px;">
+      <div class="label">與 RAG 構想的對應</div>
+      <p>計畫書的「繪製參數 RAG 向量資料庫」以<strong>結果檔＋指紋</strong>實現：所有 LLM 結果存檔（<code class="mono">3-straightening/{來源}/{鏈}/{鏈}/</code>、<code class="mono">4-frame-maps/llm-{grid,eval,compare}/</code>；代碼＝資料夾＝檔名）、指紋寫入檔內供稽核（<strong>有檔即開</strong>、不符則標「可能過期」；重跑先刪再寫）、絕不手改；可被接受的佈局成為下游重算的基準——「累積可用參數、供後續檢索」的精神一致，但以確定性、可稽核的形式落地。</p>
+    </div>
+  </section>
+
+  <!-- 25b: LLM ENGINEERING FIVE LAYERS -->
+  <section class="slide" data-title="LLM 工程五層面">
+    <div class="eyebrow"><span class="tag"><b>19b</b>LLM 工程</span><span class="rule"></span><span class="eng">PROMPT / CONTEXT / HARNESS / LOOP / GRAPH</span></div>
+    <h1 class="title">讓模型安全進入確定性管線的五層工程</h1>
+    <p class="subtitle">LLM-in-the-loop 之所以可行，靠的是系統化的工程方法（論文 3.7.1 節）——五個層面各有留存物：提示契約落在 skill 規格、脈絡由確定性 export 重現、transcript 隨結果檔存檔，全程可稽核可重放。且架構<strong>模型無關</strong>（論文 3.7.2 節）：正確性下界由純演算法保證、模型演進只單調提升提案品質——<strong>研究主張不隨模型換代貶值</strong>。</p>
+    <div class="grid cols-3" style="margin-top:10px;">
+      <div class="card blue"><div class="label">PROMPT</div><h3>提示工程</h3><p>提示＝結構化契約：任務目標＋硬規則清單＋輸出 schema＋幾何脈絡；禁止事項與評分準則（H/V 優先、45° 次之）明文列出，使用者語句放獨立欄位、不覆寫系統約束。</p></div>
+      <div class="card purple"><div class="label">CONTEXT</div><h3>脈絡工程</h3><p>不丟原始 GeoJSON——export 精煉成逐線頂點鏈、方向統計、彎折與銳角位置（點名在哪些站）、欄列使用率；難例附交叉對與環內外分區。模型看得到什麼，決定它能推理什麼。</p></div>
+      <div class="card rose"><div class="label">HARNESS</div><h3>把關工程</h3><p>確定性驗證器是唯一權威：逐移動硬規則＋整批淨效果（淨 H/V 變差整批退回）＋指紋一致性；退回附原因回饋下一輪，模型不可靠性被隔離成「提案品質」問題。</p></div>
+      <div class="card amber"><div class="label">LOOP</div><h3>迭代工程</h3><p>提案→驗證→退回→再提案；一般對齊「小步多輪＋嚴格改善」、結構性調整（環形矩形）「大步單批＋整組同動」跨越局部極小。終止條件與純演算法鏈相同。</p></div>
+      <div class="card green"><div class="label">GRAPH</div><h3>圖工程</h3><p>模型面對的是被工程化的圖：拓撲已收縮、座標已整數化、不變式已明文化——管線走得越深，留給模型的問題越乾淨；表徵工程比換更強的模型更具槓桿。<strong>此主張已由消融實驗證實（下一頁）</strong>。</p></div>
+    </div>
+    <div class="card rose" style="margin-top:12px;">
+      <div class="label">模型無關性：從論證到實作（論文 3.7.2 節）</div>
+      <p>同一套 harness 目前接上 <strong>13 個語言模型</strong>、<strong>三個代理執行環境</strong>（模型供應商自家 CLI ＋ 第三方代理平台代管的多家模型 ＋ DeepSeek 官方 CLI），涵蓋多家開發商的模型系列。實作上的代價值得記錄：①<strong>執行環境差異必須被封裝</strong>——三支 CLI 啟動參數不相容，且採「單一 skill 模式」（SKILL.md 全文內嵌；claude 另禁止 Skill 工具）；②<strong>推理檔位一律取最高</strong>，否則檔位會成為模型對照的混淆變項；③<strong>同名模型不重複收錄</strong>，避免對照表出現兩列同名模型。<br/>
+      並以<strong>執行者強制標註</strong>保證歸屬：模型識別碼由純程式的驅動端決定、同時作為啟動參數與環境變數傳入，寫檔前對不上即拒絕寫入（記為 <code class="mono">enforced</code>）；缺此機制者僅為自我宣告（<code class="mono">declared</code>）。<strong>跨模型對照只採 enforced</strong>——此規則源自一次實例：曾把「宣告」誤認為「保證」，導致整批數百份結果檔的模型標註失真。</p>
+    </div>
+  </section>
+
+  <!-- 19a2: AI AGENT 定位 -->
+  <section class="slide" data-title="這算 AI Agent 嗎">
+    <div class="eyebrow"><span class="tag"><b>19a</b>AI Agent 定位</span><span class="rule"></span><span class="eng">IS THIS AN AI AGENT?</span></div>
+    <h1 class="title">計畫書承諾 AI Agent——兌現到什麼程度？</h1>
+    <p class="subtitle">RQ3 白紙黑字寫「結合 AI Agent 與 RAG 機制」，論文 3.7.0 節正面回答：<strong>分兩個層次看</strong>。</p>
+    <div class="grid cols-2" style="margin-top:8px;">
+      <div class="card green"><div class="label">✓ 執行實例層——是 agent</div><h3>每次執行＝一個 agent 實例</h3><p>自主工作階段：能讀寫檔案、執行腳本、依退回原因調整下一輪。三個判準皆具備——<strong>自主性</strong>（給目標非給步驟）、<strong>感知—行動迴圈</strong>（提案→驗證→退回→再提案）、<strong>方法自定</strong>（3.7.4 節：模型每次自創策略）。「方法自定」正是 agency 的定義。</p></div>
+      <div class="card rose"><div class="label">✗ 系統架構層——不是多代理</div><h3>同一 agent 依不同契約扮演多角色</h3><p>九個功能共用同一套工具、同一種把關（模型可逐次指定，現接 13 個模型／三支代理 CLI）；差異只在任務契約。<strong>不是</strong>九個能同時在場、互相溝通協商的 agent。故本文稱「agentic 離線工作流」，不宣稱多代理系統。</p></div>
+    </div>
+    <table class="tbl dense" style="margin-top:12px;">
+      <tr><th>計畫書構想</th><th>本研究實作</th><th>改動理由</th></tr>
+      <tr><td>四個專職 agent 互相呼叫協同</td><td>九個獨立功能，使用者觸發，彼此不呼叫（唯一例外：自動直線化→循環的固定串接，由程式而非 agent 決定）</td><td>失敗可歸因；自動協同會使「哪步出錯」難稽核</td></tr>
+      <tr><td>Evaluation Agent 評估後退回</td><td><strong>確定性驗證器</strong>退回</td><td>退回準則若由模型持有＝合法性再度外包給模型，與核心原則相悖</td></tr>
+      <tr><td>RAG 向量資料庫檢索參數</td><td>結果檔＋<strong>指紋精確比對</strong></td><td>語意檢索可能召回不適用當前拓撲的參數；指紋標示過期（有檔即開、不符則提示可能過期）</td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:10px;">兩項落差性質不同：前兩項是<strong>有論證的設計改動</strong>（把可靠性從模型判斷移向可驗證機制）；「多代理協同」則是<strong>誠實的範圍限制</strong>——已列入 6.5 節限制與 7.2 節未來工作。</p>
+  </section>
+
+  <!-- 19c: LLM ABLATION GRADIENT -->
+  <section class="slide" data-title="LLM 消融梯度">
+    <div class="eyebrow"><span class="tag"><b>19c</b>消融實驗</span><span class="rule"></span><span class="eng">ABLATION GRADIENT · L0 / L1 / L2</span></div>
+    <h1 class="title">把管線逐級交還給模型，看它在哪裡崩潰</h1>
+    <p class="subtitle">「圖工程決定問題難度」是可否證的宣稱，所以設計了消融梯度（論文 3.7.3／5.5 節）：兩個基線只保留<strong>一條</strong>硬規則（邊環繞序不可與地理矛盾），交叉／壓點<strong>只量測不修復</strong>——基線的目的是讓問題顯示出來，不是產出可用結果。</p>
+    <div class="grid cols-3" style="margin-top:8px;">
+      <div class="card blue"><div class="label">L0 · 完整管線</div><h3>LLM 直線化</h3><p>骨架化＋網格化都由演算法做，模型只在既有整數格佈局上提案短距離移動。<strong>生產路徑</strong>。</p></div>
+      <div class="card amber"><div class="label">L1 · LLM 骨架地圖網格化</div><h3>網格化交給模型</h3><p>骨架照跑，但整數欄列由模型從零指派（取代排名吸附）。<code class="mono">llm-skeleton2grid</code></p></div>
+      <div class="card rose"><div class="label">L2 · LLM 工作地圖網格化</div><h3>兩階全跳</h3><p>模型直接讀 geojson 全部車站與行經序，一次指派整張圖。消融量測只量測不修復；產品路徑仍餵 LLM 直線化＋movewise（不跑①〜⑨）。<code class="mono">llm-working2grid</code></p></div>
+    </div>
+    <table class="tbl dense" style="margin-top:14px;">
+      <tr><th>系統</th><th class="num">L1 段數</th><th class="num">L1 交叉</th><th class="num">L1 壓點</th><th class="num">L2 段數</th><th class="num">L2 交叉</th><th class="num">L2 壓點</th><th class="num">L2 交叉率</th></tr>
+      <tr><td>台中</td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">17</td><td class="num">0</td><td class="num">0</td><td class="num">0%</td></tr>
+      <tr><td>高雄</td><td class="num">20</td><td class="num">0</td><td class="num">0</td><td class="num">74</td><td class="num">1</td><td class="num">0</td><td class="num">1.4%</td></tr>
+      <tr><td>東京</td><td class="num">157</td><td class="num">0</td><td class="num">0</td><td class="num">265</td><td class="num">19</td><td class="num">7</td><td class="num">7.2%</td></tr>
+      <tr><td>台北</td><td class="num">75</td><td class="num">0</td><td class="num">0</td><td class="num">191</td><td class="num">62</td><td class="num">20</td><td class="num">32.5%</td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:12px;"><strong>結論：拓撲收縮是模型能安全參與空間佈局的分界線。</strong>保留骨架（L1）→ 四個系統全數<strong>零違規</strong>；跳過骨架（L2）→ 交叉隨規模上升至三成。台北違規高於規模更大的東京，原因待查（可能與環線與多重轉乘交織有關），誠實列為未解。樣本限制：完整指標表為 4 系統、單一模型、單一變體；跨模型樣本雖已擴至 <strong>13 個模型</strong>（<code class="mono">executor: enforced</code> 結果檔），但多數模型僅 1–2 城，尚未整理成同一組指標的對照表。<strong>2026-08-07 起衍生資料已全球保留</strong>（全量 599 城骨架／網格／直線化），跨模型樣本要擴充一律重跑 <code class="mono">metro:llmchain</code>；13 個模型俱在。</p>
+  </section>
+
+  <!-- 26: DIVIDER V -->
+  <section class="slide" data-title="演算法 vs LLM">
+    <div class="eyebrow"><span class="tag"><b>19d</b>兩類求解者</span><span class="rule"></span><span class="eng">ALGORITHM vs LLM · §6.4</span></div>
+    <h1 class="title">固定演算法與 LLM：優缺點對照與選用準則</h1>
+    <p class="subtitle">系統同時保有<strong>九條確定性演算法鏈</strong>與<strong>九條 LLM 鏈</strong>（其中會改動座標者六條），吃同一輸入、受同一硬規則、以同一組指標量測——差異只來自求解者本身。前提是論文 3.7.4 節的界線：<strong>九個 LLM 功能沒有一個是固定演算法</strong>，固定的只有脈絡 schema、硬規則驗證器與結果檔格式，求解策略每次由模型自行構思。</p>
+    <table class="tbl dense" style="margin-top:10px;">
+      <tr><th>面向</th><th>固定演算法（①〜⑨）</th><th>LLM 鏈</th></tr>
+      <tr><td>可重現性</td><td>程序級：同輸入必得同輸出</td><td>快照級：可精確重繪稽核，重跑不保證相同</td></tr>
+      <tr><td>可說明性</td><td>偽碼即完整說明，每步可回推</td><td>事後自述，非可驗證的執行軌跡</td></tr>
+      <tr><td>成本</td><td>毫秒級、零網路、可全量 599 系統</td><td>分鐘級（台中 1分37秒 → 台北 16分54秒；2026-07 快照），全量不可行</td></tr>
+      <tr><td>改善來源</td><td>明確的目標函數與搜尋策略</td><td>利用<strong>沒被寫進目標函數</strong>的先驗</td></tr>
+      <tr><td>失敗模式</td><td>局部最佳、對目標函數過擬合</td><td>提案不合法、策略不穩定、規模上限難預測</td></tr>
+      <tr><td>規模行為</td><td>隨規模平順劣化、可預測</td><td>有斷崖：L1 零違規 → L2 交叉率 32.5%</td></tr>
+      <tr><td>維護</td><td>改程式碼，影響面明確</td><td>改 prompt／脈絡，效果需重測才知道</td></tr>
+      <tr><td>正確性責任</td><td>由演算法自身承擔</td><td>由 harness 承擔——模型不持有正確性</td></tr>
+    </table>
+    <div class="grid cols-2" style="margin-top:12px;">
+      <div class="card blue"><div class="label">演算法不可替代</div><h3>系統的下界，也是唯一基準</h3><p>提供與模型無關的品質保證（3.7.2 節）；也是 LLM 唯一可靠的比較對象——沒有它們，「LLM 有沒有比較好」無從回答。且只有確定性鏈跑得動全量比較。</p></div>
+      <div class="card amber"><div class="label">LLM 不可替代</div><h3>能用沒被寫進規格的先驗</h3><p>排名吸附的 H/V <strong>結構性為零</strong>（每個相異座標各配一欄）。模型看出「這兩站幾乎同一條經線，該段實為正南向」而收進同一欄——只需「距離重要」這個從未被寫進規格的先驗。LLM 互動同理：把無法事先列舉的使用者意圖轉成參數。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:10px;">共同前提是<strong>圖工程</strong>：L2 的斷崖顯示 LLM 的優勢並非無條件——它不是替代管線的候選，而是<strong>管線走得夠深之後才派得上用場的一層</strong>。選用準則：可形式化／需全量／需程序級重現 → 演算法；涉及難以形式化的判斷或當下意圖 → LLM；兩者同置於一個 harness。策略若反覆收斂，循<strong>觀察—固化</strong>寫成程式碼，即從右欄移到左欄。</p>
+  </section>
+
+  <section class="slide divider" data-title="實驗與評估">
+    <div class="roman">V</div>
+    <div class="stagechip"><span class="sw" style="background:var(--green);"></span>PART V · CHAPTER 5</div>
+    <h1 class="title">實驗與評估</h1>
+    <p class="subtitle">兩層評估：系統級全量實測（已完成）驗證演算法；使用者評估（承計畫書設計）驗證人的理解——分別回答 RQ1 與 RQ2。</p>
+    <div class="pillrow">
+      <span class="pill">全量實測（599 系統）</span><span class="pill">收斂與品質指標</span><span class="pill">使用者測試設計</span><span class="pill">LLM 評審</span>
+    </div>
+  </section>
+
+  <!-- 27: SYSTEM EVAL -->
+  <section class="slide" data-title="系統級評估">
+    <div class="eyebrow"><span class="tag"><b>20</b>評估（一）</span><span class="rule"></span><span class="eng">SYSTEM-SCALE EVALUATION</span></div>
+    <h1 class="title">每一個系統都是一個測試案例<span style="font-size:.5em;font-weight:400;opacity:.7;">（599 系統全量實測）</span></h1>
+    <p class="subtitle">通用框架的最強證據是規模：不挑資料、不挑城市，全量跑完、全量收斂。</p>
+    <div class="grid cols-4" style="margin-top:12px;">
+      <div class="card green"><div class="label">收斂性</div><p class="big">599 / 599</p><p>循環全城收斂，無一例外；總計約 5 秒（單城最慢 NYC 約 0.4 秒）。</p></div>
+      <div class="card green"><div class="label">直線化品質</div><p class="big">+42.9%</p><p>②直角爬山循環前提升；循環後量測：<code class="mono">network-loop</code> 80.7% vs ② 84.8%——<strong>循環承擔了直線化主力</strong>。</p></div>
+      <div class="card green"><div class="label">拓撲正確性</div><p class="big">0 交叉</p><p>Frame 佈線「絕不交叉」多層消解；全量 0 孤立站、殘留 forced 僅深度 Jordan 封閉極限案例（琥珀標示）。</p></div>
+      <div class="card green"><div class="label">壓縮率</div><p class="big">19.8%</p><p>新規模 555 系統：循環後格數中位數縮至網格化後的 19.8%（約五倍面積縮減）；NYC 160×160→約 31×34。</p></div>
+    </div>
+    <div class="grid cols-2" style="margin-top:12px;">
+      <div class="card blue"><div class="label">確定性＝可重現</div><p>全演算法無亂數，同輸入同輸出；每個單一移動可在逐步驗證重播——實驗結果可完整重現與稽核，這是論文方法章的可信度基礎。</p></div>
+      <div class="card blue"><div class="label">LLM 評審</div><p>LLM 比較對每城的全部候選結果（九條演算法鏈＋可用的 LLM 直線化；旋轉變體仍在計算時為 2 變體 × 9＋LLM＝最多 18 個）做唯讀評比，依方正／直線／轉折／平衡／硬失敗選最佳——承接 VisEval 式「模型評模型」的評估思路。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;">另有 <strong>LLM 消融梯度</strong>的實測（見前述 19c 頁）：L1 四系統零違規、L2 交叉率最高 32.5%——把「圖工程決定問題難度」從論述變成數據。</p>
+  </section>
+
+  <!-- 28: USER EVAL -->
+  <section class="slide" data-title="使用者評估設計">
+    <div class="eyebrow"><span class="tag"><b>21</b>評估（二）</span><span class="rule"></span><span class="eng">USER STUDY DESIGN</span></div>
+    <h1 class="title">使用者評估：人看得懂才算數</h1>
+    <p class="subtitle">承兩份計畫書的實驗評估設計（回答 RQ2）：驗證屬性概括化網絡圖在不同裝置上對使用者理解與偏好的影響。</p>
+    <div class="grid cols-3" style="margin-top:10px;">
+      <div class="card purple"><div class="label">受訪者</div><h3>至少 30 名</h3><p>行動裝置地圖使用者（日常使用 Google Maps／Apple Maps 查詢、導航），男女各半、18–65 歲、不限職業——對小螢幕地圖有實際使用經驗。</p></div>
+      <div class="card purple"><div class="label">測試地圖 × 3</div><h3>三種底圖對照</h3><p>自適應屬性網絡圖（本系統輸出）vs 加入屬性的台北捷運官方路線圖 vs 加入屬性的 Google Maps 路線圖；各在個人電腦／平板／手機三種裝置呈現。</p></div>
+      <div class="card purple"><div class="label">問卷 × 2 部份</div><h3>績效衡量＋使用者評價</h3><p>客觀作答速度與正確率，加上李克特量表的主觀喜好度。</p></div>
+    </div>
+    <table class="tbl dense">
+      <tr><th>績效衡量題型</th><th>測什麼</th></tr>
+      <tr><td><strong>用圖找說明</strong></td><td>能否從地圖迅速找到關鍵資訊（「擁擠路段有哪些？」）——屬性辨識速度與正確性</td></tr>
+      <tr><td><strong>用說明找圖</strong></td><td>能否依文字描述在地圖定位（「找到某車站」）——目標定位能力</td></tr>
+      <tr><td><strong>用圖找圖</strong></td><td>能否把概括化地圖上的位置準確對應到 Google Maps 的真實位置——空間認知的保真度</td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:12px;">研究假設（論文 5.3 節）：<strong>H1</strong> 小螢幕上自適應圖的屬性辨識更快更準；<strong>H2</strong> 其空間認知保真度不低於官方路線圖；<strong>H3</strong> 需查看屬性資料時使用者更偏好自適應圖。</p>
+  </section>
+
+  <!-- 29: DIVIDER VI -->
+  <section class="slide" data-title="未來工作">
+    <div class="eyebrow"><span class="tag"><b>24</b>未來工作</span><span class="rule"></span><span class="eng">FUTURE WORK · §7.2</span></div>
+    <h1 class="title">從路網示意圖到「示意城市」</h1>
+    <p class="subtitle">除既有規劃（使用者實驗、標籤佈置、即時流量、網絡型態擴充、四步鏈與最佳解差距、LLM 評審對齊）外，本研究的性質直接導出五項後續工作。</p>
+    <div class="grid cols-2" style="margin-top:8px;">
+      <div class="card blue"><div class="label">(7) 策略穩定性</div><h3>同城市重跑 n 次，量變異數</h3><p>LLM 鏈目前每城只有單次快照。要量指標變異數、模型自述策略的分群、提案合法率穩定性——變異數過大，它就只能是探索工具而非交付路徑。</p></div>
+      <div class="card amber"><div class="label">(8) 觀察—固化</div><h3>把收斂的策略寫成確定性鏈</h3><p>已觀察到模型反覆收斂到「<strong>保距量化＋貪心吸附</strong>」。實作成程式碼即得第九條演算法鏈，同時取得程序級可重現性與「距離重要」這個原先未寫進規格的先驗。<strong>LLM 作為演算法的發現工具，而非僅是執行工具。</strong></p></div>
+      <div class="card violet"><div class="label">(9) 跨模型消融重測</div><h3>確認斷崖是結構性而非模型能力邊界</h3><p>目前 4 系統／單一模型／單一變體。另需釐清台北違規率為何高於規模更大的東京——是否存在「規模」以外的第二個難度維度。</p></div>
+      <div class="card green"><div class="label">(10) LLM 鏈全量預算</div><h3>讓兩類求解者同表比較</h3><p>LLM 鏈的縮圖尚未納入全量離線管線，無法與九條演算法鏈在同一張全量表上比。補上後「LLM 有沒有比較好」才有跨全資料集的答案。</p></div>
+    </div>
+    <div class="card rose" style="margin-top:12px;">
+      <div class="label">(11) 最具野心的延伸 · SCHEMATIC CITY</div>
+      <h3>把管線推廣到全 OSM 圖資：示意城市</h3>
+      <p>示意圖的核心交易——<strong>捨棄距離精確性換取拓撲可讀性</strong>——概念上並不專屬軌道路網。metro／railway／highway 三條管線 schema 相同、下游共用，已證明管線對「網絡型態」不敏感。推廣到整座城市（道路、水系、鐵路、街廓一併示意化並隨版面重排）需跨越三道難關：
+      <strong>① 規模量級跳躍</strong>——非中途站從 10¹–10² 到 10⁵–10⁶ 條邊，一格一點、O(E²) 違規掃描、前端全載入都要重新設計；
+      <strong>② 從「線」到「面」</strong>——街廓／公園／水體的拓撲一致性（公園變形後仍須在原街廓內）是一組全新硬規則，與現行頂點移動範式不直接相容；
+      <strong>③ 階層與概括化耦合</strong>——道路是連續階層而非離散線集合，必須把「畫什麼」與「怎麼畫」一起解，這讓 RQ2 的自適應多一個維度。</p>
+      <p style="margin-top:8px;">這也可能是 LLM 最有價值的著力點：「哪些街廓可以合併」「這一帶該保留紋理還是抽象成一塊」正是難以形式化、高度依賴當地脈絡的判斷。但依 5.5 節的斷崖，前提仍是<strong>先把圖工程做足，模型才有辦法安全參與</strong>——示意城市因此也是對本研究分工主張的一次更嚴苛檢驗。</p>
+    </div>
+  </section>
+
+  <section class="slide divider" data-title="貢獻與規劃">
+    <div class="roman">VI</div>
+    <div class="stagechip"><span class="sw" style="background:var(--blue);"></span>PART VI · CHAPTERS 6–7</div>
+    <h1 class="title">貢獻與規劃</h1>
+    <p class="subtitle">論文章節規劃、四項預期貢獻、發表與時程。</p>
+    <div class="pillrow">
+      <span class="pill">章節規劃</span><span class="pill">預期貢獻</span><span class="pill">發表規劃</span>
+    </div>
+  </section>
+
+  <!-- 30: CHAPTER PLAN -->
+  <section class="slide" data-title="論文章節規劃">
+    <div class="eyebrow"><span class="tag"><b>22</b>章節規劃</span><span class="rule"></span><span class="eng">DISSERTATION OUTLINE</span></div>
+    <h1 class="title">章節規劃：全文已成文，見「論文本文」</h1>
+    <p class="subtitle" style="margin:-4px 0 4px;">七章結構已依此規劃寫成完整文稿（<code class="mono">data/docs/thesis/paper.md</code>，APA 7）；第三章含 3.7.1「LLM 工程五層面」（prompt／context／harness／loop／graph）。</p>
+    <table class="tbl dense">
+      <tr><th>章</th><th>內容</th><th>素材來源</th></tr>
+      <tr><td class="num">1</td><td><strong>緒論</strong>——背景動機、三個研究問題、目的、範圍與限制</td><td>兩份計畫書第 1 章（合併改寫）</td></tr>
+      <tr><td class="num">2</td><td><strong>文獻回顧</strong>——路網圖自動繪製／自適應視覺化／生成式 AI 視覺化；研究空缺</td><td>計畫書第 2 章＋<code class="mono">data/thesis/</code> 九篇演算法說明</td></tr>
+      <tr><td class="num">3</td><td><strong>研究方法</strong>——四階段管線形式化：骨架化、網格化、爬山、十一條直線鏈、movewise 四步鏈、Frame 佈線的演算法定義與不變式</td><td>66 份 skill（演算法契約）＋<code class="mono">src/stores/</code> 純函式實作</td></tr>
+      <tr><td class="num">4</td><td><strong>系統實作</strong>——Adapt-Metro 架構、三條資料管線（fetch⇄audit）、LLM 離線整合、效能與快取</td><td>README＋系統本身（線上可操作）</td></tr>
+      <tr><td class="num">5</td><td><strong>實驗與評估</strong>——全量實測（599 系統；收斂／H/V／壓縮率／0 交叉）、九演算法鏈逐城比較、資料品質收斂、失敗案例、<strong>LLM 消融梯度</strong>、使用者測試</td><td>系統實測數據＋消融基線結果＋計畫書第 4 章評估設計</td></tr>
+      <tr><td class="num">6</td><td><strong>討論</strong>——四步鏈與 NP-hard 正交壓縮的關係、速度 vs 最佳性的取捨、LLM-in-the-loop 的把關範式、限制</td><td>演算法文獻定位＋實驗發現</td></tr>
+      <tr><td class="num">7</td><td><strong>結論與未來工作</strong>——貢獻總結；標籤／佈線、即時流量、更多網絡型態</td><td>——</td></tr>
+    </table>
+  </section>
+
+  <!-- 31: CONTRIBUTIONS -->
+  <section class="slide" data-title="預期貢獻">
+    <div class="eyebrow"><span class="tag"><b>23</b>預期貢獻</span><span class="rule"></span><span class="eng">CONTRIBUTIONS</span></div>
+    <h1 class="title">四項貢獻，各對應一個研究問題面向</h1>
+    <div class="grid cols-2" style="margin-top:10px;">
+      <div class="card blue">
+        <div class="label">貢獻 1 · 通用演算法框架（RQ1）</div>
+        <h3>自適應版面的空間網絡視覺化</h3>
+        <p>從真實路網到響應式示意圖的完整四階段管線——以三種路網（metro／railway／highway）、全量驗證通用性（599 系統）；純函式、確定性、瀏覽器內即時求解。</p>
+      </div>
+      <div class="card rose">
+        <div class="label">貢獻 2 · 四步鏈 movewise（RQ1）</div>
+        <h3>NP-hard 壓縮問題的 local search 解法</h3>
+        <p>固定拓撲正交示意化＋面積最小化是經典 NP-hard 問題；四步鏈以「每種移動守一個單調不變式＋movewise 即時壓縮」逼近——犧牲最佳性換秒級全量速度與<strong>逐步可視化</strong>（求解器路線給不了的）。</p>
+      </div>
+      <div class="card purple">
+        <div class="label">貢獻 3 · LLM-in-the-loop 範式（RQ3）</div>
+        <h3>提案歸模型、合法性歸規則</h3>
+        <p>LLM 當最佳化器／評審而非黑盒生成器：所有提案經確定性硬規則驗證（拓撲不變、變差退回）、結果存檔可稽核——為「生成式 AI 畫路網圖」提供第一個方法架構，系統化為 <strong>prompt／context／harness／loop／graph 五層工程</strong>，且<strong>模型無關</strong>：主張不隨模型換代貶值。其中 graph 層以<strong>消融梯度</strong>給出可否證檢驗，實測界定「拓撲收縮＝模型能安全參與的分界線」。</p>
+      </div>
+      <div class="card green">
+        <div class="label">貢獻 4 · 全球示意圖佈局基準</div>
+        <h3>MetroBench（暫名 · v1/2026-07）</h3>
+        <p>統一 schema 資料集（**599 系統**）＋資料品質不變式與收斂報告＋九演算法同約束基準結果——使示意圖佈局首次能全量公平比較；由 fetch ⇄ audit 閉環與可重放 overrides 支撐，計畫掛 DOI 發布。</p>
+      </div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;">發表規劃（承國科會計畫書）：至少 <strong>2 篇 SCIE／SSCI 期刊論文</strong>＋參與至少 <strong>3 次國際學術研討會</strong>。</p>
+  </section>
+
+  <!-- 32: Closing -->
+  <section class="slide closing" data-title="回到系統">
+    <div class="eyebrow" style="justify-content:center;"><span class="eng">THANK YOU</span></div>
+    <h1 class="title">論文寫的每一件事，系統裡都能親手操作</h1>
+    <p class="subtitle">回到 Adapt-Metro，開啟 1 Raw Maps → 2 Gridding → 3 Straighten → 4 Frame Maps 四個圖層群組——從真實路網到響應式示意圖的每一步、每一個單一移動，都能逐步重播。文件選單：<strong>系統內容</strong>（介紹＋架構）與<strong>資料流／Skills</strong>（資料流圖、Skill 呼叫圖、Skills、系統報告）分開；後者可對照管線、呼叫關係與 66 份 skill 規格。</p>
+    <div class="cta">
+      <a class="btn primary" href="./paper/">閱讀論文本文（md 顯示⇄原文）</a>
+      <a class="btn ghost" href="../../../">回到系統</a>
+      <a class="btn ghost" href="../system/intro/">系統介紹投影片</a>
+    </div>
+    <p class="subtitle" style="margin-top:18px;">本文件最後更新：<strong>2026-08-12</strong>（系統數 599、線 5,898／站 37,313；衍生資料全球保留（2026-08-07）；DRIFT_CAP 0.20；指定形狀 13 城；frameParity 980 組）。</p>
+  </section>
+
+</div><!-- /stage -->
+</div><!-- /deck -->
+</div><!-- /workspace -->
+
+<!-- 導覽＝獨立 tool-bar；footer＝檔案位置＋更新時間（右下） -->
+<div class="tool-bar slide-seek doc-chrome" role="toolbar" aria-label="投影片導覽">
+  <button class="btn-icon" id="prevBtn" type="button" aria-label="上一頁" title="上一頁 (←)">‹</button>
+  <div class="seekbar" id="seekbar" title="點擊跳到該頁">
+    <div class="seek-fill" id="seekFill"></div>
+    <div class="seek-knob" id="seekKnob"></div>
+    <div class="seek-tip" id="seekTip"></div>
+  </div>
+  <button class="btn-icon" id="nextBtn" type="button" aria-label="下一頁" title="下一頁 (→)">›</button>
+  <span class="counter" id="counter">1 / 38</span>
+</div>
+<footer class="status-bar doc-chrome" id="docFooter"></footer>
+<script src="../_shared/doc-footer.js"></script>
+<script>
+  AdaptMetroDocFooter.bind('#docFooter', {
+    path: 'data/docs/thesis/index.html',
+    url: './index.html',
+    updated: '2026-08-12',
+  });
+</script>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var STORAGE_KEY = 'thesis-slides';
+  var PAGE_LS = 'adapt-metro:' + STORAGE_KEY + '-page';
+  // 頁碼：hash 優先，否則 localStorage（重新整理還原，同主頁 session 精神）
+  function savedPage1() {
+    var n = parseInt((location.hash || '').replace('#', ''), 10);
+    if (!isNaN(n) && n >= 1) return n;
+    try {
+      n = parseInt(localStorage.getItem(PAGE_LS) || '', 10);
+      if (!isNaN(n) && n >= 1) return n;
+    } catch (e) {}
+    if (window.AdaptMetroGSlides && AdaptMetroGSlides.readSavedPage) {
+      return AdaptMetroGSlides.readSavedPage(STORAGE_KEY, total);
+    }
+    return 1;
+  }
+  var idx = Math.max(0, Math.min(total - 1, savedPage1() - 1));
+
+  // 縮放／投影播放由 AdaptMetroGSlides（_shared/gslides.js）負責
+
+  // ---- 左側縮圖膠捲：每頁一張實時等比縮小的 clone，可點跳頁 ----
+  var filmstrip = document.getElementById('filmstrip');
+  var thumbItems = [];
+  slides.forEach(function(s, i){
+    var item = document.createElement('div');
+    item.className = 'list-row filmstrip-item';
+    item.setAttribute('role', 'button');
+    item.title = (i + 1) + '　' + (s.getAttribute('data-title') || '');
+    var num = document.createElement('span');
+    num.className = 'fs-num'; num.textContent = (i + 1);
+    var thumb = document.createElement('div');
+    thumb.className = 'thumb';
+    var inner = document.createElement('div');
+    inner.className = 'thumb-inner';
+    var clone = s.cloneNode(true);
+    clone.removeAttribute('id');
+    inner.appendChild(clone);
+    thumb.appendChild(inner);
+    item.appendChild(num); item.appendChild(thumb);
+    item.addEventListener('click', function(){ go(i); });
+    filmstrip.appendChild(item);
+    thumbItems.push(item);
+  });
+  function scaleThumbs(){
+    thumbItems.forEach(function(item){
+      var thumb = item.querySelector('.thumb'), inner = item.querySelector('.thumb-inner');
+      var w = thumb.clientWidth; if (w) inner.style.transform = 'scale(' + (w / 1280) + ')';
+    });
+  }
+  window.addEventListener('resize', scaleThumbs);
+  scaleThumbs();
+
+  var seekFill = document.getElementById('seekFill');
+  var seekKnob = document.getElementById('seekKnob');
+  var seekbar = document.getElementById('seekbar');
+  var seekTip = document.getElementById('seekTip');
+  var counterEl = document.getElementById('counter');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+
+  function clamp(n){ return Math.max(0, Math.min(total - 1, n)); }
+
+  function render(){
+    slides.forEach(function(s, i){ s.classList.toggle('active', i === idx); });
+    if (slides[idx]) slides[idx].scrollTop = 0;
+    counterEl.textContent = (idx + 1) + ' / ' + total;
+    var pct = (total <= 1) ? 100 : (idx / (total - 1) * 100);
+    seekFill.style.width = pct + '%';
+    seekKnob.style.left = pct + '%';
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === total - 1;
+    thumbItems.forEach(function(item, i){ item.classList.toggle('active', i === idx); });
+    if (thumbItems[idx]) thumbItems[idx].scrollIntoView({ block: 'nearest' });
+    var title = slides[idx].getAttribute('data-title') || '';
+    document.title = (title ? title + ' · ' : '') + '論文內容 · Adapt-Metro';
+    history.replaceState(null, '', '#' + (idx + 1));
+  }
+
+  function persistPage() {
+    try { localStorage.setItem(PAGE_LS, String(idx + 1)); } catch (e) {}
+    if (window.AdaptMetroGSlides && AdaptMetroGSlides.writeSavedPage) {
+      AdaptMetroGSlides.writeSavedPage(STORAGE_KEY, idx + 1);
+    }
+  }
+  function go(n){
+    idx = clamp(n);
+    render();
+    persistPage();
+  }
+  function next(){ go(idx + 1); }
+  function prev(){ go(idx - 1); }
+
+  function seekIndex(e){
+    var r = seekbar.getBoundingClientRect();
+    var f = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+    return clamp(Math.round(f * (total - 1)));
+  }
+  seekbar.addEventListener('click', function(e){ go(seekIndex(e)); });
+  seekbar.addEventListener('mousemove', function(e){
+    var r = seekbar.getBoundingClientRect();
+    var n = seekIndex(e);
+    seekTip.textContent = (n + 1) + ' / ' + total;
+    seekTip.style.left = ((e.clientX - r.left)) + 'px';
+  });
+
+  render();
+  persistPage();
+  if (window.AdaptMetroGSlides && AdaptMetroGSlides.fit) {
+    requestAnimationFrame(function () { AdaptMetroGSlides.fit(); });
+  }
+
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+  // 縮放邏輯已搬到 _shared/gslides.js，但投影播放的翻頁仍綁在 deck 上——
+  // 這裡自己取一次元素（原本的 var deckEl 隨縮放邏輯一起搬走了）。
+  var deckEl = document.getElementById('deck');
+  if (deckEl) {
+    deckEl.addEventListener('click', function(){ if (document.fullscreenElement) next(); });
+    deckEl.addEventListener('contextmenu', function(e){ if (document.fullscreenElement) { e.preventDefault(); prev(); } });
+  }
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') { e.preventDefault(); go(0); }
+    else if (e.key === 'End') { e.preventDefault(); go(total - 1); }
+    else if (e.key === 'f' || e.key === 'F') {
+      if (window.AdaptMetroGSlides && AdaptMetroGSlides.toggleFullscreen) AdaptMetroGSlides.toggleFullscreen();
+    }
+    else if (e.key === 'Escape' && document.fullscreenElement) { document.exitFullscreen(); }
+  });
+
+  var touchStartX = null;
+  document.addEventListener('touchstart', function(e){ touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', function(e){
+    if (touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 44) { dx < 0 ? next() : prev(); }
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+
+<script src="../_shared/table-col-resize.js"></script>
+</body>
+</html>

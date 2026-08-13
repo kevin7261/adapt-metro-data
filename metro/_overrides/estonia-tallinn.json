@@ -1,0 +1,21 @@
+{
+  "city": "Tallinn",
+  "country": "Estonia",
+  "continent": "europe",
+  "osm_route_ids": [
+    1773625,
+    1773765,
+    1774092,
+    1774093,
+    1774094,
+    1774095,
+    17475113,
+    17475114,
+    18386252,
+    18386410,
+    18558203,
+    18558386
+  ],
+  "source": "https://www.urbanrail.net/eu/ee/tallinn/tallinn.htm",
+  "note": "Tallinn（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

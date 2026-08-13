@@ -1,0 +1,12 @@
+{
+  "city": "Tucson",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    3920972
+  ],
+  "source": "https://www.urbanrail.net/am/tucson/tucson.htm",
+  "wikipedia": "en:Sun Link",
+  "wikidata": "Q7638399",
+  "note": "Tucson（使用者 2026-07-26「抓錯」）＝Sun Link streetcar 1 線。OSM 雙向 stop 殘缺且順序錯（WB 從 4th/7th 跳到 Granada；EB 把 Frontage 插錯），tram 同 ref 合併成折返亂序。只留 r3920972＋member_appends.replace_stops 走廊站序（Helen→Convento，含對向專屬 Toole／Highland／Tyndall 等）；r12426661→route_excludes。urbanrail 17 stops／wiki 21（17 per direction）。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata／本 note。"
+}

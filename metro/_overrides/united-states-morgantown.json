@@ -1,0 +1,11 @@
+{
+  "city": "Morgantown",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    6504062,
+    12316476
+  ],
+  "source": "https://www.urbanrail.net/am/morg/morgantown.htm",
+  "note": "摩根敦 WVU PRT（personal rapid transit，OSM route=monorail）。urbanrail gap 收 monorail。站序 5：Health Sciences（OSM Medical）→ Towers → Engineering → Beechurst → Walnut。gap 改用 public_transport=station 節點；軌道 ways 標 highway=bus_guideway（非 railway）→ tracks_v2_0006504062.json 由 OSM relation full 寫入。使用者 2026-07-25 抓錯修正。"
+}

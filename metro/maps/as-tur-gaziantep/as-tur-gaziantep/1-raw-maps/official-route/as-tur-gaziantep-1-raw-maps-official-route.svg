@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 584 501" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(23.2963,0,0,12.9024,-387.741,-439.78)">
+        <rect x="16" y="33" width="27" height="41" style="fill:white;"/>
+    </g>
+    <g id="Linien">
+        <g transform="matrix(1,0,0,1,-639.482,-873.025)">
+            <path d="M1021.13,978.87C1021.13,978.87 895.851,1104.15 891.778,1108.22C889.715,1110.29 886.917,1111.44 884,1111.44C881.083,1111.44 878.285,1110.29 876.222,1108.22C872.149,1104.15 822.776,1054.78 819.222,1051.22C817.159,1049.16 816,1046.36 816,1043.44C816,1038.41 816,950.5 816,945C816,938.925 820.925,934 827,934L894,934" style="fill:none;stroke:rgb(149,193,31);stroke-width:5.5px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-631.704,-865.246)">
+            <path d="M1021.13,978.87C1021.13,978.87 776.333,1223.67 772.444,1227.56C770.381,1229.62 769.222,1232.42 769.222,1235.33C769.222,1238.25 770.381,1241.05 772.444,1243.11C780.593,1251.26 792.222,1262.89 792.222,1262.89C792.222,1262.89 837.677,1308.35 841.331,1312C843.394,1314.06 846.192,1315.22 849.109,1315.22C854.344,1315.22 1062.22,1315.22 1062.22,1315.22" style="fill:none;stroke:rgb(210,10,17);stroke-width:5.5px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-647.26,-865.246)">
+            <path d="M759.716,1240.28C759.716,1240.28 872.149,1127.85 876.222,1123.78C878.285,1121.71 879.444,1118.92 879.444,1116C879.444,1113.08 878.285,1110.29 876.222,1108.22C872.149,1104.15 868,1100 868,1100C868,1100 833.789,1065.79 819.222,1051.22C815.096,1047.1 812.778,1041.5 812.778,1035.66C812.778,1015.39 812.778,966.071 812.778,937.222C812.778,931.387 815.096,925.791 819.222,921.665C823.348,917.54 828.943,915.222 834.778,915.222C861.134,915.222 901.778,915.222 901.778,915.222" style="fill:none;stroke:rgb(0,119,186);stroke-width:5.5px;"/>
+        </g>
+    </g>
+    <g id="Stationsblobs">
+        <g transform="matrix(0.311127,0.311127,-0.388909,0.388909,272.753,-166.39)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.311127,0.311127,-0.388909,0.388909,151.623,-45.2607)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.311127,0.311127,-0.388909,0.388909,111.845,-5.48272)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.311127,0.311127,-0.388909,0.388909,31.8454,74.5173)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(-0.311127,0.311127,-0.388909,-0.388909,500.754,118.081)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(-0.311127,0.311127,-0.388909,-0.388909,460.754,78.0809)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.44,2.77556e-17,0,0.55,-103.982,42.4754)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.44,2.77556e-17,0,0.55,-103.982,17.4754)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.44,2.77556e-17,0,0.55,-103.982,-7.52461)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.44,2.77556e-17,0,0.55,-103.982,-32.5246)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(-8.13346e-19,0.44,-0.55,3.36778e-17,314.018,-219.525)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(-8.13346e-19,0.44,-0.55,3.36778e-17,370.018,-219.525)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.311127,0.311127,-0.388909,0.388909,231.623,-125.261)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.311127,0.311127,-0.388909,0.388909,211.623,-105.261)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.311127,0.311127,-0.388909,0.388909,191.623,-85.2607)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.311127,0.311127,-0.388909,0.388909,171.623,-65.2607)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.311127,0.311127,-0.388909,0.388909,91.8454,14.5173)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.311127,0.311127,-0.388909,0.388909,71.8454,34.5173)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.311127,0.311127,-0.388909,0.388909,51.8454,54.5173)">
+            <path d="M650,210C650,204.481 644.399,200 637.5,200L612.5,200C605.601,200 600,204.481 600,210C600,215.519 605.601,220 612.5,220L637.5,220C644.399,220 650,215.519 650,210Z" style="fill:rgb(250,250,250);stroke:black;stroke-width:3.01px;stroke-linecap:round;"/>
+        </g>
+        <g transform="matrix(0.515776,0,0,0.515776,-558.053,168.727)">
+            <circle cx="1300" cy="400" r="7.755" style="fill:rgb(250,250,250);stroke:black;stroke-width:2.91px;"/>
+        </g>
+        <g transform="matrix(0.515776,0,0,0.515776,-509.99,191.334)">
+            <circle cx="1300" cy="400" r="7.755" style="fill:rgb(250,250,250);stroke:black;stroke-width:2.91px;"/>
+        </g>
+        <g transform="matrix(0.515776,0,0,0.515776,-489.99,211.334)">
+            <circle cx="1300" cy="400" r="7.755" style="fill:rgb(250,250,250);stroke:black;stroke-width:2.91px;"/>
+        </g>
+        <g transform="matrix(0.515776,0,0,0.515776,-469.99,231.334)">
+            <circle cx="1300" cy="400" r="7.755" style="fill:rgb(250,250,250);stroke:black;stroke-width:2.91px;"/>
+        </g>
+        <g transform="matrix(0.515776,0,0,0.515776,-439.99,243.665)">
+            <circle cx="1300" cy="400" r="7.755" style="fill:rgb(250,250,250);stroke:black;stroke-width:2.91px;"/>
+        </g>
+        <g transform="matrix(0.515776,0,0,0.515776,-389.99,243.665)">
+            <circle cx="1300" cy="400" r="7.755" style="fill:rgb(250,250,250);stroke:black;stroke-width:2.91px;"/>
+        </g>
+        <g transform="matrix(0.515776,0,0,0.515776,-339.99,243.665)">
+            <circle cx="1300" cy="400" r="7.755" style="fill:rgb(250,250,250);stroke:black;stroke-width:2.91px;"/>
+        </g>
+        <g transform="matrix(0.515776,0,0,0.515776,-289.99,243.665)">
+            <circle cx="1300" cy="400" r="7.755" style="fill:rgb(250,250,250);stroke:black;stroke-width:2.91px;"/>
+        </g>
+        <g transform="matrix(0.515776,0,0,0.515776,-239.99,243.665)">
+            <circle cx="1300" cy="400" r="7.755" style="fill:rgb(250,250,250);stroke:black;stroke-width:2.91px;"/>
+        </g>
+    </g>
+    <g id="Beschriftung">
+        <g transform="matrix(1,0,0,1,-1149.22,-202.785)">
+            <g transform="matrix(15,0,0,15,1643.4,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;">Gaziantep Gar</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1340.66,-247.332)">
+            <g transform="matrix(15,0,0,15,1616.59,327.911)">
+            </g>
+            <text x="1574.16px" y="327.911px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;">Adliy<tspan x="1608.62px " y="327.911px ">e</tspan></text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1165.02,112.888)">
+            <g transform="matrix(15,0,0,15,1627.83,327.911)">
+            </g>
+            <text x="1562.93px" y="327.911px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;">Ibn-i Sina</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1270.35,-81.6549)">
+            <g transform="matrix(15,0,0,15,1652.41,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;">Harikalar Diyarı</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1310.13,-41.8769)">
+            <g transform="matrix(15,0,0,15,1652.58,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;">Kadı Değirmeni</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1390.13,38.1231)">
+            <g transform="matrix(15,0,0,15,1697.96,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;">Gaziantep Üniv<tspan x="1650.28px 1658.24px " y="327.911px 327.911px ">er</tspan>sitesi</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1592.99,44.596)">
+            <g transform="matrix(15,0,0,15,1697.96,327.911)">
+            </g>
+            <text x="1611.7px" y="327.911px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;">Bur<tspan x="1634.93px 1641.98px " y="327.911px 327.911px ">ç </tspan>Kavşağı</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1441.15,-81.6549)">
+            <g transform="matrix(15,0,0,15,1652.41,327.911)">
+            </g>
+            <text x="1553.87px" y="327.911px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;">Sank<tspan x="1586.23px 1595.18px " y="327.911px 327.911px ">o </tspan>Okulları</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1190.25,-163.055)">
+            <g transform="matrix(13,0,0,13,1730.54,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">15 T<tspan x="1570.47px 1577.26px " y="327.911px 327.911px ">em</tspan>muz Demokrasi Meydanı</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1210.25,-143.055)">
+            <g transform="matrix(13,0,0,13,1646.54,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Gazi Muhtar P<tspan x="1627.79px 1634.41px " y="327.911px 327.911px ">aş</tspan>a</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1230.25,-123.055)">
+            <g transform="matrix(13,0,0,13,1696.02,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">25 Aralık Devlet Hastanesi</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1250.25,-103.055)">
+            <g transform="matrix(13,0,0,13,1612.06,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Masal P<tspan x="1591.31px 1597.93px " y="327.911px 327.911px ">ar</tspan>kı</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1330.02,-23.2772)">
+            <g transform="matrix(13,0,0,13,1605.66,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Rasaf Y<tspan x="1587.54px 1595.16px " y="327.911px 327.911px ">ol</tspan>u</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1350.02,-3.27725)">
+            <g transform="matrix(13,0,0,13,1592.8,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Binevler</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1380.02,67.6733)">
+            <g transform="matrix(13,0,0,13,1609.09,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Güneyke<tspan x="1597.33px " y="327.911px ">n</tspan>t</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1360.02,87.6733)">
+            <g transform="matrix(13,0,0,13,1630.6,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Şahinbey P<tspan x="1609.86px 1616.47px " y="327.911px 327.911px ">ar</tspan>kı</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1340.02,107.673)">
+            <g transform="matrix(13,0,0,13,1634.86,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Karataş Merke<tspan x="1628.99px " y="327.911px ">z</tspan></text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1361.05,138.166)">
+            <text x="1570.19px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Karataş</text>
+            <g transform="matrix(13,0,0,13,1614.13,339.611)">
+            </g>
+            <text x="1568.08px" y="339.611px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">1. Bölge</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1310.49,138.166)">
+            <text x="1571.17px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Akke<tspan x="1599.28px " y="327.911px ">n</tspan>t</text>
+            <g transform="matrix(13,0,0,13,1604.9,339.611)">
+            </g>
+            <text x="1577.32px" y="339.611px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">P<tspan x="1584.15px 1590.77px " y="339.611px 339.611px ">ar</tspan>kı</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1260.66,138.166)">
+            <text x="1571.17px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Akke<tspan x="1599.28px " y="327.911px ">n</tspan>t</text>
+            <g transform="matrix(13,0,0,13,1615.87,339.611)">
+            </g>
+            <text x="1566.34px" y="339.611px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Meydanı</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1210.66,138.166)">
+            <g transform="matrix(13,0,0,13,1611.04,327.911)">
+            </g>
+            <text x="1571.17px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Akke<tspan x="1599.28px " y="327.911px ">n</tspan>t</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1370.02,16.7228)">
+            <g transform="matrix(13,0,0,13,1617.86,327.911)">
+            </g>
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Tıp F<tspan x="1574.41px 1581.03px " y="327.911px 327.911px ">ak</tspan>ülte<tspan x="1609.2px " y="327.911px ">s</tspan>i</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1362.55,-298.288)">
+            <text x="1547.35px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">K<tspan x="1554.57px 1562.19px " y="327.911px 327.911px ">ol</tspan>ej</text>
+            <g transform="matrix(13,0,0,13,1575.02,339.611)">
+            </g>
+            <text x="1547.61px" y="339.611px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">V<tspan x="1554.73px 1561.34px " y="339.611px 339.611px ">ak</tspan>fı</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1440.8,-123.055)">
+            <g transform="matrix(13,0,0,13,1612.06,327.911)">
+            </g>
+            <text x="1528.64px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Olimpik Havuz</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1455.52,-166.914)">
+            <g transform="matrix(13,0,0,13,1612.06,327.911)">
+            </g>
+            <text x="1522.88px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Ali İhsan Göğüş</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1455.52,-191.914)">
+            <g transform="matrix(13,0,0,13,1612.06,327.911)">
+            </g>
+            <text x="1516.13px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">İbrahimli Merke<tspan x="1606.18px " y="327.911px ">z</tspan></text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1455.52,-216.914)">
+            <g transform="matrix(13,0,0,13,1612.06,327.911)">
+            </g>
+            <text x="1559.75px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Duisburg</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1455.52,-241.914)">
+            <g transform="matrix(13,0,0,13,1612.06,327.911)">
+            </g>
+            <text x="1547.91px" y="327.911px" style="font-family:'SegoeUI', 'Segoe UI';font-size:13px;">Güvenevler</text>
+        </g>
+        <g transform="matrix(0.707107,0.707107,-0.707107,0.707107,-688.696,-959.273)">
+            <g transform="matrix(0,-0.481928,1.06667,0,1084.4,615.506)">
+                <rect x="511.5" y="391.5" width="41.5" height="15" style="fill:rgb(0,119,186);stroke:rgb(250,250,250);stroke-width:1.22px;"/>
+            </g>
+            <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,1091.29,938.956)">
+                <g transform="matrix(15,0,0,15,588.665,423.995)">
+                </g>
+                <text x="572.061px" y="423.995px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;fill:white;">T3</text>
+            </g>
+        </g>
+        <g transform="matrix(0,1,-1,0,574.518,-1460.02)">
+            <g transform="matrix(0,-0.481928,1.06667,0,1084.4,615.506)">
+                <rect x="511.5" y="391.5" width="41.5" height="15" style="fill:rgb(0,119,186);stroke:rgb(250,250,250);stroke-width:1.22px;"/>
+            </g>
+            <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,1091.29,938.956)">
+                <g transform="matrix(15,0,0,15,588.665,423.995)">
+                </g>
+                <text x="572.061px" y="423.995px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;fill:white;">T3</text>
+            </g>
+        </g>
+        <g transform="matrix(-0.707107,0.707107,-0.707107,-0.707107,1514.6,-606.852)">
+            <g transform="matrix(0,-0.481928,1.06667,0,1084.4,615.506)">
+                <rect x="511.5" y="391.5" width="41.5" height="15" style="fill:rgb(0,119,186);stroke:rgb(250,250,250);stroke-width:1.22px;"/>
+            </g>
+            <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,1091.29,938.956)">
+                <g transform="matrix(15,0,0,15,588.665,423.995)">
+                </g>
+                <text x="572.061px" y="423.995px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;fill:white;">T3</text>
+            </g>
+        </g>
+        <g transform="matrix(0,1,-1,0,596.518,-1449.02)">
+            <g transform="matrix(0,-0.481928,1.06667,0,1084.4,615.506)">
+                <rect x="511.5" y="391.5" width="41.5" height="15" style="fill:rgb(149,193,31);stroke:rgb(250,250,250);stroke-width:1.22px;"/>
+            </g>
+            <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,1091.29,938.986)">
+                <g transform="matrix(15,0,0,15,588.665,423.995)">
+                </g>
+                <text x="572.061px" y="423.995px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;fill:white;">T2</text>
+            </g>
+        </g>
+        <g transform="matrix(-0.707107,0.707107,-0.707107,-0.707107,1537.93,-599.074)">
+            <g transform="matrix(0,-0.481928,1.06667,0,1084.4,615.506)">
+                <rect x="511.5" y="391.5" width="41.5" height="15" style="fill:rgb(149,193,31);stroke:rgb(250,250,250);stroke-width:1.22px;"/>
+            </g>
+            <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,1091.29,938.986)">
+                <g transform="matrix(15,0,0,15,588.665,423.995)">
+                </g>
+                <text x="572.061px" y="423.995px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;fill:white;">T2</text>
+            </g>
+        </g>
+        <g transform="matrix(0.707107,0.707107,-0.707107,0.707107,-460.591,-1187.38)">
+            <g transform="matrix(0,-0.481928,1.06667,0,1084.4,615.506)">
+                <rect x="511.5" y="391.5" width="41.5" height="15" style="fill:rgb(149,193,31);stroke:rgb(250,250,250);stroke-width:1.22px;"/>
+            </g>
+            <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,1091.29,938.986)">
+                <g transform="matrix(15,0,0,15,588.665,423.995)">
+                </g>
+                <text x="572.061px" y="423.995px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;fill:white;">T2</text>
+            </g>
+        </g>
+        <g transform="matrix(0,1,-1,0,770.518,-1060.02)">
+            <g transform="matrix(0,-0.481928,1.06667,0,1084.4,615.506)">
+                <rect x="511.5" y="391.5" width="41.5" height="15" style="fill:rgb(210,10,17);stroke:rgb(250,250,250);stroke-width:1.22px;"/>
+            </g>
+            <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,1091.29,938.729)">
+                <g transform="matrix(15,0,0,15,587.519,423.995)">
+                </g>
+                <text x="573.207px" y="423.995px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;fill:white;">T1</text>
+            </g>
+        </g>
+        <g transform="matrix(0.707107,0.707107,-0.707107,0.707107,-565.473,-1066.94)">
+            <g transform="matrix(0,-0.481928,1.06667,0,1084.4,615.506)">
+                <rect x="511.5" y="391.5" width="41.5" height="15" style="fill:rgb(210,10,17);stroke:rgb(250,250,250);stroke-width:1.22px;"/>
+            </g>
+            <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,1091.29,938.729)">
+                <g transform="matrix(15,0,0,15,587.519,423.995)">
+                </g>
+                <text x="573.207px" y="423.995px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;fill:white;">T1</text>
+            </g>
+        </g>
+        <g transform="matrix(0.707107,0.707107,-0.707107,0.707107,-437.039,-1195.37)">
+            <g transform="matrix(0,-0.481928,1.06667,0,1084.4,615.506)">
+                <rect x="511.5" y="391.5" width="41.5" height="15" style="fill:rgb(210,10,17);stroke:rgb(250,250,250);stroke-width:1.22px;"/>
+            </g>
+            <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,1091.29,938.729)">
+                <g transform="matrix(15,0,0,15,587.519,423.995)">
+                </g>
+                <text x="573.207px" y="423.995px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;fill:white;">T1</text>
+            </g>
+        </g>
+        <g transform="matrix(-0.707107,0.707107,-0.707107,-0.707107,1470.16,-428.177)">
+            <g transform="matrix(0,-0.481928,1.06667,0,1084.4,615.506)">
+                <rect x="511.5" y="391.5" width="41.5" height="15" style="fill:rgb(210,10,17);stroke:rgb(250,250,250);stroke-width:1.22px;"/>
+            </g>
+            <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,1091.29,938.729)">
+                <g transform="matrix(15,0,0,15,587.519,423.995)">
+                </g>
+                <text x="573.207px" y="423.995px" style="font-family:'SegoeUI-Semibold', 'Segoe UI';font-weight:600;font-size:15px;fill:white;">T1</text>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,-1785.47,-1208.03)">
+            <g transform="matrix(40,0,0,40,2351.33,1256.71)">
+            </g>
+            <text x="2080.53px" y="1256.71px" style="font-family:'Barlow-Medium', 'Barlow';font-weight:500;font-size:40px;fill:rgb(61,71,92);">G<tspan x="2104.81px " y="1256.71px ">a</tspan>ziant<tspan x="2210.37px " y="1256.71px ">e</tspan>p T<tspan x="2282.93px 2297.61px " y="1256.71px 1256.71px ">ra</tspan>m</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1868.06,-1186.07)">
+            <g transform="matrix(15,0,0,15,2248.07,1256.71)">
+            </g>
+            <text x="2165.15px" y="1256.71px" style="font-family:'Barlow-Medium', 'Barlow';font-weight:500;font-size:15px;fill:rgb(61,71,92);">August 2024</text>
+        </g>
+        <g transform="matrix(1,0,0,1,-1683.79,-1186.07)">
+            <g transform="matrix(13,0,0,13,2126.29,1256.71)">
+                <path d="M0.824,-0.589C0.805,-0.589 0.79,-0.595 0.778,-0.607C0.766,-0.619 0.76,-0.634 0.76,-0.653C0.76,-0.672 0.766,-0.688 0.778,-0.699C0.79,-0.711 0.805,-0.717 0.824,-0.717C0.843,-0.717 0.858,-0.711 0.87,-0.699C0.882,-0.687 0.888,-0.672 0.888,-0.653C0.888,-0.634 0.882,-0.619 0.869,-0.607C0.857,-0.595 0.842,-0.589 0.824,-0.589ZM0.538,-0.513C0.538,-0.51 0.539,-0.509 0.542,-0.509L0.654,-0.509C0.661,-0.509 0.664,-0.506 0.664,-0.499L0.664,-0.44C0.664,-0.433 0.661,-0.43 0.654,-0.43L0.542,-0.43C0.539,-0.43 0.538,-0.429 0.538,-0.426L0.538,-0.01C0.538,-0.003 0.535,-0 0.528,-0L0.452,-0C0.445,-0 0.442,-0.003 0.442,-0.01L0.442,-0.426C0.442,-0.429 0.441,-0.43 0.438,-0.43L0.206,-0.43C0.203,-0.43 0.202,-0.429 0.202,-0.426L0.202,-0.01C0.202,-0.003 0.199,-0 0.192,-0L0.117,-0C0.11,-0 0.107,-0.003 0.107,-0.01L0.107,-0.426C0.107,-0.429 0.106,-0.43 0.103,-0.43L0.041,-0.43C0.034,-0.43 0.031,-0.433 0.031,-0.44L0.031,-0.499C0.031,-0.506 0.034,-0.509 0.041,-0.509L0.103,-0.509C0.106,-0.509 0.107,-0.51 0.107,-0.513L0.107,-0.547C0.107,-0.602 0.12,-0.641 0.146,-0.666C0.173,-0.691 0.218,-0.702 0.282,-0.7L0.314,-0.7C0.321,-0.7 0.324,-0.697 0.324,-0.69L0.324,-0.643C0.324,-0.636 0.321,-0.633 0.314,-0.633L0.282,-0.633C0.251,-0.632 0.23,-0.624 0.219,-0.609C0.208,-0.594 0.202,-0.571 0.202,-0.54L0.202,-0.513C0.202,-0.51 0.203,-0.509 0.206,-0.509L0.438,-0.509C0.441,-0.509 0.442,-0.51 0.442,-0.513L0.442,-0.547C0.442,-0.602 0.455,-0.641 0.481,-0.666C0.508,-0.691 0.553,-0.702 0.618,-0.7L0.65,-0.7C0.657,-0.7 0.66,-0.697 0.66,-0.69L0.66,-0.643C0.66,-0.636 0.657,-0.633 0.65,-0.633L0.618,-0.633C0.587,-0.632 0.566,-0.624 0.555,-0.609C0.544,-0.594 0.538,-0.571 0.538,-0.54L0.538,-0.513ZM0.784,-0.001C0.777,-0.001 0.774,-0.004 0.774,-0.011L0.774,-0.499C0.774,-0.506 0.777,-0.509 0.784,-0.509L0.86,-0.509C0.867,-0.509 0.87,-0.506 0.87,-0.499L0.87,-0.011C0.87,-0.004 0.867,-0.001 0.86,-0.001L0.784,-0.001Z" style="fill:rgb(61,71,92);fill-rule:nonzero;"/>
+            </g>
+            <g transform="matrix(13,0,0,13,2126.29,1256.71)">
+            </g>
+            <g transform="matrix(13,0,0,13,2130.88,1256.71)">
+            </g>
+            <g transform="matrix(13,0,0,13,2135.46,1256.71)">
+            </g>
+            <g transform="matrix(13,0,0,13,2248.07,1256.71)">
+            </g>
+            <text x="2081.36px" y="1256.71px" style="font-family:'Barlow-Medium', 'Barlow';font-weight:500;font-size:13px;fill:rgb(61,71,92);">no<tspan x="2095.43px " y="1256.71px ">t</tspan> an o<tspan x="2138.65px " y="1256.71px ">c</tspan>ial transit diagr<tspan x="2230.61px " y="1256.71px ">a</tspan>m</text>
+        </g>
+    </g>
+</svg>

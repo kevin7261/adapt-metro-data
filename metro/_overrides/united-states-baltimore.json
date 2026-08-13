@@ -1,0 +1,16 @@
+{
+  "city": "Baltimore",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    1406632,
+    7919552,
+    1406633,
+    2711782,
+    2711781
+  ],
+  "wikipedia": "en:Baltimore Metro SubwayLink",
+  "wikidata": "Q805751",
+  "source": "https://www.urbanrail.net/am/balt/baltimore.htm",
+  "note": "Baltimore（使用者 2026-07-27「也要抓railway」）＝Metro SubwayLink（subway M）＋Light RailLink（light_rail：LR Hunt Valley–BWI／LR-GB Fairgrounds–Glen Burnie／LR-Penn Camden–Penn）。有 subway 時 LRT 曾被剔除→LRT_ADDON_CITIES＋NETWORK_CITY pin。對向 9976614／12／13→route_excludes；ref 見 route_tag_patches。wiki 釘 Metro SubwayLink／Q805751（Light Rail 另見 Q3333820）。重跑保留 wikipedia/wikidata／本 note。"
+}

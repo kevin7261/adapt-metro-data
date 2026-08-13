@@ -1,0 +1,13 @@
+{
+  "city": "Tacoma",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    5705256,
+    5705257
+  ],
+  "source": "https://www.urbanrail.net/am/tacoma/tacoma.htm",
+  "wikipedia": "en:T Line (Sound Transit)",
+  "wikidata": "Q1999971",
+  "note": "Tacoma（使用者 2026-07-29「tacoma抓錯」）＝Sound Transit T Line（原 Tacoma Link）1 線／12 站（St Joseph↔Tacoma Dome）。舊 gap bbox 北緣伸到 Federal Way，誤收 Link 1 Line（r3494092／5517060）並以較小 override 從 Seattle 搶走→2 線／38 站。只留 r5705256／5705257；1 Line 屬 Seattle。bbox 已縮到塔科馬市區、modes=tram。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata／本 note。"
+}

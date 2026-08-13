@@ -1,0 +1,17 @@
+{
+  "city": "Saint-Étienne",
+  "country": "France",
+  "continent": "europe",
+  "osm_route_ids": [
+    406786,
+    406798,
+    449183,
+    549064,
+    2060243,
+    2060244,
+    19970772,
+    19970773
+  ],
+  "source": "https://www.urbanrail.net/eu/fr/saint-etienne/saint-etienne-tram.htm",
+  "note": "Saint-Étienne（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

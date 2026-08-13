@@ -1,0 +1,11 @@
+{
+  "city": "Valencia",
+  "country": "Venezuela",
+  "continent": "south-america",
+  "osm_route_ids": [
+    7680781,
+    7734070
+  ],
+  "source": "auditLoop S1 bind-cached (Metro Valencia)",
+  "created": "2026-07-25T19:13:36.137Z"
+}

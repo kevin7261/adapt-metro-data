@@ -1,0 +1,25 @@
+{
+  "city": "Riga",
+  "country": "Latvia",
+  "continent": "europe",
+  "osm_route_ids": [
+    11321265,
+    11321267,
+    11321691,
+    11321692,
+    11321944,
+    11321945,
+    11322061,
+    11322062,
+    11322565,
+    11322566,
+    19063202,
+    19063310,
+    19082685,
+    19082686
+  ],
+  "source": "https://www.urbanrail.net/eu/lv/riga/riga.htm",
+  "wikipedia": "lv:Tramvaju satiksme Rīgā",
+  "wikidata": "Q1718950",
+  "note": "Riga tram（urbanrail；Rīgas satiksme 日間幹線 1/5/7/8/10/11/14）。不含：週末短線 8a、1/10/11 區間變體（route_excludes）。1 號 OSM 成員尾誤掛 13. janvāra iela→member_appends。wiki 釘系統條目（勿用 Q16347621＝1. tramvaju maršruts）。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata／member_appends。"
+}

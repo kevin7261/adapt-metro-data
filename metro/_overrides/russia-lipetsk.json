@@ -1,0 +1,14 @@
+{
+  "city": "Lipetsk",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    19572268,
+    2774869,
+    19609776
+  ],
+  "wikipedia": "ru:Липецкий трамвай",
+  "wikidata": "Q2628110",
+  "source": "https://www.urbanrail.net/eu/ru/lipetsk/lipetsk.htm",
+  "note": "Lipetsk（urbanrail gap；modes=tram）＝ реконструкция 後營運 **1к／2／15**（ru wiki／Мовиста 2025-09）。使用者 2026-07-27「抓錯」：①舊 bbox 東界 39.56 漏 №15（ДП-6 在 39.63）；②№2 雙向合併折返 order_suspect≈2.86。每線只留一方向＋replace_stops；1к／2 北端依 wiki 補 Кольцо 9（OSM 成員停在 Полиграфический／Памятник）。對向 19572269／11725485／19609775→route_excludes。重跑 fetchUrbanrailGap 請保留 wikipedia/wikidata／本 note。"
+}

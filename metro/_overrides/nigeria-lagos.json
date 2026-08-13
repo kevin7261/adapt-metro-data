@@ -1,0 +1,15 @@
+{
+  "city": "Lagos",
+  "country": "Nigeria",
+  "continent": "africa",
+  "osm_route_ids": [
+    15668733,
+    15668734,
+    88015668760,
+    88015668761
+  ],
+  "source": "https://www.urbanrail.net/af/lagos/lagos.htm",
+  "wikipedia": "en:Lagos Rail Mass Transit",
+  "wikidata": "Q1287549",
+  "note": "拉哥斯 LRMT 營運段：藍 Phase 1（Mile 2–Marina 5 站）＋紅 Phase 1（Agbado–Oyingbo 8 站）。OSM network:wikidata 會投到藍線 Q116413296 → 釘系統 Q1287549／en:Lagos Rail Mass Transit。urbanrail 示意圖含未通車藍線西段（Okokomaiko…）與紅線機場支線——operational-only 不收。紅線無 OSM route → fetchLagosRed.mjs。站名 station_names（Suru-Alaba／Orile Iganmu／Lagos Marina）。使用者 2026-07-26 抓錯修正。"
+}

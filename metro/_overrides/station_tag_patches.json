@@ -1,0 +1,35 @@
+{
+  "_comment": "個別車站節點缺標籤／誤標補丁。OSM 把已通車站仍標 railway=construction 等時，buildGeojson 的 isOperational 會拒收——在此把標籤改成營運態（通常 railway=stop）。上游改標後刪條目。",
+  "patches": [
+    {
+      "node": 10180312198,
+      "set": {
+        "railway": "stop"
+      },
+      "note": "新加坡 TEL Shenton Way（TE19）：LTA 2022-11-13 通車（TEL Stage 3），OSM stop_position 仍 railway=construction。使用者 2026-07-26 audit 26/27。"
+    },
+    {
+      "node": 1889319393,
+      "set": {
+        "railway": "stop"
+      },
+      "note": "同上，TEL Shenton Way 對向月台 stop_position。"
+    },
+    {
+      "node": 1148313194,
+      "set": {
+        "railway": "stop",
+        "name": "Baltimore Penn Station"
+      },
+      "note": "Baltimore Light RailLink Penn Station 終點：OSM 標 railway=buffer_stop 且 geom 無 tags。使用者 2026-07-27。"
+    },
+    {
+      "node": 265018851,
+      "set": {
+        "railway": "stop",
+        "name": "BWI Airport"
+      },
+      "note": "Baltimore Light RailLink BWI Airport 終點：OSM 標 railway=buffer_stop。使用者 2026-07-27。"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "city": "Zaporizhia",
+  "country": "Ukraine",
+  "continent": "europe",
+  "osm_route_ids": [
+    11529446,
+    11529348,
+    11529346,
+    11529349,
+    11529347,
+    11529448
+  ],
+  "wikipedia": "uk:Запорізький трамвай",
+  "source": "https://www.urbanrail.net/eu/ua/zaporizhia/zaporizhia.htm",
+  "note": "Zaporizhia（使用者 2026-07-26「zaporizhia抓錯」）。ZET 官方／uk wiki 營運 6 線＝№3／10／12／14／15／16；№8（r11529447，Павло-Кічкас↔Кремнійполімер）已停、進 route_excludes。OSM route 幾乎只掛 way＋1–3 殘缺 stop→fetchUrbanrailGap synth 門檻 <10＋way 投影補站序。"
+}

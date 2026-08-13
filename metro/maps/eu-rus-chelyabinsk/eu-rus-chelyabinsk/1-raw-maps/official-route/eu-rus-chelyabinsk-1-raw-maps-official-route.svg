@@ -1,0 +1,1616 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="453.54401pt"
+   height="651.96997pt"
+   viewBox="0 0 453.544 651.97"
+   id="svg2"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="Chelyabinsk_tram_schema.svg">
+  <metadata
+     id="metadata316">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
+     id="namedview314"
+     showgrid="false"
+     inkscape:zoom="1.6381339"
+     inkscape:cx="483.45272"
+     inkscape:cy="657.95417"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <defs
+     id="defs4">
+    <marker
+       markerUnits="strokeWidth"
+       markerWidth="1"
+       markerHeight="1"
+       orient="auto"
+       viewBox="0 0 1 1"
+       style="overflow:visible"
+       id="DefaultArrow2">
+      <g
+         transform="scale(9.2592592e-3,9.2592592e-3)"
+         id="g7">
+        <path
+           d="M -9,54 L -9,-54 L 117,0 L -9,54 z "
+           id="path9" />
+      </g>
+    </marker>
+    <marker
+       markerUnits="strokeWidth"
+       markerWidth="1"
+       markerHeight="1"
+       orient="auto"
+       viewBox="0 0 1 1"
+       style="overflow:visible"
+       id="DefaultArrow3">
+      <g
+         transform="scale(9.2592592e-3,9.2592592e-3)"
+         id="g12">
+        <path
+           d="M -27,54 L -9,0 L -27,-54 L 135,0 L -27,54 z "
+           id="path14" />
+      </g>
+    </marker>
+    <marker
+       markerUnits="strokeWidth"
+       markerWidth="1"
+       markerHeight="1"
+       orient="auto"
+       viewBox="0 0 1 1"
+       style="overflow:visible"
+       id="DefaultArrow4">
+      <g
+         transform="scale(9.2592592e-3,9.2592592e-3)"
+         id="g17">
+        <path
+           d="M -9,0 L -9,-45 C -9,-51.708 2.808,-56.58 9,-54 L 117,-9 C 120.916,-7.369 126,-4.242 126,0 C 126,4.242 120.916,7.369 117,9 L 9,54 C 2.808,56.58 -9,51.708 -9,45 L -9,0 z "
+           id="path19" />
+      </g>
+    </marker>
+    <marker
+       markerUnits="strokeWidth"
+       markerWidth="1"
+       markerHeight="1"
+       orient="auto"
+       viewBox="0 0 1 1"
+       style="overflow:visible"
+       id="DefaultArrow5">
+      <g
+         transform="scale(9.2592592e-3,9.2592592e-3)"
+         id="g22">
+        <path
+           d="M -54,0 C -54,29.807 -29.807,54 0,54 C 29.807,54 54,29.807 54,0 C 54,-29.807 29.807,-54 0,-54 C -29.807,-54 -54,-29.807 -54,0 z "
+           id="path24" />
+      </g>
+    </marker>
+    <marker
+       markerUnits="strokeWidth"
+       markerWidth="1"
+       markerHeight="1"
+       orient="auto"
+       viewBox="0 0 1 1"
+       style="overflow:visible"
+       id="DefaultArrow6">
+      <g
+         transform="scale(9.2592592e-3,9.2592592e-3)"
+         id="g27">
+        <path
+           d="M -63,0 L 0,63 L 63,0 L 0,-63 L -63,0 z "
+           id="path29" />
+      </g>
+    </marker>
+    <marker
+       markerUnits="strokeWidth"
+       markerWidth="1"
+       markerHeight="1"
+       orient="auto"
+       viewBox="0 0 1 1"
+       style="overflow:visible"
+       id="DefaultArrow7">
+      <g
+         transform="scale(9.2592592e-3,9.2592592e-3)"
+         id="g32">
+        <path
+           d="M 18,-54 L 108,-54 L 63,0 L 108,54 L 18,54 L -36,0 L 18,-54 z "
+           id="path34" />
+      </g>
+    </marker>
+    <marker
+       markerUnits="strokeWidth"
+       markerWidth="1"
+       markerHeight="1"
+       orient="auto"
+       viewBox="0 0 1 1"
+       style="overflow:visible"
+       id="DefaultArrow8">
+      <g
+         transform="scale(9.2592592e-3,9.2592592e-3)"
+         id="g37">
+        <path
+           d="M -36,0 L 18,-54 L 54,-54 L 18,-18 L 27,-18 L 63,-54 L 99,-54 L 63,-18 L 72,-18 L 108,-54 L 144,-54 L 90,0 L 144,54 L 108,54 L 72,18 L 63,18 L 99,54 L 63,54 L 27,18 L 18,18 L 54,54 L 18,54 L -36,0 z "
+           id="path39" />
+      </g>
+    </marker>
+    <marker
+       markerUnits="strokeWidth"
+       markerWidth="1"
+       markerHeight="1"
+       orient="auto"
+       viewBox="0 0 1 1"
+       style="overflow:visible"
+       id="DefaultArrow9">
+      <g
+         transform="scale(9.2592592e-3,9.2592592e-3)"
+         id="g42">
+        <path
+           d="M 0,45 L -45,0 L 0,-45 L 45,0 L 0,45 z M 0,63 L -63,0 L 0,-63 L 63,0 L 0,63 z "
+           id="path44" />
+      </g>
+    </marker>
+  </defs>
+  <g
+     transform="scale(1,-1)"
+     style="font-size:16px;fill:none;stroke:#000000;font-family:Times New Roman"
+     id="Document">
+    <g
+       transform="translate(0,-651.97)"
+       id="Spread">
+      <g
+         id="Author" />
+      <g
+         id="tramv - Трамвай">
+        <path
+           d="M 16.438,271.882 L 35.039,286.315 L 53.149,295.224 L 138.663,295.312 L 163.37,279.179 L 164.14,278.704 L 164.477,278.609 L 193.597,279.387 L 241.59,283.766 L 273.827,285.106 L 293.107,233.109 L 293.15,232.653 L 292.445,228.178 L 292.156,228.013 L 275.398,229.803 L 244.846,228.481 L 244.415,228.527 L 244.222,228.669 L 244.078,228.812"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path50" />
+        <path
+           d="M 222.375,220.594 L 244.267,222.002 L 241.656,277.387 L 241.088,283.667 L 238.671,297.474 L 238.113,300.57"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path52" />
+        <path
+           d="M 244.064,231.605 L 239.844,231.549 L 239.788,229.911 L 235.21,229.725 L 227.262,229.3 L 222.329,228.985 L 222.138,228.792 L 221.998,228.504"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path54" />
+        <path
+           d="M 243.579,231.783 L 243.674,231.976 L 243.862,232.458"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path56" />
+        <path
+           d="M 216.15,228.857 L 215.721,228.616 L 194.796,227.137 L 194.75,227.017 L 197.187,163.162 L 191.488,155.939 L 186.311,149.436 L 172.535,132.074"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path58" />
+        <path
+           d="M 205.211,280.113 L 205.218,282.375 L 205.105,284.916 L 204.999,286.69 L 204.849,287.696 L 204.173,289.321 L 203.52,291.456 L 202.579,294.502"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path60" />
+        <path
+           d="M 244.511,228.504 L 244.392,228.431 L 244.321,228.383 L 244.201,228.309 L 244.107,228.238"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path62" />
+        <path
+           d="M 233.904,131.12 L 241.495,149.584 L 236.891,171.436 L 227.997,190.185 L 227.782,193.724 L 227.502,199.799 L 223.063,204.576 L 222.387,220.209 L 222.108,226.394 L 221.998,228.361 L 221.902,228.552 L 221.709,228.742 L 221.42,228.934 L 216.871,228.717 L 216.437,229.002 L 216.291,229.29 L 213.782,280.58"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path64" />
+        <path
+           d="M 292.454,228.168 L 290.031,206.174 L 295.797,206.108 L 330.467,202.537 L 332.098,202.351"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path66" />
+        <path
+           d="M 296.49,205.529 L 296.529,197.211 L 295.813,189.285 L 293.427,186.234 L 292.172,176.16 L 298.258,161.896 L 280.959,113.589 L 288.028,111.215 L 303.53,94.53 L 346.898,78.809 L 337.094,51.159 L 371.935,36.058 L 382.718,13.122"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path68" />
+        <path
+           d="M 285.688,606.08 L 273.562,626.265 C 270.324,638.435 259.989,645.534 251.853,625.504 L 236.368,595.988 L 222.658,585.895 L 208.376,574.279 L 209.519,571.423 L 248.175,516.2 L 223.61,493.539 L 211.232,487.255 L 174.48,476.782 L 180.056,459.378 L 180.035,453.894 L 170.071,416.945 L 174.659,407.135 L 178.539,390.058 L 189.062,344.656 L 191.113,314.827 L 191.737,314.444 L 195.245,312.7 L 195.797,312.391 L 195.99,312.199 L 196.207,311.719 L 201.635,297.595 L 202.579,294.502"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path70" />
+        <path
+           d="M 195.193,314.406 L 195.99,312.199"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path72" />
+        <path
+           d="M 273.327,307.731 L 273.091,289.146 L 274.274,284.767"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path74" />
+        <path
+           d="M 244.725,512.984 L 273.654,474.947 C 278.208,471.952 282.762,472.164 287.316,474.143 L 302.316,486.197 L 307.942,496.644 L 308.243,554.949"
+           style="fill:none;stroke:#ff0000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="path76" />
+      </g>
+      <g
+         id="Остановка трамвая">
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,241.491,149.054)"
+           style="fill:#ff0000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect79" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,297.664,161.242)"
+           style="fill:#cc0000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect81" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,223.444,204.632)"
+           style="fill:#ff0000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect83" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,289.749,205.997)"
+           style="fill:#ff0000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect85" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,194.77,227.339)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect87" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,196.508,185.704)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect89" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,196.792,174.987)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect91" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,53.095,294.858)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect93" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,66.261,295.632)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect95" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,94.141,295.374)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect97" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,75.554,295.632)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect99" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,32.959,285.564)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect101" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,22.375,277.304)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect103" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,191.094,314.441)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect105" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,204.249,289.29)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect107" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,191.956,279.606)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect109" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,213.059,228.319)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect111" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,205.633,228.082)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect113" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,189.142,343.72)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect115" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,189.91,324.395)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect117" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,170.442,416.82)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect119" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,174.154,406.935)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect121" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,178.527,390.009)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect123" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,228.002,190.792)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect125" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,222.147,224.232)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect127" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,232.857,179.693)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect129" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,237.057,170.968)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect131" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,238.725,161.674)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect133" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,197.146,165.458)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect135" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,179.507,140.829)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect137" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,170.751,129.401)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect139" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,185.725,148.522)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect141" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,191.029,155.245)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect143" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,132.089,295.632)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect145" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,165.132,278.853)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect147" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,201.272,298.142)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect149" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,336.968,51.2)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect151" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,346.776,78.744)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect153" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,342.586,66.683)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect155" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,371.869,36.154)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect157" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,351.496,44.948)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect159" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,326.354,86.843)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect161" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,303.464,94.809)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect163" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,289.22,137.987)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect165" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,285.017,125.87)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect167" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,308.633,204.744)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect169" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,325.551,202.467)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect171" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,296.515,199.936)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect173" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,292.188,176.266)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect175" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,273.813,285.306)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect177" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,280.525,229.288)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect179" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,269.683,229.546)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect181" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,292.444,227.739)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect183" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,252.405,284.425)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect185" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,261.039,284.532)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect187" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,180.058,460.292)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect189" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,174.289,475.8)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect191" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,221.472,585.764)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect193" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,224.752,549.476)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect195" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,248.792,508.047)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect197" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,308.098,501.911)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect199" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,272.727,475.669)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect201" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,265.141,485.715)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect203" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,256.941,496.581)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect205" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,222.292,492.89)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect207" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,215.116,563.827)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect209" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,199.33,484.279)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect211" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,232.752,593.591)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect213" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,234.183,503.756)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect215" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,248.125,516.263)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect217" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,239.924,221.649)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect219" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,226.03,220.536)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect221" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,215.654,245.297)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect223" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,243.244,247.89)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect225" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,214.711,266.166)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect227" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,230.863,229.144)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect229" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,243.833,235.156)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect231" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,256.92,228.672)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect233" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,242.536,258.855)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect235" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,247.724,228.436)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect237" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,241.004,283.737)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect239" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,241.947,269.235)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect241" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,213.304,280.326)"
+           style="fill:#ff0000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect243" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,195.619,203.335)"
+           style="fill:#ff0000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect245" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,258.599,636.165)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect247" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,275.018,623.8)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect249" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,244.639,612.417)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect251" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,308.098,517.271)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect253" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,286.464,474.028)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect255" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,302.865,487.355)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect257" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,308.098,531.229)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect259" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,115.089,295.632)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect261" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,315.163,90.472)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect263" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,293.84,104.99)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect265" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,292.596,235.301)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect267" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,287.908,247.702)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect269" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,278.835,271.445)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect271" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,282.37,261.312)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect273" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,266.784,637.327)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect275" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,280.786,113.404)"
+           style="fill:#ff0000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect277" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,176.572,444.145)"
+           style="fill:#ff0000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect279" />
+        <rect
+           width="3.401"
+           height="3.401"
+           x="-1.7"
+           y="-1.7"
+           transform="matrix(0,1,-1,0,241.283,231.756)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:0.75;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect281" />
+      </g>
+      <g
+         id="Конечная остановка трамвая">
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,171.394,129.458)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect284" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,233.674,131.552)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect286" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,195.992,319.438)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect288" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,15.474,272.378)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect290" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,298.47,161.171)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect292" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,384.458,12.105)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect294" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,237.772,302.204)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect296" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,334.472,203.422)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect298" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,273.449,307.924)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect300" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,235.523,533.62)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect302" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,286.278,606.804)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect304" />
+        <rect
+           width="6.7480001"
+           height="6.7480001"
+           x="-3.3740001"
+           y="-3.3740001"
+           transform="matrix(0,1,-1,0,308.184,555.298)"
+           style="fill:#330000;stroke:#ffffff;stroke-width:1.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677"
+           id="rect306" />
+      </g>
+      <g
+         id="Трамвай - текст">
+        <rect
+           width="8.4069996"
+           height="7.5910001"
+           x="-4.2030001"
+           y="-3.7950001"
+           transform="matrix(0,1,-1,0,376.343,25.432)"
+           style="fill:#ffffff;fill-opacity:0.69803922;stroke:none;stroke-width:0.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677;stroke-opacity:0.69803922"
+           id="rect309" />
+        <rect
+           width="13.229"
+           height="23.205"
+           x="224.043"
+           y="177.862"
+           style="fill:#ffffff;fill-opacity:0.69803922;stroke:none;stroke-width:0.5;stroke-linejoin:miter;stroke-miterlimit:79.84031677;stroke-opacity:0.69803922"
+           id="rect311" />
+        <text
+           transform="matrix(1,0,0,-1,20.669,262.567)"
+           style="font-size:12px;fill:#000000;stroke:none;font-family:Arial"
+           id="text313"
+           xml:space="preserve"><tspan
+             style="font-weight:bold"
+             id="tspan315" /></text>
+        <text
+           transform="matrix(1,0,0,-1,339.874,198.219)"
+           style="font-size:12px;fill:#000000;stroke:none;stroke-width:0.25;stroke-miterlimit:79.84031677;font-family:Arial"
+           id="text345"
+           xml:space="preserve"><tspan
+             style="font-weight:bold"
+             id="tspan347"><tspan
+               x="0"
+               y="0"
+               id="tspan349">ЧТЗ</tspan></tspan><tspan
+             id="tspan351"><tspan
+               x="0"
+               y="13.405"
+               id="tspan353">6,</tspan><tspan
+               x="10.008"
+               y="13.405"
+               id="tspan355"> </tspan><tspan
+               x="13.342"
+               y="13.405"
+               id="tspan357">15</tspan></tspan></text>
+        <text
+           transform="matrix(1,0,0,-1,440.118,22.327)"
+           style="font-size:12px;fill:#000000;stroke:none;font-family:Arial"
+           id="text359"
+           xml:space="preserve"><tspan
+             style="font-weight:bold"
+             id="tspan361"><tspan
+               x="-112.589"
+               y="0"
+               id="tspan363" /></tspan></text>
+        <text
+           transform="matrix(1,0,0,-1,310.694,317.05)"
+           style="font-size:12.00000054px;fill:#000000;stroke:none;font-family:Arial"
+           id="text377"
+           xml:space="preserve" />
+        <text
+           transform="matrix(1,0,0,-1,265.969,116.043)"
+           style="font-size:12px;fill:#000000;stroke:none;font-family:Arial"
+           id="text399"
+           xml:space="preserve"><tspan
+             style="font-weight:bold"
+             id="tspan401"><tspan
+               x="-36.515999"
+               y="0"
+               id="tspan403" /></tspan></text>
+        <text
+           transform="matrix(1,0,0,-1,165.196,139.174)"
+           style="font-size:12px;fill:#000000;stroke:none;stroke-width:0.25;stroke-miterlimit:79.84031677;font-family:Arial"
+           id="text433"
+           xml:space="preserve"><tspan
+             style="font-weight:bold"
+             id="tspan435"><tspan
+               x="-72.227997"
+               y="0"
+               id="tspan437">Медгородок</tspan></tspan><tspan
+             id="tspan439"><tspan
+               x="-46.706001"
+               y="13.405"
+               id="tspan441">6,</tspan><tspan
+               x="-36.698002"
+               y="13.405"
+               id="tspan443"> </tspan><tspan
+               x="-33.363998"
+               y="13.405"
+               id="tspan445">17,</tspan><tspan
+               x="-16.681999"
+               y="13.405"
+               id="tspan447"> </tspan><tspan
+               x="-13.348"
+               y="13.405"
+               id="tspan449">20</tspan></tspan></text>
+        <text
+           transform="matrix(1,0,0,-1,242.139,546.101)"
+           style="font-size:12px;fill:#000000;stroke:none;font-family:Arial"
+           id="text451"
+           xml:space="preserve" />
+        <text
+           transform="matrix(1,0,0,-1,183.026,440.58)"
+           style="font-size:12px;fill:#666699;stroke:none;stroke-width:0.25;stroke-miterlimit:79.84031677;font-family:Arial"
+           id="text465"
+           xml:space="preserve"><tspan
+             id="tspan467"><tspan
+               x="0"
+               y="0"
+               style="font-weight:bold"
+               id="tspan469">Першино</tspan></tspan></text>
+        <text
+           transform="matrix(1,0,0,-1,207.293,193.499)"
+           style="font-size:12px;fill:#666699;stroke:none;stroke-width:0.25;stroke-miterlimit:79.84031677;font-family:Arial"
+           id="text471"
+           xml:space="preserve"><tspan
+             style="font-weight:bold"
+             id="tspan473"><tspan
+               x="0"
+               y="0"
+               id="tspan475">Площадь</tspan></tspan><tspan
+             id="tspan477"><tspan
+               x="0"
+               y="13.405"
+               style="font-weight:bold"
+               id="tspan479">Революции</tspan></tspan></text>
+        <text
+           transform="matrix(1,0,0,-1,267.616,156.584)"
+           style="font-size:12px;fill:#000000;stroke:none;font-family:Arial"
+           id="text481"
+           xml:space="preserve"><tspan
+             x="0"
+             y="0"
+             style="font-weight:bold"
+             id="tspan485" /></text>
+        <text
+           transform="matrix(1,0,0,-1,295.485,225.87)"
+           style="font-size:12px;fill:#666699;stroke:none;stroke-width:0.25;stroke-miterlimit:79.84031677;font-family:Arial"
+           id="text505"
+           xml:space="preserve"><tspan
+             style="font-weight:bold"
+             id="tspan507"><tspan
+               x="0"
+               y="0"
+               id="tspan509">Комсомольская</tspan></tspan><tspan
+             id="tspan511"><tspan
+               x="0"
+               y="13.405"
+               style="font-weight:bold"
+               id="tspan513">площадь</tspan></tspan></text>
+        <text
+           transform="matrix(1,0,0,-1,162.265,213.846)"
+           style="font-size:12px;fill:#666699;stroke:none;stroke-width:0.25;stroke-miterlimit:79.84031677;font-family:Arial"
+           id="text515"
+           xml:space="preserve"><tspan
+             style="font-weight:bold"
+             id="tspan517"><tspan
+               x="0"
+               y="0"
+               id="tspan519">Алое</tspan></tspan><tspan
+             id="tspan521"><tspan
+               x="0"
+               y="13.405"
+               style="font-weight:bold"
+               id="tspan523">поле</tspan></tspan></text>
+        <text
+           transform="matrix(1,0,0,-1,193.51,145.88)"
+           style="font-size:12px;fill:#666699;stroke:none;stroke-width:0.25;stroke-miterlimit:79.84031677;font-family:Arial"
+           id="text525"
+           xml:space="preserve"><tspan
+             id="tspan527"><tspan
+               x="0"
+               y="0"
+               style="font-weight:bold"
+               id="tspan529">Вокзал</tspan></tspan></text>
+        <text
+           transform="matrix(1,0,0,-1,251.025,311.601)"
+           style="font-size:12px;fill:#000000;stroke:none;stroke-width:0.25;stroke-miterlimit:79.84031677;font-family:Arial"
+           id="text531"
+           xml:space="preserve"><tspan
+             style="font-weight:bold;font-size:12.00000054px"
+             id="tspan533"><tspan
+               x="-40.442001"
+               y="0"
+               id="tspan535"
+               style="font-size:12.00000054px">ЧГРЭС</tspan></tspan><tspan
+             id="tspan537"
+             style="font-size:12.00000054px"><tspan
+               x="-6.6739998"
+               y="13.405"
+               id="tspan539"
+               style="font-size:12.00000054px">7</tspan></tspan></text>
+        <text
+           transform="matrix(1,0,0,-1,185.578,328.959)"
+           style="font-size:12px;fill:#000000;stroke:none;font-family:Arial"
+           id="text541"
+           xml:space="preserve" />
+        <text
+           transform="matrix(1,0,0,-1,287.21,114.277)"
+           style="font-size:12px;fill:#666699;stroke:none;font-family:Arial"
+           id="text555"
+           xml:space="preserve"><tspan
+             id="tspan557"><tspan
+               x="0"
+               y="0"
+               style="font-weight:bold"
+               id="tspan559">Кинотеатр «Аврора»</tspan></tspan></text>
+        <text
+           transform="matrix(1,0,0,-1,207.821,267.816)"
+           style="font-size:12px;font-weight:bold;fill:#666699;stroke:none;stroke-width:0.25;stroke-miterlimit:79.84031677;font-family:Arial"
+           id="text561"
+           xml:space="preserve"><tspan
+             id="tspan563"><tspan
+               x="-35.103001"
+               y="0"
+               id="tspan565">Т</tspan><tspan
+               x="-28.273001"
+               y="0"
+               id="tspan567">епло-</tspan></tspan><tspan
+             id="tspan569"><tspan
+               x="-74.925003"
+               y="13.405"
+               id="tspan571">технический</tspan></tspan><tspan
+             id="tspan573"><tspan
+               x="-52.980999"
+               y="26.809999"
+               id="tspan575">институт</tspan></tspan></text>
+        <text
+           transform="matrix(1,0,0,-1,253.244,600.435)"
+           style="font-size:12.00000054px;fill:#000000;stroke:none;font-family:Arial"
+           id="text577"
+           xml:space="preserve" />
+        <text
+           transform="matrix(1,0,0,-1,305.44,576.083)"
+           style="font-size:12.00000054px;fill:#000000;stroke:none;font-family:Arial"
+           id="text591"
+           xml:space="preserve"><tspan
+             style="font-weight:bold;font-size:12.00000054px"
+             id="tspan593"><tspan
+               x="0"
+               y="0"
+               id="tspan595"
+               style="font-size:12.00000054px" /></tspan></text>
+        <text
+           transform="matrix(1,0,0,-1,311.542,527.429)"
+           style="font-size:12px;fill:#666699;stroke:none;stroke-width:0.25;stroke-miterlimit:79.84031677;font-family:Arial"
+           id="text605"
+           xml:space="preserve"><tspan
+             id="tspan607"><tspan
+               x="0"
+               y="0"
+               style="font-weight:bold"
+               id="tspan609">Коксохим</tspan></tspan></text>
+      </g>
+    </g>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:6px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+     x="28.489155"
+     y="494.67532"
+     id="text3311"
+     sodipodi:linespacing="125%"
+     transform="matrix(0.80000004,0,0,0.80000004,-7.2605224e-6,0)"><tspan
+       sodipodi:role="line"
+       id="tspan3313"
+       x="28.489155"
+       y="494.67532"
+       style="font-size:15px;font-weight:bold;-inkscape-font-specification:Arial Bold">Ул. Чичерина</tspan><tspan
+       sodipodi:role="line"
+       x="28.489155"
+       y="513.42529"
+       style="font-size:15px;font-weight:normal;-inkscape-font-specification:Arial"
+       id="tspan3327">14, 15, 16</tspan><tspan
+       sodipodi:role="line"
+       x="28.489155"
+       y="532.17529"
+       style="font-size:15px;font-weight:normal;-inkscape-font-specification:Arial"
+       id="tspan3329">17, 19, 22</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:6px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+     x="98.417076"
+     y="548.20038"
+     id="text3315"
+     sodipodi:linespacing="125%"
+     transform="matrix(0.80000004,0,0,0.80000004,-7.2605224e-6,0)"><tspan
+       sodipodi:role="line"
+       x="98.417076"
+       y="548.20038"
+       id="tspan3321" /></text>
+  <text
+     xml:space="preserve"
+     style="font-size:4.80000019px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+     x="186.63721"
+     y="317.00659"
+     id="text3342"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3344"
+       x="186.63721"
+       y="317.00659"
+       style="font-size:12.00000054px;font-weight:bold;text-align:end;text-anchor:end;-inkscape-font-specification:Arial Bold">Кислородный</tspan><tspan
+       sodipodi:role="line"
+       x="186.63721"
+       y="331.90659"
+       style="font-size:12.00000054px;font-weight:bold;text-align:end;text-anchor:end;-inkscape-font-specification:Arial Bold"
+       id="tspan3346">завод</tspan><tspan
+       sodipodi:role="line"
+       x="186.63721"
+       y="346.80658"
+       style="font-size:12.00000054px;font-weight:normal;text-align:end;text-anchor:end;-inkscape-font-specification:Arial"
+       id="tspan3348">3, 14, 19</tspan><tspan
+       sodipodi:role="line"
+       x="186.63721"
+       y="361.7066"
+       style="font-size:12.00000054px;font-weight:normal;text-align:end;text-anchor:end;-inkscape-font-specification:Arial"
+       id="tspan3350">20, 21</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:4.80000019px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+     x="289.72607"
+     y="42.820065"
+     id="text3352"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3354"
+       x="289.72607"
+       y="42.820065"
+       style="font-size:12.00000095px">ЦХП</tspan><tspan
+       sodipodi:role="line"
+       x="289.72607"
+       y="57.820065"
+       style="font-size:12.00000095px;font-weight:normal;-inkscape-font-specification:Arial"
+       id="tspan3356">10, 14</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:4.80000019px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+     x="331.6467"
+     y="90.129326"
+     id="text3358"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3360"
+       x="331.6467"
+       y="90.129326"
+       style="font-size:12.00000095px;text-align:end;text-anchor:end">ЭСПЦ-6</tspan><tspan
+       sodipodi:role="line"
+       x="331.6467"
+       y="105.12933"
+       style="font-size:12.00000095px;font-weight:normal;text-align:end;text-anchor:end;-inkscape-font-specification:Arial"
+       id="tspan3362">19</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:12.00000095px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+     x="281.09299"
+     y="321.84113"
+     id="text3364"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3366"
+       x="281.09299"
+       y="321.84113">ЧЭМК</tspan><tspan
+       sodipodi:role="line"
+       x="281.09299"
+       y="336.84113"
+       id="tspan3368"
+       style="font-weight:normal;-inkscape-font-specification:Arial">5, 18, 21</tspan></text>
+  <rect
+     width="9.0976448"
+     height="8.1089849"
+     x="-509.06586"
+     y="-297.83813"
+     transform="matrix(0,-1,-1,0,0,0)"
+     style="font-size:16px;fill:#ffffff;fill-opacity:0.69803922;stroke:none;font-family:Times New Roman"
+     id="rect309-3" />
+  <text
+     xml:space="preserve"
+     style="font-size:12.00000095px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+     x="270.73331"
+     y="493.81204"
+     id="text3371"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3373"
+       x="270.73331"
+       y="493.81204">КБС</tspan><tspan
+       sodipodi:role="line"
+       x="270.73331"
+       y="508.81204"
+       id="tspan3375"
+       style="font-weight:normal;-inkscape-font-specification:Arial">8, 18, 22</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:12.00000095px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+     x="443.63403"
+     y="629.52399"
+     id="text3406"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3408"
+       x="443.63403"
+       y="629.52399">ул. Чистопольская</tspan><tspan
+       sodipodi:role="line"
+       x="443.63403"
+       y="644.52399"
+       id="tspan3410"
+       style="font-weight:normal;-inkscape-font-specification:Arial">18, 22</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:15px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+     x="325.1795"
+     y="667.33685"
+     id="text3415"
+     sodipodi:linespacing="125%"
+     transform="matrix(0.80000004,0,0,0.80000004,-7.2605224e-6,0)"><tspan
+       sodipodi:role="line"
+       id="tspan3417"
+       x="325.1795"
+       y="667.33685">Завод</tspan><tspan
+       sodipodi:role="line"
+       x="325.1795"
+       y="686.08685"
+       id="tspan3419">им. Колющенко</tspan><tspan
+       sodipodi:role="line"
+       x="325.1795"
+       y="704.83685"
+       id="tspan3421"
+       style="font-weight:normal;-inkscape-font-specification:Arial">3, 5, 7, 8, 16</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:12.00000095px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial Bold"
+     x="193.03561"
+     y="120.86308"
+     id="text3248"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3250"
+       x="193.03561"
+       y="120.86308">ЧМК</tspan><tspan
+       sodipodi:role="line"
+       x="193.03561"
+       y="135.86308"
+       id="tspan3252"
+       style="font-weight:normal;-inkscape-font-specification:Arial">3, 10, 14</tspan><tspan
+       sodipodi:role="line"
+       x="193.03561"
+       y="150.86308"
+       style="font-weight:normal;-inkscape-font-specification:Arial"
+       id="tspan3254">20, 21</tspan></text>
+</svg>

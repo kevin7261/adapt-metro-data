@@ -1,0 +1,19 @@
+{
+  "city": "Novotroitsk",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    1675752,
+    1675753,
+    1675772,
+    1675773,
+    11650411,
+    11650412,
+    11650413,
+    11650414,
+    11748855,
+    11748856
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/novotroitsk/novotroitsk.htm",
+  "note": "人工分桶（跨城誤併修正）：gap 抓取用重疊 bbox，novotroitsk 與 orsk 兩檔曾列出**完全相同**的 22 個 rid，衝突解析平手就先到先贏，結果兩城的線整組錯位——奧爾斯克檔裡裝的是新特羅伊茨克的線。依 relation 的終點站名分桶：新特羅伊茨克＝КХП／ТУ／Рынок／ФЛЦ，奧爾斯克＝240-й квартал／Станция «Никель»／ЦМК ЮУМЗ／Микрорайон 3С／Станция «Орск»。**重跑 fetchUrbanrailGap 會覆寫本檔**，覆寫後要重新分桶。"
+}

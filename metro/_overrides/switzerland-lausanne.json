@@ -1,0 +1,17 @@
+{
+  "city": "Lausanne",
+  "country": "Switzerland",
+  "continent": "europe",
+  "osm_route_ids": [
+    79742,
+    7664061,
+    79743,
+    4250695,
+    17973562,
+    17973563
+  ],
+  "source": "https://www.urbanrail.net/eu/ch/vd/lausanne.htm",
+  "wikipedia": "en:Lausanne Metro",
+  "wikidata": "Q688268",
+  "note": "Lausanne（使用者 2026-07-27「少抓」）＝Métros TL：M2 subway（Ouchy–Croisettes，14 站）＋M1 light_rail／原 TSOL（Flon–Renens，15 站），交會 Flon。曾只留 M2（M1 被純 LRT 剔除）→ LRT_ADDON_CITIES 加 lausanne。M3 規劃不收。系統 wiki 釘 en:Lausanne Metro／Q688268（勿用單線 Q2394222／Q3239144）。重跑請保留 wikipedia/wikidata／本 note。"
+}

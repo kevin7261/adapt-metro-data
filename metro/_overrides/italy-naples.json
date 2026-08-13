@@ -1,0 +1,19 @@
+{
+  "city": "Naples",
+  "country": "Italy",
+  "continent": "europe",
+  "osm_route_ids": [
+    386098,
+    2168102,
+    446007,
+    2168104,
+    1815018,
+    2168327,
+    445980,
+    2168103
+  ],
+  "wikipedia": "it:Metropolitana di Napoli",
+  "wikidata": "Q747184",
+  "source": "https://www.urbanrail.net/eu/it/nap/napoli.htm",
+  "note": "Naples（使用者 2026-07-27「少抓」）——基準 subway 只有 Linea 1／6／11；urbanrail／市府編號另含 Linea 2（Trenitalia passante，OSM route=train）。由 scripts/fetchNaplesLine2.mjs 補抓 gap_*_naples_l2。不含 Circumvesuviana／Cumana／tram／funicular（wiki  метро 本體外）。重跑保留 wikipedia/wikidata。"
+}

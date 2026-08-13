@@ -1,0 +1,19 @@
+{
+  "city": "Lisbon",
+  "country": "Portugal",
+  "continent": "europe",
+  "osm_route_ids": [
+    370761,
+    371021,
+    371080,
+    371084,
+    7734159,
+    7734160,
+    7734161,
+    7734162
+  ],
+  "source": "https://www.urbanrail.net/eu/pt/lisboa/lisboa.htm",
+  "wikipedia": "pt:Metropolitano de Lisboa",
+  "wikidata": "Q746032",
+  "note": "Lisbon（使用者 2026-07-26「抓錯」）＝只要 Metropolitano de Lisboa 四色線（Azul／Verde／Amarela／Vermelha；subway）。urbanrail lisboa.htm＝地鐵本體；Carris tram（12E/15E/18E/24E/25E/28E）與南岸 MTS（Almada）不收——Carris→route_excludes；MTS 屬 portugal-almada。wiki 勿用 Carris（Q1045108）。task.modes 收窄為 subway。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata。"
+}

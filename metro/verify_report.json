@@ -1,0 +1,3780 @@
+{
+  "summary": {
+    "generated_against": "Wikipedia: List of metro systems (+ urbanrail.net reference)",
+    "wikipedia_systems": 233,
+    "our_systems": 595,
+    "matched_ok": 185,
+    "flagged": 64,
+    "invariant_violations": {
+      "wiki_city_without_data": 9,
+      "stations_without_line": 0,
+      "systems_with_stations_without_line": 0,
+      "systems_with_non_station_vertices": 0,
+      "systems_with_broken_routes": 0,
+      "systems_with_span_errors": 0
+    },
+    "order_suspect_systems": 16,
+    "span_suspect_systems": 0,
+    "by_severity": {
+      "missing": 9,
+      "no_line": 0,
+      "vertex": 0,
+      "broken": 0,
+      "span": 0,
+      "span_warn": 0,
+      "order": 16,
+      "zero": 0,
+      "low": 0,
+      "high": 39
+    },
+    "extras": 388
+  },
+  "flags": [
+    {
+      "severity": "missing",
+      "city": "San Francisco (Bay Area)",
+      "country": "United States",
+      "system": "BART[Nb 102]",
+      "our_stations": null,
+      "wiki_stations": 47,
+      "wiki_length_km": 192,
+      "note": "本資料無此系統（OSM 未以 route=subway 標記，或城市名不同）",
+      "wiki_url": "https://en.wikipedia.org/wiki/BART[Nb_102]",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20San%20Francisco%20(Bay%20Area)"
+    },
+    {
+      "severity": "missing",
+      "city": "Taoyuan",
+      "country": "Taiwan",
+      "system": "Taoyuan Metro",
+      "our_stations": null,
+      "wiki_stations": 22,
+      "wiki_length_km": 53.1,
+      "note": "本資料無此系統（OSM 未以 route=subway 標記，或城市名不同）",
+      "wiki_url": "https://en.wikipedia.org/wiki/Taoyuan_Metro",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Taoyuan"
+    },
+    {
+      "severity": "missing",
+      "city": "Noida",
+      "country": "India",
+      "system": "Noida Metro",
+      "our_stations": null,
+      "wiki_stations": 21,
+      "wiki_length_km": 29.168,
+      "note": "本資料無此系統（OSM 未以 route=subway 標記，或城市名不同）",
+      "wiki_url": "https://en.wikipedia.org/wiki/Noida_Metro",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Noida"
+    },
+    {
+      "severity": "missing",
+      "city": "Saitama Prefecture",
+      "country": "Japan",
+      "system": "New Shuttle",
+      "our_stations": null,
+      "wiki_stations": 13,
+      "wiki_length_km": 12.7,
+      "note": "本資料無此系統（OSM 未以 route=subway 標記，或城市名不同）",
+      "wiki_url": "https://en.wikipedia.org/wiki/New_Shuttle",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Saitama%20Prefecture"
+    },
+    {
+      "severity": "missing",
+      "city": "New Taipei",
+      "country": "Taiwan",
+      "system": "New Taipei Metro",
+      "our_stations": null,
+      "wiki_stations": 12,
+      "wiki_length_km": 14.29,
+      "note": "本資料無此系統（OSM 未以 route=subway 標記，或城市名不同）",
+      "wiki_url": "https://en.wikipedia.org/wiki/New_Taipei_Metro",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20New%20Taipei"
+    },
+    {
+      "severity": "missing",
+      "city": "Gurgaon",
+      "country": "India",
+      "system": "Rapid Metro Gurgaon",
+      "our_stations": null,
+      "wiki_stations": 11,
+      "wiki_length_km": 12.854,
+      "note": "本資料無此系統（OSM 未以 route=subway 標記，或城市名不同）",
+      "wiki_url": "https://en.wikipedia.org/wiki/Rapid_Metro_Gurgaon",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Gurgaon"
+    },
+    {
+      "severity": "missing",
+      "city": "Gimpo",
+      "country": "South Korea",
+      "system": "Gimpo Goldline",
+      "our_stations": null,
+      "wiki_stations": 10,
+      "wiki_length_km": 23.67,
+      "note": "本資料無此系統（OSM 未以 route=subway 標記，或城市名不同）",
+      "wiki_url": "https://en.wikipedia.org/wiki/Gimpo_Goldline",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Gimpo"
+    },
+    {
+      "severity": "missing",
+      "city": "Chiba Prefecture",
+      "country": "Japan",
+      "system": "Tōyō Rapid Railway Line",
+      "our_stations": null,
+      "wiki_stations": 9,
+      "wiki_length_km": 16.2,
+      "note": "本資料無此系統（OSM 未以 route=subway 標記，或城市名不同）",
+      "wiki_url": "https://en.wikipedia.org/wiki/Tōyō_Rapid_Railway_Line",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Chiba%20Prefecture"
+    },
+    {
+      "severity": "missing",
+      "city": "Saitama Prefecture",
+      "country": "Japan",
+      "system": "Saitama Rapid Railway Line",
+      "our_stations": null,
+      "wiki_stations": 8,
+      "wiki_length_km": 14.6,
+      "note": "本資料無此系統（OSM 未以 route=subway 標記，或城市名不同）",
+      "wiki_url": "https://en.wikipedia.org/wiki/Saitama_Rapid_Railway_Line",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Saitama%20Prefecture"
+    },
+    {
+      "severity": "order",
+      "city": "Magnitogorsk",
+      "country": "Russia",
+      "our_file": "maps/eu-rus-magnitogorsk/eu-rus-magnitogorsk/1-raw-maps/working/eu-rus-magnitogorsk-1-raw-maps-working.geojson",
+      "our_stations": 141,
+      "our_lines": 36,
+      "suspect_lines": [
+        {
+          "name": "Трамвай №23",
+          "ratio": 1.68
+        },
+        {
+          "name": "Трамвай №8",
+          "ratio": 1.64
+        },
+        {
+          "name": "Трамвай №4",
+          "ratio": 1.64
+        }
+      ],
+      "note": "3 條線站序可疑（路徑長 > 1.6× MST）：Трамвай №23 1.68×、Трамвай №8 1.64×、Трамвай №4 1.64×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Magnitogorsk"
+    },
+    {
+      "severity": "order",
+      "city": "Gothenburg",
+      "country": "Sweden",
+      "our_file": "maps/eu-swe-gothenburg/eu-swe-gothenburg/1-raw-maps/working/eu-swe-gothenburg-1-raw-maps-working.geojson",
+      "our_stations": 132,
+      "our_lines": 14,
+      "suspect_lines": [
+        {
+          "name": "Spårvagn: Lisebergslinjen",
+          "ratio": 2
+        }
+      ],
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Spårvagn: Lisebergslinjen 2×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Gothenburg"
+    },
+    {
+      "severity": "order",
+      "city": "Ostrava",
+      "country": "Czechia",
+      "our_file": "maps/eu-cze-ostrava/eu-cze-ostrava/1-raw-maps/working/eu-cze-ostrava-1-raw-maps-working.geojson",
+      "our_stations": 101,
+      "our_lines": 17,
+      "suspect_lines": [
+        {
+          "name": "19",
+          "ratio": 1.96
+        },
+        {
+          "name": "9",
+          "ratio": 1.89
+        }
+      ],
+      "note": "2 條線站序可疑（路徑長 > 1.6× MST）：19 1.96×、9 1.89×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Ostrava"
+    },
+    {
+      "severity": "order",
+      "city": "Nizhniy Tagil",
+      "country": "Russia",
+      "our_file": "maps/eu-rus-nizhniy-tagil/eu-rus-nizhniy-tagil/1-raw-maps/working/eu-rus-nizhniy-tagil-1-raw-maps-working.geojson",
+      "our_stations": 74,
+      "our_lines": 15,
+      "suspect_lines": [
+        {
+          "name": "Трамвай 4а: Тагилстрой - Приречный",
+          "ratio": 1.88
+        }
+      ],
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Трамвай 4а: Тагилстрой - Приречный 1.88×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Nizhniy%20Tagil"
+    },
+    {
+      "severity": "order",
+      "city": "Irkutsk",
+      "country": "Russia",
+      "our_file": "maps/eu-rus-irkutsk/eu-rus-irkutsk/1-raw-maps/working/eu-rus-irkutsk-1-raw-maps-working.geojson",
+      "our_stations": 54,
+      "our_lines": 7,
+      "suspect_lines": [
+        {
+          "name": "Трамвай 6: ул. Волжская - Центральный рынок - м/р Солнечный",
+          "ratio": 1.63
+        }
+      ],
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Трамвай 6: ул. Волжская - Центральный рынок - м/р Солнечный 1.63×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Irkutsk"
+    },
+    {
+      "severity": "order",
+      "city": "Iasi",
+      "country": "Romania",
+      "our_file": "maps/eu-rou-iasi/eu-rou-iasi/1-raw-maps/working/eu-rou-iasi-1-raw-maps-working.geojson",
+      "our_stations": 58,
+      "our_lines": 9,
+      "suspect_lines": [
+        {
+          "name": "Tram 13",
+          "ratio": 1.87
+        }
+      ],
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Tram 13 1.87×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Iasi"
+    },
+    {
+      "severity": "order",
+      "city": "Pretoria",
+      "country": "South Africa",
+      "our_file": "maps/af-rsa-pretoria/af-rsa-pretoria/1-raw-maps/working/af-rsa-pretoria-1-raw-maps-working.geojson",
+      "our_stations": 90,
+      "our_lines": 15,
+      "suspect_lines": [
+        {
+          "name": "Metrorail Orange Line",
+          "ratio": 1.98
+        },
+        {
+          "name": "Pretoria",
+          "ratio": 1.98
+        },
+        {
+          "name": "Metrorail Pale Brown Line",
+          "ratio": 1.97
+        },
+        {
+          "name": "Pretoria",
+          "ratio": 1.96
+        }
+      ],
+      "note": "4 條線站序可疑（路徑長 > 1.6× MST）：Metrorail Orange Line 1.98×、Pretoria 1.98×、Metrorail Pale Brown Line 1.97×、Pretoria 1.96×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Pretoria"
+    },
+    {
+      "severity": "order",
+      "city": "Kemerovo",
+      "country": "Russia",
+      "our_file": "maps/eu-rus-kemerovo/eu-rus-kemerovo/1-raw-maps/working/eu-rus-kemerovo-1-raw-maps-working.geojson",
+      "our_stations": 75,
+      "our_lines": 5,
+      "suspect_lines": [
+        {
+          "name": "Трамвай № 1",
+          "ratio": 2
+        },
+        {
+          "name": "Трамвай № 10",
+          "ratio": 1.87
+        },
+        {
+          "name": "Трамвай № 3",
+          "ratio": 1.85
+        },
+        {
+          "name": "Трамвай № 5",
+          "ratio": 1.76
+        },
+        {
+          "name": "Трамвай № 8",
+          "ratio": 1.75
+        }
+      ],
+      "note": "5 條線站序可疑（路徑長 > 1.6× MST）：Трамвай № 1 2×、Трамвай № 10 1.87×、Трамвай № 3 1.85×、Трамвай № 5 1.76×…，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Kemerovo"
+    },
+    {
+      "severity": "order",
+      "city": "Smolensk",
+      "country": "Russia",
+      "our_file": "maps/eu-rus-smolensk/eu-rus-smolensk/1-raw-maps/working/eu-rus-smolensk-1-raw-maps-working.geojson",
+      "our_stations": 34,
+      "our_lines": 4,
+      "suspect_lines": [
+        {
+          "name": "Трамвай №1: ул.Багратиона - Электроламповый завод",
+          "ratio": 1.8
+        }
+      ],
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Трамвай №1: ул.Багратиона - Электроламповый завод 1.8×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Smolensk"
+    },
+    {
+      "severity": "order",
+      "city": "Edmonton",
+      "country": "Canada",
+      "our_file": "maps/na-can-edmonton/na-can-edmonton/1-raw-maps/working/na-can-edmonton-1-raw-maps-working.geojson",
+      "our_stations": 38,
+      "our_lines": 5,
+      "suspect_lines": [
+        {
+          "name": "High Level Bridge Streetcar",
+          "ratio": 1.63
+        }
+      ],
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：High Level Bridge Streetcar 1.63×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Edmonton"
+    },
+    {
+      "severity": "order",
+      "city": "Toyama",
+      "country": "Japan",
+      "our_file": "maps/as-jpn-toyama/as-jpn-toyama/1-raw-maps/working/as-jpn-toyama-1-raw-maps-working.geojson",
+      "our_stations": 39,
+      "our_lines": 6,
+      "suspect_lines": [
+        {
+          "name": "6系統",
+          "ratio": 1.78
+        }
+      ],
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：6系統 1.78×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Toyama"
+    },
+    {
+      "severity": "order",
+      "city": "Kobe",
+      "country": "Japan",
+      "our_file": "maps/as-jpn-kobe/as-jpn-kobe/1-raw-maps/working/as-jpn-kobe-1-raw-maps-working.geojson",
+      "our_stations": 43,
+      "our_lines": 5,
+      "suspect_lines": [
+        {
+          "name": "ポートライナー",
+          "ratio": 1.64
+        }
+      ],
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：ポートライナー 1.64×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Kobe"
+    },
+    {
+      "severity": "order",
+      "city": "Palermo",
+      "country": "Italy",
+      "our_file": "maps/eu-ita-palermo/eu-ita-palermo/1-raw-maps/working/eu-ita-palermo-1-raw-maps-working.geojson",
+      "our_stations": 43,
+      "our_lines": 4,
+      "suspect_lines": [
+        {
+          "name": "Tram L4",
+          "ratio": 1.95
+        }
+      ],
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Tram L4 1.95×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Palermo"
+    },
+    {
+      "severity": "order",
+      "city": "Antalya",
+      "country": "Turkey",
+      "our_file": "maps/as-tur-antalya/as-tur-antalya/1-raw-maps/working/as-tur-antalya-1-raw-maps-working.geojson",
+      "our_stations": 68,
+      "our_lines": 4,
+      "suspect_lines": [
+        {
+          "name": "T2 Müze - Zerdailik tramvay Hattı",
+          "ratio": 1.73
+        }
+      ],
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：T2 Müze - Zerdailik tramvay Hattı 1.73×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Antalya"
+    },
+    {
+      "severity": "order",
+      "city": "Brest",
+      "country": "France",
+      "our_file": "maps/eu-fra-brest/eu-fra-brest/1-raw-maps/working/eu-fra-brest-1-raw-maps-working.geojson",
+      "our_stations": 39,
+      "our_lines": 2,
+      "suspect_lines": [
+        {
+          "name": "Tram B",
+          "ratio": 3.46
+        }
+      ],
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Tram B 3.46×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Brest"
+    },
+    {
+      "severity": "order",
+      "city": "Huangshi",
+      "country": "China",
+      "our_file": "maps/as-chn-huangshi/as-chn-huangshi/1-raw-maps/working/as-chn-huangshi-1-raw-maps-working.geojson",
+      "our_stations": 31,
+      "our_lines": 1,
+      "suspect_lines": [
+        {
+          "name": "黄石现代有轨电车",
+          "ratio": 2
+        }
+      ],
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：黄石现代有轨电车 2×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Huangshi"
+    },
+    {
+      "severity": "high",
+      "city": "Berlin",
+      "country": "Germany",
+      "system": "Berlin U-Bahn",
+      "our_file": "maps/eu-ger-berlin/eu-ger-berlin/1-raw-maps/working/eu-ger-berlin-1-raw-maps-working.geojson",
+      "our_stations": 300,
+      "our_lines": 26,
+      "wiki_stations": 175,
+      "wiki_length_km": 155.6,
+      "ratio": 1.71,
+      "note": "站數偏多（300 vs wiki 175），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Berlin_U-Bahn",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Berlin"
+    },
+    {
+      "severity": "high",
+      "city": "Bangkok",
+      "country": "Thailand",
+      "system": "Metropolitan Rapid Transit",
+      "our_file": "maps/as-tha-bangkok/as-tha-bangkok/1-raw-maps/working/as-tha-bangkok-1-raw-maps-working.geojson",
+      "our_stations": 176,
+      "our_lines": 11,
+      "wiki_stations": 109,
+      "wiki_length_km": 133,
+      "ratio": 1.61,
+      "note": "站數偏多（176 vs wiki 109），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Metropolitan_Rapid_Transit",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Bangkok"
+    },
+    {
+      "severity": "high",
+      "city": "Tokyo",
+      "country": "Japan",
+      "system": "Toei Subway",
+      "our_file": "maps/as-jpn-tokyo/as-jpn-tokyo/1-raw-maps/working/as-jpn-tokyo-1-raw-maps-working.geojson",
+      "our_stations": 202,
+      "our_lines": 14,
+      "wiki_stations": 99,
+      "wiki_length_km": 109,
+      "ratio": 2.04,
+      "note": "站數偏多（202 vs wiki 99），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Toei_Subway",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Tokyo"
+    },
+    {
+      "severity": "high",
+      "city": "Munich",
+      "country": "Germany",
+      "system": "Munich U-Bahn",
+      "our_file": "maps/eu-ger-munich/eu-ger-munich/1-raw-maps/working/eu-ger-munich-1-raw-maps-working.geojson",
+      "our_stations": 381,
+      "our_lines": 32,
+      "wiki_stations": 96,
+      "wiki_length_km": 95,
+      "ratio": 3.97,
+      "note": "站數偏多（381 vs wiki 96），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Munich_U-Bahn",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Munich"
+    },
+    {
+      "severity": "high",
+      "city": "Hamburg",
+      "country": "Germany",
+      "system": "Hamburg U-Bahn",
+      "our_file": "maps/eu-ger-hamburg/eu-ger-hamburg/1-raw-maps/working/eu-ger-hamburg-1-raw-maps-working.geojson",
+      "our_stations": 154,
+      "our_lines": 14,
+      "wiki_stations": 93,
+      "wiki_length_km": 106,
+      "ratio": 1.66,
+      "note": "站數偏多（154 vs wiki 93），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Hamburg_U-Bahn",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Hamburg"
+    },
+    {
+      "severity": "high",
+      "city": "Bangkok",
+      "country": "Thailand",
+      "system": "BTS Skytrain",
+      "our_file": "maps/as-tha-bangkok/as-tha-bangkok/1-raw-maps/working/as-tha-bangkok-1-raw-maps-working.geojson",
+      "our_stations": 176,
+      "our_lines": 11,
+      "wiki_stations": 64,
+      "wiki_length_km": 70.05,
+      "ratio": 2.75,
+      "note": "站數偏多（176 vs wiki 64），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/BTS_Skytrain",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Bangkok"
+    },
+    {
+      "severity": "high",
+      "city": "Brussels",
+      "country": "Belgium",
+      "system": "Brussels Metro",
+      "our_file": "maps/eu-bel-brussels/eu-bel-brussels/1-raw-maps/working/eu-bel-brussels-1-raw-maps-working.geojson",
+      "our_stations": 214,
+      "our_lines": 14,
+      "wiki_stations": 59,
+      "wiki_length_km": 39.9,
+      "ratio": 3.63,
+      "note": "站數偏多（214 vs wiki 59），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Brussels_Metro",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Brussels"
+    },
+    {
+      "severity": "high",
+      "city": "Boston",
+      "country": "United States",
+      "system": "MBTA subway[Nb 92]",
+      "our_file": "maps/na-usa-boston/na-usa-boston/1-raw-maps/working/na-usa-boston-1-raw-maps-working.geojson",
+      "our_stations": 120,
+      "our_lines": 9,
+      "wiki_stations": 52,
+      "wiki_length_km": 63.9,
+      "ratio": 2.31,
+      "note": "站數偏多（120 vs wiki 52），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/MBTA_subway[Nb_92]",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Boston"
+    },
+    {
+      "severity": "high",
+      "city": "Kyiv",
+      "country": "Ukraine",
+      "system": "Kyiv Metro",
+      "our_file": "maps/eu-ukr-kyiv/eu-ukr-kyiv/1-raw-maps/working/eu-ukr-kyiv-1-raw-maps-working.geojson",
+      "our_stations": 224,
+      "our_lines": 19,
+      "wiki_stations": 49,
+      "wiki_length_km": 67.7,
+      "ratio": 4.57,
+      "note": "站數偏多（224 vs wiki 49），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Kyiv_Metro",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Kyiv"
+    },
+    {
+      "severity": "high",
+      "city": "London",
+      "country": "United Kingdom",
+      "system": "Docklands Light Railway",
+      "our_file": "maps/eu-gbr-london/eu-gbr-london/1-raw-maps/working/eu-gbr-london-1-raw-maps-working.geojson",
+      "our_stations": 262,
+      "our_lines": 26,
+      "wiki_stations": 45,
+      "wiki_length_km": 34,
+      "ratio": 5.82,
+      "note": "站數偏多（262 vs wiki 45），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Docklands_Light_Railway",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20London"
+    },
+    {
+      "severity": "high",
+      "city": "Lyon",
+      "country": "France",
+      "system": "Lyon Metro",
+      "our_file": "maps/eu-fra-lyon/eu-fra-lyon/1-raw-maps/working/eu-fra-lyon-1-raw-maps-working.geojson",
+      "our_stations": 146,
+      "our_lines": 15,
+      "wiki_stations": 42,
+      "wiki_length_km": 34.4,
+      "ratio": 3.48,
+      "note": "站數偏多（146 vs wiki 42），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Lyon_Metro",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Lyon"
+    },
+    {
+      "severity": "high",
+      "city": "Kaohsiung",
+      "country": "Taiwan",
+      "system": "Kaohsiung Rapid Transit",
+      "our_file": "maps/as-twn-kaohsiung/as-twn-kaohsiung/1-raw-maps/working/as-twn-kaohsiung-1-raw-maps-working.geojson",
+      "our_stations": 72,
+      "our_lines": 3,
+      "wiki_stations": 38,
+      "wiki_length_km": 45.5,
+      "ratio": 1.89,
+      "note": "站數偏多（72 vs wiki 38），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Kaohsiung_Rapid_Transit",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Kaohsiung"
+    },
+    {
+      "severity": "high",
+      "city": "Guadalajara",
+      "country": "Mexico",
+      "system": "SITEUR[Nb 65]",
+      "our_file": "maps/na-mex-guadalajara/na-mex-guadalajara/1-raw-maps/working/na-mex-guadalajara-1-raw-maps-working.geojson",
+      "our_stations": 54,
+      "our_lines": 4,
+      "wiki_stations": 28,
+      "wiki_length_km": 46.5,
+      "ratio": 1.93,
+      "note": "站數偏多（54 vs wiki 28），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/SITEUR[Nb_65]",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Guadalajara"
+    },
+    {
+      "severity": "high",
+      "city": "İzmir",
+      "country": "Turkey",
+      "system": "İzmir Metro",
+      "our_file": "maps/as-tur-izmir/as-tur-izmir/1-raw-maps/working/as-tur-izmir-1-raw-maps-working.geojson",
+      "our_stations": 100,
+      "our_lines": 5,
+      "wiki_stations": 24,
+      "wiki_length_km": 27,
+      "ratio": 4.17,
+      "note": "站數偏多（100 vs wiki 24），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/İzmir_Metro",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20%C4%B0zmir"
+    },
+    {
+      "severity": "high",
+      "city": "Montreal",
+      "country": "Canada",
+      "system": "Réseau express métropolitain",
+      "our_file": "maps/na-can-montreal/na-can-montreal/1-raw-maps/working/na-can-montreal-1-raw-maps-working.geojson",
+      "our_stations": 68,
+      "our_lines": 4,
+      "wiki_stations": 23,
+      "wiki_length_km": 64,
+      "ratio": 2.96,
+      "note": "站數偏多（68 vs wiki 23），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Réseau_express_métropolitain",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Montreal"
+    },
+    {
+      "severity": "high",
+      "city": "Miami",
+      "country": "United States",
+      "system": "Metrorail",
+      "our_file": "maps/na-usa-miami/na-usa-miami/1-raw-maps/working/na-usa-miami-1-raw-maps-working.geojson",
+      "our_stations": 42,
+      "our_lines": 5,
+      "wiki_stations": 23,
+      "wiki_length_km": 39.3,
+      "ratio": 1.83,
+      "note": "站數偏多（42 vs wiki 23），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Metrorail",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Miami"
+    },
+    {
+      "severity": "high",
+      "city": "Hiroshima",
+      "country": "Japan",
+      "system": "Astram Line",
+      "our_file": "maps/as-jpn-hiroshima/as-jpn-hiroshima/1-raw-maps/working/as-jpn-hiroshima-1-raw-maps-working.geojson",
+      "our_stations": 98,
+      "our_lines": 10,
+      "wiki_stations": 22,
+      "wiki_length_km": 18.4,
+      "ratio": 4.45,
+      "note": "站數偏多（98 vs wiki 22），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Astram_Line",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Hiroshima"
+    },
+    {
+      "severity": "high",
+      "city": "Sydney",
+      "country": "Australia",
+      "system": "Sydney Metro",
+      "our_file": "maps/oc-aus-sydney/oc-aus-sydney/1-raw-maps/working/oc-aus-sydney-1-raw-maps-working.geojson",
+      "our_stations": 176,
+      "our_lines": 15,
+      "wiki_stations": 21,
+      "wiki_length_km": 52,
+      "ratio": 8.38,
+      "note": "站數偏多（176 vs wiki 21），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Sydney_Metro",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Sydney"
+    },
+    {
+      "severity": "high",
+      "city": "New York City",
+      "country": "United States",
+      "system": "Staten Island Railway",
+      "our_file": "maps/na-usa-new-york-city/na-usa-new-york-city/1-raw-maps/working/na-usa-new-york-city-1-raw-maps-working.geojson",
+      "our_stations": 443,
+      "our_lines": 11,
+      "wiki_stations": 21,
+      "wiki_length_km": 22.5,
+      "ratio": 21.1,
+      "note": "站數偏多（443 vs wiki 21），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Staten_Island_Railway",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20New%20York%20City"
+    },
+    {
+      "severity": "high",
+      "city": "Algiers",
+      "country": "Algeria",
+      "system": "Algiers Metro",
+      "our_file": "maps/af-alg-algiers/af-alg-algiers/1-raw-maps/working/af-alg-algiers-1-raw-maps-working.geojson",
+      "our_stations": 56,
+      "our_lines": 3,
+      "wiki_stations": 19,
+      "wiki_length_km": 18.5,
+      "ratio": 2.95,
+      "note": "站數偏多（56 vs wiki 19），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Algiers_Metro",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Algiers"
+    },
+    {
+      "severity": "high",
+      "city": "Los Angeles",
+      "country": "United States",
+      "system": "Metro Rail[Nb 96]",
+      "our_file": "maps/na-usa-los-angeles/na-usa-los-angeles/1-raw-maps/working/na-usa-los-angeles-1-raw-maps-working.geojson",
+      "our_stations": 109,
+      "our_lines": 8,
+      "wiki_stations": 19,
+      "wiki_length_km": 34.31,
+      "ratio": 5.74,
+      "note": "站數偏多（109 vs wiki 19），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Metro_Rail[Nb_96]",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Los%20Angeles"
+    },
+    {
+      "severity": "high",
+      "city": "Jakarta",
+      "country": "Indonesia",
+      "system": "Jabodebek LRT",
+      "our_file": "maps/as-ina-jakarta/as-ina-jakarta/1-raw-maps/working/as-ina-jakarta-1-raw-maps-working.geojson",
+      "our_stations": 88,
+      "our_lines": 8,
+      "wiki_stations": 18,
+      "wiki_length_km": 44.5,
+      "ratio": 4.89,
+      "note": "站數偏多（88 vs wiki 18），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Jabodebek_LRT",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Jakarta"
+    },
+    {
+      "severity": "high",
+      "city": "Kobe",
+      "country": "Japan",
+      "system": "Kobe New Transit",
+      "our_file": "maps/as-jpn-kobe/as-jpn-kobe/1-raw-maps/working/as-jpn-kobe-1-raw-maps-working.geojson",
+      "our_stations": 43,
+      "our_lines": 5,
+      "wiki_stations": 18,
+      "wiki_length_km": 15.1,
+      "ratio": 2.39,
+      "note": "站數偏多（43 vs wiki 18），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Kobe_New_Transit",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Kobe"
+    },
+    {
+      "severity": "high",
+      "city": "Tokyo",
+      "country": "Japan",
+      "system": "Yurikamome",
+      "our_file": "maps/as-jpn-tokyo/as-jpn-tokyo/1-raw-maps/working/as-jpn-tokyo-1-raw-maps-working.geojson",
+      "our_stations": 202,
+      "our_lines": 14,
+      "wiki_stations": 16,
+      "wiki_length_km": 14.7,
+      "ratio": 12.63,
+      "note": "站數偏多（202 vs wiki 16），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Yurikamome",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Tokyo"
+    },
+    {
+      "severity": "high",
+      "city": "Seoul",
+      "country": "South Korea",
+      "system": "Shinbundang Line[Nb 62] (Neo Trans)",
+      "our_file": "maps/as-kor-seoul/as-kor-seoul/1-raw-maps/working/as-kor-seoul-1-raw-maps-working.geojson",
+      "our_stations": 426,
+      "our_lines": 23,
+      "wiki_stations": 16,
+      "wiki_length_km": 33.4,
+      "ratio": 26.63,
+      "note": "站數偏多（426 vs wiki 16），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Shinbundang_Line[Nb_62]_(Neo_Trans)",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Seoul"
+    },
+    {
+      "severity": "high",
+      "city": "Nizhny Novgorod",
+      "country": "Russia",
+      "system": "Nizhny Novgorod Metro",
+      "our_file": "maps/eu-rus-nizhny-novgorod/eu-rus-nizhny-novgorod/1-raw-maps/working/eu-rus-nizhny-novgorod-1-raw-maps-working.geojson",
+      "our_stations": 83,
+      "our_lines": 11,
+      "wiki_stations": 15,
+      "wiki_length_km": 21.8,
+      "ratio": 5.53,
+      "note": "站數偏多（83 vs wiki 15），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Nizhny_Novgorod_Metro",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Nizhny%20Novgorod"
+    },
+    {
+      "severity": "high",
+      "city": "Yokohama",
+      "country": "Japan",
+      "system": "Kanazawa Seaside Line",
+      "our_file": "maps/as-jpn-yokohama/as-jpn-yokohama/1-raw-maps/working/as-jpn-yokohama-1-raw-maps-working.geojson",
+      "our_stations": 40,
+      "our_lines": 2,
+      "wiki_stations": 14,
+      "wiki_length_km": 10.6,
+      "ratio": 2.86,
+      "note": "站數偏多（40 vs wiki 14），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Kanazawa_Seaside_Line",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Yokohama"
+    },
+    {
+      "severity": "high",
+      "city": "Novosibirsk",
+      "country": "Russia",
+      "system": "Novosibirsk Metro",
+      "our_file": "maps/eu-rus-novosibirsk/eu-rus-novosibirsk/1-raw-maps/working/eu-rus-novosibirsk-1-raw-maps-working.geojson",
+      "our_stations": 121,
+      "our_lines": 12,
+      "wiki_stations": 14,
+      "wiki_length_km": 15.9,
+      "ratio": 8.64,
+      "note": "站數偏多（121 vs wiki 14），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Novosibirsk_Metro",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Novosibirsk"
+    },
+    {
+      "severity": "high",
+      "city": "Lausanne",
+      "country": "Switzerland",
+      "system": "Lausanne Metro[Nb 85]",
+      "our_file": "maps/eu-sui-lausanne/eu-sui-lausanne/1-raw-maps/working/eu-sui-lausanne-1-raw-maps-working.geojson",
+      "our_stations": 28,
+      "our_lines": 2,
+      "wiki_stations": 14,
+      "wiki_length_km": 5.9,
+      "ratio": 2,
+      "note": "站數偏多（28 vs wiki 14），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Lausanne_Metro[Nb_85]",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Lausanne"
+    },
+    {
+      "severity": "high",
+      "city": "Baltimore",
+      "country": "United States",
+      "system": "Baltimore Metro SubwayLink",
+      "our_file": "maps/na-usa-baltimore/na-usa-baltimore/1-raw-maps/working/na-usa-baltimore-1-raw-maps-working.geojson",
+      "our_stations": 46,
+      "our_lines": 4,
+      "wiki_stations": 14,
+      "wiki_length_km": 24.9,
+      "ratio": 3.29,
+      "note": "站數偏多（46 vs wiki 14），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Baltimore_Metro_SubwayLink",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Baltimore"
+    },
+    {
+      "severity": "high",
+      "city": "Philadelphia",
+      "country": "United States",
+      "system": "PATCO Speedline",
+      "our_file": "maps/na-usa-philadelphia/na-usa-philadelphia/1-raw-maps/working/na-usa-philadelphia-1-raw-maps-working.geojson",
+      "our_stations": 63,
+      "our_lines": 6,
+      "wiki_stations": 14,
+      "wiki_length_km": 22.9,
+      "ratio": 4.5,
+      "note": "站數偏多（63 vs wiki 14），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/PATCO_Speedline",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Philadelphia"
+    },
+    {
+      "severity": "high",
+      "city": "Jakarta",
+      "country": "Indonesia",
+      "system": "Jakarta MRT",
+      "our_file": "maps/as-ina-jakarta/as-ina-jakarta/1-raw-maps/working/as-ina-jakarta-1-raw-maps-working.geojson",
+      "our_stations": 88,
+      "our_lines": 8,
+      "wiki_stations": 13,
+      "wiki_length_km": 15.7,
+      "ratio": 6.77,
+      "note": "站數偏多（88 vs wiki 13），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Jakarta_MRT",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Jakarta"
+    },
+    {
+      "severity": "high",
+      "city": "Tokyo",
+      "country": "Japan",
+      "system": "Nippori-Toneri Liner",
+      "our_file": "maps/as-jpn-tokyo/as-jpn-tokyo/1-raw-maps/working/as-jpn-tokyo-1-raw-maps-working.geojson",
+      "our_stations": 202,
+      "our_lines": 14,
+      "wiki_stations": 13,
+      "wiki_length_km": 9.7,
+      "ratio": 15.54,
+      "note": "站數偏多（202 vs wiki 13），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Nippori-Toneri_Liner",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Tokyo"
+    },
+    {
+      "severity": "high",
+      "city": "Manila",
+      "country": "Philippines",
+      "system": "Manila Metro Rail Transit System",
+      "our_file": "maps/as-phi-manila/as-phi-manila/1-raw-maps/working/as-phi-manila-1-raw-maps-working.geojson",
+      "our_stations": 50,
+      "our_lines": 3,
+      "wiki_stations": 13,
+      "wiki_length_km": 16.9,
+      "ratio": 3.85,
+      "note": "站數偏多（50 vs wiki 13），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Manila_Metro_Rail_Transit_System",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Manila"
+    },
+    {
+      "severity": "high",
+      "city": "New York City",
+      "country": "United States",
+      "system": "PATH",
+      "our_file": "maps/na-usa-new-york-city/na-usa-new-york-city/1-raw-maps/working/na-usa-new-york-city-1-raw-maps-working.geojson",
+      "our_stations": 443,
+      "our_lines": 11,
+      "wiki_stations": 13,
+      "wiki_length_km": 22.2,
+      "ratio": 34.08,
+      "note": "站數偏多（443 vs wiki 13），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/PATH",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20New%20York%20City"
+    },
+    {
+      "severity": "high",
+      "city": "Tokyo",
+      "country": "Japan",
+      "system": "Rinkai Line",
+      "our_file": "maps/as-jpn-tokyo/as-jpn-tokyo/1-raw-maps/working/as-jpn-tokyo-1-raw-maps-working.geojson",
+      "our_stations": 202,
+      "our_lines": 14,
+      "wiki_stations": 8,
+      "wiki_length_km": 12.2,
+      "ratio": 25.25,
+      "note": "站數偏多（202 vs wiki 8），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Rinkai_Line",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Tokyo"
+    },
+    {
+      "severity": "high",
+      "city": "Jakarta",
+      "country": "Indonesia",
+      "system": "Jakarta LRT",
+      "our_file": "maps/as-ina-jakarta/as-ina-jakarta/1-raw-maps/working/as-ina-jakarta-1-raw-maps-working.geojson",
+      "our_stations": 88,
+      "our_lines": 8,
+      "wiki_stations": 6,
+      "wiki_length_km": 5.8,
+      "ratio": 14.67,
+      "note": "站數偏多（88 vs wiki 6），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Jakarta_LRT",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Jakarta"
+    },
+    {
+      "severity": "high",
+      "city": "Yokohama",
+      "country": "Japan",
+      "system": "Minatomirai Line",
+      "our_file": "maps/as-jpn-yokohama/as-jpn-yokohama/1-raw-maps/working/as-jpn-yokohama-1-raw-maps-working.geojson",
+      "our_stations": 40,
+      "our_lines": 2,
+      "wiki_stations": 6,
+      "wiki_length_km": 4.1,
+      "ratio": 6.67,
+      "note": "站數偏多（40 vs wiki 6），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Minatomirai_Line",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Yokohama"
+    },
+    {
+      "severity": "high",
+      "city": "Karaj",
+      "country": "Iran",
+      "system": "Karaj Metro",
+      "our_file": "maps/as-iri-karaj/as-iri-karaj/1-raw-maps/working/as-iri-karaj-1-raw-maps-working.geojson",
+      "our_stations": 10,
+      "our_lines": 2,
+      "wiki_stations": 4,
+      "wiki_length_km": 10.5,
+      "ratio": 2.5,
+      "note": "站數偏多（10 vs wiki 4），可能混入輕軌",
+      "has_map": false,
+      "wiki_url": "https://en.wikipedia.org/wiki/Karaj_Metro",
+      "urbanrail": "https://www.google.com/search?q=site%3Aurbanrail.net%20Karaj"
+    }
+  ],
+  "extras": [
+    {
+      "file": "maps/eu-pol-lodz/eu-pol-lodz/1-raw-maps/working/eu-pol-lodz-1-raw-maps-working.geojson",
+      "city": "Lodz",
+      "country": "Poland",
+      "station_count": 239,
+      "line_count": 24
+    },
+    {
+      "file": "maps/eu-pol-wroclaw/eu-pol-wroclaw/1-raw-maps/working/eu-pol-wroclaw-1-raw-maps-working.geojson",
+      "city": "Wroclaw",
+      "country": "Poland",
+      "station_count": 194,
+      "line_count": 25
+    },
+    {
+      "file": "maps/eu-ger-leipzig/eu-ger-leipzig/1-raw-maps/working/eu-ger-leipzig-1-raw-maps-working.geojson",
+      "city": "Leipzig",
+      "country": "Germany",
+      "station_count": 201,
+      "line_count": 18
+    },
+    {
+      "file": "maps/eu-rus-magnitogorsk/eu-rus-magnitogorsk/1-raw-maps/working/eu-rus-magnitogorsk-1-raw-maps-working.geojson",
+      "city": "Magnitogorsk",
+      "country": "Russia",
+      "station_count": 141,
+      "line_count": 36
+    },
+    {
+      "file": "maps/eu-ger-dresden/eu-ger-dresden/1-raw-maps/working/eu-ger-dresden-1-raw-maps-working.geojson",
+      "city": "Dresden",
+      "country": "Germany",
+      "station_count": 259,
+      "line_count": 13
+    },
+    {
+      "file": "maps/eu-swe-gothenburg/eu-swe-gothenburg/1-raw-maps/working/eu-swe-gothenburg-1-raw-maps-working.geojson",
+      "city": "Gothenburg",
+      "country": "Sweden",
+      "station_count": 132,
+      "line_count": 14
+    },
+    {
+      "file": "maps/eu-ger-stuttgart/eu-ger-stuttgart/1-raw-maps/working/eu-ger-stuttgart-1-raw-maps-working.geojson",
+      "city": "Stuttgart",
+      "country": "Germany",
+      "station_count": 208,
+      "line_count": 17
+    },
+    {
+      "file": "maps/eu-ger-dusseldorf/eu-ger-dusseldorf/1-raw-maps/working/eu-ger-dusseldorf-1-raw-maps-working.geojson",
+      "city": "Düsseldorf",
+      "country": "Germany",
+      "station_count": 285,
+      "line_count": 18
+    },
+    {
+      "file": "maps/eu-pol-katowice/eu-pol-katowice/1-raw-maps/working/eu-pol-katowice-1-raw-maps-working.geojson",
+      "city": "Katowice",
+      "country": "Poland",
+      "station_count": 275,
+      "line_count": 23
+    },
+    {
+      "file": "maps/eu-pol-poznan/eu-pol-poznan/1-raw-maps/working/eu-pol-poznan-1-raw-maps-working.geojson",
+      "city": "Poznan",
+      "country": "Poland",
+      "station_count": 134,
+      "line_count": 18
+    },
+    {
+      "file": "maps/eu-ned-the-hague/eu-ned-the-hague/1-raw-maps/working/eu-ned-the-hague-1-raw-maps-working.geojson",
+      "city": "The Hague",
+      "country": "Netherlands",
+      "station_count": 218,
+      "line_count": 15
+    },
+    {
+      "file": "maps/eu-sui-zurich/eu-sui-zurich/1-raw-maps/working/eu-sui-zurich-1-raw-maps-working.geojson",
+      "city": "Zurich",
+      "country": "Switzerland",
+      "station_count": 236,
+      "line_count": 19
+    },
+    {
+      "file": "maps/eu-ger-berlin/eu-ger-berlin-shape-rect/1-raw-maps/working/eu-ger-berlin-shape-rect-1-raw-maps-working.geojson",
+      "city": "Berlin",
+      "country": "Germany",
+      "station_count": 300,
+      "line_count": 26
+    },
+    {
+      "file": "maps/eu-ger-frankfurt/eu-ger-frankfurt/1-raw-maps/working/eu-ger-frankfurt-1-raw-maps-working.geojson",
+      "city": "Frankfurt",
+      "country": "Germany",
+      "station_count": 190,
+      "line_count": 21
+    },
+    {
+      "file": "maps/eu-pol-cracow/eu-pol-cracow/1-raw-maps/working/eu-pol-cracow-1-raw-maps-working.geojson",
+      "city": "Cracow",
+      "country": "Poland",
+      "station_count": 148,
+      "line_count": 18
+    },
+    {
+      "file": "maps/eu-cze-ostrava/eu-cze-ostrava/1-raw-maps/working/eu-cze-ostrava-1-raw-maps-working.geojson",
+      "city": "Ostrava",
+      "country": "Czechia",
+      "station_count": 101,
+      "line_count": 17
+    },
+    {
+      "file": "maps/as-jpn-tokyo/as-jpn-tokyo-shape-rect/1-raw-maps/working/as-jpn-tokyo-shape-rect-1-raw-maps-working.geojson",
+      "city": "Tokyo",
+      "country": "Japan",
+      "station_count": 202,
+      "line_count": 14
+    },
+    {
+      "file": "maps/eu-ger-halle-saale/eu-ger-halle-saale/1-raw-maps/working/eu-ger-halle-saale-1-raw-maps-working.geojson",
+      "city": "Halle (Saale)",
+      "country": "Germany",
+      "station_count": 145,
+      "line_count": 19
+    },
+    {
+      "file": "maps/eu-cze-brno/eu-cze-brno/1-raw-maps/working/eu-cze-brno-1-raw-maps-working.geojson",
+      "city": "Brno",
+      "country": "Czechia",
+      "station_count": 148,
+      "line_count": 11
+    },
+    {
+      "file": "maps/eu-ger-ludwigshafen/eu-ger-ludwigshafen/1-raw-maps/working/eu-ger-ludwigshafen-1-raw-maps-working.geojson",
+      "city": "Ludwigshafen",
+      "country": "Germany",
+      "station_count": 199,
+      "line_count": 14
+    },
+    {
+      "file": "maps/eu-bel-antwerp/eu-bel-antwerp/1-raw-maps/working/eu-bel-antwerp-1-raw-maps-working.geojson",
+      "city": "Antwerp",
+      "country": "Belgium",
+      "station_count": 154,
+      "line_count": 12
+    },
+    {
+      "file": "maps/eu-sui-basel/eu-sui-basel/1-raw-maps/working/eu-sui-basel-1-raw-maps-working.geojson",
+      "city": "Basel",
+      "country": "Switzerland",
+      "station_count": 187,
+      "line_count": 13
+    },
+    {
+      "file": "maps/eu-ger-hannover/eu-ger-hannover/1-raw-maps/working/eu-ger-hannover-1-raw-maps-working.geojson",
+      "city": "Hannover",
+      "country": "Germany",
+      "station_count": 196,
+      "line_count": 14
+    },
+    {
+      "file": "maps/eu-rus-krasnodar/eu-rus-krasnodar/1-raw-maps/working/eu-rus-krasnodar-1-raw-maps-working.geojson",
+      "city": "Krasnodar",
+      "country": "Russia",
+      "station_count": 129,
+      "line_count": 16
+    },
+    {
+      "file": "maps/eu-ger-kassel/eu-ger-kassel/1-raw-maps/working/eu-ger-kassel-1-raw-maps-working.geojson",
+      "city": "Kassel",
+      "country": "Germany",
+      "station_count": 158,
+      "line_count": 11
+    },
+    {
+      "file": "maps/eu-cro-zagreb/eu-cro-zagreb/1-raw-maps/working/eu-cro-zagreb-1-raw-maps-working.geojson",
+      "city": "Zagreb",
+      "country": "Croatia",
+      "station_count": 117,
+      "line_count": 19
+    },
+    {
+      "file": "maps/eu-rus-barnaul/eu-rus-barnaul/1-raw-maps/working/eu-rus-barnaul-1-raw-maps-working.geojson",
+      "city": "Barnaul",
+      "country": "Russia",
+      "station_count": 111,
+      "line_count": 8
+    },
+    {
+      "file": "maps/oc-aus-melbourne/oc-aus-melbourne/1-raw-maps/working/oc-aus-melbourne-1-raw-maps-working.geojson",
+      "city": "Melbourne",
+      "country": "Australia",
+      "station_count": 225,
+      "line_count": 21
+    },
+    {
+      "file": "maps/as-chn-shanghai/as-chn-shanghai-shape-rect/1-raw-maps/working/as-chn-shanghai-shape-rect-1-raw-maps-working.geojson",
+      "city": "Shanghai",
+      "country": "China",
+      "station_count": 407,
+      "line_count": 21
+    },
+    {
+      "file": "maps/na-usa-portland/na-usa-portland/1-raw-maps/working/na-usa-portland-1-raw-maps-working.geojson",
+      "city": "Portland",
+      "country": "United States",
+      "station_count": 153,
+      "line_count": 10
+    },
+    {
+      "file": "maps/eu-ger-karlsruhe/eu-ger-karlsruhe/1-raw-maps/working/eu-ger-karlsruhe-1-raw-maps-working.geojson",
+      "city": "Karlsruhe",
+      "country": "Germany",
+      "station_count": 105,
+      "line_count": 11
+    },
+    {
+      "file": "maps/eu-pol-szczecin/eu-pol-szczecin/1-raw-maps/working/eu-pol-szczecin-1-raw-maps-working.geojson",
+      "city": "Szczecin",
+      "country": "Poland",
+      "station_count": 107,
+      "line_count": 11
+    },
+    {
+      "file": "maps/eu-srb-belgrade/eu-srb-belgrade/1-raw-maps/working/eu-srb-belgrade-1-raw-maps-working.geojson",
+      "city": "Belgrade",
+      "country": "Serbia",
+      "station_count": 77,
+      "line_count": 11
+    },
+    {
+      "file": "maps/eu-ger-magdeburg/eu-ger-magdeburg/1-raw-maps/working/eu-ger-magdeburg-1-raw-maps-working.geojson",
+      "city": "Magdeburg",
+      "country": "Germany",
+      "station_count": 131,
+      "line_count": 13
+    },
+    {
+      "file": "maps/eu-rus-ulyanovsk/eu-rus-ulyanovsk/1-raw-maps/working/eu-rus-ulyanovsk-1-raw-maps-working.geojson",
+      "city": "Ulyanovsk",
+      "country": "Russia",
+      "station_count": 116,
+      "line_count": 12
+    },
+    {
+      "file": "maps/eu-ukr-odessa/eu-ukr-odessa/1-raw-maps/working/eu-ukr-odessa-1-raw-maps-working.geojson",
+      "city": "Odessa",
+      "country": "Ukraine",
+      "station_count": 199,
+      "line_count": 17
+    },
+    {
+      "file": "maps/as-chn-beijing/as-chn-beijing-shape-rect/1-raw-maps/working/as-chn-beijing-shape-rect-1-raw-maps-working.geojson",
+      "city": "Beijing",
+      "country": "China",
+      "station_count": 398,
+      "line_count": 27
+    },
+    {
+      "file": "maps/eu-rus-chelyabinsk/eu-rus-chelyabinsk/1-raw-maps/working/eu-rus-chelyabinsk-1-raw-maps-working.geojson",
+      "city": "Chelyabinsk",
+      "country": "Russia",
+      "station_count": 118,
+      "line_count": 14
+    },
+    {
+      "file": "maps/eu-ger-cologne/eu-ger-cologne/1-raw-maps/working/eu-ger-cologne-1-raw-maps-working.geojson",
+      "city": "Cologne",
+      "country": "Germany",
+      "station_count": 186,
+      "line_count": 10
+    },
+    {
+      "file": "maps/eu-pol-gdansk/eu-pol-gdansk/1-raw-maps/working/eu-pol-gdansk-1-raw-maps-working.geojson",
+      "city": "Gdansk",
+      "country": "Poland",
+      "station_count": 115,
+      "line_count": 11
+    },
+    {
+      "file": "maps/eu-ukr-lviv/eu-ukr-lviv/1-raw-maps/working/eu-ukr-lviv-1-raw-maps-working.geojson",
+      "city": "Lviv",
+      "country": "Ukraine",
+      "station_count": 70,
+      "line_count": 8
+    },
+    {
+      "file": "maps/as-kor-seoul/as-kor-seoul-shape-rect/1-raw-maps/working/as-kor-seoul-shape-rect-1-raw-maps-working.geojson",
+      "city": "Seoul",
+      "country": "South Korea",
+      "station_count": 426,
+      "line_count": 23
+    },
+    {
+      "file": "maps/af-rsa-johannesburg/af-rsa-johannesburg/1-raw-maps/working/af-rsa-johannesburg-1-raw-maps-working.geojson",
+      "city": "Johannesburg",
+      "country": "South Africa",
+      "station_count": 155,
+      "line_count": 18
+    },
+    {
+      "file": "maps/eu-ger-bremen/eu-ger-bremen/1-raw-maps/working/eu-ger-bremen-1-raw-maps-working.geojson",
+      "city": "Bremen",
+      "country": "Germany",
+      "station_count": 165,
+      "line_count": 8
+    },
+    {
+      "file": "maps/eu-fra-montpellier/eu-fra-montpellier/1-raw-maps/working/eu-fra-montpellier-1-raw-maps-working.geojson",
+      "city": "Montpellier",
+      "country": "France",
+      "station_count": 111,
+      "line_count": 6
+    },
+    {
+      "file": "maps/af-rsa-cape-town/af-rsa-cape-town/1-raw-maps/working/af-rsa-cape-town-1-raw-maps-working.geojson",
+      "city": "Cape Town",
+      "country": "South Africa",
+      "station_count": 110,
+      "line_count": 16
+    },
+    {
+      "file": "maps/eu-rus-perm/eu-rus-perm/1-raw-maps/working/eu-rus-perm-1-raw-maps-working.geojson",
+      "city": "Perm",
+      "country": "Russia",
+      "station_count": 93,
+      "line_count": 8
+    },
+    {
+      "file": "maps/eu-rus-vladikavkaz/eu-rus-vladikavkaz/1-raw-maps/working/eu-rus-vladikavkaz-1-raw-maps-working.geojson",
+      "city": "Vladikavkaz",
+      "country": "Russia",
+      "station_count": 71,
+      "line_count": 12
+    },
+    {
+      "file": "maps/eu-aut-innsbruck/eu-aut-innsbruck/1-raw-maps/working/eu-aut-innsbruck-1-raw-maps-working.geojson",
+      "city": "Innsbruck",
+      "country": "Austria",
+      "station_count": 84,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-ukr-mykolaiv/eu-ukr-mykolaiv/1-raw-maps/working/eu-ukr-mykolaiv-1-raw-maps-working.geojson",
+      "city": "Mykolaiv",
+      "country": "Ukraine",
+      "station_count": 69,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-rus-volgograd/eu-rus-volgograd/1-raw-maps/working/eu-rus-volgograd-1-raw-maps-working.geojson",
+      "city": "Volgograd",
+      "country": "Russia",
+      "station_count": 107,
+      "line_count": 13
+    },
+    {
+      "file": "maps/eu-svk-kosice/eu-svk-kosice/1-raw-maps/working/eu-svk-kosice-1-raw-maps-working.geojson",
+      "city": "Kosice",
+      "country": "Slovakia",
+      "station_count": 53,
+      "line_count": 15
+    },
+    {
+      "file": "maps/eu-ger-erfurt/eu-ger-erfurt/1-raw-maps/working/eu-ger-erfurt-1-raw-maps-working.geojson",
+      "city": "Erfurt",
+      "country": "Germany",
+      "station_count": 88,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-rus-nizhniy-tagil/eu-rus-nizhniy-tagil/1-raw-maps/working/eu-rus-nizhniy-tagil-1-raw-maps-working.geojson",
+      "city": "Nizhniy Tagil",
+      "country": "Russia",
+      "station_count": 74,
+      "line_count": 15
+    },
+    {
+      "file": "maps/eu-rou-timisoara/eu-rou-timisoara/1-raw-maps/working/eu-rou-timisoara-1-raw-maps-working.geojson",
+      "city": "Timisoara",
+      "country": "Romania",
+      "station_count": 72,
+      "line_count": 9
+    },
+    {
+      "file": "maps/eu-rus-tula/eu-rus-tula/1-raw-maps/working/eu-rus-tula-1-raw-maps-working.geojson",
+      "city": "Tula",
+      "country": "Russia",
+      "station_count": 83,
+      "line_count": 10
+    },
+    {
+      "file": "maps/eu-fra-strasbourg/eu-fra-strasbourg/1-raw-maps/working/eu-fra-strasbourg-1-raw-maps-working.geojson",
+      "city": "Strasbourg",
+      "country": "France",
+      "station_count": 94,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-ger-chemnitz/eu-ger-chemnitz/1-raw-maps/working/eu-ger-chemnitz-1-raw-maps-working.geojson",
+      "city": "Chemnitz",
+      "country": "Germany",
+      "station_count": 105,
+      "line_count": 9
+    },
+    {
+      "file": "maps/eu-ger-bonn/eu-ger-bonn/1-raw-maps/working/eu-ger-bonn-1-raw-maps-working.geojson",
+      "city": "Bonn",
+      "country": "Germany",
+      "station_count": 141,
+      "line_count": 9
+    },
+    {
+      "file": "maps/eu-rus-irkutsk/eu-rus-irkutsk/1-raw-maps/working/eu-rus-irkutsk-1-raw-maps-working.geojson",
+      "city": "Irkutsk",
+      "country": "Russia",
+      "station_count": 54,
+      "line_count": 7
+    },
+    {
+      "file": "maps/eu-rus-moscow/eu-rus-moscow-shape-rect/1-raw-maps/working/eu-rus-moscow-shape-rect-1-raw-maps-working.geojson",
+      "city": "Moscow",
+      "country": "Russia",
+      "station_count": 235,
+      "line_count": 17
+    },
+    {
+      "file": "maps/oc-aus-brisbane/oc-aus-brisbane/1-raw-maps/working/oc-aus-brisbane-1-raw-maps-working.geojson",
+      "city": "Brisbane",
+      "country": "Australia",
+      "station_count": 149,
+      "line_count": 16
+    },
+    {
+      "file": "maps/eu-rou-iasi/eu-rou-iasi/1-raw-maps/working/eu-rou-iasi-1-raw-maps-working.geojson",
+      "city": "Iasi",
+      "country": "Romania",
+      "station_count": 58,
+      "line_count": 9
+    },
+    {
+      "file": "maps/eu-gbr-manchester/eu-gbr-manchester/1-raw-maps/working/eu-gbr-manchester-1-raw-maps-working.geojson",
+      "city": "Manchester",
+      "country": "United Kingdom",
+      "station_count": 100,
+      "line_count": 11
+    },
+    {
+      "file": "maps/eu-ger-braunschweig/eu-ger-braunschweig/1-raw-maps/working/eu-ger-braunschweig-1-raw-maps-working.geojson",
+      "city": "Braunschweig",
+      "country": "Germany",
+      "station_count": 81,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-aut-graz/eu-aut-graz/1-raw-maps/working/eu-aut-graz-1-raw-maps-working.geojson",
+      "city": "Graz",
+      "country": "Austria",
+      "station_count": 105,
+      "line_count": 9
+    },
+    {
+      "file": "maps/as-sgp-singapore/as-sgp-singapore-shape-rect/1-raw-maps/working/as-sgp-singapore-shape-rect-1-raw-maps-working.geojson",
+      "city": "Singapore",
+      "country": "Singapore",
+      "station_count": 146,
+      "line_count": 8
+    },
+    {
+      "file": "maps/na-usa-denver/na-usa-denver/1-raw-maps/working/na-usa-denver-1-raw-maps-working.geojson",
+      "city": "Denver",
+      "country": "United States",
+      "station_count": 60,
+      "line_count": 7
+    },
+    {
+      "file": "maps/eu-ger-potsdam/eu-ger-potsdam/1-raw-maps/working/eu-ger-potsdam-1-raw-maps-working.geojson",
+      "city": "Potsdam",
+      "country": "Germany",
+      "station_count": 96,
+      "line_count": 8
+    },
+    {
+      "file": "maps/oc-aus-adelaide/oc-aus-adelaide/1-raw-maps/working/oc-aus-adelaide-1-raw-maps-working.geojson",
+      "city": "Adelaide",
+      "country": "Australia",
+      "station_count": 121,
+      "line_count": 16
+    },
+    {
+      "file": "maps/eu-ger-darmstadt/eu-ger-darmstadt/1-raw-maps/working/eu-ger-darmstadt-1-raw-maps-working.geojson",
+      "city": "Darmstadt",
+      "country": "Germany",
+      "station_count": 78,
+      "line_count": 10
+    },
+    {
+      "file": "maps/eu-ger-dortmund/eu-ger-dortmund/1-raw-maps/working/eu-ger-dortmund-1-raw-maps-working.geojson",
+      "city": "Dortmund",
+      "country": "Germany",
+      "station_count": 121,
+      "line_count": 8
+    },
+    {
+      "file": "maps/af-rsa-pretoria/af-rsa-pretoria/1-raw-maps/working/af-rsa-pretoria-1-raw-maps-working.geojson",
+      "city": "Pretoria",
+      "country": "South Africa",
+      "station_count": 90,
+      "line_count": 15
+    },
+    {
+      "file": "maps/eu-rus-naberezhnye-chelny/eu-rus-naberezhnye-chelny/1-raw-maps/working/eu-rus-naberezhnye-chelny-1-raw-maps-working.geojson",
+      "city": "Naberezhnye Chelny",
+      "country": "Russia",
+      "station_count": 96,
+      "line_count": 11
+    },
+    {
+      "file": "maps/eu-ger-rostock/eu-ger-rostock/1-raw-maps/working/eu-ger-rostock-1-raw-maps-working.geojson",
+      "city": "Rostock",
+      "country": "Germany",
+      "station_count": 66,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-lat-riga/eu-lat-riga/1-raw-maps/working/eu-lat-riga-1-raw-maps-working.geojson",
+      "city": "Riga",
+      "country": "Latvia",
+      "station_count": 120,
+      "line_count": 7
+    },
+    {
+      "file": "maps/eu-rou-arad/eu-rou-arad/1-raw-maps/working/eu-rou-arad-1-raw-maps-working.geojson",
+      "city": "Arad",
+      "country": "Romania",
+      "station_count": 49,
+      "line_count": 10
+    },
+    {
+      "file": "maps/eu-rou-oradea/eu-rou-oradea/1-raw-maps/working/eu-rou-oradea-1-raw-maps-working.geojson",
+      "city": "Oradea",
+      "country": "Romania",
+      "station_count": 32,
+      "line_count": 7
+    },
+    {
+      "file": "maps/eu-svk-bratislava/eu-svk-bratislava/1-raw-maps/working/eu-svk-bratislava-1-raw-maps-working.geojson",
+      "city": "Bratislava",
+      "country": "Slovakia",
+      "station_count": 80,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-pol-torun/eu-pol-torun/1-raw-maps/working/eu-pol-torun-1-raw-maps-working.geojson",
+      "city": "Torun",
+      "country": "Poland",
+      "station_count": 61,
+      "line_count": 7
+    },
+    {
+      "file": "maps/eu-rus-ulan-ude/eu-rus-ulan-ude/1-raw-maps/working/eu-rus-ulan-ude-1-raw-maps-working.geojson",
+      "city": "Ulan-Ude",
+      "country": "Russia",
+      "station_count": 47,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-ger-bochum/eu-ger-bochum/1-raw-maps/working/eu-ger-bochum-1-raw-maps-working.geojson",
+      "city": "Bochum",
+      "country": "Germany",
+      "station_count": 176,
+      "line_count": 9
+    },
+    {
+      "file": "maps/eu-ger-augsburg/eu-ger-augsburg/1-raw-maps/working/eu-ger-augsburg-1-raw-maps-working.geojson",
+      "city": "Augsburg",
+      "country": "Germany",
+      "station_count": 100,
+      "line_count": 7
+    },
+    {
+      "file": "maps/eu-pol-bydgoszcz/eu-pol-bydgoszcz/1-raw-maps/working/eu-pol-bydgoszcz-1-raw-maps-working.geojson",
+      "city": "Bydgoszcz",
+      "country": "Poland",
+      "station_count": 59,
+      "line_count": 10
+    },
+    {
+      "file": "maps/af-rsa-durban/af-rsa-durban/1-raw-maps/working/af-rsa-durban-1-raw-maps-working.geojson",
+      "city": "Durban",
+      "country": "South Africa",
+      "station_count": 101,
+      "line_count": 9
+    },
+    {
+      "file": "maps/eu-est-tallinn/eu-est-tallinn/1-raw-maps/working/eu-est-tallinn-1-raw-maps-working.geojson",
+      "city": "Tallinn",
+      "country": "Estonia",
+      "station_count": 42,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-rus-angarsk/eu-rus-angarsk/1-raw-maps/working/eu-rus-angarsk-1-raw-maps-working.geojson",
+      "city": "Angarsk",
+      "country": "Russia",
+      "station_count": 40,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-sui-bern/eu-sui-bern/1-raw-maps/working/eu-sui-bern-1-raw-maps-working.geojson",
+      "city": "Bern",
+      "country": "Switzerland",
+      "station_count": 60,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-fra-bordeaux/eu-fra-bordeaux/1-raw-maps/working/eu-fra-bordeaux-1-raw-maps-working.geojson",
+      "city": "Bordeaux",
+      "country": "France",
+      "station_count": 133,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-ger-freiburg/eu-ger-freiburg/1-raw-maps/working/eu-ger-freiburg-1-raw-maps-working.geojson",
+      "city": "Freiburg",
+      "country": "Germany",
+      "station_count": 75,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-rus-izhevsk/eu-rus-izhevsk/1-raw-maps/working/eu-rus-izhevsk-1-raw-maps-working.geojson",
+      "city": "Izhevsk",
+      "country": "Russia",
+      "station_count": 66,
+      "line_count": 11
+    },
+    {
+      "file": "maps/eu-rus-kemerovo/eu-rus-kemerovo/1-raw-maps/working/eu-rus-kemerovo-1-raw-maps-working.geojson",
+      "city": "Kemerovo",
+      "country": "Russia",
+      "station_count": 75,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-rus-novotroitsk/eu-rus-novotroitsk/1-raw-maps/working/eu-rus-novotroitsk-1-raw-maps-working.geojson",
+      "city": "Novotroitsk",
+      "country": "Russia",
+      "station_count": 69,
+      "line_count": 9
+    },
+    {
+      "file": "maps/eu-cze-olomouc/eu-cze-olomouc/1-raw-maps/working/eu-cze-olomouc-1-raw-maps-working.geojson",
+      "city": "Olomouc",
+      "country": "Czechia",
+      "station_count": 36,
+      "line_count": 7
+    },
+    {
+      "file": "maps/oc-aus-perth/oc-aus-perth/1-raw-maps/working/oc-aus-perth-1-raw-maps-working.geojson",
+      "city": "Perth",
+      "country": "Australia",
+      "station_count": 86,
+      "line_count": 11
+    },
+    {
+      "file": "maps/eu-esp-valencia/eu-esp-valencia/1-raw-maps/working/eu-esp-valencia-1-raw-maps-working.geojson",
+      "city": "Valencia",
+      "country": "Spain",
+      "station_count": 96,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-ukr-donetsk/eu-ukr-donetsk/1-raw-maps/working/eu-ukr-donetsk-1-raw-maps-working.geojson",
+      "city": "Donetsk",
+      "country": "Ukraine",
+      "station_count": 74,
+      "line_count": 9
+    },
+    {
+      "file": "maps/as-tur-eskisehir/as-tur-eskisehir/1-raw-maps/working/as-tur-eskisehir-1-raw-maps-working.geojson",
+      "city": "Eskisehir",
+      "country": "Turkey",
+      "station_count": 55,
+      "line_count": 7
+    },
+    {
+      "file": "maps/eu-rus-omsk/eu-rus-omsk/1-raw-maps/working/eu-rus-omsk-1-raw-maps-working.geojson",
+      "city": "Omsk",
+      "country": "Russia",
+      "station_count": 65,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-rus-volzhskiy/eu-rus-volzhskiy/1-raw-maps/working/eu-rus-volzhskiy-1-raw-maps-working.geojson",
+      "city": "Volzhskiy",
+      "country": "Russia",
+      "station_count": 56,
+      "line_count": 8
+    },
+    {
+      "file": "maps/eu-ger-wurzburg/eu-ger-wurzburg/1-raw-maps/working/eu-ger-wurzburg-1-raw-maps-working.geojson",
+      "city": "Würzburg",
+      "country": "Germany",
+      "station_count": 45,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-bel-charleroi/eu-bel-charleroi/1-raw-maps/working/eu-bel-charleroi-1-raw-maps-working.geojson",
+      "city": "Charleroi",
+      "country": "Belgium",
+      "station_count": 56,
+      "line_count": 11
+    },
+    {
+      "file": "maps/na-usa-dallas/na-usa-dallas/1-raw-maps/working/na-usa-dallas-1-raw-maps-working.geojson",
+      "city": "Dallas",
+      "country": "United States",
+      "station_count": 92,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-sui-geneva/eu-sui-geneva/1-raw-maps/working/eu-sui-geneva-1-raw-maps-working.geojson",
+      "city": "Geneva",
+      "country": "Switzerland",
+      "station_count": 84,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-bel-ghent/eu-bel-ghent/1-raw-maps/working/eu-bel-ghent-1-raw-maps-working.geojson",
+      "city": "Ghent",
+      "country": "Belgium",
+      "station_count": 65,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-gbr-liverpool/eu-gbr-liverpool/1-raw-maps/working/eu-gbr-liverpool-1-raw-maps-working.geojson",
+      "city": "Liverpool",
+      "country": "United Kingdom",
+      "station_count": 69,
+      "line_count": 7
+    },
+    {
+      "file": "maps/eu-blr-vitebsk/eu-blr-vitebsk/1-raw-maps/working/eu-blr-vitebsk-1-raw-maps-working.geojson",
+      "city": "Vitebsk",
+      "country": "Belarus",
+      "station_count": 51,
+      "line_count": 7
+    },
+    {
+      "file": "maps/na-usa-san-francisco/na-usa-san-francisco-bart/1-raw-maps/working/na-usa-san-francisco-bart-1-raw-maps-working.geojson",
+      "city": "San Francisco BART",
+      "country": "United States",
+      "station_count": 50,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-fra-grenoble/eu-fra-grenoble/1-raw-maps/working/eu-fra-grenoble-1-raw-maps-working.geojson",
+      "city": "Grenoble",
+      "country": "France",
+      "station_count": 81,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-ger-jena/eu-ger-jena/1-raw-maps/working/eu-ger-jena-1-raw-maps-working.geojson",
+      "city": "Jena",
+      "country": "Germany",
+      "station_count": 48,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-rus-kolomna/eu-rus-kolomna/1-raw-maps/working/eu-rus-kolomna-1-raw-maps-working.geojson",
+      "city": "Kolomna",
+      "country": "Russia",
+      "station_count": 42,
+      "line_count": 10
+    },
+    {
+      "file": "maps/eu-ger-mainz/eu-ger-mainz/1-raw-maps/working/eu-ger-mainz-1-raw-maps-working.geojson",
+      "city": "Mainz",
+      "country": "Germany",
+      "station_count": 60,
+      "line_count": 5
+    },
+    {
+      "file": "maps/af-tun-tunis/af-tun-tunis/1-raw-maps/working/af-tun-tunis-1-raw-maps-working.geojson",
+      "city": "Tunis",
+      "country": "Tunisia",
+      "station_count": 79,
+      "line_count": 6
+    },
+    {
+      "file": "maps/na-usa-san-diego/na-usa-san-diego/1-raw-maps/working/na-usa-san-diego-1-raw-maps-working.geojson",
+      "city": "San Diego",
+      "country": "United States",
+      "station_count": 62,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-pol-elblag/eu-pol-elblag/1-raw-maps/working/eu-pol-elblag-1-raw-maps-working.geojson",
+      "city": "Elblag",
+      "country": "Poland",
+      "station_count": 35,
+      "line_count": 5
+    },
+    {
+      "file": "maps/as-tur-konya/as-tur-konya/1-raw-maps/working/as-tur-konya-1-raw-maps-working.geojson",
+      "city": "Konya",
+      "country": "Turkey",
+      "station_count": 40,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-rus-krasnoyarsk/eu-rus-krasnoyarsk/1-raw-maps/working/eu-rus-krasnoyarsk-1-raw-maps-working.geojson",
+      "city": "Krasnoyarsk",
+      "country": "Russia",
+      "station_count": 50,
+      "line_count": 5
+    },
+    {
+      "file": "maps/as-jpn-nagasaki/as-jpn-nagasaki/1-raw-maps/working/as-jpn-nagasaki-1-raw-maps-working.geojson",
+      "city": "Nagasaki",
+      "country": "Japan",
+      "station_count": 38,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-cze-plzen/eu-cze-plzen/1-raw-maps/working/eu-cze-plzen-1-raw-maps-working.geojson",
+      "city": "Plzen",
+      "country": "Czechia",
+      "station_count": 53,
+      "line_count": 8
+    },
+    {
+      "file": "maps/eu-rus-rostov-on-don/eu-rus-rostov-on-don/1-raw-maps/working/eu-rus-rostov-on-don-1-raw-maps-working.geojson",
+      "city": "Rostov-on-Don",
+      "country": "Russia",
+      "station_count": 61,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-bih-sarajevo/eu-bih-sarajevo/1-raw-maps/working/eu-bih-sarajevo-1-raw-maps-working.geojson",
+      "city": "Sarajevo",
+      "country": "Bosnia and Herzegovina",
+      "station_count": 28,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-ger-bielefeld/eu-ger-bielefeld/1-raw-maps/working/eu-ger-bielefeld-1-raw-maps-working.geojson",
+      "city": "Bielefeld",
+      "country": "Germany",
+      "station_count": 59,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-ger-heilbronn/eu-ger-heilbronn/1-raw-maps/working/eu-ger-heilbronn-1-raw-maps-working.geojson",
+      "city": "Heilbronn",
+      "country": "Germany",
+      "station_count": 106,
+      "line_count": 4
+    },
+    {
+      "file": "maps/na-usa-salt-lake-city/na-usa-salt-lake-city/1-raw-maps/working/na-usa-salt-lake-city-1-raw-maps-working.geojson",
+      "city": "Salt Lake City",
+      "country": "United States",
+      "station_count": 58,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-por-porto/eu-por-porto/1-raw-maps/working/eu-por-porto-1-raw-maps-working.geojson",
+      "city": "Porto",
+      "country": "Portugal",
+      "station_count": 85,
+      "line_count": 7
+    },
+    {
+      "file": "maps/na-can-calgary/na-can-calgary/1-raw-maps/working/na-can-calgary-1-raw-maps-working.geojson",
+      "city": "Calgary",
+      "country": "Canada",
+      "station_count": 45,
+      "line_count": 4
+    },
+    {
+      "file": "maps/na-usa-sacramento/na-usa-sacramento/1-raw-maps/working/na-usa-sacramento-1-raw-maps-working.geojson",
+      "city": "Sacramento",
+      "country": "United States",
+      "station_count": 54,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-hun-szeged/eu-hun-szeged/1-raw-maps/working/eu-hun-szeged-1-raw-maps-working.geojson",
+      "city": "Szeged",
+      "country": "Hungary",
+      "station_count": 51,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-fra-nantes/eu-fra-nantes/1-raw-maps/working/eu-fra-nantes-1-raw-maps-working.geojson",
+      "city": "Nantes",
+      "country": "France",
+      "station_count": 99,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-rou-braila/eu-rou-braila/1-raw-maps/working/eu-rou-braila-1-raw-maps-working.geojson",
+      "city": "Braila",
+      "country": "Romania",
+      "station_count": 34,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-ger-heidelberg/eu-ger-heidelberg/1-raw-maps/working/eu-ger-heidelberg-1-raw-maps-working.geojson",
+      "city": "Heidelberg",
+      "country": "Germany",
+      "station_count": 48,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-aut-linz/eu-aut-linz/1-raw-maps/working/eu-aut-linz-1-raw-maps-working.geojson",
+      "city": "Linz",
+      "country": "Austria",
+      "station_count": 76,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-pol-olsztyn/eu-pol-olsztyn/1-raw-maps/working/eu-pol-olsztyn-1-raw-maps-working.geojson",
+      "city": "Olsztyn",
+      "country": "Poland",
+      "station_count": 32,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-ger-plauen/eu-ger-plauen/1-raw-maps/working/eu-ger-plauen-1-raw-maps-working.geojson",
+      "city": "Plauen",
+      "country": "Germany",
+      "station_count": 39,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-rus-pyatigorsk/eu-rus-pyatigorsk/1-raw-maps/working/eu-rus-pyatigorsk-1-raw-maps-working.geojson",
+      "city": "Pyatigorsk",
+      "country": "Russia",
+      "station_count": 52,
+      "line_count": 8
+    },
+    {
+      "file": "maps/eu-fra-saint-etienne/eu-fra-saint-etienne/1-raw-maps/working/eu-fra-saint-etienne-1-raw-maps-working.geojson",
+      "city": "Saint-Étienne",
+      "country": "France",
+      "station_count": 39,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-rus-tomsk/eu-rus-tomsk/1-raw-maps/working/eu-rus-tomsk-1-raw-maps-working.geojson",
+      "city": "Tomsk",
+      "country": "Russia",
+      "station_count": 38,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-rus-ufa/eu-rus-ufa/1-raw-maps/working/eu-rus-ufa-1-raw-maps-working.geojson",
+      "city": "Ufa",
+      "country": "Russia",
+      "station_count": 70,
+      "line_count": 7
+    },
+    {
+      "file": "maps/eu-rus-yaroslavl/eu-rus-yaroslavl/1-raw-maps/working/eu-rus-yaroslavl-1-raw-maps-working.geojson",
+      "city": "Yaroslavl",
+      "country": "Russia",
+      "station_count": 32,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-ukr-zaporizhia/eu-ukr-zaporizhia/1-raw-maps/working/eu-ukr-zaporizhia-1-raw-maps-working.geojson",
+      "city": "Zaporizhia",
+      "country": "Ukraine",
+      "station_count": 52,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-gbr-sheffield/eu-gbr-sheffield/1-raw-maps/working/eu-gbr-sheffield-1-raw-maps-working.geojson",
+      "city": "Sheffield",
+      "country": "United Kingdom",
+      "station_count": 50,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-rus-taganrog/eu-rus-taganrog/1-raw-maps/working/eu-rus-taganrog-1-raw-maps-working.geojson",
+      "city": "Taganrog",
+      "country": "Russia",
+      "station_count": 51,
+      "line_count": 9
+    },
+    {
+      "file": "maps/na-usa-phoenix/na-usa-phoenix/1-raw-maps/working/na-usa-phoenix-1-raw-maps-working.geojson",
+      "city": "Phoenix",
+      "country": "United States",
+      "station_count": 66,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-esp-alicante/eu-esp-alicante/1-raw-maps/working/eu-esp-alicante-1-raw-maps-working.geojson",
+      "city": "Alicante",
+      "country": "Spain",
+      "station_count": 54,
+      "line_count": 5
+    },
+    {
+      "file": "maps/oc-nzl-auckland/oc-nzl-auckland/1-raw-maps/working/oc-nzl-auckland-1-raw-maps-working.geojson",
+      "city": "Auckland",
+      "country": "New Zealand",
+      "station_count": 39,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-ger-brandenburg-havel/eu-ger-brandenburg-havel/1-raw-maps/working/eu-ger-brandenburg-havel-1-raw-maps-working.geojson",
+      "city": "Brandenburg (Havel)",
+      "country": "Germany",
+      "station_count": 34,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-ger-cottbus/eu-ger-cottbus/1-raw-maps/working/eu-ger-cottbus-1-raw-maps-working.geojson",
+      "city": "Cottbus",
+      "country": "Germany",
+      "station_count": 48,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-rus-smolensk/eu-rus-smolensk/1-raw-maps/working/eu-rus-smolensk-1-raw-maps-working.geojson",
+      "city": "Smolensk",
+      "country": "Russia",
+      "station_count": 34,
+      "line_count": 4
+    },
+    {
+      "file": "maps/na-usa-northern-new-jersey-newark/na-usa-northern-new-jersey-newark/1-raw-maps/working/na-usa-northern-new-jersey-newark-1-raw-maps-working.geojson",
+      "city": "Northern New Jersey (Newark)",
+      "country": "United States",
+      "station_count": 44,
+      "line_count": 5
+    },
+    {
+      "file": "maps/na-usa-san-jose/na-usa-san-jose/1-raw-maps/working/na-usa-san-jose-1-raw-maps-working.geojson",
+      "city": "San Jose",
+      "country": "United States",
+      "station_count": 59,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-fra-angers/eu-fra-angers/1-raw-maps/working/eu-fra-angers-1-raw-maps-working.geojson",
+      "city": "Angers",
+      "country": "France",
+      "station_count": 42,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-fra-caen/eu-fra-caen/1-raw-maps/working/eu-fra-caen-1-raw-maps-working.geojson",
+      "city": "Caen",
+      "country": "France",
+      "station_count": 37,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-rus-dzerzhinsk/eu-rus-dzerzhinsk/1-raw-maps/working/eu-rus-dzerzhinsk-1-raw-maps-working.geojson",
+      "city": "Dzerzhinsk*",
+      "country": "Russia",
+      "station_count": 88,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-rou-galati/eu-rou-galati/1-raw-maps/working/eu-rou-galati-1-raw-maps-working.geojson",
+      "city": "Galati",
+      "country": "Romania",
+      "station_count": 23,
+      "line_count": 3
+    },
+    {
+      "file": "maps/as-tur-gaziantep/as-tur-gaziantep/1-raw-maps/working/as-tur-gaziantep-1-raw-maps-working.geojson",
+      "city": "Gaziantep",
+      "country": "Turkey",
+      "station_count": 28,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-ger-gotha/eu-ger-gotha/1-raw-maps/working/eu-ger-gotha-1-raw-maps-working.geojson",
+      "city": "Gotha",
+      "country": "Germany",
+      "station_count": 32,
+      "line_count": 5
+    },
+    {
+      "file": "maps/as-tur-kayseri/as-tur-kayseri/1-raw-maps/working/as-tur-kayseri-1-raw-maps-working.geojson",
+      "city": "Kayseri",
+      "country": "Turkey",
+      "station_count": 74,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-rus-kursk/eu-rus-kursk/1-raw-maps/working/eu-rus-kursk-1-raw-maps-working.geojson",
+      "city": "Kursk",
+      "country": "Russia",
+      "station_count": 72,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-ukr-mariupol/eu-ukr-mariupol/1-raw-maps/working/eu-ukr-mariupol-1-raw-maps-working.geojson",
+      "city": "Mariupol",
+      "country": "Ukraine",
+      "station_count": 51,
+      "line_count": 5
+    },
+    {
+      "file": "maps/na-usa-new-orleans/na-usa-new-orleans/1-raw-maps/working/na-usa-new-orleans-1-raw-maps-working.geojson",
+      "city": "New Orleans",
+      "country": "United States",
+      "station_count": 99,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-rus-novokuznetsk/eu-rus-novokuznetsk/1-raw-maps/working/eu-rus-novokuznetsk-1-raw-maps-working.geojson",
+      "city": "Novokuznetsk",
+      "country": "Russia",
+      "station_count": 66,
+      "line_count": 12
+    },
+    {
+      "file": "maps/eu-ger-schwerin/eu-ger-schwerin/1-raw-maps/working/eu-ger-schwerin-1-raw-maps-working.geojson",
+      "city": "Schwerin",
+      "country": "Germany",
+      "station_count": 36,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-ukr-vinnytsia/eu-ukr-vinnytsia/1-raw-maps/working/eu-ukr-vinnytsia-1-raw-maps-working.geojson",
+      "city": "Vinnytsia",
+      "country": "Ukraine",
+      "station_count": 38,
+      "line_count": 6
+    },
+    {
+      "file": "maps/eu-ger-essen/eu-ger-essen/1-raw-maps/working/eu-ger-essen-1-raw-maps-working.geojson",
+      "city": "Essen",
+      "country": "Germany",
+      "station_count": 43,
+      "line_count": 3
+    },
+    {
+      "file": "maps/na-can-edmonton/na-can-edmonton/1-raw-maps/working/na-can-edmonton-1-raw-maps-working.geojson",
+      "city": "Edmonton",
+      "country": "Canada",
+      "station_count": 38,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-fra-mulhouse/eu-fra-mulhouse/1-raw-maps/working/eu-fra-mulhouse-1-raw-maps-working.geojson",
+      "city": "Mulhouse",
+      "country": "France",
+      "station_count": 37,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-por-almada/eu-por-almada/1-raw-maps/working/eu-por-almada-1-raw-maps-working.geojson",
+      "city": "Almada",
+      "country": "Portugal",
+      "station_count": 19,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-lat-daugavpils/eu-lat-daugavpils/1-raw-maps/working/eu-lat-daugavpils-1-raw-maps-working.geojson",
+      "city": "Daugavpils",
+      "country": "Latvia",
+      "station_count": 36,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-pol-gorzow/eu-pol-gorzow/1-raw-maps/working/eu-pol-gorzow-1-raw-maps-working.geojson",
+      "city": "Gorzow",
+      "country": "Poland",
+      "station_count": 33,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-ukr-horlivka/eu-ukr-horlivka/1-raw-maps/working/eu-ukr-horlivka-1-raw-maps-working.geojson",
+      "city": "Horlivka",
+      "country": "Ukraine",
+      "station_count": 39,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-ger-krefeld/eu-ger-krefeld/1-raw-maps/working/eu-ger-krefeld-1-raw-maps-working.geojson",
+      "city": "Krefeld",
+      "country": "Germany",
+      "station_count": 57,
+      "line_count": 3
+    },
+    {
+      "file": "maps/as-jpn-matsuyama/as-jpn-matsuyama/1-raw-maps/working/as-jpn-matsuyama-1-raw-maps-working.geojson",
+      "city": "Matsuyama",
+      "country": "Japan",
+      "station_count": 27,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-cze-most/eu-cze-most/1-raw-maps/working/eu-cze-most-1-raw-maps-working.geojson",
+      "city": "Most",
+      "country": "Czechia",
+      "station_count": 27,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-rus-prokopyevsk/eu-rus-prokopyevsk/1-raw-maps/working/eu-rus-prokopyevsk-1-raw-maps-working.geojson",
+      "city": "Prokopyevsk",
+      "country": "Russia",
+      "station_count": 50,
+      "line_count": 4
+    },
+    {
+      "file": "maps/as-jpn-toyama/as-jpn-toyama/1-raw-maps/working/as-jpn-toyama-1-raw-maps-working.geojson",
+      "city": "Toyama",
+      "country": "Japan",
+      "station_count": 39,
+      "line_count": 6
+    },
+    {
+      "file": "maps/oc-nzl-wellington/oc-nzl-wellington/1-raw-maps/working/oc-nzl-wellington-1-raw-maps-working.geojson",
+      "city": "Wellington",
+      "country": "New Zealand",
+      "station_count": 48,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-ukr-kryvyi-rih/eu-ukr-kryvyi-rih/1-raw-maps/working/eu-ukr-kryvyi-rih-1-raw-maps-working.geojson",
+      "city": "Kryvyi Rih",
+      "country": "Ukraine",
+      "station_count": 30,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-den-aarhus/eu-den-aarhus/1-raw-maps/working/eu-den-aarhus-1-raw-maps-working.geojson",
+      "city": "Aarhus",
+      "country": "Denmark",
+      "station_count": 50,
+      "line_count": 3
+    },
+    {
+      "file": "maps/na-usa-pittsburgh/na-usa-pittsburgh/1-raw-maps/working/na-usa-pittsburgh-1-raw-maps-working.geojson",
+      "city": "Pittsburgh",
+      "country": "United States",
+      "station_count": 51,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-rus-biysk/eu-rus-biysk/1-raw-maps/working/eu-rus-biysk-1-raw-maps-working.geojson",
+      "city": "Biysk",
+      "country": "Russia",
+      "station_count": 46,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-rus-cherepovets/eu-rus-cherepovets/1-raw-maps/working/eu-rus-cherepovets-1-raw-maps-working.geojson",
+      "city": "Cherepovets",
+      "country": "Russia",
+      "station_count": 24,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-ger-halberstadt/eu-ger-halberstadt/1-raw-maps/working/eu-ger-halberstadt-1-raw-maps-working.geojson",
+      "city": "Halberstadt",
+      "country": "Germany",
+      "station_count": 25,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-ukr-kamianske/eu-ukr-kamianske/1-raw-maps/working/eu-ukr-kamianske-1-raw-maps-working.geojson",
+      "city": "Kamianske",
+      "country": "Ukraine",
+      "station_count": 61,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-ukr-konotop/eu-ukr-konotop/1-raw-maps/working/eu-ukr-konotop-1-raw-maps-working.geojson",
+      "city": "Konotop",
+      "country": "Ukraine",
+      "station_count": 20,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-fra-le-havre/eu-fra-le-havre/1-raw-maps/working/eu-fra-le-havre-1-raw-maps-working.geojson",
+      "city": "Le Havre",
+      "country": "France",
+      "station_count": 39,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-cze-liberec/eu-cze-liberec/1-raw-maps/working/eu-cze-liberec-1-raw-maps-working.geojson",
+      "city": "Liberec",
+      "country": "Czechia",
+      "station_count": 39,
+      "line_count": 4
+    },
+    {
+      "file": "maps/na-usa-memphis/na-usa-memphis/1-raw-maps/working/na-usa-memphis-1-raw-maps-working.geojson",
+      "city": "Memphis",
+      "country": "United States",
+      "station_count": 26,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-ger-nordhausen/eu-ger-nordhausen/1-raw-maps/working/eu-ger-nordhausen-1-raw-maps-working.geojson",
+      "city": "Nordhausen",
+      "country": "Germany",
+      "station_count": 31,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-ita-palermo/eu-ita-palermo/1-raw-maps/working/eu-ita-palermo-1-raw-maps-working.geojson",
+      "city": "Palermo",
+      "country": "Italy",
+      "station_count": 43,
+      "line_count": 4
+    },
+    {
+      "file": "maps/na-usa-seattle/na-usa-seattle/1-raw-maps/working/na-usa-seattle-1-raw-maps-working.geojson",
+      "city": "Seattle",
+      "country": "United States",
+      "station_count": 55,
+      "line_count": 4
+    },
+    {
+      "file": "maps/af-eth-addis-ababa/af-eth-addis-ababa/1-raw-maps/working/af-eth-addis-ababa-1-raw-maps-working.geojson",
+      "city": "Addis Ababa",
+      "country": "Ethiopia",
+      "station_count": 39,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-nor-bergen/eu-nor-bergen/1-raw-maps/working/eu-nor-bergen-1-raw-maps-working.geojson",
+      "city": "Bergen",
+      "country": "Norway",
+      "station_count": 33,
+      "line_count": 2
+    },
+    {
+      "file": "maps/sa-bol-cochabamba/sa-bol-cochabamba/1-raw-maps/working/sa-bol-cochabamba-1-raw-maps-working.geojson",
+      "city": "Cochabamba",
+      "country": "Bolivia",
+      "station_count": 36,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-fin-tampere/eu-fin-tampere/1-raw-maps/working/eu-fin-tampere-1-raw-maps-working.geojson",
+      "city": "Tampere",
+      "country": "Finland",
+      "station_count": 33,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-tur-antalya/as-tur-antalya/1-raw-maps/working/as-tur-antalya-1-raw-maps-working.geojson",
+      "city": "Antalya",
+      "country": "Turkey",
+      "station_count": 68,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-rou-cluj-napoca/eu-rou-cluj-napoca/1-raw-maps/working/eu-rou-cluj-napoca-1-raw-maps-working.geojson",
+      "city": "Cluj-Napoca",
+      "country": "Romania",
+      "station_count": 40,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-pol-czestochowa/eu-pol-czestochowa/1-raw-maps/working/eu-pol-czestochowa-1-raw-maps-working.geojson",
+      "city": "Czestochowa",
+      "country": "Poland",
+      "station_count": 35,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-fra-dijon/eu-fra-dijon/1-raw-maps/working/eu-fra-dijon-1-raw-maps-working.geojson",
+      "city": "Dijon",
+      "country": "France",
+      "station_count": 34,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-ukr-druzhkivka/eu-ukr-druzhkivka/1-raw-maps/working/eu-ukr-druzhkivka-1-raw-maps-working.geojson",
+      "city": "Druzhkivka",
+      "country": "Ukraine",
+      "station_count": 22,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-ger-duisburg/eu-ger-duisburg/1-raw-maps/working/eu-ger-duisburg-1-raw-maps-working.geojson",
+      "city": "Duisburg",
+      "country": "Germany",
+      "station_count": 88,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-ita-firenze/eu-ita-firenze/1-raw-maps/working/eu-ita-firenze-1-raw-maps-working.geojson",
+      "city": "Firenze",
+      "country": "Italy",
+      "station_count": 40,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-rus-kaliningrad/eu-rus-kaliningrad/1-raw-maps/working/eu-rus-kaliningrad-1-raw-maps-working.geojson",
+      "city": "Kaliningrad",
+      "country": "Russia",
+      "station_count": 31,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-rus-khabarovsk/eu-rus-khabarovsk/1-raw-maps/working/eu-rus-khabarovsk-1-raw-maps-working.geojson",
+      "city": "Khabarovsk",
+      "country": "Russia",
+      "station_count": 53,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-fra-le-mans/eu-fra-le-mans/1-raw-maps/working/eu-fra-le-mans-1-raw-maps-working.geojson",
+      "city": "Le Mans",
+      "country": "France",
+      "station_count": 35,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-ger-mulheim-ruhr/eu-ger-mulheim-ruhr/1-raw-maps/working/eu-ger-mulheim-ruhr-1-raw-maps-working.geojson",
+      "city": "Mülheim (Ruhr)",
+      "country": "Germany",
+      "station_count": 57,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-fra-nice/eu-fra-nice/1-raw-maps/working/eu-fra-nice-1-raw-maps-working.geojson",
+      "city": "Nice",
+      "country": "France",
+      "station_count": 45,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-swe-norrkoping/eu-swe-norrkoping/1-raw-maps/working/eu-swe-norrkoping-1-raw-maps-working.geojson",
+      "city": "Norrköping",
+      "country": "Sweden",
+      "station_count": 43,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-gbr-nottingham/eu-gbr-nottingham/1-raw-maps/working/eu-gbr-nottingham-1-raw-maps-working.geojson",
+      "city": "Nottingham",
+      "country": "United Kingdom",
+      "station_count": 46,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-rus-oryol/eu-rus-oryol/1-raw-maps/working/eu-rus-oryol-1-raw-maps-working.geojson",
+      "city": "Oryol",
+      "country": "Russia",
+      "station_count": 39,
+      "line_count": 3
+    },
+    {
+      "file": "maps/af-mar-rabat/af-mar-rabat/1-raw-maps/working/af-mar-rabat-1-raw-maps-working.geojson",
+      "city": "Rabat",
+      "country": "Morocco",
+      "station_count": 42,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-esp-tenerife/eu-esp-tenerife/1-raw-maps/working/eu-esp-tenerife-1-raw-maps-working.geojson",
+      "city": "Tenerife",
+      "country": "Spain",
+      "station_count": 25,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-ger-ulm/eu-ger-ulm/1-raw-maps/working/eu-ger-ulm-1-raw-maps-working.geojson",
+      "city": "Ulm",
+      "country": "Germany",
+      "station_count": 39,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-kaz-ust-kamenogorsk/as-kaz-ust-kamenogorsk/1-raw-maps/working/as-kaz-ust-kamenogorsk-1-raw-maps-working.geojson",
+      "city": "Ust'-Kamenogorsk",
+      "country": "Kazakhstan",
+      "station_count": 29,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-esp-vitoria-gasteiz/eu-esp-vitoria-gasteiz/1-raw-maps/working/eu-esp-vitoria-gasteiz-1-raw-maps-working.geojson",
+      "city": "Vitoria-Gasteiz",
+      "country": "Spain",
+      "station_count": 28,
+      "line_count": 2
+    },
+    {
+      "file": "maps/na-usa-st-louis/na-usa-st-louis/1-raw-maps/working/na-usa-st-louis-1-raw-maps-working.geojson",
+      "city": "St. Louis",
+      "country": "United States",
+      "station_count": 38,
+      "line_count": 2
+    },
+    {
+      "file": "maps/na-usa-houston/na-usa-houston/1-raw-maps/working/na-usa-houston-1-raw-maps-working.geojson",
+      "city": "Houston",
+      "country": "United States",
+      "station_count": 40,
+      "line_count": 3
+    },
+    {
+      "file": "maps/as-isr-tel-aviv/as-isr-tel-aviv/1-raw-maps/working/as-isr-tel-aviv-1-raw-maps-working.geojson",
+      "city": "Tel Aviv",
+      "country": "Israel",
+      "station_count": 34,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-ned-utrecht/eu-ned-utrecht/1-raw-maps/working/eu-ned-utrecht-1-raw-maps-working.geojson",
+      "city": "Utrecht",
+      "country": "Netherlands",
+      "station_count": 32,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-esp-malaga/eu-esp-malaga/1-raw-maps/working/eu-esp-malaga-1-raw-maps-working.geojson",
+      "city": "Málaga",
+      "country": "Spain",
+      "station_count": 19,
+      "line_count": 2
+    },
+    {
+      "file": "maps/sa-bra-santos/sa-bra-santos/1-raw-maps/working/sa-bra-santos-1-raw-maps-working.geojson",
+      "city": "Santos",
+      "country": "Brazil",
+      "station_count": 27,
+      "line_count": 3
+    },
+    {
+      "file": "maps/af-mar-casablanca/af-mar-casablanca/1-raw-maps/working/af-mar-casablanca-1-raw-maps-working.geojson",
+      "city": "Casablanca",
+      "country": "Morocco",
+      "station_count": 105,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-rou-craiova/eu-rou-craiova/1-raw-maps/working/eu-rou-craiova-1-raw-maps-working.geojson",
+      "city": "Craiova",
+      "country": "Romania",
+      "station_count": 27,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-esp-donostia/eu-esp-donostia/1-raw-maps/working/eu-esp-donostia-1-raw-maps-working.geojson",
+      "city": "Donostia",
+      "country": "Spain",
+      "station_count": 59,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-ger-gera/eu-ger-gera/1-raw-maps/working/eu-ger-gera-1-raw-maps-working.geojson",
+      "city": "Gera",
+      "country": "Germany",
+      "station_count": 40,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-ger-gorlitz/eu-ger-gorlitz/1-raw-maps/working/eu-ger-gorlitz-1-raw-maps-working.geojson",
+      "city": "Görlitz",
+      "country": "Germany",
+      "station_count": 24,
+      "line_count": 2
+    },
+    {
+      "file": "maps/na-usa-milwaukee/na-usa-milwaukee/1-raw-maps/working/na-usa-milwaukee-1-raw-maps-working.geojson",
+      "city": "Milwaukee",
+      "country": "United States",
+      "station_count": 13,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-hun-miskolc/eu-hun-miskolc/1-raw-maps/working/eu-hun-miskolc-1-raw-maps-working.geojson",
+      "city": "Miskolc",
+      "country": "Hungary",
+      "station_count": 25,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-rus-nizhnekamsk/eu-rus-nizhnekamsk/1-raw-maps/working/eu-rus-nizhnekamsk-1-raw-maps-working.geojson",
+      "city": "Nizhnekamsk",
+      "country": "Russia",
+      "station_count": 17,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-cro-osijek/eu-cro-osijek/1-raw-maps/working/eu-cro-osijek-1-raw-maps-working.geojson",
+      "city": "Osijek",
+      "country": "Croatia",
+      "station_count": 38,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-rus-usolye-sibirskoye/eu-rus-usolye-sibirskoye/1-raw-maps/working/eu-rus-usolye-sibirskoye-1-raw-maps-working.geojson",
+      "city": "Usolye Sibirskoye",
+      "country": "Russia",
+      "station_count": 24,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-rus-zlatoust/eu-rus-zlatoust/1-raw-maps/working/eu-rus-zlatoust-1-raw-maps-working.geojson",
+      "city": "Zlatoust",
+      "country": "Russia",
+      "station_count": 43,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-rus-saratov/eu-rus-saratov/1-raw-maps/working/eu-rus-saratov-1-raw-maps-working.geojson",
+      "city": "Saratov",
+      "country": "Russia",
+      "station_count": 40,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-ukr-yevpatoria/eu-ukr-yevpatoria/1-raw-maps/working/eu-ukr-yevpatoria-1-raw-maps-working.geojson",
+      "city": "Yevpatoria",
+      "country": "Ukraine",
+      "station_count": 60,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-ger-zwickau/eu-ger-zwickau/1-raw-maps/working/eu-ger-zwickau-1-raw-maps-working.geojson",
+      "city": "Zwickau",
+      "country": "Germany",
+      "station_count": 37,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-esp-palma-de-mallorca/eu-esp-palma-de-mallorca/1-raw-maps/working/eu-esp-palma-de-mallorca-1-raw-maps-working.geojson",
+      "city": "Palma de Mallorca",
+      "country": "Spain",
+      "station_count": 17,
+      "line_count": 2
+    },
+    {
+      "file": "maps/na-usa-minneapolis-st-paul/na-usa-minneapolis-st-paul/1-raw-maps/working/na-usa-minneapolis-st-paul-1-raw-maps-working.geojson",
+      "city": "Minneapolis/St. Paul",
+      "country": "United States",
+      "station_count": 36,
+      "line_count": 3
+    },
+    {
+      "file": "maps/as-twn-kaohsiung/as-twn-kaohsiung-shape-rect/1-raw-maps/working/as-twn-kaohsiung-shape-rect-1-raw-maps-working.geojson",
+      "city": "Kaohsiung",
+      "country": "Taiwan",
+      "station_count": 72,
+      "line_count": 3
+    },
+    {
+      "file": "maps/na-can-ottawa/na-can-ottawa/1-raw-maps/working/na-can-ottawa-1-raw-maps-working.geojson",
+      "city": "Ottawa",
+      "country": "Canada",
+      "station_count": 25,
+      "line_count": 3
+    },
+    {
+      "file": "maps/as-chn-tianshui/as-chn-tianshui/1-raw-maps/working/as-chn-tianshui-1-raw-maps-working.geojson",
+      "city": "Tianshui",
+      "country": "China",
+      "station_count": 12,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-tur-izmit/as-tur-izmit/1-raw-maps/working/as-tur-izmit-1-raw-maps-working.geojson",
+      "city": "Izmit",
+      "country": "Turkey",
+      "station_count": 21,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-rus-achinsk/eu-rus-achinsk/1-raw-maps/working/eu-rus-achinsk-1-raw-maps-working.geojson",
+      "city": "Achinsk",
+      "country": "Russia",
+      "station_count": 18,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-fra-besancon/eu-fra-besancon/1-raw-maps/working/eu-fra-besancon-1-raw-maps-working.geojson",
+      "city": "Besançon",
+      "country": "France",
+      "station_count": 31,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-jpn-chiba/as-jpn-chiba/1-raw-maps/working/as-jpn-chiba-1-raw-maps-working.geojson",
+      "city": "Chiba",
+      "country": "Japan",
+      "station_count": 18,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-hun-debrecen/eu-hun-debrecen/1-raw-maps/working/eu-hun-debrecen-1-raw-maps-working.geojson",
+      "city": "Debrecen",
+      "country": "Hungary",
+      "station_count": 23,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-ger-dessau/eu-ger-dessau/1-raw-maps/working/eu-ger-dessau-1-raw-maps-working.geojson",
+      "city": "Dessau",
+      "country": "Germany",
+      "station_count": 27,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-chn-dujiangyan/as-chn-dujiangyan/1-raw-maps/working/as-chn-dujiangyan-1-raw-maps-working.geojson",
+      "city": "Dujiangyan",
+      "country": "China",
+      "station_count": 19,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-jpn-hakodate/as-jpn-hakodate/1-raw-maps/working/as-jpn-hakodate-1-raw-maps-working.geojson",
+      "city": "Hakodate",
+      "country": "Japan",
+      "station_count": 26,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-ger-mannheim/eu-ger-mannheim/1-raw-maps/working/eu-ger-mannheim-1-raw-maps-working.geojson",
+      "city": "Mannheim",
+      "country": "Germany",
+      "station_count": 88,
+      "line_count": 2
+    },
+    {
+      "file": "maps/na-usa-jacksonville/na-usa-jacksonville/1-raw-maps/working/na-usa-jacksonville-1-raw-maps-working.geojson",
+      "city": "Jacksonville",
+      "country": "United States",
+      "station_count": 8,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-jpn-kagoshima/as-jpn-kagoshima/1-raw-maps/working/as-jpn-kagoshima-1-raw-maps-working.geojson",
+      "city": "Kagoshima",
+      "country": "Japan",
+      "station_count": 35,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-jpn-kumamoto/as-jpn-kumamoto/1-raw-maps/working/as-jpn-kumamoto-1-raw-maps-working.geojson",
+      "city": "Kumamoto",
+      "country": "Japan",
+      "station_count": 35,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-rus-lipetsk/eu-rus-lipetsk/1-raw-maps/working/eu-rus-lipetsk-1-raw-maps-working.geojson",
+      "city": "Lipetsk",
+      "country": "Russia",
+      "station_count": 21,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-sui-neuchatel/eu-sui-neuchatel/1-raw-maps/working/eu-sui-neuchatel-1-raw-maps-working.geojson",
+      "city": "Neuchâtel",
+      "country": "Switzerland",
+      "station_count": 8,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-rus-osinniki/eu-rus-osinniki/1-raw-maps/working/eu-rus-osinniki-1-raw-maps-working.geojson",
+      "city": "Osinniki",
+      "country": "Russia",
+      "station_count": 18,
+      "line_count": 4
+    },
+    {
+      "file": "maps/eu-rus-orsk/eu-rus-orsk/1-raw-maps/working/eu-rus-orsk-1-raw-maps-working.geojson",
+      "city": "Orsk",
+      "country": "Russia",
+      "station_count": 18,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-jpn-okayama/as-jpn-okayama/1-raw-maps/working/as-jpn-okayama-1-raw-maps-working.geojson",
+      "city": "Okayama",
+      "country": "Japan",
+      "station_count": 16,
+      "line_count": 2
+    },
+    {
+      "file": "maps/na-usa-oklahoma-city/na-usa-oklahoma-city/1-raw-maps/working/na-usa-oklahoma-city-1-raw-maps-working.geojson",
+      "city": "Oklahoma City",
+      "country": "United States",
+      "station_count": 22,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-rou-ploiesti/eu-rou-ploiesti/1-raw-maps/working/eu-rou-ploiesti-1-raw-maps-working.geojson",
+      "city": "Ploiesti",
+      "country": "Romania",
+      "station_count": 18,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-fra-reims/eu-fra-reims/1-raw-maps/working/eu-fra-reims-1-raw-maps-working.geojson",
+      "city": "Reims",
+      "country": "France",
+      "station_count": 24,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-fra-valenciennes/eu-fra-valenciennes/1-raw-maps/working/eu-fra-valenciennes-1-raw-maps-working.geojson",
+      "city": "Valenciennes",
+      "country": "France",
+      "station_count": 48,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-tur-samsun/as-tur-samsun/1-raw-maps/working/as-tur-samsun-1-raw-maps-working.geojson",
+      "city": "Samsun",
+      "country": "Turkey",
+      "station_count": 43,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-rus-staryi-oskol/eu-rus-staryi-oskol/1-raw-maps/working/eu-rus-staryi-oskol-1-raw-maps-working.geojson",
+      "city": "Staryi Oskol",
+      "country": "Russia",
+      "station_count": 18,
+      "line_count": 3
+    },
+    {
+      "file": "maps/eu-gbr-birmingham/eu-gbr-birmingham/1-raw-maps/working/eu-gbr-birmingham-1-raw-maps-working.geojson",
+      "city": "Birmingham",
+      "country": "United Kingdom",
+      "station_count": 34,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-ita-cagliari/eu-ita-cagliari/1-raw-maps/working/eu-ita-cagliari-1-raw-maps-working.geojson",
+      "city": "Cagliari",
+      "country": "Italy",
+      "station_count": 12,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-jpn-fukui/as-jpn-fukui/1-raw-maps/working/as-jpn-fukui-1-raw-maps-working.geojson",
+      "city": "Fukui",
+      "country": "Japan",
+      "station_count": 24,
+      "line_count": 2
+    },
+    {
+      "file": "maps/na-usa-detroit/na-usa-detroit/1-raw-maps/working/na-usa-detroit-1-raw-maps-working.geojson",
+      "city": "Detroit",
+      "country": "United States",
+      "station_count": 24,
+      "line_count": 2
+    },
+    {
+      "file": "maps/af-ngr-abuja/af-ngr-abuja/1-raw-maps/working/af-ngr-abuja-1-raw-maps-working.geojson",
+      "city": "Abuja",
+      "country": "Nigeria",
+      "station_count": 12,
+      "line_count": 2
+    },
+    {
+      "file": "maps/na-usa-charlotte/na-usa-charlotte/1-raw-maps/working/na-usa-charlotte-1-raw-maps-working.geojson",
+      "city": "Charlotte",
+      "country": "United States",
+      "station_count": 42,
+      "line_count": 2
+    },
+    {
+      "file": "maps/af-mri-port-louis/af-mri-port-louis/1-raw-maps/working/af-mri-port-louis-1-raw-maps-working.geojson",
+      "city": "Port Louis",
+      "country": "Mauritius",
+      "station_count": 21,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-fra-brest/eu-fra-brest/1-raw-maps/working/eu-fra-brest-1-raw-maps-working.geojson",
+      "city": "Brest",
+      "country": "France",
+      "station_count": 39,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-irl-dublin/eu-irl-dublin/1-raw-maps/working/eu-irl-dublin-1-raw-maps-working.geojson",
+      "city": "Dublin",
+      "country": "Ireland",
+      "station_count": 60,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-gbr-edinburgh/eu-gbr-edinburgh/1-raw-maps/working/eu-gbr-edinburgh-1-raw-maps-working.geojson",
+      "city": "Edinburgh",
+      "country": "United Kingdom",
+      "station_count": 22,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-ukr-yenakiieve/eu-ukr-yenakiieve/1-raw-maps/working/eu-ukr-yenakiieve-1-raw-maps-working.geojson",
+      "city": "Yenakiieve",
+      "country": "Ukraine",
+      "station_count": 3,
+      "line_count": 2
+    },
+    {
+      "file": "maps/na-usa-little-rock/na-usa-little-rock/1-raw-maps/working/na-usa-little-rock-1-raw-maps-working.geojson",
+      "city": "Little Rock",
+      "country": "United States",
+      "station_count": 10,
+      "line_count": 2
+    },
+    {
+      "file": "maps/af-alg-mostaganem/af-alg-mostaganem/1-raw-maps/working/af-alg-mostaganem-1-raw-maps-working.geojson",
+      "city": "Mostaganem",
+      "country": "Algeria",
+      "station_count": 23,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-esp-murcia/eu-esp-murcia/1-raw-maps/working/eu-esp-murcia-1-raw-maps-working.geojson",
+      "city": "Murcia",
+      "country": "Spain",
+      "station_count": 28,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-fra-orleans/eu-fra-orleans/1-raw-maps/working/eu-fra-orleans-1-raw-maps-working.geojson",
+      "city": "Orléans",
+      "country": "France",
+      "station_count": 51,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-ita-venezia-mestre/eu-ita-venezia-mestre/1-raw-maps/working/eu-ita-venezia-mestre-1-raw-maps-working.geojson",
+      "city": "Venezia-Mestre",
+      "country": "Italy",
+      "station_count": 35,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-kaz-pavlodar/as-kaz-pavlodar/1-raw-maps/working/as-kaz-pavlodar-1-raw-maps-working.geojson",
+      "city": "Pavlodar",
+      "country": "Kazakhstan",
+      "station_count": 38,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-rus-salavat/eu-rus-salavat/1-raw-maps/working/eu-rus-salavat-1-raw-maps-working.geojson",
+      "city": "Salavat",
+      "country": "Russia",
+      "station_count": 20,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-uzb-samarkand/as-uzb-samarkand/1-raw-maps/working/as-uzb-samarkand-1-raw-maps-working.geojson",
+      "city": "Samarkand",
+      "country": "Uzbekistan",
+      "station_count": 21,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-esp-seville/eu-esp-seville/1-raw-maps/working/eu-esp-seville-1-raw-maps-working.geojson",
+      "city": "Seville",
+      "country": "Spain",
+      "station_count": 20,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-ita-sassari/eu-ita-sassari/1-raw-maps/working/eu-ita-sassari-1-raw-maps-working.geojson",
+      "city": "Sassari",
+      "country": "Italy",
+      "station_count": 8,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-isr-jerusalem/as-isr-jerusalem/1-raw-maps/working/as-isr-jerusalem-1-raw-maps-working.geojson",
+      "city": "Jerusalem",
+      "country": "Israel",
+      "station_count": 35,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-jpn-enoshima-shonan/as-jpn-enoshima-shonan/1-raw-maps/working/as-jpn-enoshima-shonan-1-raw-maps-working.geojson",
+      "city": "Enoshima (Shonan)",
+      "country": "Japan",
+      "station_count": 15,
+      "line_count": 1
+    },
+    {
+      "file": "maps/sa-arg-mendoza/sa-arg-mendoza/1-raw-maps/working/sa-arg-mendoza-1-raw-maps-working.geojson",
+      "city": "Mendoza",
+      "country": "Argentina",
+      "station_count": 25,
+      "line_count": 1
+    },
+    {
+      "file": "maps/na-usa-buffalo/na-usa-buffalo/1-raw-maps/working/na-usa-buffalo-1-raw-maps-working.geojson",
+      "city": "Buffalo",
+      "country": "United States",
+      "station_count": 14,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-ind-gurugram/as-ind-gurugram/1-raw-maps/working/as-ind-gurugram-1-raw-maps-working.geojson",
+      "city": "Gurugram",
+      "country": "India",
+      "station_count": 11,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-ger-saarbrucken/eu-ger-saarbrucken/1-raw-maps/working/eu-ger-saarbrucken-1-raw-maps-working.geojson",
+      "city": "Saarbrücken",
+      "country": "Germany",
+      "station_count": 43,
+      "line_count": 2
+    },
+    {
+      "file": "maps/oc-aus-gold-coast/oc-aus-gold-coast/1-raw-maps/working/oc-aus-gold-coast-1-raw-maps-working.geojson",
+      "city": "Gold Coast",
+      "country": "Australia",
+      "station_count": 19,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-esp-granada/eu-esp-granada/1-raw-maps/working/eu-esp-granada-1-raw-maps-working.geojson",
+      "city": "Granada",
+      "country": "Spain",
+      "station_count": 26,
+      "line_count": 1
+    },
+    {
+      "file": "maps/na-can-waterloo/na-can-waterloo/1-raw-maps/working/na-can-waterloo-1-raw-maps-working.geojson",
+      "city": "Waterloo",
+      "country": "Canada",
+      "station_count": 19,
+      "line_count": 1
+    },
+    {
+      "file": "maps/na-usa-norfolk/na-usa-norfolk/1-raw-maps/working/na-usa-norfolk-1-raw-maps-working.geojson",
+      "city": "Norfolk",
+      "country": "United States",
+      "station_count": 11,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-esp-cadiz/eu-esp-cadiz/1-raw-maps/working/eu-esp-cadiz-1-raw-maps-working.geojson",
+      "city": "Cádiz",
+      "country": "Spain",
+      "station_count": 21,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-kor-uijeongbu/as-kor-uijeongbu/1-raw-maps/working/as-kor-uijeongbu-1-raw-maps-working.geojson",
+      "city": "Uijeongbu",
+      "country": "South Korea",
+      "station_count": 15,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-chn-sanya/as-chn-sanya/1-raw-maps/working/as-chn-sanya-1-raw-maps-working.geojson",
+      "city": "Sanya",
+      "country": "China",
+      "station_count": 15,
+      "line_count": 1
+    },
+    {
+      "file": "maps/oc-aus-newcastle/oc-aus-newcastle/1-raw-maps/working/oc-aus-newcastle-1-raw-maps-working.geojson",
+      "city": "Newcastle",
+      "country": "Australia",
+      "station_count": 6,
+      "line_count": 1
+    },
+    {
+      "file": "maps/oc-aus-canberra/oc-aus-canberra/1-raw-maps/working/oc-aus-canberra-1-raw-maps-working.geojson",
+      "city": "Canberra",
+      "country": "Australia",
+      "station_count": 14,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-jpn-kitakyushu/as-jpn-kitakyushu/1-raw-maps/working/as-jpn-kitakyushu-1-raw-maps-working.geojson",
+      "city": "Kitakyushu",
+      "country": "Japan",
+      "station_count": 21,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-jpn-utsunomiya/as-jpn-utsunomiya/1-raw-maps/working/as-jpn-utsunomiya-1-raw-maps-working.geojson",
+      "city": "Utsunomiya",
+      "country": "Japan",
+      "station_count": 19,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-chn-huai-an/as-chn-huai-an/1-raw-maps/working/as-chn-huai-an-1-raw-maps-working.geojson",
+      "city": "Huai'an",
+      "country": "China",
+      "station_count": 23,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-fra-aubagne/eu-fra-aubagne/1-raw-maps/working/eu-fra-aubagne-1-raw-maps-working.geojson",
+      "city": "Aubagne",
+      "country": "France",
+      "station_count": 7,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-fra-avignon/eu-fra-avignon/1-raw-maps/working/eu-fra-avignon-1-raw-maps-working.geojson",
+      "city": "Avignon",
+      "country": "France",
+      "station_count": 10,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-ita-bergamo/eu-ita-bergamo/1-raw-maps/working/eu-ita-bergamo-1-raw-maps-working.geojson",
+      "city": "Bergamo",
+      "country": "Italy",
+      "station_count": 16,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-gbr-blackpool/eu-gbr-blackpool/1-raw-maps/working/eu-gbr-blackpool-1-raw-maps-working.geojson",
+      "city": "Blackpool",
+      "country": "United Kingdom",
+      "station_count": 40,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-prk-chongjin/as-prk-chongjin/1-raw-maps/working/as-prk-chongjin-1-raw-maps-working.geojson",
+      "city": "Chongjin",
+      "country": "North Korea",
+      "station_count": 4,
+      "line_count": 1
+    },
+    {
+      "file": "maps/na-usa-cincinnati/na-usa-cincinnati/1-raw-maps/working/na-usa-cincinnati-1-raw-maps-working.geojson",
+      "city": "Cincinnati",
+      "country": "United States",
+      "station_count": 18,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-fra-clermont-ferrand/eu-fra-clermont-ferrand/1-raw-maps/working/eu-fra-clermont-ferrand-1-raw-maps-working.geojson",
+      "city": "Clermont-Ferrand",
+      "country": "France",
+      "station_count": 34,
+      "line_count": 1
+    },
+    {
+      "file": "maps/af-alg-constantine/af-alg-constantine/1-raw-maps/working/af-alg-constantine-1-raw-maps-working.geojson",
+      "city": "Constantine",
+      "country": "Algeria",
+      "station_count": 21,
+      "line_count": 1
+    },
+    {
+      "file": "maps/sa-ecu-cuenca/sa-ecu-cuenca/1-raw-maps/working/sa-ecu-cuenca-1-raw-maps-working.geojson",
+      "city": "Cuenca",
+      "country": "Ecuador",
+      "station_count": 20,
+      "line_count": 1
+    },
+    {
+      "file": "maps/af-sen-dakar/af-sen-dakar/1-raw-maps/working/af-sen-dakar-1-raw-maps-working.geojson",
+      "city": "Dakar",
+      "country": "Senegal",
+      "station_count": 13,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-ger-wuppertal/eu-ger-wuppertal/1-raw-maps/working/eu-ger-wuppertal-1-raw-maps-working.geojson",
+      "city": "Wuppertal",
+      "country": "Germany",
+      "station_count": 38,
+      "line_count": 1
+    },
+    {
+      "file": "maps/na-usa-el-paso/na-usa-el-paso/1-raw-maps/working/na-usa-el-paso-1-raw-maps-working.geojson",
+      "city": "El Paso",
+      "country": "United States",
+      "station_count": 27,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-aut-gmunden/eu-aut-gmunden/1-raw-maps/working/eu-aut-gmunden-1-raw-maps-working.geojson",
+      "city": "Gmunden",
+      "country": "Austria",
+      "station_count": 13,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-pol-grudziadz/eu-pol-grudziadz/1-raw-maps/working/eu-pol-grudziadz-1-raw-maps-working.geojson",
+      "city": "Grudziadz",
+      "country": "Poland",
+      "station_count": 18,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-isr-haifa/as-isr-haifa/1-raw-maps/working/as-isr-haifa-1-raw-maps-working.geojson",
+      "city": "Haifa",
+      "country": "Israel",
+      "station_count": 6,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-chn-huangshi/as-chn-huangshi/1-raw-maps/working/as-chn-huangshi-1-raw-maps-working.geojson",
+      "city": "Huangshi",
+      "country": "China",
+      "station_count": 31,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-chn-jiaxing/as-chn-jiaxing/1-raw-maps/working/as-chn-jiaxing-1-raw-maps-working.geojson",
+      "city": "Jiaxing",
+      "country": "China",
+      "station_count": 11,
+      "line_count": 1
+    },
+    {
+      "file": "maps/na-usa-kansas-city/na-usa-kansas-city/1-raw-maps/working/na-usa-kansas-city-1-raw-maps-working.geojson",
+      "city": "Kansas City",
+      "country": "United States",
+      "station_count": 18,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-rus-krasnoturyinsk/eu-rus-krasnoturyinsk/1-raw-maps/working/eu-rus-krasnoturyinsk-1-raw-maps-working.geojson",
+      "city": "Krasnoturyinsk",
+      "country": "Russia",
+      "station_count": 10,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-bel-kusttram/eu-bel-kusttram/1-raw-maps/working/eu-bel-kusttram-1-raw-maps-working.geojson",
+      "city": "Kusttram",
+      "country": "Belgium",
+      "station_count": 38,
+      "line_count": 1
+    },
+    {
+      "file": "maps/na-usa-las-vegas/na-usa-las-vegas/1-raw-maps/working/na-usa-las-vegas-1-raw-maps-working.geojson",
+      "city": "Las Vegas",
+      "country": "United States",
+      "station_count": 7,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-bel-liege/eu-bel-liege/1-raw-maps/working/eu-bel-liege-1-raw-maps-working.geojson",
+      "city": "Liège",
+      "country": "Belgium",
+      "station_count": 23,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-lat-liepaja/eu-lat-liepaja/1-raw-maps/working/eu-lat-liepaja-1-raw-maps-working.geojson",
+      "city": "Liepaja",
+      "country": "Latvia",
+      "station_count": 18,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-swe-lund/eu-swe-lund/1-raw-maps/working/eu-swe-lund-1-raw-maps-working.geojson",
+      "city": "Lund",
+      "country": "Sweden",
+      "station_count": 9,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-lux-luxembourg/eu-lux-luxembourg/1-raw-maps/working/eu-lux-luxembourg-1-raw-maps-working.geojson",
+      "city": "Luxembourg",
+      "country": "Luxembourg",
+      "station_count": 24,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-chn-mengzi/as-chn-mengzi/1-raw-maps/working/as-chn-mengzi-1-raw-maps-working.geojson",
+      "city": "Mengzi",
+      "country": "China",
+      "station_count": 15,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-ita-messina/eu-ita-messina/1-raw-maps/working/eu-ita-messina-1-raw-maps-working.geojson",
+      "city": "Messina",
+      "country": "Italy",
+      "station_count": 18,
+      "line_count": 1
+    },
+    {
+      "file": "maps/na-usa-morgantown/na-usa-morgantown/1-raw-maps/working/na-usa-morgantown-1-raw-maps-working.geojson",
+      "city": "Morgantown",
+      "country": "United States",
+      "station_count": 5,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-blr-mozyr/eu-blr-mozyr/1-raw-maps/working/eu-blr-mozyr-1-raw-maps-working.geojson",
+      "city": "Mozyr",
+      "country": "Belarus",
+      "station_count": 20,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-jpn-naha/as-jpn-naha/1-raw-maps/working/as-jpn-naha-1-raw-maps-working.geojson",
+      "city": "Naha",
+      "country": "Japan",
+      "station_count": 19,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-ger-naumburg/eu-ger-naumburg/1-raw-maps/working/eu-ger-naumburg-1-raw-maps-working.geojson",
+      "city": "Naumburg",
+      "country": "Germany",
+      "station_count": 9,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-rus-novocherkassk/eu-rus-novocherkassk/1-raw-maps/working/eu-rus-novocherkassk-1-raw-maps-working.geojson",
+      "city": "Novocherkassk",
+      "country": "Russia",
+      "station_count": 10,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-blr-novopolotsk/eu-blr-novopolotsk/1-raw-maps/working/eu-blr-novopolotsk-1-raw-maps-working.geojson",
+      "city": "Novopolotsk",
+      "country": "Belarus",
+      "station_count": 13,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-den-odense/eu-den-odense/1-raw-maps/working/eu-den-odense-1-raw-maps-working.geojson",
+      "city": "Odense",
+      "country": "Denmark",
+      "station_count": 24,
+      "line_count": 1
+    },
+    {
+      "file": "maps/af-alg-oran/af-alg-oran/1-raw-maps/working/af-alg-oran-1-raw-maps-working.geojson",
+      "city": "Oran",
+      "country": "Algeria",
+      "station_count": 32,
+      "line_count": 1
+    },
+    {
+      "file": "maps/af-alg-ouargla/af-alg-ouargla/1-raw-maps/working/af-alg-ouargla-1-raw-maps-working.geojson",
+      "city": "Ouargla",
+      "country": "Algeria",
+      "station_count": 16,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-ita-padova/eu-ita-padova/1-raw-maps/working/eu-ita-padova-1-raw-maps-working.geojson",
+      "city": "Padova",
+      "country": "Italy",
+      "station_count": 16,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-esp-parla/eu-esp-parla/1-raw-maps/working/eu-esp-parla-1-raw-maps-working.geojson",
+      "city": "Parla",
+      "country": "Spain",
+      "station_count": 15,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-ita-perugia/eu-ita-perugia/1-raw-maps/working/eu-ita-perugia-1-raw-maps-working.geojson",
+      "city": "Perugia",
+      "country": "Italy",
+      "station_count": 7,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-chn-qiubei/as-chn-qiubei/1-raw-maps/working/as-chn-qiubei-1-raw-maps-working.geojson",
+      "city": "Qiubei",
+      "country": "China",
+      "station_count": 4,
+      "line_count": 1
+    },
+    {
+      "file": "maps/af-alg-sidi-bel-abbes/af-alg-sidi-bel-abbes/1-raw-maps/working/af-alg-sidi-bel-abbes-1-raw-maps-working.geojson",
+      "city": "Sidi Bel Abbès",
+      "country": "Algeria",
+      "station_count": 22,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-esp-soller/eu-esp-soller/1-raw-maps/working/eu-esp-soller-1-raw-maps-working.geojson",
+      "city": "Sóller",
+      "country": "Spain",
+      "station_count": 16,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-jpn-takaoka/as-jpn-takaoka/1-raw-maps/working/as-jpn-takaoka-1-raw-maps-working.geojson",
+      "city": "Takaoka",
+      "country": "Japan",
+      "station_count": 25,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-rus-volchansk/eu-rus-volchansk/1-raw-maps/working/eu-rus-volchansk-1-raw-maps-working.geojson",
+      "city": "Volchansk",
+      "country": "Russia",
+      "station_count": 9,
+      "line_count": 2
+    },
+    {
+      "file": "maps/eu-rou-resita/eu-rou-resita/1-raw-maps/working/eu-rou-resita-1-raw-maps-working.geojson",
+      "city": "Resita",
+      "country": "Romania",
+      "station_count": 16,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-fra-rouen/eu-fra-rouen/1-raw-maps/working/eu-fra-rouen-1-raw-maps-working.geojson",
+      "city": "Rouen",
+      "country": "France",
+      "station_count": 31,
+      "line_count": 1
+    },
+    {
+      "file": "maps/af-alg-setif/af-alg-setif/1-raw-maps/working/af-alg-setif-1-raw-maps-working.geojson",
+      "city": "Sétif",
+      "country": "Algeria",
+      "station_count": 22,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-por-sintra/eu-por-sintra/1-raw-maps/working/eu-por-sintra-1-raw-maps-working.geojson",
+      "city": "Sintra",
+      "country": "Portugal",
+      "station_count": 8,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-ger-strausberg/eu-ger-strausberg/1-raw-maps/working/eu-ger-strausberg-1-raw-maps-working.geojson",
+      "city": "Strausberg",
+      "country": "Germany",
+      "station_count": 10,
+      "line_count": 1
+    },
+    {
+      "file": "maps/na-usa-tacoma/na-usa-tacoma/1-raw-maps/working/na-usa-tacoma-1-raw-maps-working.geojson",
+      "city": "Tacoma",
+      "country": "United States",
+      "station_count": 12,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-jpn-tama/as-jpn-tama/1-raw-maps/working/as-jpn-tama-1-raw-maps-working.geojson",
+      "city": "Tama",
+      "country": "Japan",
+      "station_count": 19,
+      "line_count": 1
+    },
+    {
+      "file": "maps/na-usa-tampa/na-usa-tampa/1-raw-maps/working/na-usa-tampa-1-raw-maps-working.geojson",
+      "city": "Tampa",
+      "country": "United States",
+      "station_count": 11,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-kaz-temirtau/as-kaz-temirtau/1-raw-maps/working/as-kaz-temirtau-1-raw-maps-working.geojson",
+      "city": "Temirtau",
+      "country": "Kazakhstan",
+      "station_count": 17,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-fra-tours/eu-fra-tours/1-raw-maps/working/eu-fra-tours-1-raw-maps-working.geojson",
+      "city": "Tours",
+      "country": "France",
+      "station_count": 29,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-jpn-toyohashi/as-jpn-toyohashi/1-raw-maps/working/as-jpn-toyohashi-1-raw-maps-working.geojson",
+      "city": "Toyohashi",
+      "country": "Japan",
+      "station_count": 13,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-ita-trieste/eu-ita-trieste/1-raw-maps/working/eu-ita-trieste-1-raw-maps-working.geojson",
+      "city": "Trieste",
+      "country": "Italy",
+      "station_count": 12,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-nor-trondheim/eu-nor-trondheim/1-raw-maps/working/eu-nor-trondheim-1-raw-maps-working.geojson",
+      "city": "Trondheim",
+      "country": "Norway",
+      "station_count": 19,
+      "line_count": 1
+    },
+    {
+      "file": "maps/na-usa-tucson/na-usa-tucson/1-raw-maps/working/na-usa-tucson-1-raw-maps-working.geojson",
+      "city": "Tucson",
+      "country": "United States",
+      "station_count": 18,
+      "line_count": 1
+    },
+    {
+      "file": "maps/sa-chi-valparaiso/sa-chi-valparaiso/1-raw-maps/working/sa-chi-valparaiso-1-raw-maps-working.geojson",
+      "city": "Valparaíso",
+      "country": "Chile",
+      "station_count": 21,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-rus-vladivostok/eu-rus-vladivostok/1-raw-maps/working/eu-rus-vladivostok-1-raw-maps-working.geojson",
+      "city": "Vladivostok",
+      "country": "Russia",
+      "station_count": 16,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-esp-zaragoza/eu-esp-zaragoza/1-raw-maps/working/eu-esp-zaragoza-1-raw-maps-working.geojson",
+      "city": "Zaragoza",
+      "country": "Spain",
+      "station_count": 25,
+      "line_count": 1
+    },
+    {
+      "file": "maps/eu-ukr-zhytomyr/eu-ukr-zhytomyr/1-raw-maps/working/eu-ukr-zhytomyr-1-raw-maps-working.geojson",
+      "city": "Zhytomyr",
+      "country": "Ukraine",
+      "station_count": 19,
+      "line_count": 1
+    },
+    {
+      "file": "maps/as-chn-shanghai/as-chn-shanghai-lm/1-raw-maps/working/as-chn-shanghai-lm-1-raw-maps-working.geojson",
+      "city": "Shanghai + Landmark",
+      "country": "China",
+      "station_count": 407,
+      "line_count": 21
+    },
+    {
+      "file": "maps/as-jpn-osaka/as-jpn-osaka-jr/1-raw-maps/working/as-jpn-osaka-jr-1-raw-maps-working.geojson",
+      "city": "Osaka + Loop",
+      "country": "Japan",
+      "station_count": 132,
+      "line_count": 11
+    },
+    {
+      "file": "maps/as-jpn-osaka/as-jpn-osaka-jr-shape-rect/1-raw-maps/working/as-jpn-osaka-jr-shape-rect-1-raw-maps-working.geojson",
+      "city": "Osaka + Loop",
+      "country": "Japan",
+      "station_count": 132,
+      "line_count": 11
+    },
+    {
+      "file": "maps/as-jpn-tokyo/as-jpn-tokyo-rail/1-raw-maps/working/as-jpn-tokyo-rail-1-raw-maps-working.geojson",
+      "city": "Tokyo + JR + Private",
+      "country": "Japan",
+      "station_count": 581,
+      "line_count": 58
+    },
+    {
+      "file": "maps/as-jpn-tokyo/as-jpn-tokyo-lm/1-raw-maps/working/as-jpn-tokyo-lm-1-raw-maps-working.geojson",
+      "city": "Tokyo + Landmark",
+      "country": "Japan",
+      "station_count": 202,
+      "line_count": 14
+    },
+    {
+      "file": "maps/as-jpn-tokyo/as-jpn-tokyo-jr/1-raw-maps/working/as-jpn-tokyo-jr-1-raw-maps-working.geojson",
+      "city": "Tokyo + Yamanote",
+      "country": "Japan",
+      "station_count": 214,
+      "line_count": 15
+    },
+    {
+      "file": "maps/as-jpn-tokyo/as-jpn-tokyo-jr-shape-rect/1-raw-maps/working/as-jpn-tokyo-jr-shape-rect-1-raw-maps-working.geojson",
+      "city": "Tokyo + Yamanote",
+      "country": "Japan",
+      "station_count": 214,
+      "line_count": 15
+    },
+    {
+      "file": "maps/as-sgp-singapore/as-sgp-singapore-lrt/1-raw-maps/working/as-sgp-singapore-lrt-1-raw-maps-working.geojson",
+      "city": "Singapore + LRT",
+      "country": "Singapore",
+      "station_count": 187,
+      "line_count": 14
+    },
+    {
+      "file": "maps/as-kor-seoul/as-kor-seoul-incheon/1-raw-maps/working/as-kor-seoul-incheon-1-raw-maps-working.geojson",
+      "city": "Seoul + Incheon",
+      "country": "South Korea",
+      "station_count": 487,
+      "line_count": 26
+    },
+    {
+      "file": "maps/as-kor-seoul/as-kor-seoul-lm/1-raw-maps/working/as-kor-seoul-lm-1-raw-maps-working.geojson",
+      "city": "Seoul + Landmark",
+      "country": "South Korea",
+      "station_count": 426,
+      "line_count": 23
+    },
+    {
+      "file": "maps/as-twn-kaohsiung/as-twn-kaohsiung-rail/1-raw-maps/working/as-twn-kaohsiung-rail-1-raw-maps-working.geojson",
+      "city": "Kaohsiung + Rail",
+      "country": "Taiwan",
+      "station_count": 78,
+      "line_count": 5
+    },
+    {
+      "file": "maps/as-twn-taichung/as-twn-taichung-rail/1-raw-maps/working/as-twn-taichung-rail-1-raw-maps-working.geojson",
+      "city": "Taichung + Rail",
+      "country": "Taiwan",
+      "station_count": 24,
+      "line_count": 2
+    },
+    {
+      "file": "maps/as-twn-taipei/as-twn-taipei-lm/1-raw-maps/working/as-twn-taipei-lm-1-raw-maps-working.geojson",
+      "city": "Taipei + Landmark",
+      "country": "Taiwan",
+      "station_count": 176,
+      "line_count": 15
+    },
+    {
+      "file": "maps/as-twn-taipei/as-twn-taipei-ty/1-raw-maps/working/as-twn-taipei-ty-1-raw-maps-working.geojson",
+      "city": "Taipei + Taoyuan",
+      "country": "Taiwan",
+      "station_count": 197,
+      "line_count": 17
+    },
+    {
+      "file": "maps/as-twn-taipei/as-twn-taipei-ty-lm/1-raw-maps/working/as-twn-taipei-ty-lm-1-raw-maps-working.geojson",
+      "city": "Taipei + Taoyuan + Landmark",
+      "country": "Taiwan",
+      "station_count": 197,
+      "line_count": 17
+    },
+    {
+      "file": "maps/as-twn-taipei/as-twn-taipei-rail/1-raw-maps/working/as-twn-taipei-rail-1-raw-maps-working.geojson",
+      "city": "Taipei + Taoyuan + Rail",
+      "country": "Taiwan",
+      "station_count": 205,
+      "line_count": 19
+    },
+    {
+      "file": "maps/eu-aut-vienna/eu-aut-vienna-lm/1-raw-maps/working/eu-aut-vienna-lm-1-raw-maps-working.geojson",
+      "city": "Vienna + Landmark",
+      "country": "Austria",
+      "station_count": 99,
+      "line_count": 5
+    },
+    {
+      "file": "maps/eu-fra-paris/eu-fra-paris-lm/1-raw-maps/working/eu-fra-paris-lm-1-raw-maps-working.geojson",
+      "city": "Paris + Landmark",
+      "country": "France",
+      "station_count": 321,
+      "line_count": 20
+    },
+    {
+      "file": "maps/eu-ger-berlin/eu-ger-berlin-lm/1-raw-maps/working/eu-ger-berlin-lm-1-raw-maps-working.geojson",
+      "city": "Berlin + Landmark",
+      "country": "Germany",
+      "station_count": 300,
+      "line_count": 26
+    },
+    {
+      "file": "maps/eu-gbr-london/eu-gbr-london-lm/1-raw-maps/working/eu-gbr-london-lm-1-raw-maps-working.geojson",
+      "city": "London + Landmark",
+      "country": "United Kingdom",
+      "station_count": 262,
+      "line_count": 26
+    },
+    {
+      "file": "maps/na-usa-new-york-city/na-usa-new-york-city-lm/1-raw-maps/working/na-usa-new-york-city-lm-1-raw-maps-working.geojson",
+      "city": "New York City + Landmark",
+      "country": "United States",
+      "station_count": 444,
+      "line_count": 11
+    },
+    {
+      "file": "maps/na-usa-san-francisco/na-usa-san-francisco-lrt/1-raw-maps/working/na-usa-san-francisco-lrt-1-raw-maps-working.geojson",
+      "city": "San Francisco LRT",
+      "country": "United States",
+      "station_count": 117,
+      "line_count": 7
+    },
+    {
+      "file": "maps/na-usa-san-francisco/na-usa-san-francisco/1-raw-maps/working/na-usa-san-francisco-1-raw-maps-working.geojson",
+      "city": "San Francisco",
+      "country": "United States",
+      "station_count": 161,
+      "line_count": 12
+    },
+    {
+      "file": "maps/na-usa-new-york-city/na-usa-new-york-city-l30/1-raw-maps/working/na-usa-new-york-city-l30-1-raw-maps-working.geojson",
+      "city": "New York City (rot 30° CCW)",
+      "country": "United States",
+      "station_count": 443,
+      "line_count": 11
+    },
+    {
+      "file": "maps/na-usa-new-york-city/na-usa-new-york-city-lm-l30/1-raw-maps/working/na-usa-new-york-city-lm-l30-1-raw-maps-working.geojson",
+      "city": "New York City + Landmark (rot 30° CCW)",
+      "country": "United States",
+      "station_count": 444,
+      "line_count": 11
+    }
+  ]
+}

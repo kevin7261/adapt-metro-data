@@ -1,0 +1,12 @@
+{
+  "city": "Sóller",
+  "country": "Spain",
+  "continent": "europe",
+  "osm_route_ids": [
+    1664246
+  ],
+  "source": "https://www.urbanrail.net/eu/es/soller/soller.htm",
+  "wikipedia": "ca:Tramvia de Sóller",
+  "wikidata": "Q3137173",
+  "note": "Sóller（使用者 2026-07-27「抓錯」再修）＝Tranvía 1 線載客 16 站（wiki；略 La Payesa 調車）。OSM 缺港區 4 站→合成 8910000001–4 沿軌道；replace_stops Plaça d'Espanya→Marysol。不含 Tren de Sóller。task.modes=tram。"
+}

@@ -1,0 +1,33 @@
+{
+  "city": "Bangkok",
+  "country": "Thailand",
+  "continent": "asia",
+  "osm_route_ids": [
+    444651,
+    444659,
+    2067854,
+    2148241,
+    6988563,
+    7725025,
+    7725057,
+    7989376,
+    7989385,
+    9921500,
+    11681439,
+    11681440,
+    13058384,
+    13058390,
+    13178788,
+    14071495,
+    15806897,
+    15806898,
+    16740886,
+    16740887,
+    19149752,
+    19150155
+  ],
+  "source": "https://www.urbanrail.net/as/bang/bangkok.htm",
+  "wikipedia": "en:Rail transport in Bangkok",
+  "wikidata": "Q7283953",
+  "note": "Bangkok（urbanrail／wiki）。收 BTS Sukhumvit＋Silom、MRT Blue／Purple、Yellow／Pink monorail（含 IMPACT Link 支線）、Gold Line、ARL City、SRT Dark／Light Red。不含：Silom เสริม短交路、BKK Commuter、Mahachai、Suvarnabhumi 航廈 APM。Silom／Light Red OSM stop 不足→gapStopsFromWays。wiki 釘系統總覽（勿用 Q806501＝Sukhumvit 單線）。Purple 南延／Orange 未通車不收。"
+}

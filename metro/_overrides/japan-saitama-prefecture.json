@@ -1,0 +1,12 @@
+{
+  "city": "Saitama Prefecture",
+  "country": "Japan",
+  "continent": "asia",
+  "osm_route_ids": [
+    7002081,
+    9336149
+  ],
+  "source": "saitama merge audit pins (SR excluded; New Shuttle removed 2026-07-27)",
+  "created": "2026-07-27T02:38:58.968Z",
+  "note": "埼玉縣不獨立成城（使用者 2026-07-25）。CITY_MERGE→Tokyo。rid 僅留已被 route_excludes 的埼玉高速鉄道（7002081/9336149）供稽核；New Shuttle 伊奈線 1949290/9346453 已移出（使用者 2026-07-27 東京不要抓）。"
+}

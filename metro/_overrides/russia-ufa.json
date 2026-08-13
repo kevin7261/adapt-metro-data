@@ -1,0 +1,23 @@
+{
+  "city": "Ufa",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    14090080,
+    14090081,
+    14090085,
+    14090086,
+    14090111,
+    14090119,
+    14093879,
+    14093880,
+    14093884,
+    14093885,
+    14097893,
+    14097894,
+    14097898,
+    14097899
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/ufa/ufa-tram.htm",
+  "note": "Ufa（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

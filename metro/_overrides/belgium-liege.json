@@ -1,0 +1,19 @@
+{
+  "city": "Liège",
+  "country": "Belgium",
+  "continent": "europe",
+  "osm_route_ids": [
+    18173306,
+    18173307,
+    18173310,
+    18173311,
+    18173312,
+    18173313,
+    19000740,
+    19000741
+  ],
+  "wikipedia": "fr:Tramway de Liège",
+  "wikidata": "Q628289",
+  "source": "https://www.urbanrail.net/eu/be/liege/liege.htm",
+  "note": "Liège T1（urbanrail gap；2025-04-28 通車）。使用者 2026-07-27「抓錯」：Y 分叉＋雙岸站序；replace_stops 23 站（fr wiki／Q628289）。曾誤釘 TEC Liège-Verviers。重跑 fetchUrbanrailGap 請保留 wikipedia/wikidata／note。"
+}

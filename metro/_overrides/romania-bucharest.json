@@ -1,0 +1,21 @@
+{
+  "city": "Bucharest",
+  "country": "Romania",
+  "continent": "europe",
+  "osm_route_ids": [
+    358039,
+    358046,
+    380909,
+    2565649,
+    2947020,
+    2947113,
+    7772817,
+    7772843,
+    11697878,
+    11697879,
+    11697882,
+    11697884
+  ],
+  "source": "https://www.urbanrail.net/eu/ro/buc/bucurest.htm",
+  "note": "Bucharest — 只要 Metrorex M1–M5（route=subway）。STB／RATB／Ilfov 路面電車不收（使用者 2026-07-29）。"
+}

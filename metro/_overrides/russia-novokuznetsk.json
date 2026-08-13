@@ -1,0 +1,29 @@
+{
+  "city": "Novokuznetsk",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    2869042,
+    2869043,
+    11702203,
+    11702204,
+    11702205,
+    11702206,
+    11702300,
+    11702301,
+    11720823,
+    11720835,
+    11721514,
+    11721515,
+    11735032,
+    11735033,
+    11735043,
+    11735044,
+    11735045,
+    11735046,
+    11735052,
+    11735053
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/novokuznetsk/novokuznetsk.htm",
+  "note": "Novokuznetsk（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

@@ -1,0 +1,15 @@
+{
+  "city": "Charlotte",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    10012482,
+    10012483,
+    11873944,
+    11873945
+  ],
+  "source": "https://www.urbanrail.net/am/char/charlotte.htm",
+  "wikipedia": "en:Charlotte Area Transit System",
+  "wikidata": "Q5085831",
+  "note": "Charlotte（使用者 2026-07-29「charlotte抓錯」）＝LYNX Blue（26 站）＋CityLynx Gold（17 站）；共站 CTC → 42 站（wiki List 計 43＝兩線站數加總）。Gold OSM 雙向成員序錯亂→member_appends.replace_stops 兩向同序 French→Sunnyside。Silver Line 未通不收。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata／本 note。"
+}

@@ -1,0 +1,13 @@
+{
+  "city": "Adana",
+  "country": "Turkey",
+  "continent": "asia",
+  "osm_route_ids": [
+    7838816,
+    7838817
+  ],
+  "source": "https://www.urbanrail.net/as/tr/adana/adana.htm",
+  "wikipedia": "en:Adana Metro",
+  "wikidata": "Q1577356",
+  "note": "阿達納 Adana Metrosu M1（Hastane–Akıncılar，13 站）。營運只有地鐵；官方圖另繪未通車 tram／2. Etap——operational-only 不收。站名對齊 stop_area／urbanrail（Anadolu Lisesi／İstiklal），見 station_names。使用者 2026-07-26 抓錯修正。"
+}

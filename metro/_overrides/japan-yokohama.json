@@ -1,0 +1,15 @@
+{
+  "city": "Yokohama",
+  "country": "Japan",
+  "continent": "asia",
+  "osm_route_ids": [
+    1905261,
+    3444217,
+    7732275,
+    7732276
+  ],
+  "wikipedia": "ja:横浜市営地下鉄",
+  "wikidata": "Q1341305",
+  "source": "https://www.urbanrail.net/as/jp/yokohama/yokohama.htm",
+  "note": "Yokohama（使用者 2026-07-27「抓錯」）。ja wiki／Q1341305＝市営地下鉄 **2** 線 **40** 站（ブルー 32＋グリーン 10）。曾被 Enoshima (Shonan) gap 誤搶藍線 r1905261/7732276，本城又混東急 DT/TY/MG…＋みなとみらい。只留 横浜市営地下鉄 B／G；CITY_NETWORK_ALLOW 雙保險。重跑保留 wikipedia/wikidata／osm_route_ids／note。"
+}

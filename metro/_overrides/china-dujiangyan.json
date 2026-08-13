@@ -1,0 +1,13 @@
+{
+  "city": "Dujiangyan",
+  "country": "China",
+  "continent": "asia",
+  "osm_route_ids": [
+    20736864,
+    20736865
+  ],
+  "source": "https://www.urbanrail.net/as/cn/dujiangyan/dujiangyan.htm",
+  "wikipedia": "zh:都江堰M-TR旅游客运专线",
+  "wikidata": "Q124817361",
+  "note": "Dujiangyan（使用者 2026-07-27「抓錯」）。都江堰 M-TR＝蓉2 tram；modes=tram＋bbox 收窄防灌成都地鐵。OSM r20736865／64 停靠成員殘缺→member_appends.replace_stops（主线 17 營運站／支线＝八角庙↔紫荆城，剔预留・暂缓）。route_tag_patches 縮 ref＋上色。重跑 fetchUrbanrailGap 請保留 wikipedia/wikidata／本 note。"
+}

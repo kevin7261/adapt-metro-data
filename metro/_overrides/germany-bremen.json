@@ -1,0 +1,19 @@
+{
+  "city": "Bremen",
+  "country": "Germany",
+  "continent": "europe",
+  "osm_route_ids": [
+    153891,
+    532076,
+    20061,
+    19939,
+    9544851,
+    19914,
+    19936,
+    536338
+  ],
+  "source": "https://www.urbanrail.net/eu/de/hb/bremen.htm",
+  "wikipedia": "de:Straßenbahn Bremen",
+  "wikidata": "Q821175",
+  "note": "Bremen（使用者 2026-07-26「抓錯」）＝BSAG 日間 tram **1/2/3/4/5/6/8/10**（每線只留一方向全日 relation）。OSM Linie 1 成員把 Westerstraße/Am Brill/Hbf 誤掛在 Mahndorf 後→member_appends.replace_stops；短交路／1S／1E／4S／6E／Nachtlinie／Linie 14→route_excludes。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata／本 note。"
+}

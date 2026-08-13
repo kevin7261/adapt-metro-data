@@ -1,0 +1,17 @@
+{
+  "city": "Ulan-Ude",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    4520665,
+    4520666,
+    4520667,
+    4520668,
+    11638368,
+    11638379,
+    13622306,
+    13622307
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/ulan-ude/ulan-ude.htm",
+  "note": "Ulan-Ude（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

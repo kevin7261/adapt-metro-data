@@ -1,0 +1,17 @@
+{
+  "city": "Miami",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    4499117,
+    7924526,
+    1589528,
+    7924525,
+    1589483,
+    1589482,
+    1589481
+  ],
+  "wikipedia": "en:Metrorail (Miami-Dade County)",
+  "source": "https://www.urbanrail.net/am/miam/miami.htm",
+  "note": "Miami（使用者 2026-07-26「miami抓錯」）。urbanrail＝Metrorail Green／Orange＋Metromover 三環（Inner／Omni／Brickell）。Metromover OSM 標 route=monorail，基準查詢漏抓——scripts/fetchMiamiMetromover.mjs（npm run metro:fetchmiamimetromover）補；排除 MIA Mover 航廈 APM。"
+}

@@ -1,0 +1,13 @@
+{
+  "city": "Constantine",
+  "country": "Algeria",
+  "continent": "africa",
+  "osm_route_ids": [
+    6848650,
+    13170500
+  ],
+  "source": "https://urbanrail.net/af/const/constantine.htm",
+  "wikipedia": "fr:Tramway de Constantine",
+  "wikidata": "Q136684437",
+  "note": "Constantine（SETRAM tram L1）。OSM 兩向曾把 2021 Ali Mendjeli 延伸段掛錯端→ member_appends.replace_stops（見 metro-cities）。重跑 fetchAfrica.mjs 會覆寫本檔（保留 wikipedia/wikidata；note 以 metro-cities 為準）。"
+}

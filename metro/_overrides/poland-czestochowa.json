@@ -1,0 +1,17 @@
+{
+  "city": "Czestochowa",
+  "country": "Poland",
+  "continent": "europe",
+  "osm_route_ids": [
+    178133,
+    309866,
+    2425616,
+    4543903,
+    4543904,
+    4543905
+  ],
+  "wikipedia": "pl:Tramwaje w Częstochowie",
+  "wikidata": "Q974243",
+  "source": "https://www.urbanrail.net/eu/pl/czestochowa/czestochowa.htm",
+  "note": "Częstochowa（使用者 2026-07-27「抓錯」）。OSM 把終點後的 Promenada／Reisebus／Jasnogórska 誤掛、漏 Iwaszkiewicza／中途 Promenada Niemena／Orląt／Uniwersytet；依 czestochowa.pl 時刻表覆寫：1 Fieldorfa↔Kucelin 21、2 Fieldorfa↔Raków PKP 19/20、3 Fieldorfa↔Stadion Raków 28。pl wiki Tramwaje w Częstochowie／Q974243。 重跑 fetchUrbanrailGap 請保留 wikipedia/wikidata／note。"
+}

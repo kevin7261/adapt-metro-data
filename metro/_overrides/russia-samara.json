@@ -1,0 +1,11 @@
+{
+  "city": "Samara",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    173532,
+    173940
+  ],
+  "source": "https://en.wikipedia.org/wiki/Samara_Metro",
+  "note": "薩馬拉地鐵 1 號線（Юнгородок↔Алабинская）10 站。舊 geom 快取把前段站當 platform way、只留 Российская–Алабинская 兩 stop → 誤建成 2 站；釘正反兩向 route=subway 173532／173940（2026-07 使用者回報抓錯）。route_master 10309985 勿當 route。OSM 前兩站僅 platform way → member_appends 前置／尾端補站點節點 351119704／6986625318；另 buildGeojson 混標防護須合併 stop+platform（否則只採 2 個 stop）。"
+}

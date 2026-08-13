@@ -1,0 +1,13 @@
+{
+  "city": "Duisburg",
+  "country": "Germany",
+  "continent": "europe",
+  "osm_route_ids": [
+    58465,
+    68018,
+    359409,
+    7155683
+  ],
+  "source": "https://www.urbanrail.net/",
+  "note": "Duisburg — purgeUrbanrailGapContamination.mjs 過濾跨城誤抓後重寫 (45→4 relations)。"
+}

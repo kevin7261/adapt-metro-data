@@ -1,0 +1,160 @@
+/* 投影片版面（系統介紹／論文內容共用）。
+   Chrome＝design-shell（.tool-bar／.btn-primary／.select／.status-bar／.side-panel）——
+   導覽＝獨立 .tool-bar.slide-seek；footer＝.status-bar（只更新時間）；
+   本檔只做舞台／縮圖／seek 專屬排版，禁自創第二套按鈕色。 */
+:root {
+  --mono: var(--font-mono);
+  --sans: var(--font-sans);
+}
+
+body.gslides-page {
+  font-family: var(--sans);
+  font-size: var(--fs-base);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+}
+
+.workspace { display: flex; flex: 1; min-height: 0; }
+
+/* ---- 左側縮圖：.side-panel 殼＋縮圖列 ---- */
+.filmstrip.side-panel {
+  --side-panel-width: 184px;
+  overflow: hidden;
+}
+.filmstrip .side-panel-body {
+  padding: var(--space-3) var(--space-2);
+  gap: var(--space-2);
+  /* 捲軸＝tokens.css --scrollbar-*（禁本檔另寫寬度／色） */
+}
+.filmstrip-item {
+  align-items: flex-start;
+  min-height: 0;
+  padding: 4px;
+  border-radius: var(--list-row-radius);
+  border-bottom-color: transparent;
+}
+.filmstrip-item .fs-num {
+  font-size: var(--list-font-count);
+  color: hsl(var(--list-fg-muted));
+  font-family: var(--mono);
+  width: 16px; text-align: right; padding-top: 4px; flex-shrink: 0;
+}
+.filmstrip-item .thumb {
+  flex: 1; aspect-ratio: 16 / 9; position: relative; overflow: hidden;
+  background: hsl(var(--popover));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-sm);
+}
+.filmstrip-item.active .fs-num {
+  color: hsl(var(--list-fg-active)); font-weight: var(--fw-semibold);
+}
+.filmstrip-item.active .thumb {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 1px hsl(var(--primary));
+}
+/* 紙張（舞台／縮圖）固定日間完整色——外層 .deck 仍跟主題當畫布 */
+.stage,
+.thumb-inner {
+  --page-bg: hsl(0 0% 100%);
+  --dot: transparent;
+  --card-bg: hsl(0 0% 100%);
+  --border: hsl(0 0% 82%);
+  --ink: hsl(0 0% 8%);
+  --muted: hsl(0 0% 40%);
+  --muted2: hsl(0 0% 40%);
+  --blue: hsl(213 94% 44%);
+  --code-bg: hsl(0 0% 8%);
+  --code-ink: hsl(0 0% 82%);
+  color: var(--ink);
+}
+.thumb-inner {
+  position: absolute; top: 0; left: 0; width: 1280px; height: 720px;
+  transform-origin: top left; pointer-events: none;
+  background: var(--card-bg);
+}
+.thumb-inner .slide {
+  opacity: 1 !important; visibility: visible !important;
+  transform: none !important; transition: none !important;
+  pointer-events: none; overflow: hidden;
+}
+.thumb-inner .slide.divider .roman { opacity: 0.12; }
+
+.deck {
+  position: relative; flex: 1; min-width: 0; height: 100%; overflow: auto;
+  display: flex; align-items: center; justify-content: center;
+  background-color: hsl(var(--background));
+}
+:fullscreen .app-toolbar,
+:fullscreen .filmstrip,
+:fullscreen .slide-seek,
+:fullscreen .status-bar.doc-chrome,
+:fullscreen .doc-chrome { display: none; }
+:fullscreen .deck { background: hsl(var(--foreground)); cursor: none; }
+:fullscreen .deck:hover { cursor: default; }
+
+.stage {
+  position: relative; flex: 0 0 auto; width: 1280px; height: 720px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden; transform-origin: center center;
+  /* 尚未 fit 前隱藏——避免重新整理時 1280×720 未縮放把整頁撐亂 */
+  visibility: hidden;
+}
+.stage.is-fitted { visibility: visible; }
+
+/* ---- 導覽列：獨立 .tool-bar（‹ seek ›）；footer＝路徑＋更新時間 ---- */
+.tool-bar.slide-seek {
+  border-bottom: none;
+  border-top: 1px solid hsl(var(--border));
+  flex-wrap: nowrap;
+  gap: var(--space-3);
+  padding-block: 6px;
+}
+.slide-seek .counter {
+  flex-shrink: 0;
+  font-family: var(--mono); font-size: var(--fs-xs);
+  color: hsl(var(--muted-foreground));
+  user-select: none; white-space: nowrap;
+}
+.seekbar {
+  position: relative; flex: 1; min-width: 0;
+  height: 6px; border-radius: 999px;
+  /* 灰底軌道（同 /design .slider track）——勿用 --muted：投影片頁把 --muted 覆寫成完整 hsl() */
+  background: hsl(var(--border));
+  cursor: pointer;
+}
+.seekbar .seek-fill {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  border-radius: 2px; background: hsl(var(--primary));
+  transition: width 0.25s ease; pointer-events: none;
+}
+.seekbar .seek-knob {
+  position: absolute; top: 50%; transform: translate(-50%, -50%);
+  width: 11px; height: 11px; border-radius: 50%;
+  background: hsl(var(--popover));
+  border: 2px solid hsl(var(--primary));
+  box-shadow: var(--shadow);
+  opacity: 0; transition: opacity 0.12s; pointer-events: none;
+}
+.seekbar:hover .seek-knob { opacity: 1; }
+.seekbar .seek-tip {
+  position: absolute; bottom: 14px; transform: translateX(-50%);
+  background: hsl(var(--foreground)); color: hsl(var(--popover));
+  font-size: var(--fs-2xs); padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  white-space: nowrap; pointer-events: none;
+  opacity: 0; transition: opacity 0.1s; font-family: var(--mono);
+}
+.seekbar:hover .seek-tip { opacity: 1; }
+
+@media (max-width: 720px) {
+  .filmstrip.side-panel { --side-panel-width: 132px; }
+  .doc-chrome .btn-primary .lbl { display: none; }
+  .status-bar .status-meta { max-width: 55%; }
+}

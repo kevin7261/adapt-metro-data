@@ -1,0 +1,11 @@
+{
+  "city": "Jiaxing",
+  "country": "China",
+  "continent": "asia",
+  "osm_route_ids": [
+    15711260,
+    19455647
+  ],
+  "source": "https://www.urbanrail.net/",
+  "note": "Jiaxing — purgeUrbanrailGapContamination.mjs 過濾跨城誤抓後重寫 (2→2 relations)。"
+}

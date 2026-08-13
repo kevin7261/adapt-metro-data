@@ -1,0 +1,29 @@
+{
+  "city": "Donetsk",
+  "country": "Ukraine",
+  "continent": "europe",
+  "osm_route_ids": [
+    2738831,
+    2738832,
+    2750007,
+    2750008,
+    3144418,
+    3144419,
+    3145900,
+    3145901,
+    3145902,
+    3145903,
+    3145904,
+    3145905,
+    3145906,
+    3145907,
+    3145908,
+    3145909,
+    3220831,
+    3220832
+  ],
+  "source": "https://www.urbanrail.net/eu/ua/don/donetsk-tram.htm",
+  "wikipedia": "uk:Донецький трамвай",
+  "wikidata": "Q2646244",
+  "note": "Donetsk（使用者 2026-07-26「抓錯」）＝ДонЕлектроАвтоТранс tram **1／3／4／5／8／9／10／15／16**（9 線／75 站；urbanrail／wiki 10 線、OSM 無其餘）。舊 gap 缺 way→8／16 崩壞；№1 曾被 ukraine-avdiivka override 搶走（Avdiivka 2017 停運，已 skip／刪）。wiki 釘系統條目。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata。"
+}

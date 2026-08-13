@@ -1,0 +1,13 @@
+{
+  "city": "Waterloo",
+  "country": "Canada",
+  "continent": "north-america",
+  "osm_route_ids": [
+    6885375,
+    11494375
+  ],
+  "wikipedia": "en:Ion rapid transit",
+  "wikidata": "Q3387750",
+  "source": "https://www.urbanrail.net/am/waterloo/waterloo-region.htm",
+  "note": "Waterloo（urbanrail gap；modes 含 light_rail）——ION 301 LRT（Conestoga↔Fairway，19 站含單向）。使用者 2026-07-27「抓錯」：route=light_rail 雙向曾拆成 2 條 301；replace_stops 兩向同一 wiki 站表使 dedupe 併成 1 線。不含 302 ION Bus。重跑保留 wikipedia/wikidata。"
+}

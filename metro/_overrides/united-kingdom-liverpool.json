@@ -1,0 +1,21 @@
+{
+  "city": "Liverpool",
+  "country": "United Kingdom",
+  "continent": "europe",
+  "osm_route_ids": [
+    287295,
+    287847,
+    287848,
+    287849,
+    287850,
+    14095307,
+    14095865,
+    14095866,
+    14097264,
+    14097265
+  ],
+  "source": "https://www.urbanrail.net/eu/uk/liv/liverpool_merseyrail.html",
+  "note": "Liverpool／Merseyrail Electrics（使用者 2026-07-30「利物浦完全抓錯」）。urbanrail＝Northern＋Wirral；City Line／國鐵長途／heritage tram 不收。只留 network=Merseyrail 且 ref=Northern|Wirral。重跑 fetchUrbanrailGap／purge 勿把國鐵加回。",
+  "wikipedia": "en:Merseyrail",
+  "wikidata": "Q1140477"
+}

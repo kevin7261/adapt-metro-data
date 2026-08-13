@@ -1,0 +1,13 @@
+{
+  "city": "Jacksonville",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    8764536,
+    8764537,
+    12322082,
+    12322083
+  ],
+  "source": "https://www.urbanrail.net/am/jack/jacksonville.htm",
+  "note": "Jacksonville Skyway（urbanrail gap；modes 應僅 monorail）——JTA 單軌 2 線（Northbank／Southbank）8 站。override 豁免純 LRT 剔除。缺 tracks／views 時從 relation 寫 tracks_v2_0008764536.json 再 metro:views。使用者 2026-07-25 抓錯＝內容不完整。"
+}

@@ -1,0 +1,21 @@
+{
+  "city": "Omsk",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    1759036,
+    1759037,
+    1759065,
+    1759066,
+    2909863,
+    2909879,
+    2909890,
+    4504619,
+    5718438,
+    5718594,
+    13232111,
+    13232112
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/omsk/omsk-tram.htm",
+  "note": "Omsk（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

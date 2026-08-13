@@ -1,0 +1,15 @@
+{
+  "city": "Chiba",
+  "country": "Japan",
+  "continent": "asia",
+  "osm_route_ids": [
+    3952114,
+    3952117,
+    7715378,
+    7715379
+  ],
+  "source": "https://www.urbanrail.net/as/jp/chiba/chiba.htm",
+  "note": "Chiba（使用者 2026-07-28「千葉路線抓錯」；2026-08-06 修 city）。urbanrail＝千葉都市モノレール 1／2 号線 18 站。modes=monorail＋窄 bbox；不含東葉／京成／JR／ユカリが丘。city 必須是 Chiba（不是 Chiba Prefecture）——後者會被 CITY_MERGE 併進東京，且 ovFlags 豁免 CITY_NETWORK_ALLOW，曾整組（含 2 号線）灌進 as-jpn-tokyo。重跑 fetchUrbanrailGap chiba 會覆寫 osm_route_ids（保留 wikipedia/wikidata／city）。",
+  "wikipedia": "ja:千葉都市モノレール",
+  "wikidata": "Q1073073"
+}

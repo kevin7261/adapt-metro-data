@@ -1,0 +1,4 @@
+{
+ "_rev": 1,
+ "_note": "Official route maps for highways (no urbanrail). Keys = system id matching maps/{id}/{id}/1-raw-maps/working/ stems (metro-style tree, 2026-08-03). Populate map_file under data/highway/maps/."
+}

@@ -1,0 +1,21 @@
+{
+  "city": "Oradea",
+  "country": "Romania",
+  "continent": "europe",
+  "osm_route_ids": [
+    271365,
+    271401,
+    3428481,
+    13406771,
+    13408068,
+    13408107,
+    13408524,
+    16337737,
+    16337799,
+    16337930
+  ],
+  "source": "https://www.urbanrail.net/eu/ro/oradea/oradea.htm",
+  "wikipedia": "ro:Tramvaiul din Oradea",
+  "wikidata": "Q2129486",
+  "note": "Oradea（使用者 2026-07-26「抓錯」）＝OTL tram **1N／1R／2／3N／3R／4N／8**。剔除：1S（Sinteza 尖峰／工業支線）、殘缺 4（僅 1 stop）、271366（誤把 Salca／Universitate／Auchan 走廊拼進 2 號）。OSM 尚無獨立 5／7／4R relation（wiki 有、urbanrail 記 2021-12 通車）。wiki 釘系統條目（勿用 Q122617995＝單線 Linia 3）。3N／3R／4N 站序見 member_appends。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata。"
+}

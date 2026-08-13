@@ -1,0 +1,19 @@
+{
+  "city": "Valenciennes",
+  "country": "France",
+  "continent": "europe",
+  "osm_route_ids": [
+    7568737,
+    7568738,
+    7569100,
+    7569101,
+    8973402,
+    8973403,
+    17180007,
+    17180008,
+    17207375,
+    17207376
+  ],
+  "source": "https://www.urbanrail.net/eu/fr/valenciennes/valenciennes-tram.htm",
+  "note": "Valenciennes（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

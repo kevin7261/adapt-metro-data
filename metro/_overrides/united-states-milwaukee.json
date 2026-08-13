@@ -1,0 +1,14 @@
+{
+  "city": "Milwaukee",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    8400989,
+    8400990,
+    12331264
+  ],
+  "source": "https://www.urbanrail.net/am/milwaukee/milwaukee.htm",
+  "wikipedia": "en:The Hop (streetcar)",
+  "wikidata": "Q19877002",
+  "note": "Milwaukee The Hop（使用者 2026-07-27「抓錯」再修）。永久線＝M-Line＋L-Line（wiki／Q19877002）；夏季 F-Line＝季節合併班，不另建線。L-Line（r8400989）＝HTW→Michigan→Lakefront→Clybourn→回 HTW 小環＋沿走廊 Wisconsin→City Hall（與 M 共線）；站序在 member_appends 的 replace_stops（勿 close_loop，會出 City Hall→HTW 尖刺；勿改回開路徑 …Clybourn→Wisconsin，會與 HTW→Michigan 交叉成 X）。站名 station_names。重跑 fetchUrbanrailGap 保留 wikipedia/wikidata／note。"
+}

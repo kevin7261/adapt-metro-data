@@ -1,0 +1,487 @@
+/* Design chrome primitives for static slides/docs pages.
+   Keep in sync with src/style.css — no second visual system.
+   Loaded after tokens.css; before app-toolbar / gslides / gdocs. */
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 5px;
+  height: 28px; padding: 0 9px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: var(--fs-md); font-weight: var(--fw-medium); white-space: nowrap;
+  color: hsl(var(--muted-foreground));
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+.btn-ghost:hover { background: hsl(var(--accent)); color: hsl(var(--accent-foreground)); }
+/* 選中＝圖層眼睛同款（list-fg-active 字＋淡 primary 底） */
+.btn-ghost.active, .btn-icon.active {
+  color: hsl(var(--list-fg-active));
+  background: hsl(var(--primary) / 0.16);
+}
+
+.btn-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; flex-shrink: 0;
+  padding: 0; border: none;
+  border-radius: var(--radius-sm);
+  color: hsl(var(--list-fg-muted));
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+.btn-icon:hover { background: hsl(var(--accent)); color: hsl(var(--list-fg)); }
+.btn-icon:disabled { opacity: 0.35; cursor: default; }
+.btn-icon:disabled:hover { background: none; color: hsl(var(--list-fg-muted)); }
+/* 黃色選中（快速選擇；與 src/style.css 同步——只要黃字，不要底） */
+.btn-icon.yellow { color: hsl(var(--warning)); background: transparent; }
+.btn-icon.yellow:hover {
+  background: transparent;
+  color: hsl(var(--warning));
+}
+/* 選中／highlight 才 FILL（與 src/style.css 同步） */
+.btn-icon.active .m-icon,
+.btn-icon.yellow .m-icon,
+.btn-ghost.active .m-icon,
+.btn-chip.active .m-icon,
+.group-add.active .m-icon {
+  font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 20 !important;
+}
+.btn-icon.active.icon-outline .m-icon,
+.btn-icon.icon-outline .m-icon {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20 !important;
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 6px;
+  height: 30px; padding: 0 12px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: var(--fs-md); font-weight: var(--fw-medium);
+  background: hsl(var(--primary)); color: hsl(var(--primary-foreground));
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+.btn-primary:hover {
+  background: color-mix(in srgb, hsl(var(--primary)) 88%, white);
+}
+
+.btn-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 30px;
+  padding: 0 11px;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+  color: hsl(var(--muted-foreground));
+  background: hsl(var(--background));
+  cursor: pointer;
+  transition: background 0.08s ease, color 0.08s ease, border-color 0.08s ease;
+}
+.btn-chip:hover:not(:disabled) {
+  color: hsl(var(--foreground));
+  background: hsl(var(--accent));
+}
+.btn-chip.active {
+  color: hsl(var(--list-fg-active));
+  background: hsl(var(--primary) / 0.16);
+  border-color: hsl(var(--primary) / 0.35);
+  font-weight: var(--fw-semibold);
+}
+.btn-chip-group {
+  display: inline-flex;
+  align-items: stretch;
+  flex-shrink: 0;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: hsl(var(--background));
+}
+.btn-chip-group .btn-chip {
+  border: none;
+  border-radius: 0;
+  border-right: 1px solid hsl(var(--border));
+  height: 28px;
+  position: relative;
+}
+.btn-chip-group .btn-chip:not(.active) { background: transparent; }
+.btn-chip-group .btn-chip:last-child { border-right: none; }
+.btn-chip-group .btn-chip.active {
+  border-color: transparent;
+  border-right-color: hsl(var(--border));
+  box-shadow: inset 0 0 0 1px hsl(var(--primary) / 0.35);
+  z-index: 1;
+}
+.btn-chip-group .btn-chip.active:last-child { border-right-color: transparent; }
+
+.select {
+  box-sizing: border-box;
+  width: auto;
+  min-width: 96px;
+  height: 30px;
+  padding: 0 28px 0 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid hsl(var(--input));
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: inherit;
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23888' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4.5 6 8l3-3.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 12px;
+  transition: border-color 0.1s ease, outline-color 0.1s ease;
+}
+html.dark .select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23a1a1aa' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4.5 6 8l3-3.5'/%3E%3C/svg%3E");
+}
+.select:focus {
+  outline: 1.5px solid hsl(var(--ring));
+  outline-offset: -1px;
+  border-color: transparent;
+}
+.select option {
+  background: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+}
+
+.tool-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+}
+.tool-bar-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+.tool-bar-end { margin-inline-start: auto; }
+/* 群組之間的分隔線——與主應用 src/style.css 的 .tool-bar-sep 同一份數值 */
+.tool-bar-sep {
+  width: 1px;
+  height: 18px;
+  margin: 0 3px;
+  flex-shrink: 0;
+  background: hsl(var(--border));
+}
+
+.panel-header {
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid hsl(var(--border));
+  padding: 6px 12px; min-height: 40px; flex-shrink: 0;
+  background: hsl(var(--card));
+}
+.panel-title {
+  font-size: var(--fs-xs); font-weight: var(--fw-semibold); letter-spacing: 0.04em;
+  text-transform: uppercase; color: hsl(var(--muted-foreground));
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-height: 0;
+  width: var(--side-panel-width, 300px);
+  background: hsl(var(--card));
+  border-right: 1px solid hsl(var(--border));
+}
+.side-panel-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-gap, 8px);
+  background: hsl(var(--background));
+}
+.side-panel-body > * { flex-shrink: 0; }
+
+/* slides 清單列：預設不畫 --list-sep（大綱／filmstrip 都不需要列間橫線）。
+   與主站差異：主站 list-row 預設有 sep、左欄再加 .list-pane--no-sep；
+   slides 沒有「要 sep 的左欄」，直接無底線，避免快取舊 CSS 時大綱仍有橫線。 */
+.list-row {
+  display: flex;
+  align-items: center;
+  gap: var(--list-row-gap);
+  width: 100%;
+  min-height: 28px;
+  padding: var(--list-row-py) var(--list-row-px);
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: var(--list-font-leaf);
+  text-align: left;
+  color: hsl(var(--list-fg-leaf));
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.08s ease;
+}
+.list-row:hover {
+  background: hsl(var(--accent));
+  color: hsl(var(--list-fg-active));
+}
+.list-row.active,
+.list-row.selected,
+.list-row.on {
+  background: hsl(var(--primary) / 0.16);
+  color: hsl(var(--list-fg-active));
+  font-weight: var(--fw-semibold);
+}
+.list-row.nested { padding-left: 30px; }
+.list-row.nested.deep { padding-left: 42px; }
+/* 與主站同名 class 並存（大綱 HTML 已掛）；選中只靠底色 */
+.list-pane--no-sep .list-row,
+.list-pane--no-sep .list-row.active,
+.list-pane--no-sep .list-row.selected,
+.list-pane--no-sep .list-row.on,
+.side-panel-body.list-pane--no-sep .list-row,
+.side-panel-body.list-pane--no-sep .list-row.active,
+.side-panel-body.list-pane--no-sep .list-row.selected,
+.side-panel-body.list-pane--no-sep .list-row.on {
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* 文字可選取複製（路徑／時間）；與主站 .status-bar 同構 */
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 26px;
+  flex-shrink: 0;
+  padding: 0 12px;
+  border-top: 1px solid hsl(var(--border));
+  background: hsl(var(--background));
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  line-height: 1;
+  color: hsl(var(--muted-foreground));
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: text;
+  -webkit-user-select: text;
+}
+.status-bar > *:not(.status-path) {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  min-height: 0;
+}
+/* 右下：`檔名 · 日期 時間 更新`（與主站 .status-meta 同構） */
+.status-bar .status-meta {
+  margin-left: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  max-width: 75%;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  color: hsl(var(--foreground) / 0.75);
+}
+.status-bar > .status-path {
+  margin-left: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  max-width: 70%;
+  text-align: right;
+  color: hsl(var(--foreground) / 0.75);
+}
+
+/* 與 src/style.css 同一份（靜態頁不吃 style.css，兩邊必須一起改）。
+   外觀規則只有這一條，各下拉只准覆寫 --menu-z／--menu-w-min／--menu-w-max／--menu-pad。 */
+.menu-pop {
+  --menu-z: 200;
+  --menu-w-min: 220px;
+  --menu-w-max: min(360px, calc(100vw - 24px));
+  --menu-pad: 4px;
+  position: absolute;
+  z-index: var(--menu-z);
+  min-width: var(--menu-w-min);
+  max-width: var(--menu-w-max);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1px; /* hover／active 底不相貼 */
+  background: hsl(var(--popover));
+  color: hsl(var(--popover-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg, var(--shadow));
+  padding: var(--menu-pad);
+  font-family: inherit;
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--list-row-gap);
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 32px;
+  padding: 0 var(--list-row-px);
+  border: none;
+  border-radius: var(--list-row-radius);
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--list-font-leaf);
+  font-weight: var(--fw-regular);
+  line-height: 1.25;
+  text-align: left;
+  text-decoration: none;
+  white-space: nowrap;
+  color: hsl(var(--popover-foreground));
+  cursor: pointer;
+  transition: background 0.08s ease, color 0.08s ease;
+}
+.menu-item-hit {
+  display: flex;
+  align-items: center;
+  gap: var(--list-row-gap);
+  flex: 1;
+  min-width: 0;
+  min-height: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+}
+.menu-item > .btn-icon {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+.menu-item:hover,
+.menu-item.open {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+.menu-item.active {
+  background: hsl(var(--primary) / 0.12);
+  color: hsl(var(--primary));
+  font-weight: var(--fw-semibold);
+}
+
+/* ---- 單選列（帶勾）----
+   與 src/style.css 同一份定義（靜態頁不吃 style.css，兩邊必須一起改）。
+   勾位固定寬度、未選中留空白佔位，否則同一份清單裡選中／未選中的標籤會左右跳動。 */
+.menu-pop { --menu-check-w: 18px; }
+.menu-item--pick { padding-left: 8px; }
+.menu-item--pick > .menu-item-check {
+  flex: 0 0 var(--menu-check-w);
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 13px;
+  color: hsl(var(--primary));
+}
+.menu-item-label { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.menu-label--sub {
+  padding: 5px 8px 2px calc(8px + var(--menu-check-w));
+  font-size: var(--fs-2xs);
+  text-transform: uppercase;
+}
+/* ---- 前導槽位：全站所有下拉列共用同一個寬度 ----
+   使用者 2026-08-07「都要」：不只選值下拉，動作型選單（頂欄的匯入地圖／相關連結…）
+   也要對齊。列的第一欄一律是同寬的前導槽，裡面放什麼由列的功能決定：
+     選值列 → .menu-item-check（✓ 或空白佔位）
+     動作列 → 該列自己的 icon
+   槽寬同一個 --menu-check-w，所以不同選單並排時文字起點在同一條線上。 */
+.menu-pop .menu-item > .m-icon:first-child,
+.menu-pop .menu-item-hit > .m-icon:first-child {
+  flex: 0 0 var(--menu-check-w);
+  display: inline-flex;
+  justify-content: flex-start;
+}
+
+
+/* ---- 靜態頁的 Design 下拉（_shared/design-select.js 就地升級原生 <select>）----
+   原生控件留在 DOM 當狀態來源，只藏起來；可見的是 .select 觸發鈕＋.menu-pop 面板。 */
+.ds-select { position: relative; display: inline-flex; }
+.ds-select-native {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ds-select-pop {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  /* 不能只寫 min-width:100%（＝觸發鈕寬）——扣掉 18px 勾位後最長的那個標籤會被
+     .menu-item-label 的 ellipsis 截掉（實測「符合視窗」變成「符合…」）。 */
+  --menu-w-min: max(100%, 150px);
+  --menu-w-max: min(280px, calc(100vw - 24px));
+  width: max-content;
+}
+
+.menu-sep {
+  height: 1px;
+  margin: 4px 0;
+  background: hsl(var(--border));
+}
+
+.resize-x {
+  width: 4px; cursor: col-resize; flex-shrink: 0;
+  background: transparent; transition: background 0.12s;
+}
+.resize-x:hover, .resize-x.dragging { background: hsl(var(--primary) / 0.5); }
+
+/* ---- 表格欄寬拖拉把手（與 src/style.css 同一份定義，勿只改一邊）----
+   行為＝_shared/table-col-resize.js（主站是 src/lib/tableColResize.js）。 */
+.tbl-resizable { table-layout: fixed; }
+.tbl-resizable th { position: relative; }
+.th-resize {
+  position: absolute;
+  top: 0; right: -2px; bottom: 0;
+  width: 5px;
+  cursor: col-resize;
+  z-index: 2;
+  background: transparent;
+  transition: background 0.12s;
+}
+.th-resize:hover,
+.th-resize:focus-visible,
+.th-resize.dragging { background: hsl(var(--primary) / 0.5); }
+.th-resize:focus-visible { outline: none; }

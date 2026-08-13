@@ -1,0 +1,16 @@
+{
+  "city": "Kayseri",
+  "country": "Turkey",
+  "continent": "asia",
+  "osm_route_ids": [
+    11636568,
+    11636816,
+    11641755,
+    11644048,
+    15568179,
+    15571056,
+    16623971
+  ],
+  "source": "https://www.urbanrail.net/as/tr/kayseri/kayseri.htm",
+  "note": "Kayseri（urbanrail gap）。r15568057（T3a 錯序）→route_excludes；T3 走廊只留 r15568179＋replace_stops。重跑 fetch 可能覆寫本檔。"
+}

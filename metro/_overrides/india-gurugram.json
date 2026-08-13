@@ -1,0 +1,11 @@
+{
+  "city": "Gurugram",
+  "country": "India",
+  "continent": "asia",
+  "osm_route_ids": [
+    4481323,
+    7890002
+  ],
+  "source": "https://www.urbanrail.net/as/in/delhi/gurugram-metro.htm",
+  "note": "Gurgaon（舊稱／wiki List 名；亦作 Gurugram）＝Rapid Metro Gurgaon（RMGL）only。urbanrail gap 曾誤 pin 德里 Metro 幹線 → 藍線主線被鎖進此城、德里只剩 Vaishali 支線。已剔除德里幹線（使用者 2026-07-26 audit）。"
+}

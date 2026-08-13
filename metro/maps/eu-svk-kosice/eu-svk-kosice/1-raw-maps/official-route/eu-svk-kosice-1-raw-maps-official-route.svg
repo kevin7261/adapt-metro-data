@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="1455.3334" height="1429.2812" id="svg2876">
+  <defs id="defs2880" />
+  <g transform="translate(-66.666664,-67.575898)" id="layer1" style="display:inline" />
+  <g transform="translate(-66.666664,-67.575898)" id="layer2" />
+  <g id="g7165">
+    <path d="m 681.33334,592.4241 35,-30 130,-15" id="path4313" style="fill:none;stroke:#4e96ab;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 622.49839,125.43381 31.06796,66.01942 33.00971,60.19417 62.13592,93.20388 -52.42718,13.59224 -48.54369,-8.73787 -2.91262,-22.33009 -31.06797,-37.86408 -63.10679,-86.40777" id="path3734" style="fill:none;stroke:#d4893b;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 647.74111,349.70565 -75.72816,-11.65048 -101.94175,116.50485 -24.27184,75.72816 29.12621,114.5631 21.35923,77.66991 55.04854,59.90291" id="path3736" style="fill:none;stroke:#d4893b;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 516.67315,833.2008 34.66019,-50.7767 40,30 24.36893,-32.62136 27.18447,-56.31068 -0.97088,-81.5534 39.41748,-49.51456 35,-30 0,0 c 0.4349,0.72309 33.23625,-3.94822 49.85437,-5.92233 l 80.14563,-9.07767 51.8932,-23.93204 26.2136,-17.47573 -9.7087,-22.33009 25.2427,-12.62136" id="path3738" style="fill:none;stroke:#d4893b;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 716.33334,562.4241 -5.70392,-17.11176 -4.29608,-12.88824 -19.75728,-62.3301 -2.91262,-9.70873 12.62136,-101.94175" id="path3740" style="fill:none;stroke:#d4893b;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 846.33334,547.4241 5.06356,51.45376 6.05294,61.50741 12.6214,76.69902 14.5631,78.64078 22.3301,113.59223 16.5048,77.6699 12.6214,63.1068 14.5631,70.8738" id="path3742" style="fill:none;stroke:#d4893b;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 591.33334,812.4241 78.73786,67.37864 46.60195,32.03884 37.86407,125.24272 106.79612,105.8252 89.3204,-1.9417 194.17466,-44.6602 30.0971,23.301 71.8447,70.8738 84.466,85.4368 52.4272,50.4855 66.0194,66.0194" id="path3744" style="fill:none;stroke:#d4893b;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 949.68284,1141.9387 24.2719,132.0388 14.56306,63.1068" id="path3746" style="fill:none;stroke:#d4893b;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 41.01301,487.74673 44.91992,5.51648 62.25742,2.3642 7.09262,61.46936 15.76138,67.77391 10.24489,17.33752 -57.52902,17.33751 -112.69382,47.28412" id="path3750" style="fill:none;stroke:#4e96ab;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 181.28924,642.2082 22.85399,-5.51649 59.89323,-10.24489 83.53528,-7.88069 130.81941,-10.24489 74.82816,-10.07302 7.13099,-0.95994 120.98304,-4.86418" id="path3752" style="fill:none;stroke:#4e96ab;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 846.33334,547.4241 47.4441,-13.56936 -23.4315,-60.95449 -48.20829,-74.16669 -34.11668,-51.91668 -16.68763,-24.39278 -35,-60 -5,-70 -32.31239,-68.10727 22.31239,-11.89273 70,-44.999998 80,-20 102.846,-0.982287 97.15396,-29.017713 50,50 30,69.999998 40,80 30.5627,14.43442 4.45,10.38333 19.9873,45.18225 65,-50" id="path3754" style="fill:none;stroke:#4e96ab;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(166.33334,192.4241)" id="path3781" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(101.33334,242.4241)" id="path3781-7" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(81.33334,202.4241)" id="path3781-7-9" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(46.333338,172.4241)" id="path3781-7-8" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(6.333338,92.424102)" id="path3781-7-2" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-23.666662,22.424102)" id="path3781-7-83" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-73.666662,-27.575898)" id="path3781-7-0" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-273.66666,2.4241016)" id="path3781-7-22" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-353.66666,22.424102)" id="path3781-7-3" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-423.66666,67.424102)" id="path3781-7-02" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-413.66666,147.4241)" id="path3781-7-97" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-408.66666,222.4241)" id="path3781-7-97-7" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-367.66666,287.4241)" id="path3781-7-97-3" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-318.66666,357.4241)" id="path3781-7-97-0" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-273.66666,432.4241)" id="path3781-7-97-4" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-573.66666,552.4241)" id="path3781-7-97-9-7" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-773.66666,572.4241)" id="path3781-7-97-9-23" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-853.66666,578.4241)" id="path3781-7-97-9-9" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-933.66666,590.4241)" id="path3781-7-97-9-03" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-979.66666,557.4241)" id="path3781-7-97-9-6" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-998.66666,607.4241)" id="path3781-7-97-9-62" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-1133.6667,662.4241)" id="path3781-7-97-9-3" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-992.66666,493.4241)" id="path3781-7-97-9-91" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-1023.6667,449.4241)" id="path3781-7-97-9-36" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-1103.6667,442.4241)" id="path3781-7-97-9-8" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-521.66666,82.424102)" id="path3781-7-02-1" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-490.66666,147.4241)" id="path3781-7-02-7" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-458.66666,204.4241)" id="path3781-7-02-3" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-593.66666,157.4241)" id="path3781-7-02-4" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-543.66666,226.4241)" id="path3781-7-02-46" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-498.66666,282.4241)" id="path3781-7-02-32" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-448.66666,313.4241)" id="path3781-7-02-9" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-396.66666,300.4241)" id="path3781-7-02-37" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-573.66666,292.4241)" id="path3781-7-02-38" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-457.66666,425.4241)" id="path3781-7-02-35" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-673.66666,408.4241)" id="path3781-7-02-6" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-698.66666,484.4241)" id="path3781-7-02-95" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-648.66666,677.4241)" id="path3781-7-02-41" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-594.66666,737.4241)" id="path3781-7-02-5" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-501.66666,677.4241)" id="path3781-7-02-2" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-501.66666,596.4241)" id="path3781-7-02-78" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-530.66666,737.4241)" id="path3781-7-02-18" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-476.66666,832.4241)" id="path3781-7-02-8" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-628.66666,787.4241)" id="path3781-7-02-44" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-428.66666,867.4241)" id="path3781-7-02-15" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-388.66666,992.4241)" id="path3781-7-02-29" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 591.33334,812.4241 -110,160 -70,100" id="path4099" style="fill:#d4893b;fill-opacity:1;stroke:#d4893b;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-661.66666,925.4241)" id="path3781-7-02-0" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-238.66666,882.4241)" id="path3781-7-02-85" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-220.66666,962.4241)" id="path3781-7-02-06" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-209.66666,1024.4241)" id="path3781-7-02-52" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-195.66666,1095.4241)" id="path3781-7-02-152" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-283.66666,1097.4241)" id="path3781-7-02-01" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(30.333338,1076.4241)" id="path3781-7-02-60" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-171.66666,1230.4241)" id="path3781-7-02-56" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-156.66666,1292.4241)" id="path3781-7-02-59" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(101.33334,1144.4241)" id="path3781-7-02-05" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(181.33334,1227.4241)" id="path3781-7-02-63" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(238.33334,1281.4241)" id="path3781-7-02-40" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(304.33334,1346.4241)" id="path3781-7-02-464" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-243.66666,477.4241)" id="path3781-7-02-42" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-203.66666,427.4241)" id="path3781-7-02-24" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-261.66666,768.4241)" id="path3781-7-02-62" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <g transform="translate(-548.66666,61.424102)" id="g4005">
+      <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="matrix(1.3333333,0,0,1.3333333,-262.66663,440)" id="path3978-9" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(119,455)" id="path3781-7-97-9-2-3" style="fill:#4e96ab;fill-opacity:1;stroke:#d4893b;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g transform="translate(-497.66666,56.424102)" id="g4005-8">
+      <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="matrix(1.3333333,0,0,1.3333333,-262.66663,440)" id="path3978-9-0" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(119,455)" id="path3781-7-97-9-2-3-2" style="fill:#4e96ab;fill-opacity:1;stroke:#d4893b;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g transform="translate(-417.66666,48.424102)" id="g4005-83">
+      <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="matrix(1.3333333,0,0,1.3333333,-262.66663,440)" id="path3978-9-9" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(119,455)" id="path3781-7-97-9-2-3-0" style="fill:#4e96ab;fill-opacity:1;stroke:#d4893b;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g transform="translate(-797.66666,108.4241)" id="g4005-5">
+      <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="matrix(1.3333333,0,0,1.3333333,-262.66663,440)" id="path3978-9-2" style="fill:#4e96ab;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(119,455)" id="path3781-7-97-9-2-3-27" style="fill:#4e96ab;fill-opacity:1;stroke:#d4893b;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g transform="translate(-234.30956,-817.93309)" id="g4162">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,101.07147,112.64286)" id="path4101-3" style="fill:#b43bd4;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1197.6562" y="1270.6827" id="text6813" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1197.6562" y="1270.6827" id="tspan6815">
+          <tspan x="1197.6562" y="1270.6827" id="tspan6817">2</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-686.30956,-1168.3281)" id="g4162-3">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,101.07147,112.64286)" id="path4101-3-9" style="fill:#b43bd4;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1197.6562" y="1270.6827" id="text6945" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1197.6562" y="1270.6827" id="tspan6947">
+          <tspan x="1197.6562" y="1270.6827" id="tspan6949">2</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(25.690438,-897.9331)" id="g4240">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,-128.92853,192.64286)" id="path4101-9" style="fill:#46b999;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="967.65625" y="1350.6827" id="text6807" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="967.65625" y="1350.6827" id="tspan6809">
+          <tspan x="967.65625" y="1350.6827" id="tspan6811">3</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(373.97615,70.924095)" id="g4240-6">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,-128.92853,192.64286)" id="path4101-9-2" style="fill:#46b999;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="967.65625" y="1350.6827" id="text7060" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="967.65625" y="1350.6827" id="tspan7062">
+          <tspan x="967.65625" y="1350.6827" id="tspan7064">3</tspan>
+        </tspan>
+      </text>
+    </g>
+    <text x="744.54034" y="452.2532" id="text5928" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="744.54034" y="452.2532" id="tspan5930">
+        <tspan x="744.54034" y="452.2532" id="tspan5932">CENTRE</tspan>
+      </tspan>
+    </text>
+    <text x="958.39581" y="474.2532" id="text5922" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="958.39581" y="474.2532" id="tspan5924">
+        <tspan x="958.39581" y="474.2532" id="tspan5926">Staničné nám. - GARE</tspan>
+      </tspan>
+    </text>
+    <g transform="translate(175.69044,-937.9331)" id="g4395">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,-218.92853,232.64286)" id="path4101-2-4" style="fill:#d99452;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="877.65625" y="1390.6827" id="text6795" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="877.65625" y="1390.6827" id="tspan6797">
+          <tspan x="877.65625" y="1390.6827" id="tspan6799">6</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-116.92444,-1022.7586)" id="g4395-4">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,-218.92853,232.64286)" id="path4101-2-4-8" style="fill:#d99452;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="877.65625" y="1390.6827" id="text6993" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="877.65625" y="1390.6827" id="tspan6995">
+          <tspan x="877.65625" y="1390.6827" id="tspan6997">6</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(128.38575,-148.45394)" id="g4512">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,-298.92853,332.64286)" id="path4101-4" style="fill:#5e97d2;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="797.65625" y="1490.6827" id="text7011" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="797.65625" y="1490.6827" id="tspan7013">
+          <tspan x="797.65625" y="1490.6827" id="tspan7015">4</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-188.51823,118.4241)" id="g5397">
+      <g id="g5388">
+        <g id="g5380">
+          <g transform="translate(-67.791337,-1506.7522)" id="g4512-8">
+            <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,-298.92853,332.64286)" id="path4101-4-3" style="fill:#5e97d2;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+            <text x="797.65625" y="1490.6827" id="text6951" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+              <tspan x="797.65625" y="1490.6827" id="tspan6953">
+                <tspan x="797.65625" y="1490.6827" id="tspan6955">4</tspan>
+              </tspan>
+            </text>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g transform="translate(399.80425,110.30209)" id="g4602">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,-124.75663,153.26487)" id="path4101-5" style="fill:#8cc839;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="971.82812" y="1311.3047" id="text7066" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="971.82812" y="1311.3047" id="tspan7068">
+          <tspan x="971.82812" y="1311.3047" id="tspan7070" style="fill:#ffffff">7</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-472.48146,-1136.5551)" id="g4602-4">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,-124.75663,153.26487)" id="path4101-5-9" style="fill:#8cc839;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="971.82812" y="1311.3047" id="text6987" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="971.82812" y="1311.3047" id="tspan6989">
+          <tspan x="971.82812" y="1311.3047" id="tspan6991" style="fill:#ffffff">7</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(343.97615,30.924095)" id="g4680">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,-38.928532,232.64286)" id="path4101-41" style="fill:#f6f119;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1057.6562" y="1390.6827" id="text7072" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1057.6562" y="1390.6827" id="tspan7074">
+          <tspan x="1057.6562" y="1390.6827" id="tspan7076">9</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-486.30956,-1288.3281)" id="g4680-6">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,-38.928532,232.64286)" id="path4101-41-7" style="fill:#f6f119;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1057.6562" y="1390.6827" id="text6957" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1057.6562" y="1390.6827" id="tspan6959">
+          <tspan x="1057.6562" y="1390.6827" id="tspan6961">9</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-320.97135,-8.4539384)" id="g5079">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,180.42857,192.64286)" id="path4101" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1271.8549" y="1350.6827" id="text7017" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1271.8549" y="1350.6827" id="tspan7019">
+          <tspan x="1271.8549" y="1350.6827" id="tspan7021">R</tspan>
+        </tspan>
+      </text>
+      <text x="1281.6562" y="1350.6827" id="text7023" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1281.6562" y="1350.6827" id="tspan7025">
+          <tspan x="1281.6562" y="1350.6827" id="tspan7027">8</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-632.66666,-1180.933)" id="g5046">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,65.428568,197.64286)" id="path4101-1" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1156.8549" y="1355.6827" id="text6975" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1156.8549" y="1355.6827" id="tspan6977">
+          <tspan x="1156.8549" y="1355.6827" id="tspan6979">R</tspan>
+        </tspan>
+      </text>
+      <text x="1166.6562" y="1355.6827" id="text6981" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1166.6562" y="1355.6827" id="tspan6983">
+          <tspan x="1166.6562" y="1355.6827" id="tspan6985">4</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-128.66667,-912.9331)" id="g5068">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,115.42857,207.64286)" id="path4101-1-5" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1206.8549" y="1365.6827" id="text6783" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1206.8549" y="1365.6827" id="tspan6785">
+          <tspan x="1206.8549" y="1365.6827" id="tspan6787">R</tspan>
+        </tspan>
+      </text>
+      <text x="1216.6562" y="1365.6827" id="text6789" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1216.6562" y="1365.6827" id="tspan6791">
+          <tspan x="1216.6562" y="1365.6827" id="tspan6793">1</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-470.66666,-1263.3281)" id="g5002">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,-24.571432,207.64286)" id="path4101-1-8" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1066.8549" y="1365.6827" id="text6963" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1066.8549" y="1365.6827" id="tspan6965">
+          <tspan x="1066.8549" y="1365.6827" id="tspan6967">R</tspan>
+        </tspan>
+      </text>
+      <text x="1076.6562" y="1365.6827" id="text6969" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1076.6562" y="1365.6827" id="tspan6971">
+          <tspan x="1076.6562" y="1365.6827" id="tspan6973">3</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(329.61905,80.924096)" id="g5013">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,5.4285678,182.64286)" id="path4101-1-1" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1096.8549" y="1340.6827" id="text7078" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1096.8549" y="1340.6827" id="tspan7080">
+          <tspan x="1096.8549" y="1340.6827" id="tspan7082">R</tspan>
+        </tspan>
+      </text>
+      <text x="1106.6562" y="1340.6827" id="text7084" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1106.6562" y="1340.6827" id="tspan7086">
+          <tspan x="1106.6562" y="1340.6827" id="tspan7088">2</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-254.98694,-558.9617)" id="g5024">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,10.428568,212.64286)" id="path4101-1-5-0" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1101.8549" y="1370.6827" id="text7109" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1101.8549" y="1370.6827" id="tspan7111">
+          <tspan x="1101.8549" y="1370.6827" id="tspan7113">R</tspan>
+        </tspan>
+      </text>
+      <text x="1111.6562" y="1370.6827" id="text7115" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1111.6562" y="1370.6827" id="tspan7117">
+          <tspan x="1111.6562" y="1370.6827" id="tspan7119">5</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-657.48694,-562.75858)" id="g5035">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,45.428568,222.64286)" id="path4101-1-5-3" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1136.8549" y="1380.6827" id="text7048" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1136.8549" y="1380.6827" id="tspan7050">
+          <tspan x="1136.8549" y="1380.6827" id="tspan7052">R</tspan>
+        </tspan>
+      </text>
+      <text x="1146.6562" y="1380.6827" id="text7054" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1146.6562" y="1380.6827" id="tspan7056">
+          <tspan x="1146.6562" y="1380.6827" id="tspan7058">6</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-666.08069,-979.2586)" id="g5057">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,95.428568,177.64286)" id="path4101-1-5-4" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1186.8549" y="1335.6827" id="text6999" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1186.8549" y="1335.6827" id="tspan7001">
+          <tspan x="1186.8549" y="1335.6827" id="tspan7003">R</tspan>
+        </tspan>
+      </text>
+      <text x="1196.6562" y="1335.6827" id="text7005" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1196.6562" y="1335.6827" id="tspan7007">
+          <tspan x="1196.6562" y="1335.6827" id="tspan7009">7</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-821.58069,-238.25859)" id="g5079-7">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,180.42857,192.64286)" id="path4101-57" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1271.8549" y="1350.6827" id="text6903" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1271.8549" y="1350.6827" id="tspan6905">
+          <tspan x="1271.8549" y="1350.6827" id="tspan6907">R</tspan>
+        </tspan>
+      </text>
+      <text x="1281.6562" y="1350.6827" id="text6909" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1281.6562" y="1350.6827" id="tspan6911">
+          <tspan x="1281.6562" y="1350.6827" id="tspan6913">8</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-826.58069,-243.25859)" id="g5046-5">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,65.428568,197.64286)" id="path4101-1-4" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1156.8549" y="1355.6827" id="text6855" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1156.8549" y="1355.6827" id="tspan6857">
+          <tspan x="1156.8549" y="1355.6827" id="tspan6859">R</tspan>
+        </tspan>
+      </text>
+      <text x="1166.6562" y="1355.6827" id="text6861" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1166.6562" y="1355.6827" id="tspan6863">
+          <tspan x="1166.6562" y="1355.6827" id="tspan6865">4</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-966.58069,-253.25859)" id="g5068-7">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,115.42857,207.64286)" id="path4101-1-5-37" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1206.8549" y="1365.6827" id="text6819" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1206.8549" y="1365.6827" id="tspan6821">
+          <tspan x="1206.8549" y="1365.6827" id="tspan6823">R</tspan>
+        </tspan>
+      </text>
+      <text x="1216.6562" y="1365.6827" id="text6825" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1216.6562" y="1365.6827" id="tspan6827">
+          <tspan x="1216.6562" y="1365.6827" id="tspan6829">1</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-766.58069,-253.25859)" id="g5002-6">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,-24.571432,207.64286)" id="path4101-1-8-7" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1066.8549" y="1365.6827" id="text6843" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1066.8549" y="1365.6827" id="tspan6845">
+          <tspan x="1066.8549" y="1365.6827" id="tspan6847">R</tspan>
+        </tspan>
+      </text>
+      <text x="1076.6562" y="1365.6827" id="text6849" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1076.6562" y="1365.6827" id="tspan6851">
+          <tspan x="1076.6562" y="1365.6827" id="tspan6853">3</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-826.58069,-228.25859)" id="g5013-4">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,5.4285678,182.64286)" id="path4101-1-1-5" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1096.8549" y="1340.6827" id="text6831" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1096.8549" y="1340.6827" id="tspan6833">
+          <tspan x="1096.8549" y="1340.6827" id="tspan6835">R</tspan>
+        </tspan>
+      </text>
+      <text x="1106.6562" y="1340.6827" id="text6837" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1106.6562" y="1340.6827" id="tspan6839">
+          <tspan x="1106.6562" y="1340.6827" id="tspan6841">2</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-741.58069,-258.25859)" id="g5024-6">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,10.428568,212.64286)" id="path4101-1-5-0-3" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1101.8549" y="1370.6827" id="text6867" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1101.8549" y="1370.6827" id="tspan6869">
+          <tspan x="1101.8549" y="1370.6827" id="tspan6871">R</tspan>
+        </tspan>
+      </text>
+      <text x="1111.6562" y="1370.6827" id="text6873" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1111.6562" y="1370.6827" id="tspan6875">
+          <tspan x="1111.6562" y="1370.6827" id="tspan6877">5</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-746.58069,-268.25859)" id="g5035-7">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,45.428568,222.64286)" id="path4101-1-5-3-1" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1136.8549" y="1380.6827" id="text6879" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1136.8549" y="1380.6827" id="tspan6881">
+          <tspan x="1136.8549" y="1380.6827" id="tspan6883">R</tspan>
+        </tspan>
+      </text>
+      <text x="1146.6562" y="1380.6827" id="text6885" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1146.6562" y="1380.6827" id="tspan6887">
+          <tspan x="1146.6562" y="1380.6827" id="tspan6889">6</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-766.58069,-223.25859)" id="g5057-0">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,95.428568,177.64286)" id="path4101-1-5-4-9" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1186.8549" y="1335.6827" id="text6891" xml:space="preserve" style="font-size:13.47368431px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1186.8549" y="1335.6827" id="tspan6893">
+          <tspan x="1186.8549" y="1335.6827" id="tspan6895">R</tspan>
+        </tspan>
+      </text>
+      <text x="1196.6562" y="1335.6827" id="text6897" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1196.6562" y="1335.6827" id="tspan6899">
+          <tspan x="1196.6562" y="1335.6827" id="tspan6901">7</tspan>
+        </tspan>
+      </text>
+    </g>
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-279.66666,668.4241)" id="path3781-7-02-62-6" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 1150,45 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z" transform="translate(-289.66666,588.4241)" id="path3781-7-02-62-7" style="fill:#d4893b;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text x="417.15561" y="412.24637" id="text5660" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="417.15561" y="412.24637" id="tspan5662">
+        <tspan x="417.15561" y="412.24637" id="tspan5664">6 9 R3 R4 R7</tspan>
+      </tspan>
+    </text>
+    <g transform="translate(-117.19654,270.02815)" id="g5531">
+      <rect width="16.666666" height="16.666666" x="119.66666" y="405.66666" id="rect5446" style="fill:#a4f51a;fill-opacity:1;fill-rule:nonzero;stroke:#a4f51a;stroke-width:3.33333325;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text x="119.15625" y="419.75" id="text6927" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="119.15625" y="419.75" id="tspan6929">
+          <tspan x="119.15625" y="419.75" id="tspan6931" style="fill:#ffffff">72</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-109.62762,-10.825918)" id="g5524">
+      <rect width="16.666666" height="16.666666" x="124.66666" y="475.66666" id="rect5446-8" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:#3bb8e3;stroke-width:3.33333325;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text x="125.20315" y="489.75003" id="text6921" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="125.20315" y="489.75003" id="tspan6923">
+          <tspan x="125.20315" y="489.75003" id="tspan6925" style="fill:#ffffff">71</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(1223.3333,-201.57589)" id="g5531-9">
+      <rect width="16.666666" height="16.666666" x="119.66666" y="405.66666" id="rect5446-3" style="fill:#a4f51a;fill-opacity:1;fill-rule:nonzero;stroke:#a4f51a;stroke-width:3.33333325;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text x="119.15625" y="419.75" id="text6933" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="119.15625" y="419.75" id="tspan6935">
+          <tspan x="119.15625" y="419.75" id="tspan6937" style="fill:#ffffff">72</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(1188.3333,-271.57589)" id="g5524-2">
+      <rect width="16.666666" height="16.666666" x="124.66666" y="475.66666" id="rect5446-8-5" style="fill:#3bb8e3;fill-opacity:1;fill-rule:nonzero;stroke:#3bb8e3;stroke-width:3.33333325;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text x="125.20315" y="489.75003" id="text6939" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="125.20315" y="489.75003" id="tspan6941">
+          <tspan x="125.20315" y="489.75003" id="tspan6943" style="fill:#ffffff">71</tspan>
+        </tspan>
+      </text>
+    </g>
+    <text x="757.15564" y="982.48657" id="text5478" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="757.15564" y="982.48657" id="tspan5480">
+        <tspan x="757.15564" y="982.48657" id="tspan5482">9 R2 R8</tspan>
+      </tspan>
+    </text>
+    <text x="930.74542" y="972.2464" id="text5472" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="930.74542" y="972.2464" id="tspan5474">
+        <tspan x="930.74542" y="972.2464" id="tspan5476">3 4 7</tspan>
+      </tspan>
+    </text>
+    <text x="1219.1957" y="1152.2463" id="text5580" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1219.1957" y="1152.2463" id="tspan5582">
+        <tspan x="1219.1957" y="1152.2463" id="tspan5584">3 7 9 R2</tspan>
+      </tspan>
+    </text>
+    <text x="969.19562" y="1212.4866" id="text5586" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="969.19562" y="1212.4866" id="tspan5588">
+        <tspan x="969.19562" y="1212.4866" id="tspan5590">4 R8</tspan>
+      </tspan>
+    </text>
+    <text x="452.57651" y="922.25317" id="text5592" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="452.57651" y="922.25317" id="tspan5594">
+        <tspan x="452.57651" y="922.25317" id="tspan5596">5 R1 - R8</tspan>
+      </tspan>
+    </text>
+    <text x="637.15564" y="752.48657" id="text5598" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="637.15564" y="752.48657" id="tspan5600">
+        <tspan x="637.15564" y="752.48657" id="tspan5602">6 R1</tspan>
+      </tspan>
+    </text>
+    <text x="522.45831" y="242.44559" id="text5604" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="522.45831" y="242.44559" id="tspan5606">
+        <tspan x="522.45831" y="242.44559" id="tspan5608">7 R4</tspan>
+      </tspan>
+    </text>
+    <text x="606.45831" y="224.44559" id="text5574" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="606.45831" y="224.44559" id="tspan5576">
+        <tspan x="606.45831" y="224.44559" id="tspan5578">2 4 9 R3</tspan>
+      </tspan>
+    </text>
+    <text x="642.45831" y="442.44559" id="text5610" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="642.45831" y="442.44559" id="tspan5612">
+        <tspan x="642.45831" y="442.44559" id="tspan5614">2 4 7</tspan>
+      </tspan>
+    </text>
+    <text x="750.92316" y="582.48657" id="text5616" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="750.92316" y="582.48657" id="tspan5618">
+        <tspan x="750.92316" y="582.48657" id="tspan5620">2 4 6 7 R1</tspan>
+        <tspan x="819.41925" y="582.48657" dx="0" id="tspan5622" />
+      </tspan>
+      <tspan x="750.92316" y="599.98657" id="tspan5624">
+        <tspan x="750.92316" y="599.98657" id="tspan5626">71 72</tspan>
+      </tspan>
+    </text>
+    <text x="928.42316" y="502.4866" id="text5628" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="928.42316" y="502.4866" id="tspan5630">
+        <tspan x="928.42316" y="502.4866" id="tspan5632">2 3 6 R1</tspan>
+        <tspan x="985.24347" y="502.4866" dx="0" id="tspan5634" />
+      </tspan>
+    </text>
+    <text x="397.07846" y="602.42407" id="text5636" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="397.07846" y="602.42407" id="tspan5638">
+        <tspan x="397.07846" y="602.42407" id="tspan5640">71 72</tspan>
+      </tspan>
+    </text>
+    <text x="937.07843" y="72.424103" id="text5642" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="937.07843" y="72.424103" id="tspan5644">
+        <tspan x="937.07843" y="72.424103" id="tspan5646">71 72</tspan>
+      </tspan>
+    </text>
+    <text x="1314.2631" y="257.47781" id="text5648" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1314.2631" y="257.47781" id="tspan5650">
+        <tspan x="1314.2631" y="257.47781" id="tspan5652">Lingov</tspan>
+      </tspan>
+    </text>
+    <text x="1212.177" y="310.60739" id="text5654" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1212.177" y="310.60739" id="tspan5656">
+        <tspan x="1212.177" y="310.60739" id="tspan5658">Darg. Hrdinou, MiÚ</tspan>
+      </tspan>
+    </text>
+    <text x="1134.3818" y="253.58916" id="text3983" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1134.3818" y="253.58916" id="tspan3987">Postupimská</tspan>
+    </text>
+    <text x="1120.0521" y="217.66992" id="text5568" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1120.0521" y="217.66992" id="tspan5570">
+        <tspan x="1120.0521" y="217.66992" id="tspan5572">Zupkova</tspan>
+      </tspan>
+    </text>
+    <text x="1030.1459" y="148.91992" id="text5666" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1030.1459" y="148.91992" id="tspan5668">
+        <tspan x="1030.1459" y="148.91992" id="tspan5670">Poliklinika Východ</tspan>
+      </tspan>
+    </text>
+    <text x="1130.9896" y="59.201172" id="text5672" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1130.9896" y="59.201172" id="tspan5674">
+        <tspan x="1130.9896" y="59.201172" id="tspan5676">Fábryho</tspan>
+      </tspan>
+    </text>
+    <text x="1079.4896" y="10.076171" id="text5678" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1079.4896" y="10.076171" id="tspan5680">
+        <tspan x="1079.4896" y="10.076171" id="tspan5682">Kalinovská</tspan>
+      </tspan>
+    </text>
+    <text x="858.30212" y="30.576172" id="text5684" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="858.30212" y="30.576172" id="tspan5686">
+        <tspan x="858.30212" y="30.576172" id="tspan5688">Tesco, Džungla</tspan>
+      </tspan>
+    </text>
+    <text x="800.39581" y="88.263672" id="text5690" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="800.39581" y="88.263672" id="tspan5692">
+        <tspan x="800.39581" y="88.263672" id="tspan5694">Pri hati</tspan>
+      </tspan>
+    </text>
+    <text x="727.36456" y="141.13867" id="text5696" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="727.36456" y="141.13867" id="tspan5698">
+        <tspan x="727.36456" y="141.13867" id="tspan5700">Mier</tspan>
+      </tspan>
+    </text>
+    <text x="753.55206" y="195.51367" id="text5702" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="753.55206" y="195.51367" id="tspan5704">
+        <tspan x="753.55206" y="195.51367" id="tspan5706">Tomášikova</tspan>
+      </tspan>
+    </text>
+    <text x="764.23956" y="268.32617" id="text5708" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="764.23956" y="268.32617" id="tspan5710">
+        <tspan x="764.23956" y="268.32617" id="tspan5712">Národné nám.</tspan>
+      </tspan>
+    </text>
+    <text x="793.36456" y="329.51367" id="text5562" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="793.36456" y="329.51367" id="tspan5564">
+        <tspan x="793.36456" y="329.51367" id="tspan5566">Mlynská bašťa</tspan>
+      </tspan>
+    </text>
+    <text x="842.89581" y="394.54492" id="text5714" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="842.89581" y="394.54492" id="tspan5716">
+        <tspan x="842.89581" y="394.54492" id="tspan5718">Vodná</tspan>
+      </tspan>
+    </text>
+    <text x="777.83331" y="491.63867" id="text5720" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="777.83331" y="491.63867" id="tspan5722">
+        <tspan x="777.83331" y="491.63867" id="tspan5724">Jakabov palác</tspan>
+      </tspan>
+    </text>
+    <text x="910.73956" y="536.13867" id="text5726" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="910.73956" y="536.13867" id="tspan5728">
+        <tspan x="910.73956" y="536.13867" id="tspan5730">Senný trh</tspan>
+      </tspan>
+    </text>
+    <text x="860.26691" y="566.62329" id="text5732" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="860.26691" y="566.62329" id="tspan5734">
+        <tspan x="860.26691" y="566.62329" id="tspan5736">Nám. Osloboditeľov</tspan>
+      </tspan>
+    </text>
+    <text x="874.92712" y="632.41992" id="text5738" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="874.92712" y="632.41992" id="tspan5740">
+        <tspan x="874.92712" y="632.41992" id="tspan5742">Astoria</tspan>
+      </tspan>
+    </text>
+    <text x="881.70831" y="717.85742" id="text5744" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="881.70831" y="717.85742" id="tspan5746">
+        <tspan x="881.70831" y="717.85742" id="tspan5748">Strará nemocnica</tspan>
+      </tspan>
+    </text>
+    <text x="893.08331" y="807.16992" id="text5750" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="893.08331" y="807.16992" id="tspan5752">
+        <tspan x="893.08331" y="807.16992" id="tspan5754">Ryba</tspan>
+      </tspan>
+    </text>
+    <text x="916.33331" y="922.63867" id="text5756" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="916.33331" y="922.63867" id="tspan5758">
+        <tspan x="916.33331" y="922.63867" id="tspan5760">Holubyho</tspan>
+      </tspan>
+    </text>
+    <text x="934.77081" y="1002.2012" id="text5762" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="934.77081" y="1002.2012" id="tspan5764">
+        <tspan x="934.77081" y="1002.2012" id="tspan5766">Verejný cintorin</tspan>
+      </tspan>
+    </text>
+    <text x="950.64581" y="1062.5137" id="text5556" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="950.64581" y="1062.5137" id="tspan5558">
+        <tspan x="950.64581" y="1062.5137" id="tspan5560">Južná trieda</tspan>
+      </tspan>
+    </text>
+    <text x="868.74542" y="680.2464" id="text5768" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="868.74542" y="680.2464" id="tspan5770">
+        <tspan x="868.74542" y="680.2464" id="tspan5772">3 4 7 R5</tspan>
+      </tspan>
+    </text>
+    <text x="963.14581" y="1158.4512" id="text5774" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="963.14581" y="1158.4512" id="tspan5776">
+        <tspan x="963.14581" y="1158.4512" id="tspan5778">VSS, krížovatka</tspan>
+      </tspan>
+    </text>
+    <text x="991.14581" y="1274.9512" id="text5780" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="991.14581" y="1274.9512" id="tspan5782">
+        <tspan x="991.14581" y="1274.9512" id="tspan5784">Katastrálny úrad</tspan>
+      </tspan>
+    </text>
+    <text x="1003.8646" y="1336.2949" id="text5786" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1003.8646" y="1336.2949" id="tspan5788">
+        <tspan x="1003.8646" y="1336.2949" id="tspan5790">Socha Jána Pavla II.</tspan>
+      </tspan>
+    </text>
+    <text x="1181.8334" y="1112.2012" id="text5792" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1181.8334" y="1112.2012" id="tspan5794">
+        <tspan x="1181.8334" y="1112.2012" id="tspan5796">Levočská</tspan>
+      </tspan>
+    </text>
+    <text x="1169.3646" y="1200.3262" id="text5798" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1169.3646" y="1200.3262" id="tspan5800">
+        <tspan x="1169.3646" y="1200.3262" id="tspan5802">Dneperská</tspan>
+      </tspan>
+    </text>
+    <text x="1257.0834" y="1284.8574" id="text5804" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1257.0834" y="1284.8574" id="tspan5806">
+        <tspan x="1257.0834" y="1284.8574" id="tspan5808">Ladožská</tspan>
+      </tspan>
+    </text>
+    <text x="1307.9584" y="1338.1699" id="text5810" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1307.9584" y="1338.1699" id="tspan5812">
+        <tspan x="1307.9584" y="1338.1699" id="tspan5814">Rovníková</tspan>
+      </tspan>
+    </text>
+    <text x="1379.3959" y="1393.7012" id="text5816" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="1379.3959" y="1393.7012" id="tspan5818">
+        <tspan x="1379.3959" y="1393.7012" id="tspan5820">Važecká</tspan>
+      </tspan>
+    </text>
+    <text x="744.83331" y="531.73242" id="text5550" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="744.83331" y="531.73242" id="tspan5552">
+        <tspan x="744.83331" y="531.73242" id="tspan5554">Dom umenia</tspan>
+      </tspan>
+    </text>
+    <text x="598.92706" y="483.29492" id="text5822" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="598.92706" y="483.29492" id="tspan5824">
+        <tspan x="598.92706" y="483.29492" id="tspan5826">Hlavná pošta</tspan>
+      </tspan>
+    </text>
+    <text x="653.15948" y="653.47778" id="text5840" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="653.15948" y="653.47778" id="tspan5842">
+        <tspan x="653.15948" y="653.47778" id="tspan5844">Zimný štadión</tspan>
+      </tspan>
+    </text>
+    <text x="520.65656" y="570.50024" id="text5828" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="520.65656" y="570.50024" id="tspan5830">
+        <tspan x="520.65656" y="570.50024" id="tspan5832">Ružová,</tspan>
+        <tspan x="575.91827" y="570.50024" dx="0" id="tspan5834" />
+      </tspan>
+      <tspan x="520.65656" y="588.00024" id="tspan5836">
+        <tspan x="520.65656" y="588.00024" id="tspan5838">OC Galéria</tspan>
+      </tspan>
+    </text>
+    <text x="481.70834" y="629.32617" id="text5846" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="481.70834" y="629.32617" id="tspan5848">
+        <tspan x="481.70834" y="629.32617" id="tspan5850">Magistát mesta</tspan>
+      </tspan>
+      <tspan x="481.70834" y="646.82617" id="tspan5852">
+        <tspan x="481.70834" y="646.82617" id="tspan5854">Košice</tspan>
+      </tspan>
+    </text>
+    <text x="650.90753" y="718.26007" id="text5856" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="650.90753" y="718.26007" id="tspan5858">
+        <tspan x="650.90753" y="718.26007" id="tspan5860">Idanská</tspan>
+      </tspan>
+    </text>
+    <text x="630.27081" y="557.95117" id="text5862" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="630.27081" y="557.95117" id="tspan5864">
+        <tspan x="630.27081" y="557.95117" id="tspan5866">Krajský súd</tspan>
+      </tspan>
+    </text>
+    <text x="621.17706" y="796.38867" id="text5868" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="621.17706" y="796.38867" id="tspan5870">
+        <tspan x="621.17706" y="796.38867" id="tspan5872">SOŠ automobilová</tspan>
+      </tspan>
+    </text>
+    <text x="466.25327" y="846.42413" id="text5874" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="466.25327" y="846.42413" id="tspan5876">
+        <tspan x="466.25327" y="846.42413" id="tspan5878">DPMK</tspan>
+      </tspan>
+    </text>
+    <text x="546.08331" y="748.41992" id="text5880" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="546.08331" y="748.41992" id="tspan5882">
+        <tspan x="546.08331" y="748.41992" id="tspan5884">Spoločenský</tspan>
+        <tspan x="629.39972" y="748.41992" dx="0" id="tspan5886" />
+      </tspan>
+      <tspan x="546.08331" y="765.91992" id="tspan5888">
+        <tspan x="546.08331" y="765.91992" id="tspan5890">pavilón</tspan>
+      </tspan>
+    </text>
+    <text x="503.86459" y="714.20117" id="text5892" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="503.86459" y="714.20117" id="tspan5894">
+        <tspan x="503.86459" y="714.20117" id="tspan5896">Bernoláková</tspan>
+      </tspan>
+    </text>
+    <text x="340.98959" y="639.04492" id="text5898" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="340.98959" y="639.04492" id="tspan5900">
+        <tspan x="340.98959" y="639.04492" id="tspan5902">Hodononská</tspan>
+      </tspan>
+    </text>
+    <text x="258.11459" y="647.66992" id="text5904" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="258.11459" y="647.66992" id="tspan5906">
+        <tspan x="258.11459" y="647.66992" id="tspan5908">Diamantová</tspan>
+      </tspan>
+    </text>
+    <text x="200.93491" y="622.25317" id="text5910" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="200.93491" y="622.25317" id="tspan5912">
+        <tspan x="200.93491" y="622.25317" id="tspan5914">Cottbuská</tspan>
+      </tspan>
+    </text>
+    <text x="173.95834" y="592.66992" id="text5916" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="173.95834" y="592.66992" id="tspan5918">
+        <tspan x="173.95834" y="592.66992" id="tspan5920">Poliklinika KVP</tspan>
+      </tspan>
+    </text>
+    <text x="160.92709" y="530.23242" id="text5544" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="160.92709" y="530.23242" id="tspan5546">
+        <tspan x="160.92709" y="530.23242" id="tspan5548">Miestný úrad, KVP</tspan>
+      </tspan>
+    </text>
+    <text x="123.98959" y="483.07617" id="text5538" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="123.98959" y="483.07617" id="tspan5540">
+        <tspan x="123.98959" y="483.07617" id="tspan5542">Husková</tspan>
+      </tspan>
+    </text>
+    <text x="3.7708399" y="513.73242" id="text5532" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="3.7708399" y="513.73242" id="tspan5534">
+        <tspan x="3.7708399" y="513.73242" id="tspan5536">KVP, kláštor</tspan>
+      </tspan>
+    </text>
+    <text x="63.907558" y="646.26007" id="text5526" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="63.907558" y="646.26007" id="tspan5528">
+        <tspan x="63.907558" y="646.26007" id="tspan5530">Moskovská</tspan>
+      </tspan>
+    </text>
+    <text x="20.39584" y="722.41992" id="text5934" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="20.39584" y="722.41992" id="tspan5936">
+        <tspan x="20.39584" y="722.41992" id="tspan5938">Grunt</tspan>
+      </tspan>
+    </text>
+    <text x="357.95834" y="527.45117" id="text5940" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="357.95834" y="527.45117" id="tspan5942">
+        <tspan x="357.95834" y="527.45117" id="tspan5944">Kino Družba</tspan>
+      </tspan>
+    </text>
+    <text x="354.64584" y="452.13867" id="text5946" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="354.64584" y="452.13867" id="tspan5948">
+        <tspan x="354.64584" y="452.13867" id="tspan5950">Nová nemocnica</tspan>
+      </tspan>
+    </text>
+    <text x="501.35385" y="334.26004" id="text5952" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="501.35385" y="334.26004" id="tspan5954">
+        <tspan x="501.35385" y="334.26004" id="tspan5956">Amfiteáter</tspan>
+      </tspan>
+    </text>
+    <text x="651.86456" y="322.07617" id="text5514" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="651.86456" y="322.07617" id="tspan5516">
+        <tspan x="651.86456" y="322.07617" id="tspan5518">Zimná</tspan>
+      </tspan>
+    </text>
+    <text x="527.00519" y="274.76004" id="text5958" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="527.00519" y="274.76004" id="tspan5960">
+        <tspan x="527.00519" y="274.76004" id="tspan5962">Technická</tspan>
+        <tspan x="593.17706" y="274.76004" dx="0" id="tspan5964" />
+      </tspan>
+      <tspan x="527.00519" y="292.26004" id="tspan5966">
+        <tspan x="527.00519" y="292.26004" id="tspan5968">univerzita</tspan>
+      </tspan>
+    </text>
+    <text x="425.14584" y="199.51367" id="text5970" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="425.14584" y="199.51367" id="tspan5972">
+        <tspan x="425.14584" y="199.51367" id="tspan5974">Botanická záhrada</tspan>
+      </tspan>
+    </text>
+    <text x="540.21222" y="128.26004" id="text5976" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="540.21222" y="128.26004" id="tspan5978">
+        <tspan x="540.21222" y="128.26004" id="tspan5980">Havlíčková</tspan>
+      </tspan>
+    </text>
+    <text x="567.70831" y="190.88867" id="text5520" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="567.70831" y="190.88867" id="tspan5522">
+        <tspan x="567.70831" y="190.88867" id="tspan5524">Krajský úrad</tspan>
+      </tspan>
+    </text>
+    <text x="615.98956" y="253.95117" id="text5982" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="615.98956" y="253.95117" id="tspan5984">
+        <tspan x="615.98956" y="253.95117" id="tspan5986">Poliklinika</tspan>
+      </tspan>
+      <tspan x="615.98956" y="271.45117" id="tspan5988">
+        <tspan x="615.98956" y="271.45117" id="tspan5990">Sever</tspan>
+      </tspan>
+    </text>
+    <text x="750.46417" y="1149.4778" id="text5992" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="750.46417" y="1149.4778" id="tspan5994">
+        <tspan x="750.46417" y="1149.4778" id="tspan5996">Autokemping</tspan>
+      </tspan>
+    </text>
+    <text x="669.11456" y="1051.8574" id="text5998" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="669.11456" y="1051.8574" id="tspan6000">
+        <tspan x="669.11456" y="1051.8574" id="tspan6002">Daňový úrad</tspan>
+      </tspan>
+    </text>
+    <text x="725.80206" y="905.04492" id="text6004" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="725.80206" y="905.04492" id="tspan6006">
+        <tspan x="725.80206" y="905.04492" id="tspan6008">Železniky križovatka</tspan>
+      </tspan>
+    </text>
+    <text x="675.05206" y="868.07617" id="text6010" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="675.05206" y="868.07617" id="tspan6012">
+        <tspan x="675.05206" y="868.07617" id="tspan6014">Alejová, školy</tspan>
+      </tspan>
+    </text>
+    <text x="490.05209" y="982.10742" id="text6016" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="490.05209" y="982.10742" id="tspan6018">
+        <tspan x="490.05209" y="982.10742" id="tspan6020">OC Optima</tspan>
+      </tspan>
+    </text>
+    <text x="365.80209" y="1087.1387" id="text6022" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="365.80209" y="1087.1387" id="tspan6024">
+        <tspan x="365.80209" y="1087.1387" id="tspan6026">Vers U.S. Steel</tspan>
+      </tspan>
+    </text>
+    <text x="634.52081" y="373.01367" id="text5502" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="634.52081" y="373.01367" id="tspan5504">
+        <tspan x="634.52081" y="373.01367" id="tspan5506">Radnica</tspan>
+        <tspan x="689.80988" y="373.01367" dx="0" id="tspan5508" />
+      </tspan>
+      <tspan x="634.52081" y="390.51367" id="tspan5510">
+        <tspan x="634.52081" y="390.51367" id="tspan5512">st. mesta</tspan>
+      </tspan>
+    </text>
+    <text x="719.29034" y="374.26004" id="text5484" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="719.29034" y="374.26004" id="tspan5486">
+        <tspan x="719.29034" y="374.26004" id="tspan5488">Nám</tspan>
+        <tspan x="752.75909" y="374.26004" dx="0" id="tspan5490" />
+      </tspan>
+      <tspan x="719.29034" y="391.76004" id="tspan5492">
+        <tspan x="719.29034" y="391.76004" id="tspan5494">maratóneho</tspan>
+        <tspan x="797.95831" y="391.76004" dx="0" id="tspan5496" />
+      </tspan>
+      <tspan x="719.29034" y="409.26004" id="tspan5498">
+        <tspan x="719.29034" y="409.26004" id="tspan5500">mieru</tspan>
+      </tspan>
+    </text>
+    <g transform="translate(-138.66666,92.424102)" id="g4586">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,65.42857,-797.71434)" id="path4571" style="fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1162.0133" y="360.3255" id="text6801" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1162.0133" y="360.3255" id="tspan6803">
+          <tspan x="1162.0133" y="360.3255" id="tspan6805">5</tspan>
+        </tspan>
+      </text>
+    </g>
+    <g transform="translate(-708.93779,608.39549)" id="g4586-9">
+      <path d="m 1300,1345 a 15,15 0 1 1 -30,0 15,15 0 1 1 30,0 z" transform="matrix(0.85714286,0,0,0.85714286,65.42857,-797.71434)" id="path4571-0" style="fill:#999999;fill-opacity:1;fill-rule:nonzero;stroke:none" />
+      <text x="1162.0133" y="360.3255" id="text7121" xml:space="preserve" style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+        <tspan x="1162.0133" y="360.3255" id="tspan7123">
+          <tspan x="1162.0133" y="360.3255" id="tspan7125">5</tspan>
+        </tspan>
+      </text>
+    </g>
+    <text x="55.974609" y="1254.5896" id="text6028" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="55.974609" y="1254.5896" id="tspan6030">
+        <tspan x="55.974609" y="1254.5896" id="tspan6032">Légende:</tspan>
+      </tspan>
+    </text>
+    <path d="m 57.5,1289.2813 80,0" id="path6074" style="fill:none;stroke:#d4893b;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path d="m 57.5,1329.2813 80,0" id="path6074-3" style="fill:none;stroke:#4e96ab;stroke-width:5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text x="163.97461" y="1286.835" id="text6034" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="163.97461" y="1286.835" id="tspan6036">
+        <tspan x="163.97461" y="1286.835" id="tspan6038">Tram</tspan>
+      </tspan>
+    </text>
+    <text x="163.97461" y="1332.5896" id="text6040" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="163.97461" y="1332.5896" id="tspan6042">
+        <tspan x="163.97461" y="1332.5896" id="tspan6044">Trolleybus</tspan>
+      </tspan>
+    </text>
+    <text x="380.3877" y="1029.1104" id="text6046" xml:space="preserve" style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial">
+      <tspan x="380.3877" y="1029.1104" id="tspan6048">
+        <tspan x="380.3877" y="1029.1104" id="tspan6050">R1 - R8</tspan>
+      </tspan>
+    </text>
+  </g>
+</svg>

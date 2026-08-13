@@ -1,0 +1,13 @@
+{
+  "city": "Aubagne",
+  "country": "France",
+  "continent": "europe",
+  "osm_route_ids": [
+    6497377,
+    6497378
+  ],
+  "wikipedia": "fr:Tramway d'Aubagne",
+  "wikidata": "Q3537052",
+  "source": "https://www.urbanrail.net/eu/fr/aubagne/aubagne.htm",
+  "note": "Aubagne（使用者 2026-07-27「抓錯」）。fr wiki／Q3537052＝ligne T、1 線 7 站（2014）。曾誤收馬賽 RTM T1（Noailles↔Les Caillols）＋未通車 Val'Tram（wiki 通車 début 2027）。只留 Lignes de l'Agglo r6497377/6497378。重跑 fetchUrbanrailGap 請保留 wikipedia/wikidata／osm_route_ids／note。"
+}

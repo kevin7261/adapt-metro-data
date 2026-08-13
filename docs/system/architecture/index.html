@@ -1,0 +1,1403 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>系統架構 · Adapt-Metro</title>
+<link rel="icon" href="../../../../favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../../../favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../favicon-32.png" />
+<link rel="apple-touch-icon" href="../../../../apple-touch-icon.png" />
+<meta name="description" content="Adapt-Metro 系統架構圖與 UML：C4 情境圖/容器圖、部署圖、前端元件圖、模組相依、命名鐵律「代碼＝tag＝資料夾＝檔名」與城市資料樹 maps/、四階段演算法管線（1-raw-maps〜4-frame-maps）、來源軸／消融、movewise 狀態機、直線演算法十一條鏈、LLM 九鏈觸發與模型標註保證、重新計算序列圖、Node 資料管線、資料格式 ER 圖與 dev server API 一覽。" />
+<!-- header 與首頁 TopToolbar 共用 -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Noto+Sans+TC:wght@400..700&display=swap" />
+<!-- 設計 token（唯一來源 src/tokens.css，見 /design） -->
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/design-shell.css?v=status-meta-1" />
+<link rel="stylesheet" href="../../_shared/app-toolbar.css" />
+<link rel="stylesheet" href="../../_shared/gdocs.css?v=list-nosep-2" />
+<style>
+  /* 系統架構內容——紙張在 .light 下，色吃 design token（勿覆寫 --border HSL 元件）。
+     別名必須**也**定義在 .doc 上：紙張容器自己覆寫了 --foreground／--background／--muted，
+     若別名只在 :root 解析，夜間主題下會拿到夜間的 --foreground 配上紙張的淺色底
+     （實測 #ededed on #e8e8e8＝整頁 <code> 看不見）。 */
+  :root{
+    --ink: hsl(var(--foreground));
+    --muted: hsl(var(--muted-foreground));
+    --muted2: hsl(var(--muted-foreground));
+    --blue: hsl(var(--primary));
+    --rose: var(--node-red);
+    --code-bg: hsl(var(--foreground));
+    --code-ink: hsl(var(--background));
+    --doc-line: hsl(var(--border));
+  }
+  /* 同一組別名在紙張容器內再解析一次（不含 --muted：那是 design token 的 HSL 元件，
+     覆寫它會讓 hsl(var(--muted)) 失效）。 */
+  .doc{
+    --ink: hsl(var(--foreground));
+    --muted2: hsl(var(--muted-foreground));
+    --blue: hsl(var(--primary));
+    --code-bg: hsl(var(--foreground));
+    --code-ink: hsl(var(--background));
+    --doc-line: hsl(var(--border));
+  }
+  strong,b{font-weight:700;}
+  .doc-hero{ margin-bottom:28px; }
+  .doc-hero h1{ margin:0 0 10px; font-size: var(--fs-xl); letter-spacing:-.02em; font-weight:700; color: var(--ink); }
+  .doc-hero p{ margin:4px 0; color:var(--muted); font-size: var(--fs-base); line-height:1.75; }
+  .doc-hero .meta{ font-family:var(--mono); font-size: var(--fs-sm); color:var(--muted2); margin-top:12px; }
+
+  section.card{
+    background:transparent; border:none; border-radius:0;
+    padding:0; margin:0; scroll-margin-top:24px;
+    display:none;
+  }
+  section.card.is-active{ display:block; }
+  section.card > h2{
+    margin:0 0 8px; font-size: var(--fs-lg); letter-spacing:-.01em; color: var(--ink);
+    display:flex; align-items:baseline; gap:10px;
+  }
+  section.card > h2 .no{
+    font-family:var(--mono); font-size: var(--fs-sm); color:var(--muted2); font-weight:500;
+  }
+  section.card h3{ margin:26px 0 8px; font-size: var(--fs-base); color: var(--ink); }
+  section.card p, section.card li{ font-size: var(--fs-base); line-height:1.9; color: hsl(var(--foreground) / 0.88); }
+  section.card p.lead{ color:var(--muted); margin-top:2px; }
+  section.card ul{ padding-left:22px; margin:8px 0; }
+  code{
+    font-family:var(--mono); font-size:.9em; background: hsl(var(--muted));
+    border-radius: var(--radius-xs); padding:1px 5px; color: var(--ink); white-space:nowrap;
+  }
+  pre.tree{
+    background:var(--code-bg); color:var(--code-ink); border-radius: var(--radius-md);
+    padding:16px 18px; font-family:var(--mono); font-size: var(--fs-sm); line-height:1.7;
+    overflow-x:auto; margin:12px 0;
+  }
+  pre.tree .c{ color: #7dd3fc; }
+  pre.tree .m{ color: hsl(var(--muted-foreground)); }
+
+  .fig{
+    border:1px solid var(--doc-line); border-radius: var(--radius-md);
+    background: hsl(var(--muted) / 0.35);
+    padding:14px 12px 6px; margin:14px 0; overflow-x:auto;
+  }
+  .fig .figcap{
+    font-size: var(--fs-xs); color:var(--muted2); font-family:var(--mono);
+    padding:0 4px 8px; border-bottom:1px dashed var(--doc-line); margin-bottom:8px;
+  }
+  pre.mermaid{ margin:0; display:flex; justify-content:center; background:transparent; font-size: var(--fs-base); }
+  pre.mermaid:not([data-processed]){
+    font-family:var(--mono); font-size: var(--fs-xs); color:var(--muted); white-space:pre; justify-content:flex-start;
+  }
+  .mermaid-fail{ font-size: var(--fs-sm); color:var(--rose); padding:6px 4px; display:none; }
+
+  table.spec{
+    width:100%; border-collapse:collapse; font-size: var(--fs-md); margin:12px 0;
+  }
+  table.spec th, table.spec td{
+    border:1px solid var(--doc-line); padding:6px 10px; text-align:left; vertical-align:top; line-height:1.6;
+  }
+  table.spec th{ background: hsl(var(--muted) / 0.55); font-size: var(--fs-sm); color:var(--muted); white-space:nowrap; }
+  table.spec td:first-child{ white-space:nowrap; }
+  table.spec code{ white-space:nowrap; }
+
+  .pill{ display:inline-block; font-size: var(--fs-2xs); font-family:var(--mono); border-radius: var(--radius-pill); padding:1px 8px; margin-right:4px; }
+  .pill.dev{ background: hsl(32 95% 52% / 0.18); color: hsl(32 80% 28%); border:1px solid hsl(32 95% 52% / 0.35); }
+  .pill.prod{ background: hsl(152 55% 44% / 0.16); color: hsl(152 55% 22%); border:1px solid hsl(152 55% 44% / 0.35); }
+  .pill.pure{ background: hsl(var(--primary) / 0.14); color: hsl(213 70% 32%); border:1px solid hsl(var(--primary) / 0.35); }
+
+  .note{
+    border-left:3px solid hsl(var(--primary)); background: hsl(var(--muted) / 0.65);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding:10px 14px; font-size: var(--fs-base); color: hsl(var(--muted-foreground)); margin:12px 0; line-height:1.8;
+  }
+  @media print{
+    section.card{ display:block !important; page-break-after:always; }
+  }
+  /* 文件大綱列間無橫線（寫在本頁，不吃外部 CSS 快取） */
+  #olList .list-row,
+  #olList .list-row:hover,
+  #olList .list-row.active,
+  #olList .list-row.selected,
+  #olList .list-row.on {
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+</style>
+<script src="../../_shared/theme-boot.js"></script>
+
+<noscript><style>section.card{ display:block; }</style></noscript>
+</head>
+<body>
+<header id="appToolbar" class="app-toolbar"></header>
+<script src="../../_shared/app-toolbar.js"></script>
+<script>AdaptMetroToolbar.mount('#appToolbar', { base: '../../../../', active: 'architecture' });</script>
+
+<div id="gdocsMount"></div>
+<script src="../../_shared/design-select.js"></script>
+<script src="../../_shared/gdocs.js"></script>
+<script>AdaptMetroGDocs.mount('#gdocsMount', { title: '系統架構', storageKey: 'arch', zoomTargets: ['.gd-pageless'], defaultOutlineWidth: 200 });</script>
+
+<div class="gd-body" id="gdBody">
+<aside class="side-panel gd-outline" id="outline" aria-label="文件大綱">
+  <div class="panel-header">
+    <span class="panel-title">文件大綱</span>
+    <button class="btn-icon" id="olClose" type="button" title="關閉文件大綱">
+      <span class="material-symbols-outlined m-icon">chevron_left</span>
+    </button>
+  </div>
+  <nav class="side-panel-body list-pane list-pane--no-sep" id="olList" role="tablist" aria-label="系統架構章節">
+    <a class="list-row" role="tab" href="#ctx">1 系統情境圖</a>
+    <a class="list-row" role="tab" href="#container">2 容器圖</a>
+    <a class="list-row" role="tab" href="#deploy">3 部署圖</a>
+    <a class="list-row" role="tab" href="#components">4 前端元件圖</a>
+    <a class="list-row" role="tab" href="#modules">5 模組相依圖</a>
+    <a class="list-row" role="tab" href="#naming">5b 命名鐵律與代碼對照</a>
+    <a class="list-row" role="tab" href="#pipeline">6 演算法管線</a>
+    <a class="list-row" role="tab" href="#hillclimb">7 Hill Climbing</a>
+    <a class="list-row" role="tab" href="#movewise">8 movewise 狀態機</a>
+    <a class="list-row" role="tab" href="#chains">9 直線演算法十一條鏈</a>
+    <a class="list-row" role="tab" href="#sources">9b 來源軸／消融</a>
+    <a class="list-row" role="tab" href="#llmseq">10 LLM 九鏈觸發序列</a>
+    <a class="list-row" role="tab" href="#executors">10b 執行器與模型表</a>
+    <a class="list-row" role="tab" href="#provenance">10c 模型標註保證</a>
+    <a class="list-row" role="tab" href="#recompute">11 重新計算序列圖</a>
+    <a class="list-row" role="tab" href="#datapipe">12 Node 資料管線</a>
+    <a class="list-row" role="tab" href="#datadir">13 資料目錄</a>
+    <a class="list-row" role="tab" href="#er">14 資料格式 ER 圖</a>
+    <a class="list-row" role="tab" href="#api">15 dev server API</a>
+    <a class="list-row" role="tab" href="#invariants">16 不變式與持久化</a>
+    <a class="list-row" role="tab" href="#glossary">17 名詞表</a>
+  </nav>
+</aside>
+<div class="resize-x ol-resizer" id="olResizer" title="拖拉調整大綱寬度（雙擊還原）"></div>
+<div class="gd-scroll">
+<div class="light gd-pageless doc">
+
+<div class="doc-hero">
+  <h1>Adapt-Metro 系統架構</h1>
+  <p>
+    本頁以 C4 模型與 UML（元件圖、類別圖、狀態機、序列圖、ER 圖）完整描述 Adapt-Metro 的系統架構：
+    Vue 3 單頁應用、Vite dev server 中介層、Node.js 資料管線、agent CLI（Claude Code／Cursor Agent）LLM 整合，
+    以及「1 RAW MAPS（抓圖＋骨架化）→ 2 GRIDDING（網格化）→ 3 STRAIGHTENING → 4 FRAME MAPS」四階段示意圖佈局演算法管線
+    （step 代碼＝磁碟資料夾名：<code>1-raw-maps</code>〜<code>4-frame-maps</code>）。
+    圖中的識別字（檔名、函式、路由）皆與程式碼一一對應，可直接以此頁為 code tour 的入口。
+  </p>
+  <div class="meta">
+    規模：metro 599 系統／5,898 線／37,313 站（index.json）· railway 9 系統（台灣 2＋日本 7）／173 線／4,808 站 · highway 3 都會區／25 線／251 交流道 ·
+    變體：STRAIGHTENING_DIRECTIONS=['orig']（rot 休眠；內建旋轉城市 -l33/-r39 另算）· 佈局權威：maps/{group}/{city}/3-straightening/{來源}/[{模型}/]{鏈}/{子夾}/（一個 json 一個圖）·
+    命名鐵律：代碼＝tag＝資料夾＝檔名（layerRegistry.js）·
+    stack: Vue 3.5 + Pinia 3 + dockview-vue 7 + 地理底圖 + D3 + Vite 6 · Mermaid 11 ·
+    LLM：九鏈 × 13 模型 × 三支 agent CLI（claude／cursor-agent／dsc）· 回歸基準：frameParity 980 組（全球）· 對照日期：2026-08-12
+  </div>
+</div>
+
+<!-- ======================================================================= -->
+<section class="card" id="ctx">
+  <h2><span class="no">C4-1</span>系統情境圖（System Context）</h2>
+  <p class="lead">
+    最外層視角：誰使用系統、系統依賴哪些外部服務。特別之處是「LLM 最佳化不走 API key」——
+    dev server 直接 spawn 本機的 <strong>agent CLI</strong>（Claude Code 或 Cursor Agent）當最佳化器／評審。
+  </p>
+  <div class="fig">
+    <div class="figcap">fig 1 — C4 Level 1：System Context</div>
+    <pre class="mermaid">
+flowchart TB
+  user(["使用者<br/>（研究者／讀者）"])
+  dev(["開發者<br/>（資料管線操作者）"])
+
+  subgraph adapt ["Adapt-Metro"]
+    spa["Vue 3 SPA<br/>路網圖示意化工作台"]
+    vite["Vite dev server<br/>＋自製 middleware 插件"]
+    scripts["Node.js 資料管線<br/>scripts/*.mjs"]
+    datastore[("data/<br/>GeoJSON 檔案庫<br/>metro / highway / railway")]
+  end
+
+  claude["agent CLI（claude／cursor-agent）<br/>LLM 九鏈（直線化／循環／直接完成／矩形／骨架地圖網格化／工作地圖網格化／互動／評價／比較）"]
+  overpass["OSM Overpass API"]
+  wiki["Wikipedia<br/>List of metro systems / 各線 infobox"]
+  nominatim["Nominatim<br/>反向地理編碼"]
+  official["營運商官網 · urbanrail.net<br/>官方／UrbanRail 路網圖"]
+  pages["GitHub Pages<br/>kevin7261.github.io/adapt-metro"]
+
+  user -->|"瀏覽器操作"| spa
+  dev -->|"npm run …"| scripts
+  spa &lt;--&gt;|"HTTP（/data /skills /llm-* …）"| vite
+  vite -->|"讀寫"| datastore
+  vite -->|"spawn"| claude
+  vite -->|"spawn（重新計算）"| scripts
+  claude -->|"寫結果 JSON"| datastore
+  scripts -->|"抓取"| overpass
+  scripts -->|"站數/清單驗證"| wiki
+  scripts -->|"座標→城市"| nominatim
+  scripts -->|"下載圖檔"| official
+  scripts -->|"寫入"| datastore
+  datastore -->|"build 時整包拷貝"| pages
+  user -->|"正式版（純靜態）"| pages
+    </pre>
+  </div>
+  <ul>
+    <li><b>SPA</b>：匯入某城市的 metro／railway／highway 圖層後，在瀏覽器內完整執行示意圖演算法（純前端、可離線重算）。</li>
+    <li><b>Vite dev server</b>：開發模式加值——即時 city_status、LLM 觸發、cells 持久化、全城重新計算。這些在 GitHub Pages 上不存在（見 §3 部署圖）。</li>
+    <li><b>Node 資料管線</b>：fetch ⇄ audit 迴圈，把 OSM 原始資料收斂成乾淨的每城市 GeoJSON。</li>
+  </ul>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="container">
+  <h2><span class="no">C4-2</span>容器圖（Container）</h2>
+  <p class="lead">系統內部拆成五個容器：瀏覽器 SPA、靜態文件頁、Vite 插件層、Node 管線、檔案資料庫。</p>
+  <div class="fig">
+    <div class="figcap">fig 2 — C4 Level 2：Containers（□ = process，⌗ = 檔案系統）</div>
+    <pre class="mermaid">
+flowchart LR
+  subgraph browser ["瀏覽器"]
+    direction TB
+    spa["<b>Vue 3 SPA</b><br/>main.js → App.vue<br/>Pinia stores ＋ dockview 分頁工作區<br/>地理底圖＋ D3（示意圖）"]
+    slides["<b>靜態頁</b> data/docs/<br/>system/intro · architecture<br/>thesis · thesis/paper"]
+  end
+
+  subgraph devsrv ["Vite dev server（vite.config.js 插件鏈）"]
+    direction TB
+    p1["metroStatus<br/>攔截 /data/metro/status.json 即時計算<br/>（完整度＋LLM＋逐視圖，全站單一來源）"]
+    p2["serveDataDir<br/>/data/** 直讀磁碟"]
+    p3["serveSkills · serveDocs<br/>/skills/** · /data/docs/**"]
+    p4["llmTriggers ×7<br/>/llm-straighten-align /llm-shape /llm-grid /llm-eval /llm-compare<br/>/llm-skeleton2grid /llm-working2grid（＋ claudeSkillTrigger 強制模型）"]
+    p5["straighteningCellsPersist<br/>/straightening-cells/save · clear"]
+    p6["metroRecompute<br/>/metro-recompute/city · status · queue · pause · resume · stop<br/>缺矩形時 runLlmShapeFor 代跑"]
+    p7["copyStaticAssets<br/>build 時 data/ skills/ data/docs/ → dist/"]
+  end
+
+  subgraph node ["Node.js 資料管線（scripts/*.mjs）"]
+    direction TB
+    fetchers["fetch 系列<br/>fetchMetro · fetchRailways · fetchHighways …"]
+    builders["build 系列<br/>buildGeojson · buildViews · buildCombinedSystems …"]
+    auditors["audit 系列<br/>auditLoop · verifyMetro · wikiLineCheck …"]
+  end
+
+  claude["agent CLI<br/>（claude／cursor-agent）"]
+  files[("⌗ data/<br/>metro · highway · railway · thesis")]
+  skillsdir[("⌗ .claude/skills/<br/>演算法/管線知識庫 SKILL.md")]
+
+  spa &lt;--&gt; p1 & p2 & p4 & p5 & p6
+  slides --- p3
+  p4 -->|"seed outFile ＋ spawn"| claude
+  p6 -->|"spawn 全城管線"| node
+  claude --> files
+  fetchers --> builders --> auditors
+  node &lt;--&gt; files
+  p1 & p2 --> files
+  p3 --> skillsdir
+    </pre>
+  </div>
+  <table class="spec">
+    <tr><th>容器</th><th>技術</th><th>職責</th></tr>
+    <tr><td><b>Vue 3 SPA</b></td><td>Vue 3.5（<code>&lt;script setup&gt;</code>）、Pinia 3、dockview-vue 7、地理底圖、d3-selection/zoom/geo/delaunay、marked</td><td>圖層管理、地理地圖分頁、D3 示意圖分頁（演算法全部在前端純函式執行）、視圖畫廊、世界地圖選城</td></tr>
+    <tr><td><b>靜態頁 data/docs/</b></td><td>純 HTML/CSS/JS，不經 Vite bundle；目錄對齊 header 選單</td><td>system/intro・architecture・thesis・thesis/paper；header 鏡像 SPA TopToolbar</td></tr>
+    <tr><td><b>Vite 插件層</b></td><td>Vite 6 middleware（vite/*.js）</td><td>資料服務、LLM 觸發、持久化、重新計算——皆為 dev-only HTTP API</td></tr>
+    <tr><td><b>Node 管線</b></td><td>Node ESM（.mjs）、無框架</td><td>OSM/Wikipedia 抓取、GeoJSON 組檔、變體/合併系統、驗證報告</td></tr>
+    <tr><td><b>data/ 檔案庫</b></td><td>GeoJSON / JSON 檔案（無資料庫）</td><td>唯一資料來源（single source of truth）；build 時整包拷進 dist</td></tr>
+  </table>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="deploy">
+  <h2><span class="no">UML</span>部署圖（Deployment）</h2>
+  <p class="lead">同一份程式碼有兩種部署形態，能力差異全在「有沒有 dev server」。</p>
+  <div class="fig">
+    <div class="figcap">fig 3 — Deployment：開發模式 vs GitHub Pages</div>
+    <pre class="mermaid">
+flowchart TB
+  subgraph devbox ["開發機（npm run dev，port 8080）"]
+    direction LR
+    vited["Vite dev server<br/>＋全部 middleware 插件"]
+    cc["agent CLI<br/>（claude／cursor-agent；本機、無 API key）"]
+    nodep["scripts/*.mjs"]
+    dataw[("data/ 可讀可寫")]
+    vited --> cc & nodep
+    cc --> dataw
+    nodep --> dataw
+    vited --> dataw
+  end
+
+  subgraph ghp ["GitHub Pages（npm run deploy）"]
+    direction LR
+    dist["dist/（gh-pages branch，--no-history）<br/>base=/adapt-metro/ · .nojekyll"]
+    datar[("data/ 唯讀快照<br/>（copyStaticAssets 拷貝，剔除 _cache）")]
+    slidesr["data/docs/ · skills/ 靜態快照"]
+    dist --- datar & slidesr
+  end
+
+  devbox -->|"npm run build:pages（GITHUB_PAGES=1）→ gh-pages -d dist"| ghp
+    </pre>
+  </div>
+  <table class="spec">
+    <tr><th>功能</th><th>開發模式</th><th>GitHub Pages</th></tr>
+    <tr><td>瀏覽／演算法重算（前端純函式）</td><td><span class="material-symbols-outlined m-icon" style="font-size:16px;vertical-align:-3px">check</span></td><td><span class="material-symbols-outlined m-icon" style="font-size:16px;vertical-align:-3px">check</span>（演算法都在瀏覽器跑，正式版一樣能算）</td></tr>
+    <tr><td>status.json</td><td><span class="material-symbols-outlined m-icon" style="font-size:16px;vertical-align:-3px">check</span> 即時計算（cityStatus 插件）</td><td><span class="material-symbols-outlined m-icon" style="font-size:16px;vertical-align:-3px">warning</span> build 當下的快照</td></tr>
+    <tr><td>LLM 九鏈（直線化／循環／直接完成／矩形／骨架地圖網格化／工作地圖網格化／互動／評價／比較）</td><td><span class="material-symbols-outlined m-icon" style="font-size:16px;vertical-align:-3px">check</span> spawn agent CLI：claude／cursor-agent（<code>LLM_ENFORCED_MODEL</code>）</td><td><span class="material-symbols-outlined m-icon" style="font-size:16px;vertical-align:-3px">close</span> 只能讀已產生的結果檔</td></tr>
+    <tr><td>cells 持久化（3-straighteninging/{來源}/…/{子夾}/）</td><td><span class="material-symbols-outlined m-icon" style="font-size:16px;vertical-align:-3px">check</span> /straightening-cells/save 寫回磁碟</td><td><span class="material-symbols-outlined m-icon" style="font-size:16px;vertical-align:-3px">close</span> 唯讀</td></tr>
+    <tr><td>重新計算（全城）</td><td><span class="material-symbols-outlined m-icon" style="font-size:16px;vertical-align:-3px">check</span> /metro-recompute/*</td><td><span class="material-symbols-outlined m-icon" style="font-size:16px;vertical-align:-3px">close</span> 回 404，前端提示「僅開發伺服器可用」</td></tr>
+  </table>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="components">
+  <h2><span class="no">UML</span>前端元件圖（Component）</h2>
+  <p class="lead">
+    App.vue 是唯一入口（無 vue-router；「頁面」由 dockview 分頁與靜態頁連結構成）。
+    EditorArea 以 dockview-vue 註冊三種 panel 元件：<code>layer-tab</code>（地理地圖）、
+    <code>d3-tab</code>（D3 示意圖演算法工作台）、<code>all-gallery</code>（全城市視圖畫廊）。
+  </p>
+  <div class="fig">
+    <div class="figcap">fig 4 — 元件樹（實線＝template 直接引用；標籤＝dockview panel type）</div>
+    <pre class="mermaid">
+flowchart TB
+  App["App.vue<br/>鍵盤快捷鍵 ⌘K/⌘S/⌘O/?<br/>persist 訂閱 · dark/accent watch"]
+
+  App --> TopToolbar["TopToolbar.vue<br/>brand · 匯入地圖／目前計算<br/>「系統內容」：系統介紹 · 系統架構<br/>「資料流／Skills」：資料流 · Skill 呼叫圖 · Skills · 系統報告<br/>「論文內容」下拉 · Design · 相關連結 · 中英切換（只在 isLocalHost 露出）"]
+  App --> LayerPanel["LayerPanel.vue<br/>圖層清單 · 開關分頁"]
+  App --> EditorArea["EditorArea.vue<br/>dockview-vue 工作區<br/>版面 toJSON 持久化"]
+  App --> CommandPalette["CommandPalette.vue<br/>⌘K 指令面板"]
+  App --> DialogHost["DialogHost.vue<br/>import-metro / add-data / settings /<br/>about / shortcuts / new-project / skills<br/>（AddD3／AddHillClimb／AddFrame 對話框已廢；匯入走畫廊＋importCityChain）"]
+  App --> SkillViewer["SkillViewer.vue<br/>SKILL.md 檢視器（marked）"]
+  App --> LayerDocViewer["LayerDocViewer.vue<br/>圖層演算法說明"]
+  App --> RecomputeOverlay["RecomputeOverlay.vue<br/>全螢幕重算進度"]
+
+  EditorArea -->|"panel: layer-tab"| LayerTab["LayerTab.vue<br/>地理地圖"]
+  EditorArea -->|"panel: d3-tab"| D3Tab["D3Tab.vue<br/>D3 示意圖工作台<br/>Gridding / Straighten / Frame 全部視圖"]
+  EditorArea -->|"panel: all-gallery"| AllGallery["AllGallery.vue<br/>視圖畫廊"]
+  EditorArea -->|"panel: dataflow-tab"| DataFlowTab["DataFlowTab.vue<br/>資料流圖（flowGraph.js 單一真相）<br/>節點帶 code tag 與生成用 skill"]
+  EditorArea -->|"panel: skillcall-tab"| SkillCallGraphTab["SkillCallGraphTab.vue + SkillCallDiagram.vue<br/>Skill 呼叫圖：階段欄 × 呼叫點 × skill<br/>（何時呼叫；專案 66 支 skill 每支出現一次）"]
+  EditorArea -->|"panel: skills-tab"| SkillsTab["SkillsTab.vue / SkillDocTab.vue<br/>Skills 清單（skillCatalog.skillTree ← layerRegistryTable）<br/>＋ SKILL.md／SKILL.zh.md 檢視"]
+  EditorArea -->|"panel: reports-tab"| ReportsTab["ReportsTab.vue / ReportDocPane.vue<br/>系統報告（專案根第一層 md，dev 每 2s 輪詢）"]
+  EditorArea -->|"default tab"| DockTab["DockTab.vue"]
+  EditorArea -->|"watermark"| DockWatermark["DockWatermark.vue"]
+
+  LayerTab --> StylePanel["StylePanel.vue"] & StyleBar["StyleBar.vue<br/>地圖底色／線寬／半徑／網格同組、無 | 分隔"] & StatusBar["StatusBar.vue"] & AttributeTable["AttributeTable.vue"]
+  D3Tab --> StylePanel & StyleBar & AttributeTable
+  D3Tab --> D3ViewNav["d3/D3ViewNav.vue<br/>左側視圖清單（分組可收合；群組頭 --list-head-bg）"]
+  D3Tab --> D3StepPanel["d3/D3StepPanel.vue<br/>逐步驗證浮動面板"]
+  D3Tab --> buildDrawData["d3/buildDrawData.js<br/>「畫什麼」：座標＋幾何 → 線/站/襯底<br/>（純函式，無副作用）"]
+
+  AllGallery --> GalleryShell["GalleryShell.vue"] & CityAllCard["CityAllCard.vue"] & WorldMapPicker["WorldMapPicker.vue<br/>世界地圖分頁（圓點=city_status）"]
+  GalleryShell --> CityIndexList["CityIndexList.vue"]
+  CityAllCard --> GalleryTile["GalleryTile.vue"] & OfficialMapTile["OfficialMapTile.vue<br/>官方路線圖格"] & CityViewGrid["CityViewGrid.vue<br/>Straighten/Frame 縮圖現畫 cells"]
+    </pre>
+  </div>
+  <div class="note">
+    <b>D3Tab.vue 仍是最大的元件</b>：一個元件承載 Gridding（骨架化、網格化、LLM 骨架地圖網格化／成圖替代層）、
+    Straighten（Hill Climbing 參考、movewise 四步鏈、循環、逐步驗證、論文①〜⑨、LLM 直線化、LLM 指定形狀、LLM 網絡循環／直接完成）、
+    Frame Maps（版面畫線、LLM 評價／互動／比較）所有 layer-mode 視圖切換；演算法本體都抽在
+    <code>src/stores/*.js</code> 純函式模組（§5），D3Tab 只負責呼叫與繪製。
+    城市匯入經畫廊／世界地圖的 <code>importCityChain</code>（整組管線圖層一次到位），不再有
+    AddD3／AddHillClimb／AddFrame 獨立對話框。
+    <br/><br/>
+    <b>為什麼不再往下拆</b>：核心的 <code>computeStraighteningLayout()</code> 是四階段管線的協調器，
+    與模組層快取（<code>cachedPost / cachedEndp / cachedLine / cachedGather /
+    cachedLoop / cachedStraighteningBase / stepState …</code>）緊密耦合——抽出去只是把耦合換成一長串參數，可讀性沒有變好，
+    卻要冒改壞演算法的風險（本專案無測試套件）。已拆出的邊界乾淨模組：
+    <code>d3/buildDrawData.js</code>（純資料轉換）、<code>lib/shapeGuide.js</code>（矩形凍結頂點的
+    快照／釘回）、<code>lib/headlessRun.js</code>（LLM 功能共用的 run/poll 機構）。
+  </div>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="modules">
+  <h2><span class="no">UML</span>模組相依圖（stores / lib）</h2>
+  <p class="lead">
+    <span class="pill pure">pure</span> 標記的模組是無副作用純函式（演算法核心，可單元測試、可被 Node 腳本重用）；
+    其餘是 Pinia store 或瀏覽器端 handle。
+  </p>
+  <div class="fig">
+    <div class="figcap">fig 5 — 模組相依（箭頭＝import 方向）</div>
+    <pre class="mermaid">
+flowchart LR
+  subgraph ui ["UI 狀態層"]
+    mapStore["mapStore.js<br/>Pinia 中央 store<br/>dark/accent · ui.dialog · layers<br/>openTabIds/dockLayout · metroDataEpoch"]
+    persist["persist.js<br/>localStorage adapt-metro:session:v1<br/>debounce 300ms ＋ beforeunload flush"]
+    layerData["layerData.js / layerMigrations.js<br/>圖層資料重建與舊 session 遷移"]
+    catalogs["metroCatalog · railwayCatalog · highwayCatalog<br/>data/index.json 目錄"]
+    handles["mapHandle · dockHandle ·<br/>layerDocHandle · skillHandle"]
+  end
+
+  subgraph algo ["演算法層（全部 pure）"]
+    skeleton["skeleton.js<br/>buildConnectSkeleton<br/>骨架2：拓撲收縮＋節點分類"]
+    sgrid["schematicGrid.js<br/>buildSchematicGrid · placeBlacks<br/>示意網格化：排名吸附"]
+    hillClimb["hillClimb.js<br/>buildHillClimb · makeMover<br/>setSquareGuard/getSquareGuard · iteratePost<br/>applyLlmTargets · scoreAlign"]
+    movewise["movewise.js<br/>movewiseStage · stepChainInit/Next<br/>straighteningCompactLoop · setSpanCap"]
+    paperAlign["paperAlign.js<br/>PAPER_KINDS ①〜⑨（含 flex）"]
+    paperdir["paper/*<br/>stroke · milp · sat · force · lsq ·<br/>octi · path · flexgrid · rect · shapeCheck ·<br/>shapePresets · _dirModel · _shared"]
+    frameMap["frameMap.js<br/>buildFrameMap（mergeParallelSegs 已停用）<br/>方向數 4／8／16 版面畫線"]
+  end
+
+  subgraph libx ["lib"]
+    cells["straighteningCells.js<br/>STRAIGHTENING_CELLS_ALGO=hccells-v13<br/>alignOf(doc)：LLM 直線化取值唯一入口<br/>metroChainCellsPath(city,variant,chain,rect,stage)<br/>load/saveStraightenCells（有檔就開）"]
+    metroDraw["metroDraw.js"]
+    llmModels["llmModels.js"]
+    dataOverlay["dataOverlay.js"]
+    headlessRun["headlessRun.js<br/>makeHeadlessRun：LLM 功能共用的<br/>run/poll／串流 transcript／409 接上"]
+    shapeGuide["shapeGuide.js<br/>expandShapeMembers · snapshotFrozen<br/>pinFrozenCells（矩形護欄，pure）"]
+    drawData["d3/buildDrawData.js<br/>節點座標＋路線幾何 → 繪製資料（pure）"]
+    paths["metroDataPaths.js<br/>METRO_DIRS（邏輯 key）· metroChainCellsPath"]
+    registry["layerRegistry.js<br/>STEP_CODES · LAYER_CODES · LAYER_SKILLS<br/>代碼＝tag＝資料夾＝檔名（單一真相）"]
+    vcodes["viewCodes.js<br/>publicViewId ↔ internalViewId<br/>公開視圖代碼對照"]
+    netlayout["metroNetworkLayout.js<br/>NETWORK_STEPS · metroNetworkPath<br/>maps/ 磁碟路徑＋檔名產生"]
+  end
+
+  D3Tab["D3Tab.vue"] --> skeleton --> sgrid --> hillClimb
+  D3Tab --> movewise & paperAlign & frameMap & cells
+  D3Tab --> headlessRun & shapeGuide & drawData
+  paperAlign --> paperdir
+  paperAlign --> hillClimb
+  movewise --> hillClimb
+  frameMap -.->|"讀縮減網格佈局"| movewise
+  App["App.vue"] --> mapStore & persist
+  mapStore --> persist
+  D3Tab --> mapStore
+  LayerTab["LayerTab.vue"] --> mapStore & handles & metroDraw
+  AllGallery["AllGallery.vue"] --> catalogs & cells
+  mapStore --> layerData
+  cells --> paths
+  paths --> netlayout
+  registry --> vcodes
+  netlayout --> vcodes
+    </pre>
+  </div>
+  <h3>演算法層類別圖（主要 export 面）</h3>
+  <div class="fig">
+    <div class="figcap">fig 6 — 類別圖：核心模組的公開介面（節錄自實際 export）</div>
+    <pre class="mermaid">
+classDiagram
+  class skeleton_js {
+    +buildConnectSkeleton(geojson, opts) Skeleton
+    +DEFAULT_RIVER_GRAY_SINUOSITY = 1.15
+  }
+  class schematicGrid_js {
+    +buildSchematicGrid(skeleton, posById, extent) Grid
+    +placeBlacks(skeleton, posMap, snap)
+  }
+  class hillClimb_js {
+    +buildHillClimb(skeleton, cellOf, cols, rows, opts)
+    +makeMover(pos, segs, inc, cols, rows) 唯一移動關口
+    +setSquareGuard(guard) / getSquareGuard() 矩形頂點凍結
+    +buildOrthoPolish(...) ②直角爬山 ortho
+    +iteratePost(build, ...) POST_ITER_CAP=20
+    +applyLlmTargets(skeleton, cells, cols, rows, targets)
+    +scoreAlign(pos, segs) / countHV / countHVD
+    +compactGridSafe(...) / buildStraighteningGraph(...)
+  }
+  class movewise_js {
+    +movewiseStage(stage, skeleton, cells, cols, rows)
+    +stepChainInit(...) / stepChainNext(...) 逐步驗證
+    +straighteningCompactLoop(...) 四步鏈循環
+    +setSpanCap(n) 預設 4（Chebyshev）
+  }
+  class paperAlign_js {
+    +PAPER_KINDS stroke|ortho|milp|force|lsq|octi|path|sat|flex
+    +PAPER_BUILD / PAPER_ZH
+    +applyShapeGreens / shapeLlmContext / applyShapeLlmTargets
+  }
+  class frameMap_js {
+    +buildFrameMap(segs, pos, opts)
+    +mergeParallelSegs(segs) 已停用＝identity（Frame 不得改直線化結果）
+    +FRAME_ROUTER_REV 版路由修訂字串
+  }
+  class straighteningCells_js {
+    +STRAIGHTENING_CELLS_ALGO = hccells-v13
+    +alignOf(doc) LLM 直線化 → doc.align（勿直接取 cellAfter）
+    +dataFingerprint(data) string 資訊 tab 比對用
+    +loadStraightenCells / saveStraightenCells
+    +straighteningCellsRelPath → metroChainCellsPath
+  }
+  skeleton_js <.. schematicGrid_js : 骨架輸入
+  schematicGrid_js <.. hillClimb_js : 整數格輸入
+  hillClimb_js <.. movewise_js : makeMover/硬規則
+  hillClimb_js <.. paperAlign_js : ②ortho ＋ 凍結守衛
+  movewise_js <.. frameMap_js : 縮減網格佈局
+  hillClimb_js <.. straighteningCells_js : 逐鏈 cells 持久化
+    </pre>
+  </div>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="naming">
+  <h2><span class="no">RULE</span>命名鐵律與代碼對照（2026-07-31）</h2>
+  <p class="lead">
+    使用者裁決：<b>代碼＝tag＝資料夾＝檔名</b>——每個 step／圖層只有一個代碼，同時是介面上的
+    code tag（<code>.code-tag</code>，/design 正式元件）、磁碟的資料夾名、複合檔名的 token。
+    唯一對照表＝<code>src/lib/layerRegistry.js</code>（<code>STEP_CODES</code>／<code>LAYER_CODES</code>／<code>LAYER_SKILLS</code>），
+    顯示在「資料流」分頁右欄「Layers / Skills」樹（step→圖層→skill 巢狀清單，點 skill＝開 SKILL.md）。
+    全站「OSM 地圖」改稱<b>原始地圖／Source Map</b>；四 step 顯示名帶序號；數量數字不再用 tabular-nums。
+  </p>
+  <h3>step 代碼（＝磁碟 step 資料夾名，帶序號）</h3>
+  <table class="spec">
+    <tr><th>內部 key</th><th>代碼＝資料夾</th><th>顯示名</th><th>備註</th></tr>
+    <tr><td><code>raw</code></td><td><code>1-raw-maps</code></td><td>1 RAW MAPS</td><td>原 Metro Maps；tracks／center 併為本 step 圖層；<b>骨架地圖 2026-08-04 由 2 GRIDDING 移入</b></td></tr>
+    <tr><td><code>adjust</code></td><td><code>2-gridding</code></td><td>2 GRIDDING</td><td>2026-08-04 起<b>只有網格化</b>一件事</td></tr>
+    <tr><td><code>straighten</code></td><td><code>3-straightening</code></td><td>3 STRAIGHTENING</td><td>各鏈 cells＝佈局權威</td></tr>
+    <tr><td><code>frame</code></td><td><code>4-frame-maps</code></td><td>4 FRAME MAPS</td><td></td></tr>
+  </table>
+  <div class="note">
+    <b><code>metro-tracks</code>／<code>metro-landmarks</code> 不是 step</b>：實際路線 <code>tracks</code>／路線中線 <code>center</code>
+    是 <code>1-raw-maps</code> 的圖層（舊獨立 step 讀取時併入）；地標以變體城市夾（<code>&lt;id&gt;-lm</code>）存在。
+  </div>
+  <h3>layer 代碼（key＝內部 id；值＝公開代碼＝資料夾／檔名 token）</h3>
+  <table class="spec">
+    <tr><th>step</th><th>代碼</th><th>顯示名／說明</th></tr>
+    <tr><td>1 RAW MAPS</td><td><code>working</code> · <b><code>skeleton</code></b> · <code>source</code> · <code>tracks</code> · <code>center</code> · <code>official-route</code> · <code>urbanrail</code></td><td>工作地圖・<b>骨架地圖（2026-08-04 移入；只做拓撲收縮，不動格網也不換座標系）</b>・原始地圖（原稱 OSM 地圖）・實際路線・路線中線・官方路線圖・UrbanRail 圖</td></tr>
+    <tr><td>2 GRIDDING</td><td><code>grid</code> · <code>llm-skeleton2grid</code> · <code>llm-working2grid</code></td><td>網格地圖・LLM 骨架地圖網格化／LLM 工作地圖網格化（消融；<b>資料夾</b>＝<code>llm-skeleton2grid</code>／<code>llm-working2grid</code>，各為統一一層、層內按模型分子夾）</td></tr>
+    <tr><td>3 STRAIGHTENING</td><td><code>algorithm-stroke</code>〜<code>algorithm-flex</code> · <code>llm-straighten</code> · <code>llm-shape</code> · <code>network-loop</code> · <code>llm-network-loop</code> · <code>llm-working2straight</code>；步驟 <code>endpoint</code> · <code>linecompact</code> · <code>branchshift</code> · <code>gridmerge</code> · <code>loop</code></td><td>論文①〜⑨（<code>chainCode</code> 加 <code>algorithm-</code> 前綴）・LLM 直線化・LLM 指定形狀・程式／LLM 網絡循環・LLM 工作地圖直線化；movewise 四步驟<b>不落檔</b>（資料流上只是 step，要用時現算）。舊基底 <code>hc</code> 已全數退場</td></tr>
+    <tr><td>4 FRAME MAPS</td><td><code>frame</code></td><td>版面路網畫線（＋Frame 的 llm-eval／llm-grid／llm-compare 結果夾）</td></tr>
+  </table>
+  <h3>三支對映模組（各管一件事，互不越界）</h3>
+  <table class="spec">
+    <tr><th>模組</th><th>職責（單一真相）</th><th>消費端</th></tr>
+    <tr><td><code>src/lib/layerRegistry.js</code></td><td>顯示對照：<code>STEP_CODES</code>／<code>LAYER_CODES</code>／<code>LAYER_SKILLS</code>／<code>FLOW_CHAIN_SKILLS</code>＋<code>layerRegistryTable(loc)</code>——所有 layer 名稱與代碼都從這張表抓</td><td>flowGraph（節點 code tag）、圖層面板 chip（<code>layerLabels.layerCode</code>）、資料流右欄「Layers / Skills」樹</td></tr>
+    <tr><td><code>src/lib/viewCodes.js</code></td><td>公開視圖代碼 ↔ 內部視圖 id：<code>publicViewId</code>／<code>internalViewId</code>／<code>chainCode</code>（①〜⑨ 加 <code>algorithm-</code>）。內部 id、資料檔鍵、持久化欄位<b>不改名</b></td><td>status.json 的 views、畫廊區段樹輸出公開代碼；點擊／檔案路徑／縮圖文件先轉回內部 id</td></tr>
+    <tr><td><code>src/lib/metroNetworkLayout.js</code></td><td>磁碟真相：<code>NETWORKS_ROOT='maps'</code>、<code>NETWORK_STEPS</code>（帶序號夾名）、<code>MAPS_LAYER_DIR</code>／<code>ADJUST_LAYER_DIR</code>／<code>chainLayerDir</code>、<code>networkLayerFileName</code>（<code>{cityId}-{step}-{layer}[-{sub}]</code>）＋舊路徑改寫（<code>legacyNetworksRelToCurrent</code>／<code>flatRelToNetworkRel</code>）</td><td>所有讀寫 <code>data/metro/maps/</code> 的程式（metroDataPaths、bake、畫廊、LLM 觸發）</td></tr>
+  </table>
+  <div class="note">
+    三者若與 <code>layerRegistry</code> 的對照不一致就是 bug——<code>layerRegistry.js</code> 檔頭即明言
+    「消費端＝flowGraph、layerLabels.layerCode、磁碟 layer 夾名（metroNetworkLayout）——三者若與本表不一致就是 bug」。
+  </div>
+  <h3>文件選單分流（<code>docMenu.js</code>，2026-08）</h3>
+  <ul>
+    <li><b>系統內容</b>：系統介紹投影片 · 系統架構——說明「系統是什麼」。</li>
+    <li><b>資料流／Skills</b>（獨立下拉）：資料流圖 · Skill 呼叫圖 · Skills · 系統報告——說明「資料怎麼流、哪個 skill 服務哪個圖層」。Skills <b>不再</b>併入資料流主區的檢視切換，而是獨立固定分頁。</li>
+    <li><b>資料流分頁</b>：主區＝流程圖（<code>flowGraph</code>，節點帶 code tag 與生成 skill）；右欄「Layers / Skills」＝<code>layerRegistryTable</code> 的 step→圖層→skill 巢狀樹（點 skill＝開獨立 Skills 分頁讀 SKILL.md）；「Info」＝階段／泳道／消融說明。</li>
+    <li><b>Skill 呼叫圖</b>：階段欄 × 呼叫點 × skill（何時呼叫、誰呼叫、結果落點）；專案 66 支 skill 每支出現一次。</li>
+  </ul>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="pipeline">
+  <h2><span class="no">FLOW</span>四階段演算法管線（核心）</h2>
+  <p class="lead">
+    這是整個系統的主軸：把地理正確的路網 GeoJSON，逐階段收斂成嚴格方向約束的示意圖。
+    每一階段都是獨立的 dockview 視圖，可逐步檢視中間結果。
+    目前只算 <code>orig</code>（<code>STRAIGHTENING_DIRECTIONS = ['orig']</code>）；旋轉鍵 <code>rot</code> 已自清單移除（程式路徑保留——把 <code>'rot'</code> 放回並重烘即可恢復）。
+    <strong>內建旋轉城市</strong>（id 尾綴 <code>-l33</code>／<code>-r39</code>…）另成獨立系統，骨架地圖起整條管線在投影角上算（規格 <code>route-city-rotation</code>；現役紐約／紐約＋地標／巴塞隆納／伊斯坦堡）。
+    Gridding 另有 LLM 骨架地圖網格化／LLM 工作地圖網格化兩條<strong>消融來源軸</strong>（§9b），與排名吸附網格化並列。
+  </p>
+  <div class="fig">
+    <div class="figcap">fig 7 — 演算法管線：1 RAW MAPS（抓圖＋骨架化）→ 2 GRIDDING（網格化）→ 3 STRAIGHTENING → 4 FRAME MAPS</div>
+    <pre class="mermaid">
+flowchart TB
+  geo[("城市 GeoJSON<br/>maps/{groupId}/{cityId}/1-raw-maps/{working|source}/<br/>（須一模一樣；回復＝source→working）")]
+
+  subgraph s1 ["1 RAW MAPS（1-raw-maps）"]
+    raw["工作地圖 working／原始地圖 source<br/>＋ tracks／center（route_ref 一致）<br/>＋ official-route · urbanrail（maps_index）"]
+    sk["骨架化 buildConnectSkeleton<br/>共線併邊 · 交叉補交叉點 · 轉乘／末端／中途分類<br/>→ 1-raw-maps/skeleton/（2026-08-04 移入）"]
+  end
+
+  subgraph s2 ["2 GRIDDING（2-gridding）· 只有網格化"]
+    grid["示意網格化 buildSchematicGrid<br/>非中途站排名吸附 · placeBlacks<br/>→ 2-gridding/grid/"]
+    ablc["LLM 骨架地圖網格化 llm-skeleton2grid（×13 模型）<br/>骨架照跑、整數欄列由模型指派<br/>→ 2-gridding/llm-skeleton2grid/&lt;model&gt;/"]
+    ablm["LLM 工作地圖網格化 llm-working2grid（×13 模型）<br/>骨架化＋排名吸附全跳<br/>→ 2-gridding/llm-working2grid/&lt;model&gt;/"]
+  end
+
+  subgraph s3 ["3 STRAIGHTENING（3-straighteninging）"]
+    hc["Hill Climbing（畫廊參考）<br/>論文鏈不吃 HC 輸出當輸入"]
+    rect["LLM 指定形狀（非鏈 #9）<br/>成方即餵下游 · shapeFeedCleared 可暫停<br/>缺檔時 metroRecompute runLlmShapeFor 代跑"]
+    paper["直線演算法<br/>grid：①〜⑨＋llm<br/>llm-skeleton/working-grid：只 llm（＋可選 llmshape）"]
+    mv["movewise 四步鏈循環<br/>移點→移線→移枝→併格"]
+    lloop["LLM 網絡循環 llm-network-loop<br/>起點＝LLM 直線化結果 alignOf(doc)<br/>→ {鏈容器}/llm-network-loop/"]
+    lfin["LLM 工作地圖直線化 llm-working2straight（map 泳道）<br/>一次 LLM 端到端<br/>→ 3-straightening/llm-working2straight/{模型}/"]
+  end
+
+  subgraph s4 ["4 FRAME MAPS（4-frame-maps）"]
+    frame["版面畫線 buildFrameMap<br/>方向數 4／8／16 · 像素座標"]
+    llm2["LLM 評價／互動／比較<br/>4-frame-maps/llm-eval · llm-grid · llm-compare"]
+  end
+
+  cellsdb[("3-straightening/{來源}/[{模型}/]{鏈}/{子夾}/<br/>★ 佈局權威 · 一個 json 一個圖<br/>子夾＝{鏈} | network-loop | llm-network-loop<br/>hccells-v13 · metroChainCellsPath(…,stage)")]
+  gallery["畫廊縮圖<br/>骨架 ← 1-raw-maps/skeleton/、網格 ← 2-gridding/grid/<br/>Straighten／Frame ← cells 現畫（liveGalleryDocs）<br/>（gallery sidecar 寫入已停）"]
+
+  geo --> raw --> sk --> grid
+  sk -.-> ablc
+  raw -.->|"跳過骨架化"| ablm
+  grid --> hc
+  grid --> rect
+  grid --> paper
+  ablc -->|"cell 來源只接 llm"| paper
+  ablm -->|"map 來源只接 llm"| paper
+  ablm -.->|"oneshot"| lfin
+  rect -->|"成方 → 矩形泳道輸入"| paper
+  paper --> mv --> frame --> llm2
+  paper -.->|"llm 鏈另分支"| lloop
+  lloop -->|"Frame compact=llm-network-loop"| frame
+  lfin -->|"Frame compact=llm-working2straight"| frame
+  paper &lt;--&gt;|"save/load 逐鏈"| cellsdb
+  cellsdb --> gallery
+  grid -.->|"bakeViews"| gallery
+    </pre>
+  </div>
+  <ul>
+    <li><b>只算非中途站</b>：所有最佳化只移動非中途站（末端/轉乘/分歧/交叉），中間的中途站不參與，事後沿新邊平均放回（paper fidelity）。</li>
+    <li><b>唯一移動關口</b>：任何演算法移動都經 <code>makeMover</code>；矩形成方後頂點經 <code>setSquareGuard()</code>，下游不得破方。</li>
+    <li><b>權威佈局</b>：<code>maps/{groupId}/{cityId}/3-straightening/{來源}/[{模型}/]{鏈}/{子夾}/</code>——鏈資料夾是<b>容器</b>，底下每個子夾一個圖（<code>{鏈}/</code>＝該鏈自己的結果、<code>network-loop/</code>＝程式網絡循環、<code>llm-network-loop/</code>＝LLM 網絡循環）。檔名＝城市 id 起串接沿途所有資料夾名，例 <code>as-twn-taipei-3-straightening-grid-algorithm-stroke-network-loop.json</code>；矩形城市 id 含 <code>-shape-rect</code>。寫入 algo＝<code>hccells-v13</code>。<b>有檔就開</b>——指紋仍寫進檔內，資訊 tab 顯示相符／可能過期，不再拒載。</li>
+    <li><b>一個 json 只存一個圖</b>（2026-08-03 裁決）：會顯示出來的才落檔，中間計算過程（<code>endp</code>／<code>line</code>／<code>branch</code>／<code>gather</code>）不存、要用時現算。LLM 直線化的結果寫在 <code>{來源}/{鏈}/{鏈}/…json</code> 的 <code>align</code> 子物件，<b>取值一律 <code>alignOf(doc)</code></b>（直接取 <code>doc.cellAfter</code> 恆為 undefined）。安全網＝<code>node scripts/checkFrameParity.mjs</code>（<b>980 組</b>，全球）。</li>
+    <li><b>指定形狀唯一破例</b>：僅 LLM 指定形狀可在資料流自動代跑；其餘 LLM 鏈只由面板按鈕啟動。對齊有結果即套用；grid／eval 寫檔後按「執行調整」切換顯示。</li>
+  </ul>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="hillclimb">
+  <h2><span class="no">FLOW</span>Hill Climbing 細部（Stott et al. 2011）</h2>
+  <p class="lead">Straighten 的主體：以「網格化後」整數格佈局為輸入的多準則爬山搜尋。</p>
+  <div class="fig">
+    <div class="figcap">fig 8 — buildHillClimb 內部流程</div>
+    <pre class="mermaid">
+flowchart TB
+  input["輸入：網格化後整數格佈局<br/>skeleton ＋ cellOf ＋ cols×rows"]
+  fit["多準則適應度加權和<br/>角解析度 · 邊長 · 平衡邊長 ·<br/>平直度 · 八方向對齊"]
+  hard["4 條硬規則（makeMover）<br/>① 邊界內 ② 象限保持<br/>③ 不遮蔽節點 ④ 邊環繞序不變"]
+  loop{"每輪：逐非中途站試探<br/>半徑 R 內全部候選格"}
+  best["取適應度下降最多的移動<br/>（嚴格改善才採納）"]
+  cool["冷卻：R 由 8 遞減至 1<br/>最多 5 輪"]
+  cluster["超長邊群集移動<br/>整段節點群一起平移"]
+  blacks["中途站沿新邊平均放回"]
+  save["saveStraightenCells<br/>algo=hccells-v13 ＋ dataFingerprint<br/>（指紋寫入；讀取端不拒載）"]
+
+  input --> fit --> loop
+  hard -.->|"每個候選都先過"| loop
+  loop --> best --> cool
+  cool -->|"未收斂"| loop
+  cool -->|"收斂"| cluster --> blacks --> save
+    </pre>
+  </div>
+  <p>
+    後續的「直線演算法」十一條鏈（§9）以網格化／消融來源為輸入做 H/V 最大化後處理
+    （論文鏈<strong>不吃</strong> HC 輸出當輸入；HC 僅畫廊參考）。其中②直角爬山
+    （<code>buildOrthoPolish</code>，kind＝<code>ortho</code>）把方向準則從八方向 <code>|sin 4θ|</code> 換成直角
+    <code>|sin 2θ|</code> 再爬一次，經 <code>iteratePost</code> 迭代到不動點（上限
+    <code>POST_ITER_CAP = 20</code>）。
+  </p>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="movewise">
+  <h2><span class="no">UML</span>movewise 四步鏈循環（狀態機）</h2>
+  <p class="lead">
+    「循環」tab 的執行語意：四個演算法各自跑到不動點才輪替，一整輪完全靜止才停機。
+    每一個單一移動後立即壓縮網格（movewise），不再有獨立的縮減步驟。
+  </p>
+  <div class="fig">
+    <div class="figcap">fig 9 — straighteningCompactLoop 狀態機（四步鏈；stepChainInit / stepChainNext 驅動逐步驗證）</div>
+    <pre class="mermaid">
+stateDiagram-v2
+  direction LR
+  [*] --> 移點
+  state "移點 endp" as 移點 {
+    [*] --> 試移
+    試移: 每個非中途站一次移 1 格（八方向含 45°）
+    試移: 採納序＝消交叉 → H/V 直線變多 → 否則入射段變最短
+    試移: STRICT_NO_BEND ＋ SPAN_CAP ＋ DRIFT_CAP ＋ makeMover 硬規則
+    試移 --> 壓縮: 每一步採納後
+    壓縮: movewise 立即縮減網格
+    壓縮 --> 試移: 還有可採納移動
+  }
+  移點 --> 移線: 到不動點
+  state "移線 line" as 移線 {
+    [*] --> 平移
+    平移: 跨相交點串接的直線整條 ±1 格平移
+    平移: 優先 H/V 變多，否則邊界段變最短
+    平移: validShift ＋ SPAN_CAP ＋ DRIFT_CAP
+  }
+  移線 --> 移枝: 到不動點
+  state "移枝 branch" as 移枝 {
+    [*] --> 整團平移
+    整團平移: 橋（cut edge）切出的整個分枝一次剛體平移 1 格（八方向含 45°）
+    整團平移: 團內部原封不動，只有那條橋會變形 → 採納條件與移線共用
+    整團平移: validShift ＋ SPAN_CAP ＋ DRIFT_CAP（每個成員都要在上限內）
+  }
+  移枝 --> 併格: 到不動點
+  state "併格 gather" as 併格 {
+    [*] --> 合併
+    合併: 相鄰 row 兩兩合併、col 兩兩合併
+    合併: 半平面整體移 1 格（自帶壓縮）
+    合併: validShift＝不壓點/不新增交叉/拓撲不變
+    合併: 矩形城市另試成對縮方（45° 跳過）
+  }
+  併格 --> 移點: 本輪有任何採納
+  併格 --> [*]: 一輪全靜止（收斂）→ loopPostConverge（拉直 pass ＋ 再壓縮）
+    </pre>
+  </div>
+  <p>
+    逐步驗證 tab 用同一個狀態機的細粒度介面：<code>stepChainNext</code> 的「下一小步」＝單一移動
+    （前後橘圈比對）、「下一步」＝目前演算法跑到不動點；含復原堆疊與每秒一小步的自動執行。
+  </p>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="chains">
+  <h2><span class="no">MAP</span>直線演算法十一條鏈 × 論文對應</h2>
+  <p class="lead">
+    直線演算法＝<strong>九條論文鏈</strong>（①〜⑨）＋<strong>LLM 直線化</strong>（格網來源再加 LLM 骨架地圖網格化當第二條 LLM 來源鏈，命名共 11 條對照；
+    LLM 工作地圖網格化是葉節點、下游同 cell flow）。名稱與 <code>data/thesis/&lt;n&gt;_*_演算法說明.md</code> 一一對應。
+    共用機構在 <code>paperAlign.js</code>／<code>paper/_shared.js</code>：WINDOW ±2 夾擠、clampTargets、
+    finishPass/finishBatches（逐批漸進＋嚴格改善）、snapAligned、scoreAlign（HV 優先、45° 次之）、
+    dirModel（③⑧共用）、coordsFromDirs。
+    <strong>矩形導引不是鏈 #9</strong>——獨立掛在矩形圖層（§9b／§10）。
+  </p>
+  <table class="spec">
+    <tr><th>#</th><th>kind</th><th>tab 名</th><th>實作檔</th><th>論文</th><th>方法一句話</th></tr>
+    <tr><td>①</td><td><code>stroke</code></td><td>①筆畫法</td><td><code>paper/stroke.js</code></td><td>Li &amp; Dong 2010</td><td>段串成筆畫、&gt;45° 扭曲遞迴切分、子筆畫投影到 H/V（被擋退 ±45°）</td></tr>
+    <tr><td>②</td><td><code>ortho</code></td><td>②直角爬山</td><td><code>hillClimb.js buildOrthoPolish</code></td><td>Stott et al. 2011（直角變體）</td><td>爬山方向準則 |sin 4θ| → |sin 2θ|，45° 變最貴，迭代到不動點</td></tr>
+    <tr><td>③</td><td><code>milp</code></td><td>③MILP規劃</td><td><code>paper/milp.js</code>＋<code>_dirModel.js</code></td><td>Nöllenburg &amp; Wolff 2011</td><td>每段 3 個八方向候選、生成樹 DP＋feedback 枚舉精確求解方向指派</td></tr>
+    <tr><td>④</td><td><code>force</code></td><td>④力導向</td><td><code>paper/force.js</code></td><td>Hong et al. 2006</td><td>磁力彈簧：引力＋斥力＋八方向磁場力 40 輪，PrEd 位移上限</td></tr>
+    <tr><td>⑤</td><td><code>lsq</code></td><td>⑤最小平方</td><td><code>paper/lsq.js</code></td><td>Wang &amp; Chi 2011</td><td>目標向量＝旋到最近八方向，Gauss–Seidel 解正則化最小平方 60 輪</td></tr>
+    <tr><td>⑥</td><td><code>octi</code></td><td>⑥八向格網</td><td><code>paper/octi.js</code></td><td>Bast et al. 2020</td><td>邊依線度數排序逐邊定案，候選格成本＝位移＋彎折＋線彎，一格一站</td></tr>
+    <tr><td>⑦</td><td><code>path</code></td><td>⑦路徑簡化</td><td><code>paper/path.js</code></td><td>Merrick &amp; Gudmundsson 2007</td><td>C=8 方向 ε-圓刺穿最少 link 簡化，頂點投影到 link，轉乘多者先定案</td></tr>
+    <tr><td>⑧</td><td><code>sat</code></td><td>⑧SAT規劃</td><td><code>paper/sat.js</code>＋<code>_dirModel.js</code></td><td>Fuchs 2022</td><td>與③同模型，求解器換 DPLL 分支定界（節點上限 60000，超限退回）</td></tr>
+    <tr><td>⑨</td><td><code>flex</code></td><td>⑨彈性格網</td><td><code>paper/flexgrid.js</code></td><td>Bast et al. 2021</td><td>⑥ 延伸：候選改八向 Hanan 格網節點（過非中途站的 H/V/45°/135° 線交點）</td></tr>
+    <tr><td>—</td><td><code>llm</code></td><td>LLM 直線化（自動／指定對齊）</td><td><code>vite/llmTriggers.js</code>＋<code>applyLlmTargets</code></td><td>本論文（LLM 鏈，非固定演算法）</td><td>模型讀圖提 moves，經相同硬規則套用（含軸向 fallback，見 <code>hillClimb.js</code>）；有結果即套用主視圖（無「執行調整」）</td></tr>
+  </table>
+  <div class="note">
+    <b>矩形導引（獨立，非 PAPER_KINDS）</b>：kind／入口＝LLM 指定形狀（<code>paper/rect.js</code> · <code>shapeCheck.js</code> · <code>shapePresets.js</code>；
+    skill <code>llm-shape</code>／<code>route-shape-rect-align</code>），Batik et al. 2022 精神。有指定形狀規定的城市（目前 12 城）把規定路段收成該城指定的形狀（方形／45° 直線），
+    結果在 <code>3-straightening/llm-shape/</code>；成方即餵下游（可動方形頂點但不得破方）。矩形城市 id＝<code>&lt;id&gt;-shape-rect</code>（自成城市夾，不是 <code>-shape</code>）。
+    <br/><br/>
+    <b>LLM 鏈不是固定演算法</b>：固定的只有 export schema、硬規則驗證器、結果檔格式；求解策略每次由模型自行構思。
+    結果是快照級可重現（結果檔＋指紋＋transcript），重跑不保證相同——不可與①〜⑨並列成演算法效能比較。
+    <br/><br/>
+    <b>泳道差異</b>：<code>grid</code> 來源跑①〜⑨＋llm；<code>llm-skeleton2grid</code>／<code>llm-working2grid</code>（檔案層按模型拆：<code>orig-llm-*-grid-&lt;model&gt;</code>）來源<strong>只</strong>跑 llm（＋可選 llmshape 頭圖層），不跑論文①〜⑨（詳 §9b）；<code>llm-working2grid</code> 另加 <code>llm-working2straight</code>。凡有 llm 的泳道另可跑 <b>LLM 網絡循環</b>（<code>llm-network-loop</code>）餵第二張 Frame——**由使用者自行啟動**（面板分頁或 <code>--chain=loop</code>）；直線化跑完接的是**程式網絡循環**（movewise），<code>--chain=align</code> 不隱含 loop。舊稱 <code>cell</code>／<code>map</code> 僅遷移別名。
+  </div>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="sources">
+  <h2><span class="no">FLOW</span>來源軸／消融（grid · llm-skeleton2grid · llm-working2grid · 矩形）</h2>
+  <p class="lead">
+    Straighten／Frame 的變體由三維組成（<code>layerMigrations.js</code>）：
+    <code>variant = &lt;dir&gt; + &lt;source 後綴&gt; + 可選 -shape-rect</code>。
+    UI 變體＝<code>orig</code> · <code>orig-llm-skeleton2grid</code> · <code>orig-llm-working2grid</code>（＋各自 <code>-shape-rect</code>）共 6 個；檔案變體永遠帶模型，例 <code>orig-llm-skeleton2grid-opus5</code> · <code>orig-llm-working2grid-glm52</code> · <code>orig-llm-skeleton2grid-haiku45-shape-rect</code>。
+    方向目前只有 <code>orig</code>（<code>rot</code> 已自 <code>STRAIGHTENING_DIRECTIONS</code> 移除）。
+  </p>
+  <table class="spec">
+    <tr><th>來源 <code>STRAIGHTENING_UI_SOURCES</code>／檔案源</th><th>意義</th><th>泳道鏈（<code>straighteningCompactsFor</code>）</th><th>資料目錄</th></tr>
+    <tr><td><code>grid</code>（無後綴）</td><td>排名吸附網格化</td><td>①〜⑨＋<code>llm</code>（矩形變體再加頭圖層 <code>llmshape</code>）</td><td>網格化後 → <code>3-straightening/grid/{鏈}/</code></td></tr>
+    <tr><td><code>llm-skeleton2grid</code>（檔案 ×13 模型）</td><td>LLM 骨架地圖網格化（消融）</td><td><b>只</b> <code>llm</code>（＋可選 <code>llmshape</code>）；①〜⑨ 不跑</td><td>來源 <code>2-gridding/llm-skeleton2grid/&lt;model&gt;/</code>；泳道 <code>3-straightening/llm-skeleton2grid/&lt;model&gt;/llm-straighten/</code></td></tr>
+    <tr><td><code>llm-working2grid</code>（檔案 ×13 模型）</td><td>LLM 工作地圖網格化（消融）</td><td>同上，另加 <code>llm-working2straight</code>（一次 LLM 端到端；寫 <code>3-straightening/llm-working2straight/{模型}/</code>）</td><td>來源 <code>2-gridding/llm-working2grid/&lt;model&gt;/</code>；泳道 <code>3-straightening/llm-working2grid/&lt;model&gt;/llm-straighten/</code></td></tr>
+  </table>
+  <div class="fig">
+    <div class="figcap">fig 9b — 來源軸與泳道（格網 vs 消融）</div>
+    <pre class="mermaid">
+flowchart LR
+  sk["骨架化"] --> rank["排名吸附網格化<br/>source=grid"]
+  sk --> cell["LLM 骨架地圖網格化 ×13<br/>source=llm-skeleton2grid"]
+  geo["工作地圖（原始地理）"] --> mapn["LLM 工作地圖網格化 ×13<br/>source=llm-working2grid"]
+
+  rank --> rectopt{"規定表城市？"}
+  cell --> rectopt2{"規定表＋矩形？"}
+  mapn --> rectopt3{"規定表＋矩形？"}
+
+  rectopt -->|"可選 LLM 指定形狀"| paper9["①〜⑨ ＋ llm"]
+  rectopt -->|否| paper9
+  rectopt2 -->|"可選 llmshape"| onlyllm["只 llm"]
+  rectopt3 -->|"可選 llmshape"| onlyllm
+
+  paper9 --> mv["movewise → Frame"]
+  onlyllm --> mv
+    </pre>
+  </div>
+  <ul>
+    <li><b>UI 來源</b> <code>STRAIGHTENING_UI_SOURCES</code>＝<code>grid | llm-skeleton2grid | llm-working2grid</code>（後兩者左 list 切模型）；<b>檔案來源</b> <code>STRAIGHTENING_FILE_SOURCES</code> 把兩條消融拆成 13 個模型（bake／畫廊／status）。舊 <code>cell</code>／<code>map</code> 僅遷移別名。</li>
+    <li><b>矩形城市檔</b>＝另一個系統 id <code>&lt;id&gt;-shape-rect</code>（與畫廊顯示一致），不是變體後綴 <code>-shape</code>。</li>
+    <li><b>消融模型資料夾</b>：<code>opus5</code>／<code>fable5</code>／<code>sonnet5</code>／<code>haiku45</code>（claude CLI）＋<code>gpt56sol</code>／<code>codex53</code>／<code>gemini31</code>／<code>grok45</code>／<code>composer25</code>／<code>kimik3</code>／<code>glm52</code>（cursor-agent CLI）＋<code>deepseekv4pro</code>／<code>deepseekv4flash</code>（dsc CLI），共 13 個。</li>
+  </ul>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="llmseq">
+  <h2><span class="no">UML</span>LLM 九鏈觸發序列</h2>
+  <p class="lead">
+    LLM 功能不需要 API key：dev server 收到請求後 <b>先刪舊結果檔</b>、spawn 本機 agent CLI（Claude Code 或 Cursor Agent，後者先 <code>cursor-agent login</code>）
+    （經 <code>claudeSkillTrigger.js</code> 帶 <code>--model</code>＋<code>LLM_ENFORCED_MODEL</code>，見 §10b）。
+    九條路由：align／loop／finish／rect／llm-skeleton2grid／llm-working2grid／grid／eval／compare，各有 <code>/run</code>、<code>/status</code>、<code>/clear</code>。旗標由 <code>src/lib/llmProviders.js</code> 的 <code>buildLlmSpawn</code> 組裝（三支 CLI 旗標不相容；SKILL.md 全文內嵌進提示詞，claude 另 disallow Skill 工具）。
+  </p>
+  <h3>套用規則（2026-07-30 收窄；重跑改直接 <code>rm</code>，2026-08-01）</h3>
+  <table class="spec">
+    <tr><th>鏈</th><th>跑完行為</th><th>「執行調整」</th><th>資料流代跑</th></tr>
+    <tr><td>align（自動／指令調整）</td><td>有結果即套用到「LLM 直線化」主視圖（兩支 skill 寫同一份結果檔，後跑的算數）；<b>跑完接的是程式網絡循環（movewise），不代跑 LLM 網絡循環</b>；讀取一律 <code>alignOf(doc)</code></td><td><b>已移除</b></td><td>否（只面板按鈕）</td></tr>
+    <tr><td>loop／finish</td><td>loop 起點＝直線化結果，另餵 Frame <code>llm-network-loop</code>（不覆寫 <code>network-loop</code>）；finish 一次 LLM 從工作地圖做到循環結果，權威＝<code>3-straightening/llm-working2straight/</code>，Frame <code>llm-working2straight</code></td><td>無</td><td>否</td></tr>
+    <tr><td>rect</td><td>成方即餵下游直線演算法；輸入一律 Gridding flow base（新一次不吃前次矩形）；觸發端／CLI <b>直接刪舊檔</b>再跑（舊 <code>{_fresh}</code> stub 已廢寫入）</td><td><b>已移除</b>；唯一暫停＝「重新計算」寫的 <code>shapeFeedCleared</code></td><td><b>是</b>——缺結果檔時 <code>metroRecompute.runLlmShapeFor</code> 代跑</td></tr>
+    <tr><td>grid／eval</td><td>寫檔＋顯示</td><td>使用者按「執行調整」切換顯示（套用⇄恢復）</td><td>否</td></tr>
+    <tr><td>compare</td><td>唯讀評審、不動座標</td><td>無</td><td>否</td></tr>
+    <tr><td>llm-skeleton2grid／llm-working2grid</td><td>寫指派結果；下游接 llm（＋可選 rect）→ movewise → Frame；llm-working2grid 另可跑 finish</td><td>層自身無 toggle</td><td>否</td></tr>
+  </table>
+  <div class="fig">
+    <div class="figcap">fig 10 — /llm-straighten-align：有結果即套用（無執行調整）</div>
+    <pre class="mermaid">
+sequenceDiagram
+  autonumber
+  actor U as 使用者
+  participant D3 as D3Tab.vue
+  participant VP as vite llmTriggers<br/>claudeSkillTrigger
+  participant FS as maps/{g}/{city}/<br/>3-straightening/{來源}/llm-straighten/
+  participant CC as agent CLI（claude／cursor-agent）
+
+  U->>D3: 「開始 LLM 直線化」（自動 或 --prompt 指定）
+  D3->>VP: POST /llm-straighten-align/run {city, variant, kind, prompt?}
+  Note over VP: 開跑前直接 rm 舊檔<br/>指定：依主視圖 seed
+  VP->>CC: spawn claude --model ＜id＞<br/>env LLM_ENFORCED_MODEL=＜id＞
+  loop 每秒輪詢
+    D3->>VP: GET /llm-straighten-align/status
+    VP-->>D3: {running, step…}＋串流 transcript
+  end
+  CC->>FS: apply → 寫結果 JSON（executor:enforced）
+  VP-->>D3: 完成
+  Note over D3: 有結果即套用主視圖<br/>（執行調整已移除）
+    </pre>
+  </div>
+  <div class="fig">
+    <div class="figcap">fig 10b — /llm-grid（／llm-eval 同構）：寫檔後按「執行調整」</div>
+    <pre class="mermaid">
+sequenceDiagram
+  autonumber
+  actor U as 使用者
+  participant D3 as D3Tab / StylePanel
+  participant VP as vite /llm-grid
+  participant FS as 4-frame-maps/llm-grid/
+  participant CC as agent CLI（claude／cursor-agent）
+
+  U->>D3: 一句話 → 開始 LLM 互動
+  D3->>VP: POST /llm-grid/run
+  VP->>CC: spawn（強制模型）
+  CC->>FS: 寫 colW/rowW 權重結果
+  VP-->>D3: 完成 → 面板顯示結果
+  Note over D3: 跑完不改主畫面
+  U->>D3: 按「執行調整」
+  D3->>D3: 用 intervalAxes 重畫欄寬列高（可恢復）
+    </pre>
+  </div>
+  <table class="spec">
+    <tr><th>路由前綴</th><th>功能</th><th>結果目錄</th><th>顯示／套用</th></tr>
+    <tr><td><code>/llm-straighten-align</code></td><td>LLM 直線化（自動 <code>.json</code>／指定 <code>-prompt.json</code>）</td><td><code>3-straightening/{來源}/llm-straighten/</code></td><td>Straighten 直線化 tab；有結果即套用</td></tr>
+    <tr><td><code>/llm-network-loop</code></td><td>LLM 網絡循環（起點＝直線化結果）</td><td><code>3-straightening/llm-network-loop/</code></td><td>另餵一張 Frame（<code>llm-network-loop</code>）</td></tr>
+    <tr><td><code>/llm-working2straight</code></td><td>LLM 工作地圖直線化（工作地圖 → 循環結果，一次 LLM）</td><td><code>3-straightening/llm-working2straight/</code></td><td>Frame <code>llm-working2straight</code> 圖層</td></tr>
+    <tr><td><code>/llm-shape</code></td><td>LLM 指定形狀（規定表城市；檔名 <code>{cityId}-shape-rect-3-straightening-llm-shape.json</code>）</td><td><code>3-straightening/llm-shape/</code></td><td>形狀頭圖層；成方即餵下游；可資料流代跑</td></tr>
+    <tr><td><code>/llm-skeleton2grid</code></td><td>LLM 骨架地圖網格化（消融 ×13 模型）</td><td><code>2-gridding/llm-skeleton2grid/&lt;model&gt;/</code></td><td>Gridding 替代層</td></tr>
+    <tr><td><code>/llm-working2grid</code></td><td>LLM 工作地圖網格化（消融 ×13 模型）</td><td><code>2-gridding/llm-working2grid/&lt;model&gt;/</code></td><td>Gridding 葉層</td></tr>
+    <tr><td><code>/llm-grid</code></td><td>LLM 互動（一句話改欄列權重）</td><td><code>4-frame-maps/llm-grid/</code></td><td>Frame「LLM互動」；按「執行調整」切換</td></tr>
+    <tr><td><code>/llm-eval</code></td><td>LLM 評價（幾何脈絡→評語＋moves）</td><td><code>4-frame-maps/llm-eval/</code></td><td>Frame「LLM評價」；按「執行調整」切換</td></tr>
+    <tr><td><code>/llm-compare</code></td><td>LLM 比較（①〜⑨＋可用 LLM 全結果選最佳）</td><td><code>4-frame-maps/llm-compare/</code></td><td>Frame 比較視圖（唯讀）</td></tr>
+  </table>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="executors">
+  <h2><span class="no">RUNTIME</span>執行器（provider）與模型表</h2>
+  <p class="lead">
+    LLM 鏈認三支 CLI：Claude Code CLI（claude）、Cursor Agent CLI（cursor-agent）、DeepSeek CLI（dsc）。三支 CLI 的<strong>旗標不相容</strong>，
+    所以模型表每一列都帶 <code>provider</code>，spawn 前一律由 <code>src/lib/llmProviders.js</code> 的
+    <code>buildLlmSpawn</code> 組裝（勿在 spawn 點手寫參數）。
+  </p>
+  <table class="spec">
+    <tr><th>provider</th><th>執行檔（env 覆寫）</th><th>旗標</th><th>Skill 工具</th><th>登入</th></tr>
+    <tr><td><code>claude</code></td><td><code>claude</code>（<code>CLAUDE_BIN</code>）</td><td><code>-p</code> <code>--model &lt;id&gt;</code> <code>--output-format stream-json</code> <code>--verbose</code> <code>--permission-mode acceptEdits</code> <code>--allowedTools Bash(node:*),Read,Write,Glob,Grep</code> <code>--disallowedTools Skill,Read(.claude/skills/**)</code>（資料流自動指定形狀改用 <code>--dangerously-skip-permissions</code>；SKILL.md 全文內嵌進提示詞）</td><td><strong>無（disallowed）</strong></td><td>Claude Code 既有登入</td></tr>
+    <tr><td><code>cursor</code></td><td><code>cursor-agent</code>（<code>CURSOR_AGENT_BIN</code>）</td><td><code>-p</code> <code>--model &lt;id&gt;</code> <code>--output-format stream-json</code> <code>--force</code> <code>--trust</code>（無 <code>--verbose</code>；工具事件是 <code>type:'tool_call'</code>）</td><td><strong>無</strong></td><td><code>cursor-agent login</code>（瀏覽器 OAuth、吃訂閱，不用 API key）</td></tr>
+    <tr><td><code>deepseek</code></td><td><code>dsc</code>（<code>DEEPSEEK_API_KEY</code>；按用量計費）</td><td><code>-yolo -new -no-duet -effort max</code>（單破折號；<code>-no-duet</code> 關掉 Two-Model Duet，<code>-new</code> 強迫開新 session）</td><td><strong>無</strong></td><td><code>DEEPSEEK_API_KEY</code> 環境變數</td></tr>
+  </table>
+  <ul>
+    <li><b>單一 skill 模式</b>：每條鏈的子行程<b>只准照那一支 SKILL.md 做</b>。作法在 <code>buildLlmSpawn</code> 一處：① 把該支 SKILL.md 全文內嵌進提示詞（<code>skillBodyOf</code>）；② claude 那路另加 <code>--disallowedTools Skill,Read(.claude/skills/**)</code>——不在允許清單裡＋明確禁止。cursor-agent／dsc 本身沒有 Skill 工具。新增鏈時提示詞照原格式寫即可，內嵌由 <code>buildLlmSpawn</code> 處理。</li>
+    <li><b>舊 id 重導關閉</b>：claude 這批帶 <code>CLAUDE_CODE_DISABLE_LEGACY_MODEL_REMAP=1</code>——舊 id 被靜默重導到別的模型，正是 provenance 要防的失真。</li>
+    <li><b>單一真相</b>：模型顯示名／資料夾／compact／view／source 由 <code>src/lib/llmSkeleton2GridModels.js</code>／<code>llmWorking2GridModels.js</code> 導出（兩表 key 必須一致，<code>ablationSources.js</code> 載入時檢查）；CLI id 在 <code>vite/llmModels.js</code>；面板下拉在 <code>src/lib/llmModels.js</code>（啟動時三方對齊檢查）。</li>
+  </ul>
+  <table class="spec">
+    <tr><th>key</th><th>模型</th><th>provider</th><th>CLI id</th><th>資料夾</th></tr>
+    <tr><td><code>opus5</code></td><td>Opus 5（網格地圖來源的 LLM 直線化固定此模型；多數鏈無面板預設）</td><td>claude</td><td><code>claude-opus-5</code></td><td><code>llm-skeleton2grid/opus5/</code>、<code>llm-working2grid/opus5/</code></td></tr>
+    <tr><td><code>fable5</code></td><td>Fable 5</td><td>claude</td><td><code>claude-fable-5</code></td><td><code>…/fable5/</code></td></tr>
+    <tr><td><code>sonnet5</code></td><td>Sonnet 5</td><td>claude</td><td><code>claude-sonnet-5</code></td><td><code>…/sonnet5/</code></td></tr>
+    <tr><td><code>haiku45</code></td><td>Haiku 4.5</td><td>claude</td><td><code>claude-haiku-4-5-20251001</code></td><td><code>…/haiku45/</code></td></tr>
+    <tr><td><code>gpt56sol</code></td><td>GPT-5.6 Sol</td><td>cursor</td><td><code>gpt-5.6-sol-max</code></td><td><code>…/gpt56sol/</code></td></tr>
+    <tr><td><code>codex53</code></td><td>Codex 5.3</td><td>cursor</td><td><code>gpt-5.3-codex-xhigh</code></td><td><code>…/codex53/</code></td></tr>
+    <tr><td><code>gemini31</code></td><td>Gemini 3.1 Pro</td><td>cursor</td><td><code>gemini-3.1-pro</code></td><td><code>…/gemini31/</code></td></tr>
+    <tr><td><code>grok45</code></td><td>Grok 4.5</td><td>cursor</td><td><code>cursor-grok-4.5-high</code></td><td><code>…/grok45/</code></td></tr>
+    <tr><td><code>composer25</code></td><td>Composer 2.5</td><td>cursor</td><td><code>composer-2.5</code></td><td><code>…/composer25/</code></td></tr>
+    <tr><td><code>kimik3</code></td><td>Kimi K3</td><td>cursor</td><td><code>kimi-k3-max</code></td><td><code>…/kimik3/</code></td></tr>
+    <tr><td><code>glm52</code></td><td>GLM 5.2</td><td>cursor</td><td><code>glm-5.2-max</code></td><td><code>…/glm52/</code></td></tr>
+    <tr><td><code>deepseekv4pro</code></td><td>DeepSeek V4 Pro</td><td>deepseek</td><td><code>deepseek-v4-pro</code></td><td><code>…/deepseekv4pro/</code></td></tr>
+    <tr><td><code>deepseekv4flash</code></td><td>DeepSeek V4 Flash</td><td>deepseek</td><td><code>deepseek-v4-flash</code></td><td><code>…/deepseekv4flash/</code></td></tr>
+  </table>
+  <ul>
+    <li><b>Cursor 側只收非 Anthropic 模型</b>：同一批 Anthropic 模型已由 claude CLI 跑，重複收會讓論文對照表出現兩列同名模型、資料夾也難分辨。</li>
+    <li><b>檔位取最高</b>：模型對照要比「每個模型盡全力的結果」，混用推理檔位會變成論文上的混淆變項（各家上限不同：Sol／Kimi／GLM 到 max、Codex 到 xhigh、Grok 到 high、Gemini Pro 與 Composer 無檔位概念）。</li>
+    <li><b>覆蓋現況（2026-08-07 全球保留）</b>：2026-08-07 起衍生資料<b>全球保留</b>——所有 599 城的 <code>1-raw-maps/skeleton/</code>、<code>2-gridding/</code>、<code>3-straightening/</code> 均已落檔（落檔 22,639 個 / 17.6 MB）；frameParity 基準 <b>980 組</b>。跨模型樣本要擴充一律重跑 <code>npm run metro:llmchain</code>（論文對照只採 <code>executor: enforced</code>）。</li>
+  </ul>
+  <div class="fig">
+    <div class="figcap">fig 10d — provider 決定 spawn 哪一支 CLI</div>
+    <pre class="mermaid">
+flowchart LR
+  row["模型表列<br/>{key, id, provider}"] --> pick{"provider？"}
+  pick -->|claude| c["claude -p --model id<br/>--permission-mode acceptEdits<br/>--allowedTools …（不含 Skill）<br/>SKILL.md 內嵌進提示詞"]
+  pick -->|cursor| k["cursor-agent -p --model id<br/>--force --trust<br/>SKILL.md 內嵌進提示詞"]
+  pick -->|deepseek| d["dsc -yolo -new -no-duet -effort max<br/>DEEPSEEK_API_KEY；SKILL.md 內嵌"]
+  c --> env["env LLM_ENFORCED_MODEL=key"]
+  k --> env
+  env --> apply["skill 腳本 apply → _llmProvenance"]
+    </pre>
+  </div>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="provenance">
+  <h2><span class="no">RULE</span>模型標註保證（executor）</h2>
+  <p class="lead">
+    <code>--model=</code> 旗標<strong>不挑執行者</strong>，只決定資料夾與標註字串——誰跑腳本就是誰在算，所以它只是<strong>宣告</strong>
+    （曾因此整批標錯）。真保證＝由純 Node 驅動程式決定模型 id、spawn <code>&lt;cli&gt; --model &lt;id&gt;</code>（<code>claude</code>／<code>cursor-agent</code>／<code>dsc</code>），
+    並經 <code>LLM_ENFORCED_MODEL</code> 傳同一個 key 進去。
+  </p>
+  <ul>
+    <li><code>scripts/_llmProvenance.mjs</code>：有 <code>LLM_ENFORCED_MODEL</code> 且相符 → 覆寫 <code>model</code> 標註並記 <code>executor: 'enforced'</code>；對不上就拒絕寫檔。沒有該變數 → <code>executor: 'declared'</code>（人工／子代理自跑，僅自律）。</li>
+    <li><b>九條鏈都已接上</b>：cell／map／align／shape／grid／eval／compare／loop／finish。</li>
+    <li><b>三支執行器</b>：模型表每列帶 <code>provider</code>（<code>claude</code>／<code>cursor</code>／<code>deepseek</code>），父行程決定模型、子行程無法謊報——換 provider 只是換執行檔與旗標，provenance 機制不變。Cursor 側只收<strong>非 Anthropic</strong> 模型，且檔位取各模型可用的最高推理檔；DeepSeek 走 <code>dsc</code>＋<code>DEEPSEEK_API_KEY</code>。</li>
+    <li><b>CLI 批次</b>一律走 <code>scripts/llmChainBatch.mjs</code>；<b>網頁面板</b>走 <code>vite/claudeSkillTrigger.js</code>（本來就 spawn <code>--model</code>）。</li>
+    <li>設 <code>LLM_REQUIRE_ENFORCED=1</code> 可全面禁止自我宣告。</li>
+    <li><b>論文做模型對照時只能用 <code>executor === 'enforced'</code> 的結果檔</b>；2026-07-29 以前產出的檔一律沒有此欄位＝declared。</li>
+  </ul>
+  <div class="fig">
+    <div class="figcap">fig 10c — 強制模型寫檔路徑</div>
+    <pre class="mermaid">
+flowchart LR
+  batch["llmChainBatch.mjs<br/>或 claudeSkillTrigger.js"] -->|"決定 model id"| spawn["spawn claude --model id<br/>env LLM_ENFORCED_MODEL=id"]
+  spawn --> skill["skill 腳本 apply"]
+  skill --> prov["_llmProvenance.mjs<br/>覆寫 model ＋ executor"]
+  prov -->|"相符"| write["寫結果 JSON<br/>executor:enforced"]
+  prov -->|"不符／缺強制"| reject["拒絕寫檔 或 declared"]
+    </pre>
+  </div>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="recompute">
+  <h2><span class="no">UML</span>重新計算（全城）序列圖</h2>
+  <p class="lead">
+    header 的「重新計算」按鈕：dev server spawn 全城管線，前端每秒輪詢進度；
+    每算完一城就 bump <code>metroDataEpoch</code>，畫廊縮圖與世界地圖綠點即時跟上磁碟進度。
+  </p>
+  <div class="fig">
+    <div class="figcap">fig 11 — TopToolbar ⇄ metroRecompute 插件</div>
+    <pre class="mermaid">
+sequenceDiagram
+  autonumber
+  actor U as 使用者
+  participant TB as TopToolbar.vue
+  participant MR as vite metroRecompute
+  participant SC as scripts/*.mjs（全城管線）
+  participant ST as mapStore
+
+  U->>TB: 選模式（all / no-shape / dataflow）＋ confirm
+  TB->>MR: POST /metro-recompute/city {city, mode}
+  alt 已有計算進行中
+    MR-->>TB: 409 → toast「已有重新計算在進行中」
+  else
+    MR->>SC: spawn 子行程
+    MR-->>TB: 200
+  end
+  TB->>ST: metroDataEpoch++ ＋ clearDataOverlay（畫廊立即 remount）
+  loop 每 1000ms
+    TB->>MR: GET /metro-recompute/status
+    MR-->>TB: {running, phase, progress:{current,total,item}, paused}
+    opt progress.current 前進（算完一城）
+      TB->>ST: clearDataOverlay ＋ metroDataEpoch++
+    end
+  end
+  opt 使用者按「暫停／繼續」
+    TB->>MR: POST /metro-recompute/pause 或 /resume（這城算完後生效）
+  end
+  SC-->>MR: exit code
+  MR-->>TB: {running:false, exit}
+  TB->>ST: 最終 clearDataOverlay ＋ epoch++ → toast 完成/失敗
+    </pre>
+  </div>
+  <p>
+    三種模式對應指定形狀資料的處理策略：<code>all</code>（連 LLM 指定形狀一起重做）、
+    <code>no-shape</code>（矩形相關全部不動）、<code>dataflow</code>（矩形結果不動、但矩形下游佈局全部重算）。
+    另有 <code>POST /metro-recompute/city</code> 供單城重算。
+    單城「計算接續地圖／重新計算」在 <code>bakeStraighteningCells --shape</code> 之前，對缺結果檔的 flow 會呼叫
+    <code>runLlmShapeFor</code> 自動跑 llm-shape（已成方就跳過）——這是 LLM 鏈在資料流裡的<strong>唯一破例</strong>。
+  </p>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="datapipe">
+  <h2><span class="no">FLOW</span>Node 資料管線（fetch ⇄ audit 迴圈）</h2>
+  <p class="lead">
+    <code>npm run metro:all</code> 的完整鏈；highway／railway 是同 schema 的平行管線
+    （<code>highway:all</code>、<code>railway:all</code>）。城市專屬規則以
+    <code>data/_overrides/</code> 與 <code>.claude/skills/metro-city-*</code> 治理。
+  </p>
+  <div class="fig">
+    <div class="figcap">fig 12 — metro:all 執行順序（節點＝scripts/*.mjs）</div>
+    <pre class="mermaid">
+flowchart TB
+  subgraph fetch ["抓取"]
+    w["fetchWikiList<br/>Wikipedia 城市/系統清單"]
+    m["fetchMetro<br/>Overpass：route=subway|light_rail"]
+    uc["fetchUcExceptions<br/>未通車例外"]
+    sb["fetchSbahnDe<br/>德國 S-Bahn（train 例外）"]
+    geo2["geocodeSystems<br/>Nominatim 反向地理編碼分桶"]
+    w --> m --> uc --> sb --> geo2
+  end
+
+  subgraph build ["組檔"]
+    bg["buildGeojson<br/>每城市 1-raw-maps/working GeoJSON"]
+    sgv["buildSingaporeVariants<br/>base=MRT · +LRT 變體"]
+    jr["buildJrCombined"]
+    lm["buildLandmarkCombined<br/>河流/地標圖層合併"]
+    cs["buildCombinedSystems<br/>首爾+仁川 · 台北+台鐵+高鐵 · 東京+JR+私鐵"]
+    bv["buildViews<br/>骨架 1-raw-maps/skeleton · 網格 2-gridding/grid<br/>（Straighten/Frame 改由 cells 現畫）"]
+    bg --> sgv --> jr --> lm --> cs --> bv
+  end
+
+  subgraph tracks ["軌跡（route_ref 須與 maps 一致）"]
+    ft["fetchMetroTracks"] --> bt["buildMetroTrackGeojson"] --> bc["buildMetroTrackCenterline"]
+  end
+
+  subgraph audit ["驗證（audit）"]
+    wl["wikiLineCheck<br/>逐線對照 Wikipedia infobox 站數"]
+    al["auditLoop<br/>逐城 audit ⇄ 修補迴圈<br/>verify_report.md"]
+    wl --> al
+  end
+
+  fetch --> build --> tracks --> audit
+  audit -.->|"未通過城市 → 定向重抓（fetch⇄audit 迴圈）"| fetch
+
+  ov[("data/_overrides/<br/>城市裁決釘選")] -.-> geo2 & bg
+  maps2["downloadMaps / fetchOfficialSites<br/>官方路網圖 · UrbanRail 只准 urbanrail.net"] --> mapsdir[("1-raw-maps/official-route|urbanrail/<br/>＋ maps/maps_index.json")]
+    </pre>
+  </div>
+  <ul>
+    <li><b>fetch ⇄ audit 迴圈</b>：audit 產出的未通過城市清單回饋給定向重抓（<code>refetchFailedCities</code>／<code>refreshRelations</code>），收斂到 <code>verify_report.md</code> 全綠。</li>
+    <li><b>三套平行管線</b>：metro（599 系統）／railway（9 系統：台灣 2＋日本 7，2026-08-02 收斂）／highway（3 都會區）共用 schema 與下游（畫廊、圖層匯入），各自有 fetch、build、verify 腳本與對應 skill。</li>
+    <li><b>知識庫</b>：<code>.claude/skills/</code> 裡的 SKILL.md（metro-osm-fetch、metro-audit、metro-city-* 等）記錄管線規則與逐城裁決，SPA 內建 SkillViewer 可直接閱讀，build 時也拷貝到 <code>dist/skills/</code>。</li>
+  </ul>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="datadir">
+  <h2><span class="no">FS</span>資料目錄結構</h2>
+  <p class="lead">
+    無資料庫——檔案系統就是資料庫。<code>data/metro/</code> 是最大宗（599 系統）。
+    2026-07-31 起全部收進<b>城市資料樹</b>（根夾 <code>networks/</code> 已改名 <code>maps/</code>）：
+    <code>data/metro/maps/{groupId}/{cityId}/{step}/{layer}/[{sub}/]{cityId}-{step}-{layer}[…].{ext}</code>。
+    邏輯 key（<code>METRO_DIRS</code>）≠ 磁碟代碼；磁碟路徑一律由 <code>src/lib/metroNetworkLayout.js</code> 產生（命名鐵律，§5b）。
+  </p>
+  <pre class="tree">data/metro/
+├── index.json                         <span class="m"># 599 系統清單＋統計＋覆蓋率（operator/wikidata 已移除）</span>
+├── city_coords.json / official_sites.json
+├── <span class="c">maps/</span>maps_index.json               <span class="m"># 官方／UrbanRail 圖總索引（OfficialMap 仍用）</span>
+├── <span class="c">maps/</span>{groupId}/{cityId}/           <span class="m"># 城市資料樹（群組＝資料夾；變體 -lm/-rail/-ty/-shape-rect 各自成城市夾）</span>
+│   ├── <span class="c">1-raw-maps/</span>{working|source}/   <span class="m"># 工作地圖｜原始地圖（須一模一樣；回復＝source→working）</span>
+│   ├── <span class="c">1-raw-maps/</span>{tracks|center}/    <span class="m"># 實際路線／路線中線（route_ref 須一致；非獨立 step）</span>
+│   ├── <span class="c">1-raw-maps/</span>{official-route|urbanrail}/  <span class="m"># 官方路線圖／UrbanRail 圖（png）</span>
+│   ├── <span class="c">1-raw-maps/</span>skeleton/            <span class="m"># 骨架地圖（2026-08-04 由 2-gridding 移入；只做拓撲收縮）</span>
+│   ├── <span class="c">2-gridding/</span>grid/             <span class="m"># 網格地圖（本 step 唯一的演算法產物）</span>
+│   ├── <span class="c">2-gridding/</span>{llm-skeleton2grid|llm-working2grid}/{opus5|…|deepseekv4flash}/  <span class="m"># 消融來源 llm-skeleton2grid/llm-working2grid ×13 模型</span>
+│   ├── <span class="c">3-straightening/</span>{來源}/[{模型}/]{鏈}/{子夾}/  <span class="m"># ★ 佈局權威（一個 json 一個圖）</span>
+│   │        <span class="m">#   來源＝grid｜llm-skeleton2grid｜llm-working2grid（後兩者再拆 13 個模型夾）</span>
+│   │        <span class="m">#   鏈＝algorithm-stroke…algorithm-flex｜llm-straighten</span>
+│   │        <span class="m">#   子夾＝{鏈}（該鏈結果）｜network-loop（程式循環）｜llm-network-loop（LLM 循環）</span>
+│   ├── <span class="c">3-straightening/</span>{來源}/llm-shape/     <span class="m"># LLM 指定形狀＝形狀泳道的「輸入」，非鏈結果，維持單層</span>
+│   ├── <span class="c">3-straightening/</span>llm-working2straight/{模型}/  <span class="m"># LLM 工作地圖直線化（非容器，維持單層）</span>
+│   └── <span class="c">4-frame-maps/</span>{llm-eval|llm-grid|llm-compare}/  <span class="m"># Frame 三個 LLM 工具結果</span>
+├── <span class="c">_overrides/</span>                        <span class="m"># 人工裁決</span>
+└── <span class="c">_cache/</span>                            <span class="m"># OSM／Wiki 快照（進版控＝可重現輸入）</span>
+
+data/highway/   <span class="m"># 3 都會區封閉式道路（schema 同 metro；資料樹尚未改制）</span>
+data/railway/   <span class="m"># 9 系統國鐵／高鐵：台灣 2＋日本 7（2026-08-02 收斂；同上，尚未改制）</span>
+data/thesis/    <span class="m"># 論文 md（直線化演算法實作依據）</span></pre>
+  <div class="note">
+    <b>檔名鐵律</b>（<code>networkLayerFileName</code>）：<code>{cityId}-{step}-{layer}[-{sub}][…].{ext}</code>——代碼＝tag＝資料夾＝檔名 token。
+    <br/>例：<code>as-twn-taipei-1-raw-maps-working.geojson</code>、
+    <code>as-twn-taipei-2-gridding-grid.json</code>、
+    <code>as-twn-taipei-1-raw-maps-skeleton.json</code>、
+    <code>as-twn-taipei-3-straightening-grid-algorithm-stroke-algorithm-stroke.json</code>、
+    <code>as-twn-taipei-3-straightening-grid-algorithm-stroke-network-loop.json</code>、
+    <code>as-twn-taipei-3-straightening-llm-skeleton2grid-opus5-llm-straighten-llm-network-loop.json</code>、
+    <code>as-twn-kaohsiung-shape-rect-3-straightening-grid-llm-shape.json</code>。
+    矩形城市 id＝<code>&lt;id&gt;-shape-rect</code>（不是 <code>-shape</code>）。目前 flow＝<code>orig</code>（rot 休眠；非 orig 變體才加 sub 夾）。
+    <br/><br/>
+    <b>已廢除的畫廊 JSON</b>：舊 <code>straighten/</code>（METRO_DIRS key <code>hcviews</code>）與
+    <code>frame-maps/</code>（key <code>frameviews</code>）整包縮圖不再寫入；Straighten／Frame 縮圖一律由
+    <code>3-straightening/</code> cells 現畫。
+    <br/><br/>
+    舊路徑（扁平 <code>metro-maps/</code>／<code>straighten-cells/</code>…、<code>networks/</code> v1／v2、
+    <code>2-gridding/skeleton/</code>）讀取時經
+    <code>legacyNetworksRelToCurrent</code>／<code>flatRelToNetworkRel</code>（<code>metroNetworkLayout.js</code>）改寫；
+    程式一律走 <code>src/lib/metroDataPaths.js</code> 的 <code>METRO_DIRS</code> 邏輯 key，不手拼路徑。
+    骨架的磁碟路徑一律走 <code>networkSkeletonPath</code>（<code>networkAdjustPath(city,'skeleton')</code> 會轉呼它）。
+  </div>
+  <div class="note">
+    <b>衍生資料全球保留（2026-08-07 裁決）</b>：<code>maps/{group}/{city}/</code> 底下，所有 599 城的
+    <code>1-raw-maps/skeleton/</code>、<code>2-gridding/</code>、<code>3-straightening/</code> 均保留，
+    落檔 22,639 個 / 17.6 MB。回歸基準：<code>scripts/frameParity.snapshot.json</code> 現為 <b>980 組</b>（全球）。
+    跨模型樣本一律重跑 <code>npm run metro:llmchain</code>（論文對照只採 <code>executor: enforced</code>）。
+  </div>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="er">
+  <h2><span class="no">UML</span>資料格式 ER 圖（關鍵 JSON schema）</h2>
+  <div class="fig">
+    <div class="figcap">fig 13 — 檔案之間的邏輯關聯（實體＝JSON 檔/Feature 類型）</div>
+    <pre class="mermaid">
+erDiagram
+  CITY_INDEX ||--o{ SYSTEM_GEOJSON : "index.json 列出 599"
+  SYSTEM_GEOJSON ||--o{ LINE_FEATURE : "FeatureCollection 含"
+  SYSTEM_GEOJSON ||--o{ STATION_FEATURE : "FeatureCollection 含"
+  SYSTEM_GEOJSON ||--o{ CELLS_DOC : "逐鏈一檔 metroChainCellsPath"
+  SYSTEM_GEOJSON ||--o| LLM_SKELETON2GRID : "消融 cell×模型"
+  SYSTEM_GEOJSON ||--o| LLM_WORKING2GRID : "消融 map×模型"
+  CELLS_DOC ||--o| LLM_VIEW : "對齊 seed／下游"
+  CELLS_DOC ||--o| RECT_DOC : "矩形成方後餵"
+  SYSTEM_GEOJSON ||--o| OFFICIAL_MAP : "maps_index 釘選"
+  CITY_INDEX ||--|| CITY_STATUS : "cityStatus 即時彙整"
+
+  CITY_INDEX {
+    string id "as-twn-taipei"
+    string name_zh
+    string continent
+    float lat_lng "city_coords.json"
+  }
+  SYSTEM_GEOJSON {
+    string type "FeatureCollection"
+    json metro_system "頂層中繼"
+    json features "MultiLineString 路線 ＋ Point 車站"
+  }
+  LINE_FEATURE {
+    string geometry "MultiLineString"
+    string name "線名（日本用 name:ja）"
+    string colour "官方線色"
+    string route_ref "須與 tracks 一致"
+  }
+  STATION_FEATURE {
+    string geometry "Point"
+    string name "站名"
+    json lines "所屬路線"
+  }
+  CELLS_DOC {
+    string algo "hccells-v13"
+    string fingerprint "寫入；讀取不拒載"
+    string chain "algorithm-stroke|…|algorithm-flex|llm-straighten"
+    string file "3-straightening/{來源}/{鏈}/{子夾}/{cityId}-….json"
+    json cellAfter "節點 id → (col,row)；llm 在 align 子物件"
+  }
+  LLM_VIEW {
+    string file "3-straightening/{來源}/{鏈}/{鏈}/…"
+    string executor "enforced|declared"
+    json align "對齊結果；取值 alignOf(doc)"
+  }
+  LLM_SKELETON2GRID {
+    string file "2-gridding/llm-skeleton2grid/{model}/{cityId}-2-gridding-llm-skeleton2grid-{model}.json"
+  }
+  LLM_WORKING2GRID {
+    string file "2-gridding/llm-working2grid/{model}/…"
+  }
+  RECT_DOC {
+    string file "3-straightening/llm-shape/{cityId}-shape-rect-3-straightening-llm-shape.json"
+    json square "矩形頂點（下游 FROZEN）"
+  }
+  CITY_STATUS {
+    string city
+    bool cellsUsable "有檔即可（指紋不拒載）"
+  }
+  OFFICIAL_MAP {
+    string file "1-raw-maps/official-route/….png"
+    string urbanrail "1-raw-maps/urbanrail/…（只准 urbanrail.net）"
+  }
+    </pre>
+  </div>
+  <div class="note">
+    <b>cells 讀取規則</b>：<b>有檔即可</b>（不再用 fingerprint 拒載；指紋仍寫進檔、資訊 tab 顯示「與目前資料相符／可能過期」）。讀到的鏈檔只看有沒有 <code>cellAfter</code>；2026-08-09 前的 <code>chainDocUsable()</code> 包裝已隨死碼清理移除。
+    LLM 直線化取值一律 <code>alignOf(doc)</code>（結果在 <code>align</code> 子物件；直接取頂層 <code>cellAfter</code> 恆為 undefined）。
+    寫入 algo＝<code>hccells-v13</code>（字面值不可改）。
+    重算＝覆蓋寫入；新一次 LLM 求解＝觸發端／CLI <b>直接 <code>rm</code> 舊檔</b>（舊 <code>{_fresh}</code> stub 已廢寫入，讀檔仍容忍）。
+    <b>絕不手改結果檔</b>，一律走 apply 驗證。
+    <br/><br/>
+    <b>欄位裁決（2026-07-31）</b>：<code>operator</code>／<code>wikidata</code> 已全面移除
+    （features＋<code>metro_system</code>＋<code>index.json</code>）；<code>wikipedia</code>／<code>official_website</code> 保留。
+  </div>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="api">
+  <h2><span class="no">HTTP</span>dev server API 一覽</h2>
+  <p class="lead">全部由 vite.config.js 的插件鏈提供（順序敏感：cityStatus 必須在 serveDataDir 之前攔截）。</p>
+  <table class="spec">
+    <tr><th>Method · Path</th><th>插件</th><th>環境</th><th>說明</th></tr>
+    <tr><td><code>GET /data/metro/city_status.json</code></td><td>cityStatus</td><td><span class="pill dev">dev</span></td><td>即時彙整各城 cells 可用狀態（cityStatusCompute.js）；正式版為 build 快照</td></tr>
+    <tr><td><code>GET /data/**</code></td><td>serveDataDir</td><td><span class="pill dev">dev</span><span class="pill prod">pages</span></td><td>dev 直讀磁碟；pages 由 copyStaticAssets 拷貝的靜態檔</td></tr>
+    <tr><td><code>GET /skills/index.json · /skills/&lt;id&gt;.md</code></td><td>serveSkills</td><td><span class="pill dev">dev</span><span class="pill prod">pages</span></td><td>SKILL.md 知識庫（SkillViewer 讀）</td></tr>
+    <tr><td><code>GET /data/docs/**</code></td><td>serveDocs</td><td><span class="pill dev">dev</span><span class="pill prod">pages</span></td><td>靜態文件頁（含本頁；舊 /slides/** 302）</td></tr>
+    <tr><td><code>GET /doc</code>・<code>/design</code>・<code>/print</code></td><td>serveDocs</td><td><span class="pill dev">dev</span></td><td>多頁入口少尾斜線 → 302 補斜線（少了會落回主應用的 index.html，變成「主應用的身體＋文件頁 header」且每次重新整理都壞；正式站由 Pages 自己補）</td></tr>
+    <tr><td><code>POST /llm-straighten-align/run · GET /llm-straighten-align/status · POST …/clear</code></td><td>llmTriggers</td><td><span class="pill dev">dev</span></td><td>LLM 直線化（自動／指定）；有結果即套用；spawn 強制模型；自動這一路跑完自動 POST <code>/llm-network-loop/run</code></td></tr>
+    <tr><td><code>POST /llm-network-loop/run · …/status</code></td><td>llmTriggers</td><td><span class="pill dev">dev</span></td><td>LLM 網絡循環 → <code>3-straightening/llm-network-loop/</code>；另餵 Frame <code>llm-network-loop</code></td></tr>
+    <tr><td><code>POST /llm-working2straight/run · …/status</code></td><td>llmTriggers</td><td><span class="pill dev">dev</span></td><td>LLM 工作地圖直線化 → <code>3-straightening/llm-working2straight/</code>；Frame <code>llm-working2straight</code></td></tr>
+    <tr><td><code>POST /llm-shape/run · …/status</code></td><td>llmTriggers</td><td><span class="pill dev">dev</span></td><td>LLM 指定形狀；成方即餵下游；輸入＝Gridding flow base；亦可由 metroRecompute 代跑</td></tr>
+    <tr><td><code>POST /llm-skeleton2grid/run · …/status</code></td><td>llmTriggers</td><td><span class="pill dev">dev</span></td><td>LLM 骨架地圖網格化 → <code>2-gridding/llm-skeleton2grid/&lt;model&gt;/</code></td></tr>
+    <tr><td><code>POST /llm-working2grid/run · …/status</code></td><td>llmTriggers</td><td><span class="pill dev">dev</span></td><td>LLM 工作地圖網格化 → <code>2-gridding/llm-working2grid/&lt;model&gt;/</code></td></tr>
+    <tr><td><code>POST /llm-grid/run · …/status</code></td><td>llmTriggers</td><td><span class="pill dev">dev</span></td><td>LLM 互動（欄列權重）；寫檔後按「執行調整」切換顯示</td></tr>
+    <tr><td><code>POST /llm-eval/run · …/status</code></td><td>llmTriggers</td><td><span class="pill dev">dev</span></td><td>LLM 評價（評語＋moves）；寫檔後按「執行調整」切換顯示</td></tr>
+    <tr><td><code>POST /llm-compare/run · …/status</code></td><td>llmTriggers</td><td><span class="pill dev">dev</span></td><td>LLM 全結果比較（①〜⑨＋可用 LLM；唯讀）</td></tr>
+    <tr><td><code>POST /straightening-cells/save · /straightening-cells/clear</code></td><td>straighteningCellsPersist</td><td><span class="pill dev">dev</span></td><td>save 寫回 <code>3-straightening/{來源}/…/{子夾}/</code>；clear＝只清 overlay、不刪磁碟檔（只覆蓋不刪）</td></tr>
+    <tr><td><code>POST /metro-recompute/city · /pause · /resume · /stop · /queue/clear-done<br/>GET /metro-recompute/status · /queue</code></td><td>metroRecompute</td><td><span class="pill dev">dev</span></td><td>單城重算；缺矩形時 <code>runLlmShapeFor</code>。<b>另有 <code>POST /run</code>（全城）——前端零呼叫端，僅供 curl，刻意保留（2026-08-10 使用者裁決）</b></td></tr>
+  </table>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="invariants">
+  <h2><span class="no">RULE</span>跨模組不變式與持久化</h2>
+  <h3>演算法／資料不變式（違反即 bug）</h3>
+  <ul>
+    <li><b>唯一移動關口</b>：任何演算法要移動節點都必須經 <code>hillClimb.js makeMover</code>；四條硬規則（邊界／象限／遮蔽／邊環繞序）與 FROZEN 檢查都在這一個關口實施。</li>
+    <li><b>形狀凍結</b>：LLM 指定形狀成方即餵下游（執行調整已移除）；頂點進入 <code>SQUARE_GUARD</code>（<code>setSquareGuard</code>）；下游可動方形頂點以外的點，但不得破壞形狀約束。唯一暫停旗標＝「重新計算」寫的 <code>shapeFeedCleared</code>。形狀輸入一律 Gridding flow base（不吃前次形狀結果）。</li>
+    <li><b>SPAN_CAP</b>：移點與移線的每一步，受影響段的兩個非中途站 Chebyshev 距離不得超過上限（<b>預設 4</b>，2026-08-06 由 3 改為 4；單一真相＝<code>src/lib/layoutDefaults.js</code> 的 <code>DEFAULT_SPAN_CAP</code>，樣式 tab 可調＋重新計算套用）。<b>本來就超限的舊長段豁免</b>，所以它不保證輸出跨距 ≤ 上限——真正壓低跨距的是併格。</li>
+    <li><b>DRIFT_CAP</b>：四個 pass 的候選都不得離「循環輸入」這個錨點超過 <code>0.20</code>（正規化 [0,1]² 的歐氏距離）；剛體平移要求<b>每個成員</b>都在上限內。是上限不是懲罰項，收斂論證不受影響。</li>
+    <li><b>paper fidelity</b>：直線化演算法照 <code>data/thesis</code> 論文 md 實作、不自創；只算非中途站，中途站事後平均放回。命名＝①〜⑨＋LLM 直線化（＋LLM 骨架地圖網格化來源軸）；矩形不是 #9。</li>
+    <li><b>嚴格改善</b>：論文鏈的逐批套用（finishBatches strict）只接受 <code>scoreAlign</code> 變好的批次——HV 優先、45° 次之。</li>
+    <li><b>LLM 套用規則（2026-07-30）</b>：align 有結果即套用；rect 成方即餵（可資料流代跑）；grid／eval 寫檔＋顯示，等「執行調整」切換；其餘 LLM 鏈只由面板按鈕啟動。<b>絕不手改結果檔</b>。</li>
+    <li><b>模型標註保證</b>：<code>--model=</code> 只是宣告；真保證＝驅動 spawn <code>claude --model</code>＋<code>LLM_ENFORCED_MODEL</code> → <code>executor:'enforced'</code>。論文模型對照只用 enforced（§10b）。</li>
+    <li><b>佈局權威</b>＝<code>3-straightening/{來源}/[{模型}/]{鏈}/{子夾}/</code>，一個 json 一個圖（不是 localStorage）；<code>STRAIGHTENING_DIRECTIONS=['orig']</code>（rot 休眠，放回清單可重啟）。</li>
+    <li><b><code>llm-skeleton2grid</code>／<code>llm-working2grid</code> 來源只接 LLM 直線化</b>（①〜⑨ 不跑；矩形仍可；舊 -cell／-map 僅遷移別名）。</li>
+    <li><b>命名鐵律</b>：代碼＝tag＝資料夾＝檔名，唯一對照表 <code>src/lib/layerRegistry.js</code>；磁碟路徑一律由 <code>metroNetworkLayout.js</code> 產生，公開視圖代碼走 <code>viewCodes.js</code>（§5b）。</li>
+    <li><b>OSM 三件套鐵律</b>：工作地圖（<code>working</code>）＝實際路線（<code>tracks</code>）＝路線中線（<code>center</code>）的 <code>route_ref</code> 集合必須一致；改線後必 <code>metro:synctracks</code>。另：原始地圖 <code>source</code>（原稱 OSM 地圖）與 working 抓取／build 時必須一模一樣；「回復」＝ source→working。</li>
+    <li><b>UrbanRail 鐵律</b>：<code>maps_index</code> 的 urbanrail 槽只准 urbanrail.net 該城頁圖；禁止 Commons／營運商／與 official 同檔充數。</li>
+    <li><b>新 UI</b>：必 Design＋日夜＋RWD；中文＝台灣譯名；彈窗用 AppModal（禁 <code>window.confirm</code>）。</li>
+  </ul>
+  <h3>持久化層級</h3>
+  <table class="spec">
+    <tr><th>層級</th><th>位置</th><th>內容</th><th>寫入時機</th></tr>
+    <tr><td>Session</td><td><code>localStorage adapt-metro:session:v1</code></td><td>主題（dark/accent）、圖層、openTabIds/activeTabId、dockview 版面 toJSON、面板尺寸（不含佈局結果）</td><td>store.$subscribe debounce 300ms；beforeunload／visibilitychange=hidden 立即 flush</td></tr>
+    <tr><td>佈局權威</td><td><code>maps/{group}/{city}/3-straightening/{來源}/[{模型}/]{鏈}/{子夾}/</code></td><td>逐圖整數格（algo＝hccells-v13＋fingerprint）</td><td>dev：POST /straightening-cells/save；bakeStraighteningCells／metro-recompute</td></tr>
+    <tr><td>LLM 結果</td><td><code>3-straightening/{來源}/{鏈}/{鏈}/ · {來源}/llm-shape/ · {鏈}/llm-network-loop/ · llm-working2straight/{模型}/ · 2-gridding/llm-skeleton2grid|llm-working2grid/&lt;model&gt;/ · 4-frame-maps/llm-eval|llm-grid|llm-compare/</code></td><td>各 LLM 鏈輸出（含 executor）</td><td>agent CLI 行程結束時</td></tr>
+    <tr><td>骨架／網格畫廊</td><td><code>1-raw-maps/skeleton/</code>・<code>2-gridding/grid/</code></td><td>骨架／網格離線縮圖（一圖層一檔）</td><td>buildViews／metro-recompute</td></tr>
+    <tr><td>Straighten／Frame 畫廊</td><td>（不另存）</td><td>由 <code>3-straightening/</code> cells 現畫</td><td>—</td></tr>
+  </table>
+  <p>
+    快取失效以 <b>epoch 計數器</b>驅動：<code>mapStore.metroDataEpoch</code> 遞增 → 畫廊/世界地圖 remount 重讀；
+    <code>clearDataOverlay('data/metro/')</code> 清瀏覽器端資料覆蓋，確保 D3 與縮圖同讀新檔。
+    舊版 session 由 <code>layerMigrations.js</code> 清洗（含已下架的 rot 層、自創 align/ilp 鏈）。
+  </p>
+</section>
+
+<!-- ======================================================================= -->
+<section class="card" id="glossary">
+  <h2><span class="no">DICT</span>名詞表（程式碼 ⇄ 領域用語）</h2>
+  <table class="spec">
+    <tr><th>名詞</th><th>定義</th></tr>
+    <tr><td>骨架（骨架2 / connect）</td><td><code>buildConnectSkeleton</code> 的輸出：共線併邊、真交叉補交叉點、依 degree／標記分類九種節點類型（轉乘站／末端站／中途站／交叉點／切斷站／轉彎站／分隔站／中途控制點／形狀控制點）；hover＝類型色點＋類型名（<code>popupHtml</code>／<code>nodeTypes.js</code>）。保留地理矩形只做拓撲收縮。<b>2026-08-04 起屬 1 RAW MAPS</b>（<code>1-raw-maps/skeleton/</code>）——它不動格網也不換座標系，與工作地圖同一階；D3 的 stage key 仍是 <code>skeleton</code>，「這一階在哪個 step」一律查 <code>adjustStages.js</code> 的 <code>ADJUST_STAGE_STEP</code>／<code>adjustStageStep()</code>。</td></tr>
+    <tr><td>非中途站 / 中途站</td><td>非中途站＝參與最佳化的結構節點（<code>stationClass ≠ 'black'</code>）；中途站＝線上中間點，不參與最佳化，事後沿新邊等距放回。</td></tr>
+    <tr><td>cells（網格化）</td><td>節點 → 整數格 (col,row) 的映射；Straighten 各鏈的輸出座標系。權威＝<code>3-straightening/{來源}/[{模型}/]{鏈}/{子夾}/</code>，一個 json 一個圖。</td></tr>
+    <tr><td>命名鐵律／圖層代碼</td><td>代碼＝tag＝資料夾＝檔名（2026-07-31）。唯一對照表＝<code>layerRegistry.js</code>（<code>STEP_CODES</code>／<code>LAYER_CODES</code>／<code>LAYER_SKILLS</code>）；公開視圖代碼＝<code>viewCodes.js</code>；磁碟路徑＝<code>metroNetworkLayout.js</code>（§5b）。</td></tr>
+    <tr><td>原始地圖（source）</td><td>原稱「OSM 地圖」——唯讀 OSM 備份，與工作地圖（working）必須一模一樣；「回復」＝ source 覆寫 working。</td></tr>
+    <tr><td>variant／STRAIGHTENING_DIRECTIONS</td><td>目前只算 <code>orig</code>（<code>STRAIGHTENING_DIRECTIONS=['orig']</code>）。鍵 <code>rot</code> 已休眠——把 <code>'rot'</code> 放回清單並重烘可恢復。變體另含來源後綴（<code>llm-skeleton2grid</code>／<code>llm-working2grid</code>，舊 cell／map 僅遷移）與可選 <code>-shape-rect</code>。</td></tr>
+    <tr><td>內建旋轉城市</td><td>獨立系統 id（<code>-l33</code> 左轉／<code>-r39</code> 右轉…）。原始／工作地圖不轉座標；骨架起吃 <code>bakedRotateOf(cityId)</code> 投影角，整條管線可旋轉後計算。規格＝系統說明 <code>route-city-rotation</code>；建檔＝<code>buildRotatedVariants.mjs</code>。</td></tr>
+    <tr><td>來源軸 grid／cell／map</td><td>grid＝排名吸附；cell＝LLM 骨架地圖網格化；map＝LLM 工作地圖網格化。後兩者為消融基線，下游只接 llm（＋可選矩形）。</td></tr>
+    <tr><td>movewise</td><td>「每一個單一移動後立即縮減網格」的執行語意（取消獨立縮減步驟）；<b>四步鏈＝移點 <code>endp</code> → 移線 <code>line</code> → 移枝 <code>branch</code> → 併格 <code>gather</code></b>（移枝為 2026-08-07 新增，把靠一條橋吊在網絡外的整團子圖整組搬近）。</td></tr>
+    <tr><td>直線演算法</td><td>九條論文鏈①〜⑨（stroke…flex）＋LLM 直線化；命名共 11 條對照時另含 LLM 骨架地圖網格化來源鏈。矩形導引<strong>不是</strong>第 9 條。</td></tr>
+    <tr><td>指定形狀（矩形導引）</td><td>把規定路段收成該城指定的形狀（目前 12 城：11 方形＋1 個 45°）；規定在該城地圖 json 的 <code>metro_system.prescribed_shape</code>；只留 LLM 指定形狀入口；城市 id＝<code>&lt;id&gt;-shape-rect</code>／<code>-shape-diag</code>。達成即餵下游。</td></tr>
+    <tr><td>畫廊</td><td>骨架：<code>1-raw-maps/skeleton/</code>、網格：<code>2-gridding/grid/</code> 離線縮圖。Straighten／Frame：由 <code>3-straightening/</code> cells 現畫（不再另存整包縮圖 JSON）。</td></tr>
+    <tr><td>Frame Maps</td><td>第四階段：把縮減網格佈局在版面像素座標重繪成方向約束折線（4／8／16），含衝突消解、版面模擬、流量權重、魚眼。</td></tr>
+    <tr><td>用語更名（2026-08-02）</td><td>介面顯示名改為「LLM 直線化」（<code>llm</code>，舊稱直接對齊）、「LLM 骨架地圖網格化」（<code>llm-skeleton2grid</code>，舊稱直接網格）、「LLM 工作地圖網格化」（<code>llm-working2grid</code>，舊稱直接成圖）；<code>-shape-rect</code> 變體群在畫廊／標籤稱「限定線形」。<strong>資料夾與檔名 token 與顯示名脫鉤</strong>（<code>llm-straighten</code>／<code>llm-skeleton2grid</code>／<code>llm-working2grid</code>；dev server 端點前綴仍是舊的 <code>/llm-straighten-align</code>）。</td></tr>
+    <tr><td>provider（執行器）</td><td>模型表每列的 <code>claude</code>｜<code>cursor</code>，決定 spawn <code>claude</code> 還是 <code>cursor-agent</code> 與帶什麼旗標；一律經 <code>llmProviders.js</code> 的 <code>buildLlmSpawn</code>。cursor-agent 無 Skill 工具，提示詞會被改寫成先讀 <code>SKILL.md</code>（§10b）。</td></tr>
+    <tr><td>llm-network-loop／llm-working2straight</td><td>只當 Frame compact、不進 Straighten 鏈堆。<code>llm-network-loop</code>＝LLM 網絡循環（起點＝LLM 直線化結果 <code>alignOf(doc)</code>，寫該鏈容器底下的 <code>llm-network-loop/</code>，不覆寫程式循環的 <code>network-loop/</code>）；<code>llm-working2straight</code>＝LLM 工作地圖直線化（一次 LLM 從工作地圖做到循環結果，寫 <code>3-straightening/llm-working2straight/{模型}/</code>）。</td></tr>
+    <tr><td>executor</td><td>結果檔模型標註機制：<code>enforced</code>（驅動設了 <code>LLM_ENFORCED_MODEL</code>）／<code>declared</code>（自我宣告）。論文模型對照只用 enforced。</td></tr>
+    <tr><td>「執行調整」</td><td>目前僅 grid／eval（及相關顯示切換）使用。align／shape 的執行調整已移除（2026-07-30）。</td></tr>
+    <tr><td>epoch</td><td><code>metroDataEpoch</code> 之類的遞增計數器，用來驅動前端快取失效與元件 remount。</td></tr>
+    <tr><td>fingerprint</td><td><code>dataFingerprint</code>：寫進結果檔供資訊 tab 比對；2026-07-30 起讀取端<strong>不再</strong>用指紋拒載。</td></tr>
+    <tr><td>importCityChain</td><td>從畫廊／世界地圖一次匯入該城整組管線圖層（取代已廢的 AddD3／AddHillClimb／AddFrame 對話框）。</td></tr>
+    <tr><td>skills（知識庫）</td><td><code>.claude/skills/*/SKILL.md</code>：管線規則、演算法規格、逐城裁決的長期記憶；亦部署到正式站。現為 <b>66 支</b>，在 header「<b>資料流／Skills</b>」下拉（與「系統內容」分開）：<b>資料流</b>（節點←→skill）、<b>Skill 呼叫圖</b>（每支 skill 何時被呼叫，每支恰出現一次）、<b>Skills</b>（圖層驅動的清單，<code>skillCatalog.skillTree()</code> ← <code>layerRegistryTable()</code>；未掛圖層者由 <code>scripts/checkSkillCatalog.mjs</code> 擋下）、<b>系統報告</b>。</td></tr>
+  </table>
+  <p style="margin-top:18px;color:var(--muted2);font-size:12px;">
+    <b>本文件最後更新：2026-08-12</b>。本次校對：系統數 599、13 模型 × 三支 CLI（新增 deepseek/dsc）、movewise 四步驟（加 branchshift）、DRIFT_CAP 0.20、frameParity 980 組（全球）、衍生資料全球保留、LLM 指定形狀（非 LLM 矩形）、單一 skill 模式（SKILL.md 內嵌＋Skill disallowed）、llm-straighten lane-locked。對照 README.md／CLAUDE.md／原始碼；若與程式碼不一致以程式碼為準。
+    來源入口：<code>src/main.js</code> · <code>vite.config.js</code> · <code>package.json scripts</code> ·
+    <code>src/lib/metroDataPaths.js</code> · <code>src/lib/layerRegistry.js</code> · <code>src/lib/viewCodes.js</code> · <code>src/lib/metroNetworkLayout.js</code> · <code>src/lib/llmProviders.js</code> · <code>src/lib/llmSkeleton2GridModels.js</code>／<code>llmWorking2GridModels.js</code> · <code>vite/llmModels.js</code>。
+  </p>
+</section>
+
+</div>
+</div>
+<button class="btn-icon ol-open" id="olOpen" type="button" title="顯示文件大綱">
+  <span class="material-symbols-outlined m-icon">format_list_bulleted</span>
+</button>
+</div>
+
+<footer class="status-bar doc-chrome" id="docFooter"></footer>
+<script src="../../_shared/doc-footer.js"></script>
+<script>
+  AdaptMetroDocFooter.bind('#docFooter', {
+    path: 'data/docs/system/architecture/index.html',
+    url: './index.html',
+    updated: '2026-08-04',
+  });
+</script>
+
+<script type="module">
+  // Mermaid 由 CDN 載入；失敗時圖表退回原始碼文字並顯示提示（頁面其餘內容不受影響）。
+  // 分頁化後改成「切到該分頁時才畫」——mermaid 需要可見容器才能量測寬度。
+  const mermaidReady = import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs')
+    .then(({ default: mermaid }) => {
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: 'neutral',
+        securityLevel: 'loose',
+        fontFamily: "ui-sans-serif, system-ui, 'PingFang TC', 'Noto Sans TC', sans-serif",
+        flowchart: { curve: 'basis', htmlLabels: true },
+        sequence: { useMaxWidth: true },
+      });
+      return mermaid;
+    });
+  mermaidReady.catch(function () { /* 由 renderIn 統一處理 */ });
+
+  async function renderIn(root) {
+    const nodes = Array.from(root.querySelectorAll('pre.mermaid:not([data-processed])'));
+    if (!nodes.length) return;
+    try {
+      const mermaid = await mermaidReady;
+      await mermaid.run({ nodes });
+    } catch (err) {
+      root.querySelectorAll('.fig').forEach(function (fig) {
+        if (fig.querySelector('.mermaid-fail')) return;
+        var warn = document.createElement('div');
+        warn.className = 'mermaid-fail';
+        warn.style.display = 'block';
+        warn.textContent = 'Mermaid 載入失敗（離線？）——以下顯示圖表原始碼。';
+        fig.insertBefore(warn, fig.querySelector('pre.mermaid'));
+      });
+      console.error('mermaid load failed', err);
+    }
+  }
+
+  // 分頁：左側大綱＝原 tab。網址 hash（#ctx…）即分頁，可直接深連結／上一頁。
+  const tabs = Array.from(document.querySelectorAll('#olList a[role="tab"]'));
+  const panels = Array.from(document.querySelectorAll('section.card'));
+  const scroller = document.querySelector('.gd-scroll');
+  panels.forEach(function (p) { p.setAttribute('role', 'tabpanel'); });
+
+  function activate(id, resetScroll) {
+    const panel = panels.find(function (p) { return p.id === id; }) || panels[0];
+    if (!panel) return;
+    panels.forEach(function (p) { p.classList.toggle('is-active', p === panel); });
+    tabs.forEach(function (t) {
+      var on = t.hash === '#' + panel.id;
+      t.setAttribute('aria-selected', String(on));
+      t.classList.toggle('active', on);
+    });
+    if (resetScroll && scroller) scroller.scrollTop = 0;
+    renderIn(panel);
+  }
+
+  activate(decodeURIComponent(location.hash || '').slice(1), false);
+  window.addEventListener('hashchange', function () {
+    activate(decodeURIComponent(location.hash || '').slice(1), true);
+  });
+</script>
+<script src="../../_shared/table-col-resize.js"></script>
+</body>

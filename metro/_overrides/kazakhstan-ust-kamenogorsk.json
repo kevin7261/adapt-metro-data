@@ -1,0 +1,17 @@
+{
+  "city": "Ust'-Kamenogorsk",
+  "country": "Kazakhstan",
+  "continent": "asia",
+  "osm_route_ids": [
+    19855632,
+    19856172,
+    19861701,
+    19984886,
+    20007413,
+    20007414
+  ],
+  "wikipedia": "ru:Усть-Каменогорский трамвай",
+  "wikidata": "Q4478423",
+  "source": "https://www.urbanrail.net/as/kz/oskemen/oskemen.htm",
+  "note": "Ust'-Kamenogorsk／Öskemen（urbanrail gap；modes=tram）——wiki 現行 1／3／4。使用者 2026-07-27「抓錯」：剔 2（№3 短交路）；replace_stops 清繞圈；補 network＋synth masters。重跑保留 wikipedia/wikidata。"
+}

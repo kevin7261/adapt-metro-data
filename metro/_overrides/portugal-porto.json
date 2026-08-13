@@ -1,0 +1,25 @@
+{
+  "city": "Porto",
+  "country": "Portugal",
+  "continent": "europe",
+  "osm_route_ids": [
+    1710380,
+    2124143,
+    2174525,
+    2465891,
+    2567504,
+    2904254,
+    5750428,
+    6063096,
+    6063236,
+    6064750,
+    6064924,
+    6065644,
+    15866972,
+    15866973,
+    15866974,
+    15866975
+  ],
+  "source": "https://www.urbanrail.net/eu/pt/porto/porto.htm",
+  "note": "Porto（urbanrail gap；modes=subway|light_rail）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔（保留 wikipedia/wikidata）。"
+}

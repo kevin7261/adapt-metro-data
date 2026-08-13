@@ -1,0 +1,13 @@
+{
+  "city": "Grudziadz",
+  "country": "Poland",
+  "continent": "europe",
+  "osm_route_ids": [
+    10806553,
+    10806554
+  ],
+  "wikipedia": "pl:Tramwaje w Grudziądzu",
+  "wikidata": "Q1324619",
+  "source": "https://www.urbanrail.net/eu/pl/grudz/grudziadz.htm",
+  "note": "Grudziadz（urbanrail gap；modes=tram）——MZK T2 Tarpno↔Rządz（唯一常規線）。使用者 2026-07-27「抓錯」：剔除替換線 T3＋T2 短交路／進場；replace_stops 依 transport.grudziadz.pl 時刻表站序。重跑保留 wikipedia/wikidata。"
+}

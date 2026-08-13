@@ -1,0 +1,17 @@
+{
+  "city": "San Jose",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    2989876,
+    2989877,
+    9897506,
+    9897507,
+    10561835,
+    10561836,
+    17301585,
+    17301586
+  ],
+  "source": "https://www.urbanrail.net/am/sjos/san-jose.htm",
+  "note": "San Jose＝VTA 輕軌（Blue/Green/Orange）only。使用者 2026-07-27：BART Green/Orange 歸舊金山 BART（勿再列入本檔；路線名含 Berryessa/North San José 會被 disambiguate 誤判給 San Jose）。"
+}

@@ -1,0 +1,13 @@
+{
+  "city": "Temirtau",
+  "country": "Kazakhstan",
+  "continent": "asia",
+  "osm_route_ids": [
+    19751904,
+    19751905
+  ],
+  "source": "https://www.urbanrail.net/as/kz/temirtau/temirtau.htm",
+  "wikipedia": "ru:Темиртауский трамвай",
+  "wikidata": "Q4454464",
+  "note": "Temirtau（使用者 2026-07-27「抓錯」）＝只收 трамвай **4**（Цех обжига／Промбаза↔8-й микрорайон；1/2/3 已停）。OSM 雙向成員序錯亂→member_appends.replace_stops 依走廊西→東覆寫（17 站；urbanrail 寫 19）。task.modes=tram。"
+}

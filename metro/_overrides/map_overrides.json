@@ -1,0 +1,786 @@
+{
+  "_comment": "官方路網圖釘選（downloadMaps.mjs）。key=rel（洲/國/檔名slug）。commons_file:null＝該城固定無圖；commons_file:'File:...'＝固定用該 Commons 檔。每筆必附 note。",
+  "overrides": {
+    "europe/germany/eu-ger-ratingen": {
+      "commons_file": null,
+      "note": "曾誤用 VRR Schienenschnellverkehr 區域快鐵圖。Ratingen 無獨立 Stadtbahn 示意圖 → 留白。使用者 2026-07-25。"
+    },
+    "europe/germany/eu-ger-cologne": {
+      "commons_file": "File:2025 2026 Bahnen in Koeln Rail Services Cologne.jpg",
+      "note": "曾無圖（VRS QID 與 Bonn 共用、P15 不命中 Köln）。釘 KVB 2025/26 Bahnen in Köln 示意圖。使用者 2026-07-25。"
+    },
+    "europe/germany/eu-ger-dresden": {
+      "commons_file": "File:Liniennetzplan der Straßenbahn in Dresden (Stand August 2025).svg",
+      "note": "VVO QID 無合用 P15；釘 2025 Straßenbahn Liniennetzplan。使用者 2026-07-25。"
+    },
+    "europe/germany/eu-ger-magdeburg": {
+      "commons_file": "File:MVB Liniennetzplan Strassenbahn 2020-12.svg",
+      "note": "釘 MVB Straßenbahn Liniennetzplan。使用者 2026-07-25。"
+    },
+    "north-america/united-states/na-usa-san-francisco-lrt": {
+      "commons_file": "File:September 2024 Muni Metro map.png",
+      "note": "舊金山 LRT（純 Muni）專用官方圖＝SFMTA Muni Metro（與 BART／合併檔分開）。使用者 2026-07-26；2026-07-31 改純 LRT；2026-08-05 id→na-usa-san-francisco-lrt。"
+    },
+    "asia/china/as-chn-hangzhou": {
+      "commons_file": "File:Hangzhou Metro Network.png",
+      "note": "無營運商圖可抓；釘 Commons 全線示意圖（使用者 2026-07-27：沒有 official 就找網路上比較好的）。"
+    },
+    "europe/ukraine/eu-ukr-kyiv": {
+      "commons_file": "File:Kyiv Metro map Tennessine.png",
+      "note": "無營運商圖可抓；釘 Commons 示意圖 Tennessine（2026-07-27 策展）。"
+    },
+    "asia/china/as-chn-guiyang": {
+      "commons_file": "File:Guiyang Urban Rail Transit Map.png",
+      "note": "無營運商圖可抓；釘 Commons Buernia 2024 線網圖（2026-07-27 策展）。"
+    },
+    "europe/germany/eu-ger-kassel": {
+      "commons_file": "File:Kassel Strassenbahn.png",
+      "note": "無營運商圖可抓；釘 Commons Straßenbahnnetz（非 Team-O36；2026-07-27 策展）。"
+    },
+    "europe/germany/eu-ger-erfurt": {
+      "commons_file": "File:Netzplan Straßenbahn Erfurt.svg",
+      "note": "無營運商圖可抓；釘 Commons NordNordWest 網圖（2026-07-27 策展）。"
+    },
+    "africa/nigeria/af-ngr-abuja": {
+      "commons_file": "File:Abuja Rail Mass Transit.svg",
+      "note": "無營運商圖可抓；釘 Commons 營運示意圖（Yellow＋Blue／12 站）。urbanrail 槽另存 2018 規劃大網，勿充 official。使用者 2026-07-27「抓錯」。"
+    },
+    "europe/latvia/eu-lat-liepaja": {
+      "commons_file": "File:Liepaja tram map 2020-07.png",
+      "note": "無營運商示意圖可直抓；釘 Commons 2020 全線圖（18 站）。urbanrail 曾誤抓歷史街圖→改 liepaja-map.png。使用者 2026-07-27。"
+    },
+    "europe/russia/eu-rus-krasnodar": {
+      "commons_file": "File:Krasnodar tram map 2022-05.svg",
+      "note": "無營運商圖可直抓；釘 Commons 2022 電車全線圖（2026-07-27 優先補 official）。"
+    },
+    "europe/germany/eu-ger-halle-saale": {
+      "commons_file": "File:Halle (Saale) tramway network.svg",
+      "note": "無營運商圖可直抓；釘 Commons Straßenbahnnetz（2026-07-27 優先補 official）。"
+    },
+    "asia/china/as-chn-nanning": {
+      "commons_file": "File:Nanning Rail Transit Diagram.png",
+      "note": "無營運商圖可直抓；釘 Commons Painjet 線網圖（2025-10 更新；2026-07-27 優先補 official）。"
+    },
+    "asia/china/as-chn-wuxi": {
+      "commons_file": "File:Wuxi Metro Network.png",
+      "note": "無營運商圖可直抓；釘 Commons 全線 Network 圖（非單線／planning；2026-07-27 優先補 official）。"
+    },
+    "asia/china/as-chn-harbin": {
+      "commons_file": "File:Harbin Metro Diagram.png",
+      "note": "無營運商圖可直抓；釘 Commons Diagram 全線圖（2026-07-27 優先補 official）。"
+    },
+    "europe/latvia/eu-lat-riga": {
+      "commons_file": "File:Riga tram map 2020-07.png",
+      "note": "無營運商圖可直抓；釘 Commons OSMTram 2020 示意圖（2026-07-27 優先補 official）。"
+    },
+    "europe/germany/eu-ger-braunschweig": {
+      "commons_file": "File:Straßenbahnnetz Braunschweig - Brunswick tramway network.png",
+      "note": "無營運商圖可直抓；釘 Commons Straßenbahnnetz（2026-07-27 優先補 official）。"
+    },
+    "europe/germany/eu-ger-rostock": {
+      "commons_file": "File:Liniennetz Rostock und Umgebung.png",
+      "note": "無營運商圖可直抓；釘 Commons LuWe 2025 路網圖（含電車；2026-07-27 優先補 official）。"
+    },
+    "europe/france/eu-fra-grenoble": {
+      "commons_file": "File:Tramway de Grenoble big letters.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線 tram 示意圖（2026-07-27 優先補 official）。"
+    },
+    "europe/germany/eu-ger-wurzburg": {
+      "commons_file": "File:Liniennetzplan Straßenbahn Würzburg.svg",
+      "note": "無營運商圖可直抓；釘 Commons Wiesenpinguin 網圖（2026-07-27 優先補 official）。"
+    },
+    "asia/china/as-chn-shijiazhuang": {
+      "commons_file": "File:Shijiazhuang Metro System Map 2017.png",
+      "note": "無營運商圖可直抓；釘 Commons Kmchang28 線網圖（後續有 3 號線更新；2026-07-27 優先補 official）。"
+    },
+    "europe/ukraine/eu-ukr-odessa": {
+      "commons_file": "File:Схема трамвайных маршрутов города Одессы.gif",
+      "note": "無較新營運商／Commons 示意圖；暫釘 2013 全線示意（最佳可用；2026-07-27 優先補 official）。"
+    },
+    "asia/china/as-chn-changchun": {
+      "commons_file": "File:Changchun Metro System Map.png",
+      "note": "無營運商圖可直抓；釘 Commons System Map 全線圖（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-magnitogorsk": {
+      "commons_file": "File:MagnitogorskTramSystem.png",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-ulyanovsk": {
+      "commons_file": "File:UlyanovskTramSystem.png",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-chelyabinsk": {
+      "commons_file": "File:Chelyabinsk tram schema.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-volgograd": {
+      "commons_file": "File:Volgograd tram map 2022-04 whole system.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-barnaul": {
+      "commons_file": "File:Barnaul tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-naberezhnye-chelny": {
+      "commons_file": "File:Nabereznye Chelny tram map 2022-05 all lines.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-irkutsk": {
+      "commons_file": "File:Irkutsk tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-kursk": {
+      "commons_file": "File:Kursk tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-omsk": {
+      "commons_file": "File:Omsk tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-novotroitsk": {
+      "commons_file": "File:Novotroitsk tram map 2022-05.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-ufa": {
+      "commons_file": "File:Ufa tram map 2022-05.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-kaliningrad": {
+      "commons_file": "File:Kaliningrad tram map 2022-12.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-vladivostok": {
+      "commons_file": "File:Vladivostok tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-taganrog": {
+      "commons_file": "File:Taganrog tram map 2023.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-yaroslavl": {
+      "commons_file": "File:Yaroslavl tram map 2020-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-zlatoust": {
+      "commons_file": "File:Zlatoust tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-oryol": {
+      "commons_file": "File:Oryol tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-lipetsk": {
+      "commons_file": "File:Lipetsk tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-prokopyevsk": {
+      "commons_file": "File:Prokopievsk tram map 2022-05.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-staryi-oskol": {
+      "commons_file": "File:Staryi Oskol tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-salavat": {
+      "commons_file": "File:Salavat tram map 2022-05.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-ulan-ude": {
+      "commons_file": "File:Ulan-Ude tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-usolye-sibirskoye": {
+      "commons_file": "File:Usolie-Sibirskoye tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-volzhskiy": {
+      "commons_file": "File:Волжский tram map 2020-12.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-novocherkassk": {
+      "commons_file": "File:Новочеркасск tram map 2021-08.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-smolensk": {
+      "commons_file": "File:Смоленск tram map 2021-07.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-angarsk": {
+      "commons_file": "File:Angarsk tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-achinsk": {
+      "commons_file": "File:Achinsk tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-cherepovets": {
+      "commons_file": "File:Cherepovets tram map 2022-05.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-krasnoturyinsk": {
+      "commons_file": "File:Krasnoturinsk tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-khabarovsk": {
+      "commons_file": "File:Khabarovsk tram map 2020-10.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/latvia/eu-lat-daugavpils": {
+      "commons_file": "File:Daugavpils tram map 2020-07.png",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-samara": {
+      "commons_file": "File:Samara tram map 2022-04.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-saratov": {
+      "commons_file": "File:Saratov tram map 2022-05.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "north-america/united-states/na-usa-san-diego": {
+      "commons_file": "File:San Diego Trolley System Map.png",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "africa/tunisia/af-tun-tunis": {
+      "commons_file": "File:Tunis Rapid Transit Map.png",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/ukraine/eu-ukr-lviv": {
+      "commons_file": "File:Lviv tram routes map en.png",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/serbia/eu-srb-belgrade": {
+      "commons_file": "File:Belgrade tramway network map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 全線示意圖／OSMTram（2026-07-27 優先補 official）。"
+    },
+    "europe/slovakia/eu-svk-bratislava": {
+      "commons_file": "File:Ba tram map v2.svg",
+      "note": "無營運商圖可直抓；釘 Commons Ba tram map v2 全線示意圖（2026-07-27 優先補 official）。"
+    },
+    "europe/russia/eu-rus-orsk": {
+      "commons_file": "File:Orsk tram map 2022-05.svg",
+      "note": "無營運商圖可直抓；釘 Commons OSMTram（2026-07-27 優先補 official）。"
+    },
+    "asia/china/as-chn-fuzhou": {
+      "commons_file": "File:Map of Fuzhou Metro.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/china/as-chn-kunming": {
+      "commons_file": "File:Kunming Metro System Map 201806.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/north-korea/as-prk-pyongyang": {
+      "commons_file": "File:Pyongyang Metro map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/switzerland/eu-sui-lausanne": {
+      "commons_file": "File:Plan du métro de Lausanne.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/greece/eu-gre-thessaloniki": {
+      "commons_file": "File:Thessaloniki Metro Map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/germany/eu-ger-potsdam": {
+      "commons_file": "File:Karte Nahverkehr Potsdam.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/poland/eu-pol-szczecin": {
+      "commons_file": "File:Map of tram system in Szczecin.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/russia/eu-rus-novokuznetsk": {
+      "commons_file": "File:Novokuznetsk tram map 2020-10-09.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/russia/eu-rus-saint-petersburg": {
+      "commons_file": "File:Saint Petersburg metro map 2019, Russian.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/ukraine/eu-ukr-kharkiv": {
+      "commons_file": "File:Kharkiv tram map ver 1.2.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/russia/eu-rus-nizhny-novgorod": {
+      "commons_file": "File:Nizhny Novgorod Metro map en.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/china/as-chn-dongguan": {
+      "commons_file": "File:Dongguan metro system map constructed.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/china/as-chn-changzhou": {
+      "commons_file": "File:Changzhou Metro System Map 2025.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/china/as-chn-taiyuan": {
+      "commons_file": "File:Taiyuan Metro System Map 2025.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "africa/south-africa/af-rsa-cape-town": {
+      "commons_file": "File:Metrorail Cape Town.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "north-america/united-states/na-usa-charlotte": {
+      "commons_file": "File:Map Lynx light rail Charlotte.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "north-america/united-states/na-usa-san-francisco-muni": {
+      "commons_file": "File:September 2024 Muni Metro map.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "south-america/venezuela/sa-ven-caracas": {
+      "commons_file": "File:Mapa Metro Caracas.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/uzbekistan/as-uzb-tashkent": {
+      "commons_file": "File:Tashkent metro map cyrl.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/india/as-ind-ahmedabad": {
+      "commons_file": "File:MEGA Ahmedabad Metro Network Map August 2015.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/belarus/eu-blr-minsk": {
+      "commons_file": "File:Tram map of Minsk (Belarus), March 2025.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/philippines/as-phi-manila": {
+      "commons_file": "File:Metro Manila railway map 2011.PNG",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "africa/algeria/af-alg-algiers": {
+      "commons_file": "File:Map of train-metro-tram of Algiers - January 2022 - fr.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "south-america/peru/sa-per-lima": {
+      "commons_file": "File:Lima Metro Map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/india/as-ind-nagpur": {
+      "commons_file": "File:Nagpur Metro rail map.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/vietnam/as-vie-hanoi": {
+      "commons_file": "File:Map 4 lines Metro Hanoi.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/china/as-chn-luoyang": {
+      "commons_file": "File:System Map of Luoyang Metro.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/china/as-chn-foshan": {
+      "commons_file": "File:Guangzhou-Foshan Metro Diagram by Tim.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/spain/eu-esp-seville": {
+      "commons_file": "File:Metro map seville.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/india/as-ind-jaipur": {
+      "commons_file": "File:Map of Jaipur Metro created using Inkscape.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/iran/as-iri-karaj": {
+      "commons_file": "File:Karaj Metro map-working-geo.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/iran/as-iri-tabriz": {
+      "commons_file": "File:Tabriz Metro map-geo.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/italy/eu-ita-catania": {
+      "commons_file": "File:Map of the underground system of Catania.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/south-korea/as-kor-daejeon": {
+      "commons_file": "File:Daejeon Metro routemap.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "south-america/venezuela/sa-ven-maracaibo": {
+      "commons_file": "File:Mapa del Metro de Maracaibo (30.01.2026).svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "south-america/venezuela/sa-ven-valencia": {
+      "commons_file": "File:Mapa del Metro de VLN.png",
+      "note": "曾誤釘西班牙 Metrovalencia 的 File:Valencia metro map Dutch.png（同名城撞車）。改釘 Commons「Mapa del Metro de VLN」＝委內瑞拉瓦倫西亞（es.wiki／Commons 分類 Valencia (Venezuela) Metro）。無營運商圖可直抓。使用者 2026-08-12「官方路線圖抓錯」。"
+    },
+    "north-america/mexico/na-mex-guadalajara": {
+      "commons_file": "File:Guadalajara Metro Map Geographical.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "south-america/ecuador/sa-ecu-quito": {
+      "commons_file": "File:Quito Metro, Map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/china/as-chn-taizhou": {
+      "commons_file": "File:Taizhou Rail Transit System Map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/south-korea/as-kor-gwangju": {
+      "commons_file": "File:Gwangju subway linemap.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/india/as-ind-kanpur": {
+      "commons_file": "File:Map of Kanpur Metro 2022.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/bangladesh/as-ban-dhaka": {
+      "commons_file": "File:MRT Line 6 (Dhaka Metro) map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/india/as-ind-navi-mumbai": {
+      "commons_file": "File:Navi Mumbai Metro Map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/india/as-ind-patna": {
+      "commons_file": "File:Patna Metro Detailed Map.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/saudi-arabia/as-ksa-mecca": {
+      "commons_file": "File:Mecca Metro Route Map-ar.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/germany/eu-ger-duisburg": {
+      "commons_file": "File:Stadtbahnnetzplan Duisburg.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/south-korea/as-kor-uijeongbu": {
+      "commons_file": "File:Uijeongbu metro map-fr.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/poland/eu-pol-bydgoszcz": {
+      "commons_file": "File:Bydgoszcz tram network.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/romania/eu-rou-iasi": {
+      "commons_file": "File:Tram map of Iasi.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/slovakia/eu-svk-kosice": {
+      "commons_file": "File:Kosice tram and trolley map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/romania/eu-rou-timisoara": {
+      "commons_file": "File:Tram-Timisoara-route-map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/ukraine/eu-ukr-mykolaiv": {
+      "commons_file": "File:Map of tram system in Mykolaiv.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/poland/eu-pol-olsztyn": {
+      "commons_file": "File:Tram map of Olsztyn.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/romania/eu-rou-oradea": {
+      "commons_file": "File:Tram map of Oradea.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/czechia/eu-cze-olomouc": {
+      "commons_file": "File:Map of tram system in Olomouc.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/estonia/eu-est-tallinn": {
+      "commons_file": "File:Tallinn tram map as of April 2026.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/ukraine/eu-ukr-vinnytsia": {
+      "commons_file": "File:Map of tram system in Vinnytsia (uk).svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/japan/as-jpn-toyama": {
+      "commons_file": "File:Toyama City Tram Line Linemap.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/belarus/eu-blr-vitebsk": {
+      "commons_file": "File:Map of tram system in Vitebsk.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/romania/eu-rou-galati": {
+      "commons_file": "File:Galati Tram Map 2025.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/czechia/eu-cze-liberec": {
+      "commons_file": "File:Map of tram system in Liberec.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/hungary/eu-hun-szeged": {
+      "commons_file": "File:Metros hu Szeged map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/bosnia-and-herzegovina/eu-bih-sarajevo": {
+      "commons_file": "File:Sarajevo - tram map.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/germany/eu-ger-cottbus": {
+      "commons_file": "File:Tram map of Cottbus.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/ukraine/eu-ukr-mariupol": {
+      "commons_file": "File:Map of tram system in Mariupol.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/france/eu-fra-angers": {
+      "commons_file": "File:Plan du tramway d'angers.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/poland/eu-pol-czestochowa": {
+      "commons_file": "File:Czestochowa tram network.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/turkey/as-tur-gaziantep": {
+      "commons_file": "File:Transitdiagram tram gaziantep 2024.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/germany/eu-ger-gotha": {
+      "commons_file": "File:Straßenbahn Gotha - Netzplan 13 14.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/ukraine/eu-ukr-konotop": {
+      "commons_file": "File:Map of tram system in Konotop (uk).svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/germany/eu-ger-schwerin": {
+      "commons_file": "File:Liniennetz Straßenbahn Schwerin.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/poland/eu-pol-gorzow": {
+      "commons_file": "File:Tramwaje gorzow schemat.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/germany/eu-ger-krefeld": {
+      "commons_file": "File:Tram map of Krefeld.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/france/eu-fra-aubagne": {
+      "commons_file": "File:Map Tram Aubagne Valtram 2022 08.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/russia/eu-rus-biysk": {
+      "commons_file": "File:Map of tram system in Biysk (Polish).svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/romania/eu-rou-braila": {
+      "commons_file": "File:Tram map of Braila 2025.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/germany/eu-ger-halberstadt": {
+      "commons_file": "File:Tram map of Halberstadt.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/ukraine/eu-ukr-kamianske": {
+      "commons_file": "File:Map of tram system in Kamianske (uk).svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "north-america/united-states/na-usa-memphis": {
+      "commons_file": "File:Memphis Streetcar map 2026, colour.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/italy/eu-ita-palermo": {
+      "commons_file": "File:Palermo Tramway System Map.jpg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "africa/ethiopia/af-eth-addis-ababa": {
+      "commons_file": "File:Map of the Addis Ababa Light Rail.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/finland/eu-fin-tampere": {
+      "commons_file": "File:Tram map of Tampere.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/turkey/as-tur-antalya": {
+      "commons_file": "File:Antalya Railway Systems Network Map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/united-kingdom/eu-gbr-nottingham": {
+      "commons_file": "File:Nottingham Tram map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/spain/eu-esp-tenerife": {
+      "commons_file": "File:Tenerife metro map 2019.jpg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/germany/eu-ger-ulm": {
+      "commons_file": "File:Straßenbahn Ulm Netzplan.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/netherlands/eu-ned-utrecht": {
+      "commons_file": "File:Outline map lightrail Utrecht Aangepast.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/romania/eu-rou-craiova": {
+      "commons_file": "File:Map of tram system in Craiova.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/hungary/eu-hun-miskolc": {
+      "commons_file": "File:Tram map of Miskolc.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/croatia/eu-cro-osijek": {
+      "commons_file": "File:Liniennetz Straßenbahn Osijek.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/ukraine/eu-ukr-yevpatoria": {
+      "commons_file": "File:Map of tram system in Yevpatoria (uk).svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/germany/eu-ger-zwickau": {
+      "commons_file": "File:Tram map of Zwickau.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/italy/eu-ita-bergamo": {
+      "commons_file": "File:Mappa tranvia Bergamo-Albino.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/china/as-chn-tianshui": {
+      "commons_file": "File:Tianshui Tram network map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/hungary/eu-hun-debrecen": {
+      "commons_file": "File:Karte Straßenbahn Debrecen.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/germany/eu-ger-dessau": {
+      "commons_file": "File:Straßenbahn Dessau Netzplan.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/japan/as-jpn-hakodate": {
+      "commons_file": "File:Hakodate City Tram map ja.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/ukraine/eu-ukr-yenakiieve": {
+      "commons_file": "File:Map of tram system in Yenakiieve (uk).svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/japan/as-jpn-kagoshima": {
+      "commons_file": "File:Kagoshima City Tram map ja.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/japan/as-jpn-kumamoto": {
+      "commons_file": "File:Kumamoto city tram map JA.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/japan/as-jpn-okayama": {
+      "commons_file": "File:Okayama Electric Tramway Linemap.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/romania/eu-rou-ploiesti": {
+      "commons_file": "File:Tram map of Ploiesti.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/italy/eu-ita-cagliari": {
+      "commons_file": "File:Metro Cagliari schematica 2026.jpg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/uzbekistan/as-uzb-samarkand": {
+      "commons_file": "File:Map of tram system in Samarkand.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/italy/eu-ita-sassari": {
+      "commons_file": "File:Metro Sassari schematica.jpg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "north-america/united-states/na-usa-buffalo": {
+      "commons_file": "File:Buffalo Metro Rail routemap with Tonawanda-Amherst extension.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "oceania/australia/oc-aus-canberra": {
+      "commons_file": "File:R1 Canberra light rail diagram.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/japan/as-jpn-utsunomiya": {
+      "commons_file": "File:Utsunomiya Haga Lightrail Line map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/france/eu-fra-avignon": {
+      "commons_file": "File:Avignon tramway map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "africa/algeria/af-alg-constantine": {
+      "commons_file": "File:Map of the tramway system in Constantine, Algeria.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/belgium/eu-bel-kusttram": {
+      "commons_file": "File:Kusttram schema.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/russia/eu-rus-perm": {
+      "commons_file": "File:Perm metro map.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/czechia/eu-cze-most": {
+      "commons_file": "File:Map of tram system in Most and Litvínov.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/china/as-chn-dujiangyan": {
+      "commons_file": "File:Dujiangyan Tram Map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/ukraine/eu-ukr-druzhkivka": {
+      "commons_file": "File:Map of tram system in Druzhkivka (uk).svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/luxembourg/eu-lux-luxembourg": {
+      "commons_file": "File:Luxembourg-Stater Tram-route map-03ASD.jpg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/italy/eu-ita-messina": {
+      "commons_file": "File:Messina tram mappa 2003.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/italy/eu-ita-padova": {
+      "commons_file": "File:Mappa Tram Padova 5 linee.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/romania/eu-rou-resita": {
+      "commons_file": "File:Resita tram map 2025.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/kazakhstan/as-kaz-temirtau": {
+      "commons_file": "File:Map of tram system in Temirtau (Kazakh).svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/norway/eu-nor-trondheim": {
+      "commons_file": "File:Trondheim tramway network.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/russia/eu-rus-volchansk": {
+      "commons_file": "File:Map of Volchansk Tramway (English).png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/india/as-ind-noida": {
+      "commons_file": "File:Noida Metro Map.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "africa/south-africa/af-rsa-pretoria": {
+      "commons_file": "File:Pretoria Metro OpenStreetMap small.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/ukraine/eu-ukr-donetsk": {
+      "commons_file": "File:Donetsk map tram.jpg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/ukraine/eu-ukr-zaporizhia": {
+      "commons_file": "File:Map of tram system in Zaporizhia (uk).svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "asia/kazakhstan/as-kaz-pavlodar": {
+      "commons_file": "File:Map of tram system in Pavlodar.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/germany/eu-ger-naumburg": {
+      "commons_file": "File:Netzplan tramnaumburg.svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/ukraine/eu-ukr-zhytomyr": {
+      "commons_file": "File:Map of tram system in Zhytomyr (uk).svg",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    },
+    "europe/russia/eu-rus-tomsk": {
+      "commons_file": "File:Tomsk tram map 2020.png",
+      "note": "無營運商圖可直抓；釘 Commons 策展全線圖（2026-07-27 全量補 official）。"
+    }
+  },
+  "_rev": 1785169142160
+}

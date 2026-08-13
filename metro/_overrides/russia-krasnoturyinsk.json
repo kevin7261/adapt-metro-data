@@ -1,0 +1,11 @@
+{
+  "city": "Krasnoturyinsk",
+  "country": "Russia",
+  "continent": "europe",
+  "osm_route_ids": [
+    7821579,
+    7821580
+  ],
+  "source": "https://www.urbanrail.net/eu/ru/krasnoturyinsk/krasnoturyinsk.htm",
+  "note": "克拉斯諾圖林斯克 Городской трамвай 1 線（БАЗ↔Набережная，ru wiki 10 站）。urbanrail gap modes=tram。OSM 成員序錯亂＋Фабрика-кухня 誤名＋Гоголя 空 role 漏站＋name:en 被清成終點站名 → member_appends.replace_stops／station_names／route_tag_patches。使用者 2026-07-25 抓錯修正。"
+}

@@ -1,0 +1,12 @@
+{
+  "city": "Nordhausen",
+  "country": "Germany",
+  "continent": "europe",
+  "osm_route_ids": [
+    17413,
+    17415,
+    54452
+  ],
+  "source": "https://www.urbanrail.net/eu/de/ndh/nordhausen.htm",
+  "note": "Nordhausen（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。OSM r17413/17415/54452 站序曾混 traffic_signals／crossing／缺站，已以 member_appends replace_stops 依 Stadtwerke／de wiki 覆寫（2026-07-26）。重跑 gap 勿刪 member_appends。"
+}

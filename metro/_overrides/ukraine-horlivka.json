@@ -1,0 +1,12 @@
+{
+  "city": "Horlivka",
+  "country": "Ukraine",
+  "continent": "europe",
+  "osm_route_ids": [
+    2401619,
+    2401673,
+    2401621
+  ],
+  "source": "https://www.urbanrail.net/eu/ua/horlivka/horlivka.htm",
+  "note": "Horlivka（urbanrail gap）。uk wiki 營運 №1／7／8。每線只釘一個方向 relation（2401619／2401673／2401621）；對向 2401620／2401674／2401622 進 route_excludes（spur 邏輯會把去回程串成雙倍站序）。站序 member_appends replace_stops。曾被 ukraine-yenakiieve 搶走 №8。使用者 2026-07-26「horlivka抓錯」。"
+}

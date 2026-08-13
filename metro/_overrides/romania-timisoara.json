@@ -1,0 +1,27 @@
+{
+  "city": "Timisoara",
+  "country": "Romania",
+  "continent": "europe",
+  "osm_route_ids": [
+    5594236,
+    5594237,
+    5594254,
+    5594255,
+    5594263,
+    5594264,
+    5594327,
+    5594328,
+    5594333,
+    5594334,
+    7741472,
+    7741473,
+    9217291,
+    9217292,
+    15589419,
+    15589445,
+    17714137,
+    17714146
+  ],
+  "source": "https://www.urbanrail.net/eu/ro/timisoara/timisoara.htm",
+  "note": "Timisoara（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

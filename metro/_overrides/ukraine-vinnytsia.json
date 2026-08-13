@@ -1,0 +1,21 @@
+{
+  "city": "Vinnytsia",
+  "country": "Ukraine",
+  "continent": "europe",
+  "osm_route_ids": [
+    1997175,
+    1997176,
+    2003614,
+    2003615,
+    2003641,
+    2003642,
+    2003659,
+    2003660,
+    2003661,
+    2003662,
+    5765956,
+    5765957
+  ],
+  "source": "https://www.urbanrail.net/eu/ua/vinnytsia/vinnytsia.htm",
+  "note": "Vinnytsia（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

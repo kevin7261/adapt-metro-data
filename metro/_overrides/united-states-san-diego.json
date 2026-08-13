@@ -1,0 +1,18 @@
+{
+  "city": "San Diego",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    2846984,
+    2847013,
+    9946500,
+    13466482,
+    13466483,
+    18108499,
+    18108500
+  ],
+  "source": "https://www.urbanrail.net/am/sdie/san-diego.htm",
+  "wikipedia": "en:San Diego Trolley",
+  "wikidata": "Q1577187",
+  "note": "San Diego（使用者 2026-07-29「usa san diego抓錯」）＝Trolley 日營 Blue＋Green＋Orange＋Copper（wiki／urbanrail 62 站）。gap 誤收 NCTD SPRINTER＋節日懷舊 Silver→7 線／77 站；Orange 對向 25th/Commercial 月台 ~302m→被拆成兩線。只留 SDMTS 日營 rid；SPRINTER／Silver／Orange 對向 r9946499→route_excludes；task modes=light_rail、bbox 北緣縮到排除 SPRINTER。fetchUrbanrailGap 重跑會覆寫 rid——請保留 wikipedia/wikidata／本 note。"
+}

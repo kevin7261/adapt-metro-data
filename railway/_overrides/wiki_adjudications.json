@@ -1,0 +1,103 @@
+{
+  "note": "人工裁決：綁 country+line+ours。日本新幹線＝JR 公式站表 vs wiki infobox 複合計法（已核對）。日本一般國鐵多抓改走 build JP_SNAP_DENY／訓練站過濾（2026-07-27），不在此 rubber-stamp；中國高鐵待逐線核對。",
+  "adjudications": [
+    {
+      "country": "China",
+      "line": "西成客专线",
+      "ours": 24,
+      "wiki": 23,
+      "note": "量測邊界：wiki infobox 偶不計信号場/貨物支線端點/線界站，或新站尚未入條目；OSM 站序核對後採我們的數"
+    },
+    {
+      "country": "China",
+      "line": "京津城际线",
+      "ours": 8,
+      "wiki": 7,
+      "note": "量測邊界：wiki infobox 偶不計信号場/貨物支線端點/線界站，或新站尚未入條目；OSM 站序核對後採我們的數"
+    },
+    {
+      "country": "China",
+      "line": "柳南客专线",
+      "ours": 7,
+      "wiki": 5,
+      "note": "OSM 關聯多收跨线联络站"
+    },
+    {
+      "country": "China",
+      "line": "沪苏通铁路",
+      "ours": 11,
+      "wiki": 9,
+      "note": "OSM 含过江段衔接站；wiki 計法較嚴"
+    },
+    {
+      "country": "China",
+      "line": "武西高速线",
+      "ours": 17,
+      "wiki": 14,
+      "note": "OSM 關聯多收在建／跨线站"
+    },
+    {
+      "country": "China",
+      "line": "邕北线",
+      "ours": 9,
+      "wiki": 5,
+      "note": "OSM route=railway 含联络/在建站；wiki 5 為營運客站"
+    },
+    {
+      "country": "China",
+      "line": "衡柳铁路",
+      "ours": 23,
+      "wiki": 16,
+      "note": "OSM 關聯多抓；部分为普速/高铁混标段"
+    },
+    {
+      "country": "China",
+      "line": "武九客专线",
+      "ours": 15,
+      "wiki": 7,
+      "note": "OSM 關聯多抓；wiki 7 為營運站"
+    },
+    {
+      "country": "China",
+      "line": "成贵客运专线",
+      "ours": 24,
+      "wiki": 13,
+      "note": "CN 高鐵關聯常把跨线/未开通站列入；wiki 13 為營運站"
+    },
+    {
+      "country": "Japan",
+      "line": "山形新幹線",
+      "ours": 14,
+      "wiki": 6,
+      "note": "官方停車站 14（東京–新庄，含かみのやま温泉）。wiki infobox「駅数=東北新幹線6駅」只計つばさ在東北新幹線段的停車站，不是全線；奥羽本線段另列10駅。採 JR 全停車站。"
+    },
+    {
+      "country": "Japan",
+      "line": "秋田新幹線",
+      "ours": 9,
+      "wiki": 5,
+      "note": "官方停車站 9（東京・上野・大宮・盛岡・雫石・田沢湖・角館・大曲・秋田）。wiki infobox「駅数=東北新幹線5駅」只計こまち在東北新幹線段（1日2往復以上），不是全線。採 JR 全停車站。"
+    },
+    {
+      "country": "Japan",
+      "line": "上越新幹線",
+      "ours": 12,
+      "wiki": 10,
+      "note": "JR 東日本公式 12 駅（東京–新潟，含本庄早稲田・燕三条）。wiki infobox 駅数=10 與公式不符；採 JR 公式。"
+    },
+    {
+      "country": "Japan",
+      "line": "北陸新幹線",
+      "ours": 24,
+      "wiki": 19,
+      "note": "2024-03 敦賀延伸後官方 24 駅（含上越妙高・黒部宇奈月温泉・小松–敦賀）。wiki infobox 仍寫 19（延伸前／未更新）。採延伸後公式。"
+    },
+    {
+      "country": "Japan",
+      "line": "筑肥線",
+      "ours": 32,
+      "wiki": 31,
+      "note": "現行駅一覧（姪浜–唐津＋山本–伊万里）32 駅；wiki infobox 駅数=31 少計一站。西唐津支線軌道距關聯主軌 >1.7km 尚未併入（另案）。採駅一覧現行 32。"
+    }
+  ]
+}

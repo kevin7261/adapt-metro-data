@@ -1,0 +1,29 @@
+{
+  "city": "Rhein-Ruhr",
+  "country": "Germany",
+  "continent": "europe",
+  "osm_route_ids": [
+    70598,
+    72034,
+    1198831,
+    1198883,
+    1198884,
+    1202175,
+    1202203,
+    1202291,
+    2003472,
+    2003473,
+    10409524,
+    10409525,
+    10409640,
+    10409641,
+    10411057,
+    10411058,
+    11819169,
+    11819170,
+    15257143,
+    15257144
+  ],
+  "source": "https://www.urbanrail.net/eu/de/ruhrgeb.htm",
+  "note": "Rhein-Ruhr（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

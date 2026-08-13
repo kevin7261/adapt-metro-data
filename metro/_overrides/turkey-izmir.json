@@ -1,0 +1,24 @@
+{
+  "city": "İzmir",
+  "country": "Turkey",
+  "continent": "asia",
+  "osm_route_ids": [
+    2707717,
+    7981826,
+    12378469,
+    12378470,
+    12342705,
+    12342706,
+    16998062,
+    16998063,
+    15423228,
+    17437070,
+    363587,
+    17286900,
+    17294174
+  ],
+  "wikipedia": "en:İzmir Metro",
+  "wikidata": "Q3238655",
+  "source": "https://www.urbanrail.net/as/tr/izmir/izmir.htm",
+  "note": "İzmir（使用者 2026-07-26「izmir抓錯」）——基準只抓到 Metro M1；urbanrail／官方 Ulaşım Haritası 另含 Tram İzmir T1/T2/T3（route=tram）＋ İZBAN（route=train）。由 scripts/fetchIzmirExtras.mjs 補抓 gap_*_izmir_extras；本 override 釘城並豁免 LRT 剔除。"
+}

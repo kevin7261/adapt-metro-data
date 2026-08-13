@@ -1,0 +1,16 @@
+{
+  "city": "Palermo",
+  "country": "Italy",
+  "continent": "europe",
+  "osm_route_ids": [
+    5812903,
+    5812904,
+    5812929,
+    5812930,
+    5813035,
+    5813036,
+    5813037
+  ],
+  "source": "https://www.urbanrail.net/eu/it/pal/palermo.htm",
+  "note": "Palermo（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

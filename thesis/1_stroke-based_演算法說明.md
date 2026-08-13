@@ -1,0 +1,455 @@
+# ① Stroke-Based 示意圖生成演算法（筆畫法）
+
+> 論文：Zhilin Li & Weihua Dong (2010). *A stroke-based method for automated generation of schematic network maps*. International Journal of Geographical Information Science, 24(11), 1631–1647. DOI: 10.1080/13658811003766936
+
+本文件是給開發者（或其他 LLM）的完整實作指南。讀完本文件後，不需要再看原始論文即可實作。
+
+---
+
+## 計算邏輯與程式骨架
+
+> 以下依論文寫「要算什麼、怎麼算」——用虛擬碼、公式與迴圈描述計算步驟。實作時照此邏輯寫；不要呼叫既有程式裡的函式名，也不要寫「call xxx」。
+
+### 輸入
+
+- **頂點集合** `V`：每個頂點 v 有地理座標 `(x_v, y_v)`（路網交點、捷運站等）。
+- **線段集合** `L`：每條線段 `seg = (u, v, name?)`，兩端點 ∈ V；`name` 可為空（無名線段）。
+- **偏角閾值** `T`：建議 45°（π/4 弧度），決定哪些相鄰線段可接成同一筆畫。
+- **方向集合** `D`：4 主方向模式＝`{0°, 90°}` 優先、`{45°, 135°}` 備援（壅擠/被擋時才用）；8 方向模式＝`{0°, 45°, 90°, 135°}`（線方向，機會均等）。
+
+### 輸出
+
+- 新座標 `pos[v] = (x'_v, y'_v)` for all v ∈ V（投影後，拓撲不變）。
+- 每條子筆畫的指派方向 `assigned_dir[sub] ∈ D`。
+
+### 建議內部狀態
+
+| 名稱 | 說明 |
+|---|---|
+| `strokes` | 有序 Stroke 列表；每條筆畫 = 有序頂點串列 + 所包含線段 + 名稱（可空）|
+| `processed` | `Set<Segment>`，已分配到某筆畫的線段 |
+| `adj[v]` | 頂點 v 的所有相鄰線段（鄰接表）|
+| `stroke_weight[s]` | 三鍵排序鍵 `(type, totalLength, numJunctions)` |
+| `sub_strokes` | 每條筆畫切分後產生的子筆畫列表 |
+| `assigned_dir[sub]` | 子筆畫指派方向（弧度）|
+| `pos[v]` | 各頂點當前（可能已投影）座標 |
+| `connect[v][seg]` | 在頂點 v，線段 seg 的 every-best-fit 接續配對記錄 |
+
+### 主計算流程
+
+```
+Algorithm StrokeBasedSchematization(V, L, T, D):
+
+  ## 第一階段：形成筆畫（FormStrokes）
+
+  processed ← ∅
+
+  # 步驟 1a：具名線段優先串接（同名且首尾相鄰直接串成一條筆畫）
+  for each unique name n in L:
+      segs_n ← {seg ∈ L : seg.name = n}
+      chain ← 依端點相鄰關係把 segs_n 串成有序頂點鏈
+      strokes.add( Stroke(vertices = chain, name = n) )
+      processed ← processed ∪ segs_n
+
+  # 步驟 1b：無名線段：every-best-fit 全域配對
+  for each vertex v ∈ V with deg(v) ≥ 2:
+      unproc ← {seg ∈ adj[v] : seg ∉ processed}
+      # 列出所有未處理線段對及其偏角
+      pairs ← []
+      for each (seg_i, seg_j) in unproc × unproc, i ≠ j:
+          angle ← deflectionAngle(seg_i, seg_j, v)   # 見子計算 A
+          pairs.append( (angle, seg_i, seg_j) )
+      pairs.sort( by angle ascending )
+      matched_here ← ∅
+      for (angle, seg_i, seg_j) in pairs:
+          if angle ≥ T: break          # 剩餘角度更大，全部放棄
+          if seg_i ∉ matched_here and seg_j ∉ matched_here:
+              connect[v][seg_i] ← seg_j
+              connect[v][seg_j] ← seg_i
+              matched_here ← matched_here ∪ {seg_i, seg_j}
+
+  # 依 connect 的傳遞閉包，把無名線段串成筆畫
+  for each seg ∈ L \ processed:
+      trace stroke by following connect links from both ends until no extension
+      strokes.add( Stroke(vertices = traced chain, name = null) )
+      processed ← processed ∪ {所有已串入的線段}
+
+  ## 第二階段：計算排序鍵，建立待處理佇列
+
+  for each stroke s in strokes:
+      stroke_weight[s] ← ( s.type,             # 預先定義，數字越大越優先
+                            totalLength(s),      # 所有線段長度之和
+                            numJunctions(s) )    # 與其他筆畫共享的頂點數
+  queue ← strokes sorted by stroke_weight descending（三鍵字典序）
+
+  ## 第三階段：漸進式定向與投影（Progressive Schematization）
+
+  while queue not empty:
+      s ← queue.dequeue()    # 取當前最高權重的未處理筆畫
+
+      # 步驟 3a：方向扭曲切分（類 Douglas–Peucker，但用角度而非垂距）
+      sub_list ← splitByDirectionDistortion(s, T)   # 見子計算 B
+
+      # 步驟 3b：每個子筆畫指派最近的允許方向
+      for each sub in sub_list:
+          dx ← last_vertex(sub).x − first_vertex(sub).x
+          dy ← last_vertex(sub).y − first_vertex(sub).y
+          base_angle ← atan2(dy, dx)               # 子筆畫首尾連線方位角
+          assigned_dir[sub] ← snapToNearest(base_angle, D)
+          # snapToNearest：取 D 中使 |角度差| 最小的方向
+          # 4 主方向模式時：主要候選＝最近的水平/垂直（0°/90°），
+          # 備援＝最近的 ±45°——只在壅擠/主要候選被擋時退用（見 §4.3）
+
+      # 步驟 3c：拓撲一致性檢查與修復
+      for each sub in sub_list:
+          d ← assigned_dir[sub]
+          anchor ← chooseAnchor(sub)                # 見子計算 D
+          polygon ← simplePolygon(
+                        original_polyline(sub),
+                        directed_line(first_vertex(sub), last_vertex(sub), d))
+                      # 原折線與定向直線首尾相連圍成的多邊形
+
+          for each v_off ∈ V \ vertices(sub):
+              if pointInPolygon(pos[v_off], polygon):
+                  # v_off 在多邊形內 → 投影會改變拓撲關係
+                  side ← originalSide(v_off, polygon)  # 原始位置在哪一側
+                  # 把 v_off 垂直推出多邊形（最小位移），停在邊界的 side 一側
+                  # （本文件補述：論文只說 move the point(s) out of the polygon，
+                  #   未規定方向與幅度；「垂直、最小位移」是本文件的實作建議）
+                  pos[v_off] ← pushOutOfPolygon(pos[v_off], polygon, side)
+
+      # 步驟 3d：把子筆畫的頂點垂直投影到定向直線
+      for each sub in sub_list:
+          for each v on sub:
+              pos[v] ← perpendicularProject(pos[v], assigned_dir[sub], anchor)
+              # 見子計算 C
+              # 注意：捷運車站一律保留（不刪）；純幾何矩形中間點可刪除
+
+  return pos
+```
+
+### 關鍵子計算
+
+#### A. 偏角計算 `deflectionAngle(seg_i, seg_j, v)`
+
+```
+deflectionAngle(seg_i, seg_j, v):
+    # seg_i 與 seg_j 共享頂點 v；分別取兩段「從 v 出發」的單位方向向量
+    d_i ← normalize( otherEndpoint(seg_i, v) − v )
+    d_j ← normalize( otherEndpoint(seg_j, v) − v )
+    interior_angle ← acos( clamp(dot(d_i, d_j), −1, 1) )  # ∈ [0°, 180°]
+    deflection ← 180° − interior_angle   # 偏角 = 180° − 夾角
+    # 偏角越小 = 兩段越接近「直著走」，越適合接成同一筆畫
+    return deflection
+```
+
+#### B. 方向扭曲切分 `splitByDirectionDistortion(stroke, T)`
+
+```
+splitByDirectionDistortion(stroke, T):
+    verts ← stroke.vertices     # 有序頂點串列
+    if |verts| ≤ 2: return [stroke]   # 只有首尾，無法再切
+
+    a ← verts[0];  m ← verts[-1]
+    base_a ← atan2(m.y − a.y, m.x − a.x)   # a→m 方位角（a 端基準）
+    base_m ← atan2(a.y − m.y, a.x − m.x)   # m→a 方位角（m 端基準，反向）
+
+    max_distortion ← 0;  split_v ← null
+    for each p in verts[1..-2]:         # 所有中間頂點
+        # 論文（圖 5a）：每個中間點有**兩個**方向扭曲——
+        # 從 a 端與 m 端各算一次，取較大者作為該點的扭曲值
+        d_a ← |angleDiff(atan2(p.y − a.y, p.x − a.x), base_a)|   # 從 a 看
+        d_m ← |angleDiff(atan2(p.y − m.y, p.x − m.x), base_m)|   # 從 m 看
+        distortion ← max(d_a, d_m)
+        # angleDiff：取 [0°, 180°] 範圍內的最小角差
+        if distortion > max_distortion:
+            max_distortion ← distortion
+            split_v ← p
+
+    if max_distortion < T:
+        return [stroke]      # 整條筆畫不需切分
+
+    left  ← SubStroke( verts 從 a 到 split_v )
+    right ← SubStroke( verts 從 split_v 到 m )
+    return splitByDirectionDistortion(left, T)
+         + splitByDirectionDistortion(right, T)   # 遞迴
+
+angleDiff(θ1, θ2):
+    diff ← (θ1 − θ2 + 360°) mod 360°
+    return min(diff, 360° − diff)   # ∈ [0°, 180°]
+```
+
+#### C. 垂直投影 `perpendicularProject(pt, d, anchor)`
+
+```
+perpendicularProject(pt, d, anchor):
+    # 定向直線通過 anchor，方向角 d（弧度）
+    if d ≈ 0° 或 180° (水平):
+        return ( pt.x, anchor.y )           # 保留 x；y 統一為 anchor.y
+
+    elif d ≈ 90° 或 270° (垂直):
+        return ( anchor.x, pt.y )           # 保留 y；x 統一為 anchor.x
+
+    else:   # ±45°（d ≈ 45°, 135°, 225°, 315°）
+        # 旋轉座標系，讓定向直線對齊水平，做水平投影，再逆旋轉
+        pt_rot     ← rotate(pt,     −d)
+        anchor_rot ← rotate(anchor, −d)
+        proj_rot   ← ( pt_rot.x, anchor_rot.y )   # 在旋轉系中投影
+        return rotate(proj_rot, +d)                # 逆旋轉回原座標系
+
+rotate(pt, theta):
+    return ( pt.x·cos(theta) − pt.y·sin(theta),
+             pt.x·sin(theta) + pt.y·cos(theta) )
+```
+
+#### D. 錨點選取 `chooseAnchor(sub)`
+
+```
+chooseAnchor(sub):
+    # 錨點決定投影直線的「共同座標」，偏向最重要的交點以減少位移
+    junctions ← [v for v in sub.vertices
+                   if v is shared with at least one other stroke]
+
+    if junctions is empty:
+        return midpoint( first_vertex(sub), last_vertex(sub) )
+
+    # 取「已定案筆畫中、排序鍵最高者」的交點作錨
+    best_j ← argmax_{ v in junctions }(
+                max stroke_weight[s] for s in alreadyProcessedStrokes
+                                      where v ∈ s.vertices )
+    return pos[best_j]
+    # 若交點均等重要，可改用加權平均：
+    #   anchor ← Σ(stroke_weight[s_v] · pos[v]) / Σ stroke_weight[s_v]
+```
+
+---
+
+## 1. 問題定義
+
+輸入一個地理座標下的路網（捷運網 / 道路網），輸出一張「示意圖」（schematic map）：
+
+- 所有線條被拉直，並重新定向到 **4 個方向**（水平、垂直優先，斜線為輔）或 **8 個方向**（水平、垂直、±45°，機會均等）。
+- 拓撲（誰跟誰相連、交點的順序）必須保持不變。
+- 相對位置（誰在誰的左邊 / 上面）盡量保持。
+
+### 核心理念：以「筆畫（stroke）」為基本單位，而不是「線段（segment）」
+
+傳統方法逐條線段處理，結果會產生「階梯狀」的鋸齒外觀，因為一條長線被切成很多短段、各自定向。本方法先把短線段串接成長的「筆畫」，再對整條筆畫定向與拉直，結果更接近倫敦地鐵圖的簡潔程度。
+
+認知層級依據（Barkowsky & Freksa 1997）——重要性由高到低：
+
+1. 存在性與連通性（existence, connectedness）— 絕對不能破壞
+2. 相對方向（orientation）
+3. 相對位置（localization）
+4. 相對距離（distance）
+5. 矩形（shape）— 最不重要，可以大量扭曲
+
+演算法的一切取捨都遵守這個層級：犧牲矩形，換取清晰。
+
+---
+
+## 2. 整體流程（4 大步驟）
+
+```
+輸入：原始路網線段集合 L、偏角閾值 T（建議 45°）
+輸出：示意化後的筆畫集合 S
+
+(a) FormStrokes      ：把線段串接成筆畫
+(b) Re-orientation   ：判斷每條筆畫要定向成幾段、各段朝哪個方向
+(c) Projection       ：把筆畫上的點投影到定向後的直線上
+(d) Consistency check：偵測並修復拓撲不一致
+```
+
+其中 (b)(c)(d) 是逐筆畫「漸進式（progressive）」執行的：一次處理一條筆畫，之後的筆畫以已定案的筆畫為參考，保證每一步結果都合法。
+
+---
+
+## 3. 步驟 (a)：筆畫形成（FormStrokes）
+
+### 3.1 有名稱的線段（例如同名道路、同一條捷運路線）
+
+同名且首尾相鄰的線段直接串接成一條筆畫。這是最優先的規則。
+
+### 3.2 無名稱的線段：good continuation 原則
+
+利用格式塔知覺原則「良好連續（good continuation grouping）」：在節點處，視覺上「順著走」的兩段會被歸為同一條線。程序：
+
+1. 設定偏角閾值 T（**建議 45°**。文獻指出 30°–75° 之間結果穩定；且後續要定向到 4/8 方向，45° 剛好是相鄰方向的間隔）。
+2. 對每條線段，計算它與「同一節點上相接的所有其他線段」之間的偏角（deflection angle，= 180° 減去兩段的夾角；偏角越小表示越直）。
+3. 若所有偏角都 ≥ T，這條線段自己成為一條筆畫；否則把偏角 < T 的線段放入「可能接續集合」PJS（possible joining segments）。
+4. 從 PJS 中依下列三種策略之一選出接續段：
+   - **self-fit**：隨便選一個（最懶，不建議）。
+   - **self-best-fit**：只顧自己，選跟自己偏角最小的那段。
+   - **every-best-fit**（**論文採用，建議實作這個**）：全域考量——節點上每一對線段互相協調，讓「彼此都是對方最佳配對」的兩段優先串接。也就是說：即使 b 是 a 的最佳配對，但如果 b 跟 e 的偏角比 b 跟 a 的更小，則 b–e 優先成對，a 只能去找次佳的 c。every-best-fit 對同一路網產生唯一確定的筆畫分解。
+
+**every-best-fit 的實作建議**：在每個度數 ≥ 2 的節點，列出所有線段對 (i, j) 及其偏角，依偏角由小到大排序，貪婪地取出偏角 < T 且 i、j 都尚未被配對的線段對，配對後標記。每個節點上每條線段最多配對一次（一進一出）。配對關係的傳遞閉包就是筆畫。
+
+### 3.3 虛擬碼（依論文原文整理）
+
+```
+FormStrokes(L, T):
+    S ← ∅
+    # 第一輪：有名稱的線段
+    for 尚未處理的具名線段 seg:
+        while 存在同名且首尾相鄰的線段 seg2:
+            seg ← join(seg, seg2); 標記 seg2 已處理
+        S.add(seg 形成的筆畫)
+    # 第二輪：無名稱的線段
+    for 尚未處理的無名線段 seg:
+        while true:
+            cand ← 在 seg 端點節點上，與 seg 偏角 < T 的未處理線段（PJS）
+            if cand 為空: break
+            next ← every-best-fit 從 cand 選出
+            if next 不存在: break
+            seg ← join(seg, next); 標記 next 已處理
+        S.add(seg 形成的筆畫)
+    return S
+```
+
+> 捷運圖的對應：每條捷運「路線」天然就是一條具名筆畫，因此捷運應用中 3.1 就足夠；3.2 用於無名路網。
+
+---
+
+## 4. 步驟 (b)：筆畫重新定向（Re-orientation）
+
+### 4.1 方向數的兩種選項
+
+- **4 個主方向（primary directions）**：水平與垂直優先，±45° 斜線只作為次要選擇（避免壅擠時才用）。
+- **8 個方向**：水平、垂直、±45° 機會均等。
+
+論文的實驗結論（104 名受測者的實證研究）：**4 主方向的結果最清晰（83% 認為比原圖清楚），建議預設採用 4 主方向**；8 方向次之（79%）；逐線段法最差（28%）。
+
+### 4.2 一條筆畫要折成幾段？（sub-stroke 切分）
+
+一條很長的筆畫可能無法只用一個方向表示，需要切成數個「子筆畫（sub-stroke）」，每個子筆畫各自定向。兩種檢查法：
+
+**方法一：最大方向扭曲檢查（maximum direction distortion checking）— 類 Douglas–Peucker**
+
+1. 用筆畫首尾連線 a–m 代表整條筆畫。
+2. 對筆畫上每個中間點 p，計算「方向扭曲」：以 a–m 直線方向為基準，p 造成的方向偏差角（不是垂距！是**角度**）。論文（圖 5a）指出每個中間點有**兩個**方向扭曲——從 a 端（∠(a→p 相對 a→m)）與 m 端（∠(m→p 相對 m→a)）各算一次，取較大者。
+3. 若最大扭曲 < 閾值（例如 45°，對應 4 主方向的間隔），整條筆畫可用單一方向表示。
+4. 否則以最大扭曲點 N 為分割點，切成 a–N 與 N–m 兩條子筆畫，**遞迴**處理直到每段扭曲都低於閾值。
+
+與 Douglas–Peucker 的差別只有一處：DP 用「垂直距離」當分割準則，這裡改用「方向扭曲角」。遞迴結構完全相同。
+
+**方法二：逐點方向變化檢查（sequential direction change checking）**
+
+沿筆畫逐點走，計算相鄰段落的方向變化；某點的方向變化 > 閾值就在該點切開。（例如圖 5b 中 f、k 兩點方向突變，筆畫被切成三段。）
+
+兩種方法擇一即可；方法一較全域、方法二較局部。論文以方法一為主述。
+
+### 4.3 子筆畫的方向指派
+
+每條子筆畫取其首尾連線的方位角，就近吸附（snap）到允許方向集合：
+
+- 4 主方向模式：優先吸附到 0°/90°；若造成壅擠（見步驟 d 的不一致偵測）再考慮 ±45°。
+- 8 方向模式：直接吸附到最近的 {0°, 45°, 90°, 135°}。
+
+---
+
+## 5. 步驟 (c)：投影（Projection）
+
+子筆畫方向確定後，要把筆畫上的點放到那條定向直線上。點分兩類：
+
+- **交點（intersection / junction，與其他筆畫相交的點）與兩端點**：投影後**保留**。
+- **中間點（intermediate points，純矩形點）**：投影後**刪除**——這一步天然完成了線簡化，不需要另外跑 Douglas–Peucker。
+
+> 捷運圖注意：捷運的「車站」都是有意義的點，不可套用「中間點刪除」；只刪純幾何矩形點。
+
+### 5.1 垂直投影（perpendicular projection）— 論文採用
+
+把每個點**垂直**投影到定向直線上：
+
+- 投影到水平線：`X_new = X_old, Y_new = Y_common`（式 1）
+- 投影到垂直線：`Y_new = Y_old, X_new = X_common`（式 2）
+- 投影到 ±45° 斜線：三步驟——(a) 將子筆畫旋轉 ∓45°；(b) 套用式 1 或式 2；(c) 逆旋轉回原座標系。
+
+`Y_common`（或 `X_common`）的決定：不是隨便取平均。**主要考量是「與其他大筆畫的交點」的座標**——例如某點 f 是筆畫 1 與筆畫 2 的交點，f 的原座標應該獲得比子筆畫上其他點更高的權重（實務上可直接取「最重要交點的座標」或「交點座標的加權平均」作為 common 值），這樣交點位移最小，後續拓撲衝突也最少。
+
+垂直投影的優點：X（或 Y）座標不變，**保證相對位置（左右/上下順序）不變**。
+
+### 5.2 比例投影（proportional projection）— 論文未採用，僅供參考
+
+把首尾與各交點沿定向直線按「原弧長比例」重新分佈。保長度比例但不保相對位置，論文選擇不用。
+
+---
+
+## 6. 步驟 (d)：漸進式排程與拓撲一致性
+
+### 6.1 筆畫排序（式 3）
+
+逐條處理筆畫，順序由權重 S_w 決定，比較鍵依序為：
+
+1. **S_t 筆畫類型**（type；例如道路等級/路線重要性，高類型優先）
+2. 類型相同 → **S_l 長度**（長者優先）
+3. 類型與長度都相同 → **S_d 度數**（交點數多者優先）
+   （註：論文正文式 (3) 定義 S_d 為 number of **intersections**，但論文 §6 虛擬碼寫 number of **segments**，兩處不一；本文件取正文的 intersections。）
+
+排序後形成階層（圖 8）：處理筆畫 1 時其他全部當背景；筆畫 1 定案後處理筆畫 2，以已定案的筆畫 1 為參考……依此類推。這就是「漸進式（progressive）」策略，保證每一步都拓撲合法。
+
+### 6.2 不一致偵測：點在多邊形（point-in-polygon）
+
+對正在處理的（子）筆畫，用「**原始折線**與「**投影後的直線**」圍成一個多邊形。檢查其他筆畫的點是否落在此多邊形內：
+
+- **多邊形內沒有任何其他點** → 安全，直接定案。
+- **有點 P 在多邊形內** → 投影會改變 P 與這條筆畫的上下/交叉關係，產生兩種病態（圖 9）：
+  - **(c) 新增交點**：原本 P 所屬的筆畫不穿過本筆畫，投影後卻穿過了。
+  - **(e) 失去交點**：原本相交，投影後不相交了。
+- **修復方式**：把 P **移出多邊形**、移到直線的正確一側（圖 9d、9f 的 P'），使原有的相交/不相交關係恢復。移動時盡量小幅、垂直於定向直線方向移動。
+
+### 6.3 主流程虛擬碼（依論文 §6 原文整理）
+
+```
+ProgressiveSchematization(S):
+    依 S_w（類型 > 長度 > 度數）將筆畫由高到低排序
+    while 存在未處理筆畫:
+        stroke ← 權重最高的未處理筆畫
+        p_max ← stroke 上方向扭曲最大的頂點
+        if 扭曲(p_max) > T:
+            在 p_max 把 stroke 切成兩條子筆畫，放回佇列  # 遞迴切分
+        else:
+            計算 stroke（或子筆畫）的吸附方向
+            polygon ← 原折線與定向直線圍成的多邊形
+            if polygon 內存在其他筆畫的點:
+                把這些點移出 polygon（修復拓撲）
+            else:
+                把兩端點、交點、（要保留的）中間點投影到定向直線
+                標記 stroke 已處理
+```
+
+---
+
+## 7. 品質評估（如需復現論文實驗）
+
+- **碎形維度（fractal dimension）**：原始路網 1.155；逐線段法 1.106；stroke 8 方向 1.099；stroke 4 主方向 1.096。維度越低 = 越簡潔。可用 box-counting 實作。
+- **實證研究**：5 級清晰度評分（1=遠不如原圖清楚 … 5=清楚得多）。
+
+---
+
+## 8. 多尺度延伸（選配）
+
+每條筆畫依權重 S_w 分層（例如 3 層）。縮小地圖時逐層剔除低權重筆畫，即得多尺度示意圖（圖 15）。這是 stroke 法相對逐線段法的天然優勢。
+
+---
+
+## 9. 實作檢查清單與陷阱
+
+1. **偏角 vs 夾角**：deflection angle = 180° − 兩線段夾角。閾值 45° 是針對偏角。
+2. **every-best-fit 必須全域配對**，不要寫成每段各自貪婪（那是 self-best-fit）。
+3. **方向扭曲切分用「角度」不是「垂距」**——不要直接抄 Douglas–Peucker 的垂距版本。
+4. **投影時交點必留、矩形點可刪**；捷運應用中車站一律保留。
+5. **Y_common / X_common 要偏向重要交點座標**，不要無腦取平均，否則交叉筆畫的交點會漂移，觸發大量拓撲修復。
+6. **漸進式順序很重要**：先大後小。順序錯了，小筆畫先佔位，大筆畫反而要遷就，全圖歪掉。
+7. **拓撲修復是「移點」不是「重投影」**：把違規點推出多邊形即可，不要回頭改已定案的筆畫。
+8. 斜線投影記得「旋轉 → 投影 → 逆旋轉」，不要直接對斜線推公式（容易出錯）。
+9. 4 主方向模式下，±45° 是**備援**：先試水平/垂直，發生不一致或壅擠再退而求其次。
+
+## 10. 建議參數
+
+| 參數 | 建議值 | 說明 |
+|---|---|---|
+| 偏角閾值 T | 45° | 30°–75° 皆穩定；45° 與方向間隔一致 |
+| 方向集合 | 4 主方向 | 實證最清晰；8 方向為次選 |
+| 切分準則 | 最大方向扭曲 > 45° | 類 DP 遞迴 |
+| 投影方式 | 垂直投影 | 保相對位置 |
+| 筆畫排序 | 類型 > 長度 > 度數 | 式 (3) |

@@ -1,0 +1,29 @@
+{
+  "city": "Pretoria",
+  "country": "South Africa",
+  "continent": "africa",
+  "osm_route_ids": [
+    1021770,
+    1026727,
+    1026729,
+    1112362,
+    1112363,
+    1112364,
+    1112366,
+    1112367,
+    10305472,
+    10398176,
+    10415674,
+    10649225,
+    10670766,
+    10670990,
+    10670991,
+    10671014,
+    10671027,
+    10671046,
+    10671112,
+    10671113
+  ],
+  "source": "https://www.urbanrail.net/af/joburg/pretoria.htm",
+  "note": "Pretoria（urbanrail gap；Gautrain＋Metrorail Gauteng）。2026-07-31 重抓後 bbox 再混長途（Komatipoort／Beitbridge／Musina）→ purge af-rsa-pretoria 25→20。Orange Line Kopanong→Soshanguve ≈6.8 km 為走廊長跨。"
+}

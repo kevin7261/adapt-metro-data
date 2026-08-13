@@ -1,0 +1,13 @@
+{
+  "city": "Ulm",
+  "country": "Germany",
+  "continent": "europe",
+  "osm_route_ids": [
+    68796,
+    68797,
+    6179984,
+    6354430
+  ],
+  "source": "https://www.urbanrail.net/eu/de/ul/ulm.htm",
+  "note": "Ulm（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

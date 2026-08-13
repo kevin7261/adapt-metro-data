@@ -1,0 +1,13 @@
+{
+  "city": "Strausberg",
+  "country": "Germany",
+  "continent": "europe",
+  "osm_route_ids": [
+    77259,
+    10766309
+  ],
+  "source": "https://www.urbanrail.net/eu/de/mol/strausberg.htm",
+  "wikipedia": "de:Strausberger Eisenbahn",
+  "wikidata": "Q534882",
+  "note": "Strausberg（使用者 2026-07-27「少抓」）＝Strausberger Eisenbahn tram 89（10 站含 2024 Märchenwald）。曾混入 SRS 88／Woltersdorf 87／Berlin S5——已剔除。OSM 漏 Märchenwald→member_appends.inserts。重跑請保留 wikipedia/wikidata／本 note。"
+}

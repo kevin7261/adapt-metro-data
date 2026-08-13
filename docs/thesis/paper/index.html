@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>論文本文 · Adapt-Metro</title>
+<link rel="icon" href="../../../../favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../../../favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../favicon-32.png" />
+<link rel="apple-touch-icon" href="../../../../apple-touch-icon.png" />
+<meta name="description" content="博士論文文稿（自適應版面的地理空間網絡資料視覺化）：Google Docs 式無頁面（pageless）一頁式檢視，Markdown 原文與渲染顯示可切換，內容與 data/docs/thesis/paper.md 同步。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Noto+Sans+TC:wght@400..700&display=swap" />
+<!-- 設計 token（唯一來源 src/tokens.css，見 /design） -->
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/design-shell.css?v=status-meta-1" />
+<link rel="stylesheet" href="../../_shared/app-toolbar.css" />
+<link rel="stylesheet" href="../../_shared/gdocs.css?v=list-nosep-2" />
+<style>
+  /* 論文 Markdown 排版——紙張在 .light 下，色吃 design token */
+  .md{ font-size: var(--fs-base); line-height:1.9; color: hsl(var(--foreground) / 0.88); }
+  .md h1{ font-size: 1.7em; line-height:1.4; margin:0 0 14px; letter-spacing:-.01em; color: hsl(var(--foreground)); }
+  .md h2{ font-size: 1.35em; margin:34px 0 10px; padding-top:16px; border-top:1px solid hsl(var(--border)); color: hsl(var(--foreground)); }
+  .md h1 + p, .md h2:first-child{ border-top:none; padding-top:0; }
+  .md h3{ font-size: 1.15em; margin:24px 0 8px; color: hsl(var(--foreground)); }
+  .md h4{ font-size: 1em; margin:18px 0 6px; color: hsl(var(--foreground)); }
+  .md p{ margin:0 0 11px; }
+  .md strong{ color: hsl(var(--foreground)); }
+  .md blockquote{
+    margin:0 0 13px; padding:9px 14px; border-left:3px solid hsl(var(--primary));
+    background: hsl(var(--muted) / 0.65); color: hsl(var(--muted-foreground));
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: var(--fs-base);
+  }
+  .md blockquote p{ margin:0; }
+  .md ul, .md ol{ margin:0 0 11px; padding-left:24px; }
+  .md li{ margin:3px 0; }
+  .md code{ font-family:var(--mono); font-size:.9em; background: hsl(var(--muted)); padding:1px 5px; border-radius: var(--radius-xs); }
+  .md pre{ background: hsl(var(--foreground)); color: hsl(var(--background)); border-radius: var(--radius-md); padding:13px 15px; overflow-x:auto; font-size: var(--fs-sm); }
+  .md pre code{ background:none; padding:0; }
+  .md table{ width:100%; border-collapse:collapse; font-size: var(--fs-md); margin:13px 0 16px; display:block; overflow-x:auto; }
+  .md th{
+    text-align:left; font-weight:600; color: hsl(var(--muted-foreground));
+    border-bottom:1.5px solid hsl(var(--border));
+    padding:6px 9px; white-space:nowrap;
+  }
+  .md td{ padding:6px 9px; border-bottom:1px solid hsl(var(--border)); vertical-align:top; }
+  .md hr{ border:none; border-top:1px solid hsl(var(--border)); margin:28px 0; }
+  .md img{ max-width:100%; height:auto; display:block; margin:16px auto 6px; border:1px solid hsl(var(--border)); border-radius: var(--radius-sm); background: hsl(var(--popover)); }
+  .md a{ color: hsl(var(--primary)); text-decoration:none; }
+  .md a:hover{ text-decoration:underline; }
+  .loading{ text-align:center; color: hsl(var(--muted-foreground)); padding:80px 0; font-size: var(--fs-base); }
+  /* 文件大綱列間無橫線（寫在本頁，不吃外部 CSS 快取） */
+  #olList .list-row,
+  #olList .list-row:hover,
+  #olList .list-row.active,
+  #olList .list-row.selected,
+  #olList .list-row.on {
+    border: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+  .gd-rawsheet pre{
+    margin:0; font-family:var(--mono); font-size: var(--fs-md); line-height:1.75;
+    white-space:pre-wrap; word-break:break-word; color: hsl(var(--foreground) / 0.88);
+  }
+  .pages{ padding:0; }
+</style>
+<script src="../../_shared/theme-boot.js"></script>
+
+</head>
+<body>
+<header id="appToolbar" class="app-toolbar"></header>
+<script src="../../_shared/app-toolbar.js"></script>
+<script>
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var d = q.get('doc');
+    var active = (d === 'improve' || d === 'reading') ? d : 'paper';
+    AdaptMetroToolbar.mount('#appToolbar', { base: '../../../../', active: active });
+  })();
+</script>
+
+<div id="gdocsMount"></div>
+<script src="../../_shared/design-select.js"></script>
+<script src="../../_shared/gdocs.js"></script>
+<script>
+AdaptMetroGDocs.mount('#gdocsMount', {
+  title: '論文本文',
+  titleId: 'gdTitle',
+  storageKey: 'paper',
+  zoomTargets: ['#pages', '#rawWrap'],
+  toolbarRightHtml: '<div class="btn-chip-group" role="tablist" aria-label="檢視模式"><button id="btnView" class="btn-chip active" type="button">顯示</button><button id="btnRaw" class="btn-chip" type="button">原文</button></div>',
+  defaultOutlineWidth: 200
+});
+</script>
+
+<div class="gd-body" id="gdBody">
+  <aside class="side-panel gd-outline" id="outline" aria-label="文件大綱">
+    <div class="panel-header">
+      <span class="panel-title">文件大綱</span>
+      <button class="btn-icon" id="olClose" type="button" title="關閉文件大綱">
+        <span class="material-symbols-outlined m-icon">chevron_left</span>
+      </button>
+    </div>
+    <div class="side-panel-body list-pane list-pane--no-sep" id="olList"><div class="ol-empty">載入中…</div></div>
+  </aside>
+  <div class="resize-x ol-resizer" id="olResizer" title="拖拉調整大綱寬度（雙擊還原）"></div>
+  <div class="gd-scroll scroll" id="scroll">
+    <div class="pages" id="pages">
+      <div class="light gd-pageless"><div id="view" class="md"><div class="loading">載入論文本文中…</div></div></div>
+    </div>
+    <div class="pages" id="rawWrap" hidden>
+      <div class="light gd-rawsheet"><pre id="rawPre"></pre></div>
+    </div>
+  </div>
+  <button class="btn-icon ol-open" id="olOpen" type="button" title="顯示文件大綱">
+    <span class="material-symbols-outlined m-icon">format_list_bulleted</span>
+  </button>
+</div>
+
+<footer class="status-bar doc-chrome" id="docFooter"></footer>
+<script src="../../_shared/doc-footer.js"></script>
+
+<script src="./marked.umd.js"></script>
+<script>
+(function(){
+  var btnView = document.getElementById('btnView');
+  var btnRaw = document.getElementById('btnRaw');
+  var pages = document.getElementById('pages');
+  var view = document.getElementById('view');
+  var rawWrap = document.getElementById('rawWrap');
+  var rawPre = document.getElementById('rawPre');
+  var scroll = document.getElementById('scroll');
+  var gdTitle = document.getElementById('gdTitle');
+  var gdBody = document.getElementById('gdBody');
+  var olList = document.getElementById('olList');
+
+  /* 三份文件共用同一個「顯示⇄原文」檢視：?doc=improve／?doc=reading 切換，#raw 進原文模式。
+     大綱收合／拖拉／縮放由 AdaptMetroGDocs（_shared/gdocs.js）負責。 */
+  var DOCS = {
+    paper:   { file: '../paper.md',   label: '論文本文', dl: '論文本文.md', path: 'data/docs/thesis/paper.md' },
+    improve: { file: '../improve.md', label: '改善建議', dl: '改善建議.md', path: 'data/docs/thesis/improve.md' },
+    reading: { file: '../reading.md', label: '閱讀清單', dl: '閱讀清單.md', path: 'data/docs/thesis/reading.md' },
+  };
+  var docKey = 'paper';
+  var mode = 'view';
+  var olItems = [];   // { headEl, btnEl }
+  var docFoot = window.AdaptMetroDocFooter
+    ? AdaptMetroDocFooter.bind('#docFooter', { path: DOCS.paper.path, url: DOCS.paper.file, updated: '2026-08-12' })
+    : null;
+
+  function buildOutline(){
+    olItems = [];
+    olList.innerHTML = '';
+    var heads = view.querySelectorAll('h1, h2, h3');
+    if (!heads.length){
+      olList.innerHTML = '<div class="ol-empty">此文件沒有標題</div>';
+      return;
+    }
+    heads.forEach(function(h, i){
+      if (!h.id) h.id = 'ol-h-' + i;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'list-row l' + h.tagName.charAt(1);
+      btn.textContent = h.textContent;
+      btn.title = h.textContent;
+      btn.addEventListener('click', function(){
+        h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      olList.appendChild(btn);
+      olItems.push({ headEl: h, btnEl: btn });
+    });
+    updateCurrentOutline();
+  }
+
+  /* scrollspy：目前視窗頂附近的章節高亮（用 getBoundingClientRect，zoom 下也正確） */
+  function updateCurrentOutline(){
+    if (!olItems.length || mode !== 'view') return;
+    var topEdge = scroll.getBoundingClientRect().top + 90;
+    var cur = 0;
+    for (var i = 0; i < olItems.length; i++){
+      if (olItems[i].headEl.getBoundingClientRect().top <= topEdge) cur = i;
+      else break;
+    }
+    olItems.forEach(function(it, i){
+      it.btnEl.classList.toggle('active', i === cur);
+    });
+    var curBtn = olItems[cur] && olItems[cur].btnEl;
+    if (curBtn) curBtn.scrollIntoView({ block: 'nearest' });
+  }
+  var olTick = false;
+  scroll.addEventListener('scroll', function(){
+    if (olTick) return;
+    olTick = true;
+    requestAnimationFrame(function(){ olTick = false; updateCurrentOutline(); });
+  }, { passive: true });
+
+  function syncUrl(){
+    var q = docKey === 'paper' ? '' : '?doc=' + docKey;
+    history.replaceState(null, '', location.pathname + q + (mode === 'raw' ? '#raw' : '#view'));
+  }
+  function setMode(m){
+    mode = m;
+    var isRaw = m === 'raw';
+    pages.hidden = isRaw;
+    rawWrap.hidden = !isRaw;
+    btnView.classList.toggle('active', !isRaw);
+    btnRaw.classList.toggle('active', isRaw);
+    scroll.scrollTop = 0;
+    document.title = (isRaw ? '原文' : '顯示') + ' · ' + DOCS[docKey].label + ' · Adapt-Metro';
+    gdBody.classList.toggle('ol-raw', isRaw);
+    syncUrl();
+  }
+  function loadDoc(key){
+    docKey = key;
+    var doc = DOCS[key];
+    /* header 的「論文本文／改善建議／閱讀清單」active 跟目前文件連動 */
+    if (window.AdaptMetroToolbar) AdaptMetroToolbar.setActive(DOCS[key] ? key : 'paper');
+    if (docFoot) docFoot.set({ path: doc.path, url: doc.file, updated: '2026-08-12' });
+    gdTitle.textContent = doc.label;
+    view.innerHTML = '<div class="loading">載入' + doc.label + '中…</div>';
+    olList.innerHTML = '<div class="ol-empty">載入中…</div>';
+    rawPre.textContent = '';
+    fetch(doc.file)
+      .then(function(res){
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.text();
+      })
+      .then(function(md){
+        rawPre.textContent = md;
+        view.innerHTML = marked.parse(md, { mangle: false, headerIds: false });
+        /* md 內的相對圖檔（figs/…）以 paper.md 所在目錄為準——本頁在下一層，補 ../ 前綴。 */
+        view.querySelectorAll('img').forEach(function(img){
+          var src = img.getAttribute('src') || '';
+          if (src && !/^(https?:|data:|\/|\.\.\/)/.test(src)) img.setAttribute('src', '../' + src);
+        });
+        buildOutline();
+        setMode(mode);
+      })
+      .catch(function(err){
+        view.innerHTML = '<div class="loading">載入失敗：' + String(err.message || err) + '</div>';
+      });
+  }
+
+  btnView.addEventListener('click', function(){ setMode('view'); });
+  btnRaw.addEventListener('click', function(){ setMode('raw'); });
+
+  if (location.hash === '#raw') mode = 'raw';
+  var q = new URLSearchParams(location.search);
+  var reqDoc = q.get('doc');
+  loadDoc(DOCS[reqDoc] ? reqDoc : 'paper');
+})();
+</script>
+</body>
+</html>

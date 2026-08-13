@@ -1,0 +1,13 @@
+{
+  "city": "Port Louis",
+  "country": "Mauritius",
+  "continent": "africa",
+  "osm_route_ids": [
+    10567271,
+    10567272,
+    15351071,
+    15351073
+  ],
+  "source": "https://www.urbanrail.net/af/mauritius/maurice.htm",
+  "note": "Port Louis（urbanrail gap；modes=subway|light_rail）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔（保留 wikipedia/wikidata）。"
+}

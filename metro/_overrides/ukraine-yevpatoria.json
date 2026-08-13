@@ -1,0 +1,17 @@
+{
+  "city": "Yevpatoria",
+  "country": "Ukraine",
+  "continent": "europe",
+  "osm_route_ids": [
+    2080490,
+    2080491,
+    2080492,
+    2080493,
+    11637413,
+    11637416,
+    11637424,
+    11637426
+  ],
+  "source": "https://www.urbanrail.net/eu/ua/yevpatoria/yevpatoria.htm",
+  "note": "Yevpatoria（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

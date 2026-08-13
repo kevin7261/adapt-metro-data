@@ -1,0 +1,19 @@
+{
+  "city": "Braila",
+  "country": "Romania",
+  "continent": "europe",
+  "osm_route_ids": [
+    14412280,
+    14412281,
+    14412290,
+    14412291,
+    16317267,
+    16318123,
+    16318124,
+    16318291
+  ],
+  "wikipedia": "ro:Tramvaiul din Brăila",
+  "wikidata": "Q3537086",
+  "source": "https://www.urbanrail.net/eu/ro/braila/braila.htm",
+  "note": "Brăila（使用者 2026-07-27「抓錯」再修）。Braicar 21／22／24／25；21 去程 Independenței（Școala Nr. 1／Parc Monument／Polivalentă）、回程勿對稱化（Promex）；22 via Dorobanți；Chișinău→Școala Nr. 1；Covoare＝Parc 同站；24／25＋合成 Centură／Curba。wiki／Q3537086。重跑保留 wikipedia/wikidata／note。"
+}

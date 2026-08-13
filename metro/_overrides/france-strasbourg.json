@@ -1,0 +1,23 @@
+{
+  "city": "Strasbourg",
+  "country": "France",
+  "continent": "europe",
+  "osm_route_ids": [
+    146067,
+    146068,
+    163585,
+    163589,
+    163591,
+    1416967,
+    1659216,
+    2060342,
+    2060348,
+    2060446,
+    2061529,
+    2061737,
+    15617977,
+    15617978
+  ],
+  "source": "https://www.urbanrail.net/eu/fr/strasbourg/strasbourg-tram.htm",
+  "note": "Strasbourg（urbanrail gap；modes=subway|light_rail|tram）——由 scripts/fetchUrbanrailGap.mjs 自動產生。bbox 內 subway|light_rail|tram；override 豁免 buildGeojson「純 LRT 剔除」。重跑會覆寫本檔。"
+}

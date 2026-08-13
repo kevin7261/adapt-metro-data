@@ -1,0 +1,15 @@
+{
+  "city": "Abuja",
+  "country": "Nigeria",
+  "continent": "africa",
+  "osm_route_ids": [
+    8441841,
+    8441842,
+    8442723,
+    8442724
+  ],
+  "source": "https://www.urbanrail.net/af/abuja/abuja.htm",
+  "wikipedia": "en:Abuja Light Rail",
+  "wikidata": "Q55683262",
+  "note": "Abuja（使用者 2026-07-27「抓錯」）＝ARMT 營運中 Yellow（Abuja Metro↔Airport 8 站）＋Blue（Idu↔Gbazango 5 站），交會 Idu，淨 12 站——對齊 en wiki／OSM／Commons《Abuja Rail Mass Transit》。urbanrail 2018 示意圖含 Lot 2/3 規劃（Transportation Center／Garki／Kubwa／Byazhin…）且 2019 評論把 Yellow／Blue 色名對調——operational-only 不收規劃段。official 釘 Commons 營運示意圖。重跑請保留 wikipedia/wikidata／本 note。"
+}

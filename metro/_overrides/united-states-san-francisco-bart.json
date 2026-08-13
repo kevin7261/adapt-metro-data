@@ -1,0 +1,23 @@
+{
+  "city": "San Francisco BART",
+  "country": "United States",
+  "continent": "north-america",
+  "osm_route_ids": [
+    2827683,
+    2827684,
+    2827685,
+    2827686,
+    2851510,
+    2851512,
+    2851612,
+    2851613,
+    2851725,
+    2851726,
+    2851727,
+    2851728
+  ],
+  "wikipedia": "en:Bay Area Rapid Transit",
+  "wikidata": "Q1140138",
+  "source": "https://www.urbanrail.net/am/snfr/san-francisco-bart.htm",
+  "note": "舊金山 BART＝純 BART 5 色線（Blue/Green/Orange/Red/Yellow）。使用者 2026-07-27「要分 bart與輕軌」：本檔只掛 BART rid——buildGeojson 直接產出純 BART，不再依賴事後拆檔才去掉 Muni。Muni Metro 見 united-states-san-francisco-muni.json；buildSanFranciscoVariants 產出 舊金山（na-usa-san-francisco＝BART＋Muni）＋本體 BART＋舊金山 LRT（-lrt＝純 Muni）。Green/Orange 勿掛 San Jose（路線名含 San José 會被搶）；勿讓 auditLoop 重建 united-states-san-francisco-bay-area.json（曾把 Muni K/N/T 搶進孤立桶）。"
+}

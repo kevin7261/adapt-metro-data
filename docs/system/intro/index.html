@@ -1,0 +1,1298 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>系統介紹 · Adapt-Metro</title>
+<link rel="icon" href="../../../../favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="../../../../favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../favicon-32.png" />
+<link rel="apple-touch-icon" href="../../../../apple-touch-icon.png" />
+<meta name="description" content="Adapt-Metro 系統介紹：1 RAW MAPS（抓圖＋骨架化）→ 2 GRIDDING（網格化）→ 3 STRAIGHTENING（論文①〜⑨＋LLM 直線化＋movewise）→ 4 FRAME MAPS；含命名鐵律、資料流↔Skill 呼叫圖對應、文件頁選單分流、核心不變式（makeMover／視圖≡顯示）、來源軸／消融 ×13 模型、一個 json 一個圖、LLM 九鏈、三支 agent CLI（claude／cursor／deepseek）、三條並列資料管線。" />
+<!-- header 與首頁 TopToolbar 共用：Material Symbols + Inter/Noto + _shared/app-toolbar -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&family=Noto+Sans+TC:wght@400..700&display=swap" />
+<!-- 設計 token（唯一來源 src/tokens.css，見 /design） -->
+<link rel="stylesheet" href="../../_shared/tokens.css" />
+<link rel="stylesheet" href="../../_shared/design-shell.css" />
+<link rel="stylesheet" href="../../_shared/app-toolbar.css" />
+<link rel="stylesheet" href="../../_shared/gslides.css?v=20260804c" />
+<link rel="stylesheet" href="../../_shared/slide-deck.css" />
+<style>
+  /* 殼層別名（勿覆寫 --border HSL 元件）；畫布排版見 slide-deck.css */
+  :root{
+    --page-bg: hsl(var(--background));
+    --dot: transparent;
+    --card-bg: hsl(var(--popover));
+    --ink: hsl(var(--foreground));
+    --muted: hsl(var(--muted-foreground));
+    --muted2: hsl(var(--muted-foreground));
+    --blue: hsl(var(--primary));
+    --purple: var(--node-purple);
+    --rose: var(--node-red);
+    --amber: var(--edge-forced);
+    --green: var(--node-green);
+    --code-bg: hsl(var(--foreground));
+    --code-ink: hsl(var(--border));
+    --mono: var(--font-mono);
+    --sans: var(--font-sans);
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html,body{height:100%;margin:0;}
+  body{
+    font-family:var(--sans); color:var(--ink);
+    overflow:hidden; -webkit-font-smoothing:antialiased;
+    display:flex; flex-direction:column;
+  }
+  a{color:inherit;}
+  strong,b{font-weight:700;}
+  /* 安全網（勿刪）：`_shared/gslides.css` 沒載到時，這兩條撐住版面——
+     少了 .workspace 的 flex，畫布區會收成 0 高，畫面只剩導覽條與 footer。 */
+  .workspace{ display:flex; flex:1; min-height:0; }
+</style>
+<script src="../../_shared/theme-boot.js"></script>
+</head>
+<body>
+<header id="appToolbar" class="app-toolbar"></header>
+<script src="../../_shared/app-toolbar.js"></script>
+<script>AdaptMetroToolbar.mount('#appToolbar', { base: '../../../../', active: 'intro' });</script>
+
+<div id="gslidesMount"></div>
+<script src="../../_shared/design-select.js"></script>
+<script src="../../_shared/gslides.js?v=20260804c"></script>
+<script>if (window.AdaptMetroGSlides) AdaptMetroGSlides.mount('#gslidesMount', { title: '系統介紹——從地鐵路網到響應式示意圖', storageKey: 'slides' });</script>
+<script>
+  /* 安全網（勿刪）：`_shared/gslides.js` 沒載到（dev server 重啟／網路中斷）時，
+     上一行的 mount 會丟 ReferenceError，於是 body 少了 gslides-page、畫布停在
+     visibility:hidden——畫面就只剩導覽條與 footer。這裡把兩者補回去。 */
+  if (!window.AdaptMetroGSlides) {
+    var amFallback = function () {
+      document.body.classList.add('gslides-page');
+      var st = document.getElementById('stage');
+      if (st) st.classList.add('is-fitted');
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', amFallback);
+    else amFallback();
+  }
+</script>
+
+<div class="workspace">
+<aside class="side-panel filmstrip" aria-label="投影片縮圖">
+  <div class="side-panel-body" id="filmstrip"></div>
+</aside>
+<div class="deck" id="deck">
+<div class="stage" id="stage">
+
+  <!-- 1: TITLE -->
+  <section class="slide titleslide active" data-title="系統介紹">
+    <div class="kicker"><span class="bullet"></span> Adapt-Metro · SYSTEM INTRODUCTION</div>
+    <h1 class="title">從地鐵路網到<br/>響應式示意圖</h1>
+    <p class="subtitle">一個純前端、零求解器依賴的四階段管線 —— <strong>Raw Maps → Gridding → Straighten → Frame Maps</strong>（step 代碼＝磁碟資料夾名，帶序號：<code class="mono">1-raw-maps</code>／<code class="mono">2-gridding</code>／<code class="mono">3-straightening</code>／<code class="mono">4-frame-maps</code>）。
+      <strong>599</strong> 個都市軌道系統（約 5,898 線／37,313 站）＋國家鐵路 <strong>9</strong>（台灣 2＋日本 7）＋高速公路 <strong>3</strong> 都會區；多準則爬山參考＋<strong>論文直線鏈①〜⑨</strong>＋LLM 九鏈（13 模型 × 三支 agent CLI）＋<strong>movewise 四步鏈循環</strong>；Frame 以<strong>任意／4／8／16 方向</strong>折線隨版面重排，<strong>每一個單一移動都能逐步重播</strong>。這份投影片逐一拆解每個階段實際在做的事。</p>
+    <div class="grid cols-4" style="max-width:960px;">
+      <div class="card blue">
+        <div class="label">INPUT</div>
+        <h3>真實地理路網</h3>
+        <p>OSM／Overpass 抓取 → 清理 → 逐城 audit 收斂；工作地圖＝原始地圖備份。</p>
+      </div>
+      <div class="card purple">
+        <div class="label">PIPELINE</div>
+        <h3>四階＋來源軸</h3>
+        <p>抓圖＋骨架 → 網格化（＋消融）→ 直線化＋循環 → 版面畫線。</p>
+      </div>
+      <div class="card green">
+        <div class="label">CONTRACT</div>
+        <h3>66 支 skill</h3>
+        <p>資料流圖／呼叫圖／Skills 清單同源；代碼＝tag＝資料夾＝檔名。</p>
+      </div>
+      <div class="card amber">
+        <div class="label">OUTPUT</div>
+        <h3>響應式示意圖</h3>
+        <p>嚴格方向約束折線；版面一變就在新像素座標重解，絕不交叉。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2: PIPELINE OVERVIEW -->
+  <section class="slide" data-title="系統管線">
+    <div class="eyebrow"><span class="tag"><b>01</b>系統管線</span><span class="rule"></span><span class="eng">PIPELINE</span></div>
+    <h1 class="title">四個圖層群組，串成一條產線</h1>
+    <p class="subtitle">每個階段都是介面「Layers」面板裡的一個群組，可以逐步檢視、比較、回溯——不是黑盒子一次生成。四個 step 顯示名<strong>帶序號</strong>（1 RAW MAPS〜4 FRAME MAPS），代碼＝磁碟資料夾名（命名鐵律，見後）。文件頁另有<strong>資料流圖</strong>（怎麼流）與<strong>Skill 呼叫圖</strong>（何時呼叫）可對讀。</p>
+    <div class="grid cols-4">
+      <div class="card blue"><div class="label">STEP 1 · 1 RAW MAPS</div><h3>真實路網＋拓撲骨架</h3><p>工作地圖 <code class="mono">working</code>／原始備份 <code class="mono">source</code>／tracks／center／官方圖；再<strong>拓撲收縮成骨架</strong>（<code class="mono">skeleton</code>，2026-08-04 自 STEP 2 移入——只收縮拓撲、不動格網）。</p></div>
+      <div class="card purple"><div class="label">STEP 2 · 2 GRIDDING</div><h3>網格化</h3><p>只做一件事：骨架吸附到整數格（<code class="mono">grid</code>）。另兩條 LLM 消融來源 <code class="mono">llm-skeleton2grid</code>／<code class="mono">llm-working2grid</code>（各 ×13 模型）。</p></div>
+      <div class="card rose"><div class="label">STEP 3 · 3 STRAIGHTENING</div><h3>直線鏈＋四步鏈循環</h3><p>論文①〜⑨＋LLM 直線化；再「移點→移線→移枝→併格」循環壓網格。佈局權威＝<code class="mono">3-straightening/{來源}/[{模型}/]{鏈}/{子夾}/</code>（一個 json 一個圖）。</p></div>
+      <div class="card amber"><div class="label">STEP 4 · 4 FRAME MAPS</div><h3>版面畫線</h3><p>任意／4／8／16 方向折線（預設八向），依版面／裝置／流量權重即時重排；可選 LLM 互動／評價／比較（分析工具，不進資料流圖）。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:18px;">純函式、確定性、無亂數——同一輸入永遠同一輸出。例外是<strong>九條 LLM 鏈</strong>：離線由 agent CLI（<code class="mono">claude</code>／<code class="mono">cursor-agent</code>／<code class="mono">dsc</code>，<strong>13</strong> 模型）預算存檔，網頁只載入；策略每次由模型構思。變體目前只算 <code class="mono">orig</code>。衍生資料<strong>全球保留</strong>（2026-08-07，落檔 22,639 個）。</p>
+  </section>
+
+  <!-- 3: WHAT IS A SCHEMATIC MAP -->
+  <section class="slide" data-title="示意圖是什麼">
+    <div class="eyebrow"><span class="tag"><b>02</b>示意圖的定義</span><span class="rule"></span><span class="eng">WHAT IS A SCHEMATIC MAP</span></div>
+    <h1 class="title">扭曲真實地理，只保留拓撲關係</h1>
+    <p class="subtitle">捷運路線圖是一種 <strong>schematic map</strong>：犧牲精確地理位置，換取每條路線都走水平／垂直／45°（<strong>八向</strong>）的可讀性。整條管線做的事，就是把左邊的真實路網，逐步變成右邊的樣子。</p>
+    <div class="svgrow">
+      <div class="svgbox">
+        <svg viewBox="0 0 220 160">
+          <path d="M15,30 C40,70 55,20 78,66 S 122,112 142,55 175,92 205,40" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round"/>
+          <path d="M15,140 C48,98 68,132 96,76 S 148,42 205,96" fill="none" stroke="#e11d48" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="15" cy="30" r="5" fill="#2563eb"/><circle cx="205" cy="40" r="5" fill="#2563eb"/>
+          <circle cx="15" cy="140" r="5" fill="#e11d48"/><circle cx="205" cy="96" r="5" fill="#e11d48"/>
+        </svg>
+        <div class="cap">真實地理路網（Raw Maps）</div>
+      </div>
+      <div class="svgbox">
+        <svg viewBox="0 0 220 160">
+          <path d="M20,50 H80 L110,80 H190" fill="none" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20,130 L50,100 H150 L180,70" fill="none" stroke="#e11d48" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="20" cy="50" r="5" fill="#2563eb"/><circle cx="190" cy="80" r="5" fill="#2563eb"/>
+          <circle cx="20" cy="130" r="5" fill="#e11d48"/><circle cx="180" cy="70" r="5" fill="#e11d48"/>
+        </svg>
+        <div class="cap">八向示意圖（Frame Maps 的輸出）</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4: DIVIDER I -->
+  <section class="slide divider" data-title="Raw Maps">
+    <div class="roman">I</div>
+    <div class="stagechip"><span class="sw" style="background:var(--blue);"></span>STEP 1 · 1 RAW MAPS</div>
+    <h1 class="title">Raw Maps ——<br/>真實路網輸入＋拓撲骨架</h1>
+    <p class="subtitle">OpenStreetMap / Overpass 抓取全球地鐵與輕軌，統一成一份乾淨、可驗證的 GeoJSON 規格，再收縮成拓撲骨架——是後面每一階段的地基。圖層：工作地圖 <code class="mono">working</code>、<strong>骨架地圖 <code class="mono">skeleton</code></strong>、原始地圖 <code class="mono">source</code>（原稱 OSM 地圖）、實際路線 <code class="mono">tracks</code>、路線中線 <code class="mono">center</code>、官方路線圖 <code class="mono">official-route</code>、UrbanRail 圖 <code class="mono">urbanrail</code>。<strong>骨架地圖 2026-08-04 由 2 GRIDDING 移入</strong>：它只做拓撲收縮、不動格網也不換座標系，與工作地圖同屬「原始資料」那一階。</p>
+    <div class="pillrow">
+      <span class="pill">資料來源與判準</span><span class="pill">城市判定與合併</span><span class="pill">清理規則</span><span class="pill">fetch ⇄ audit 驗證</span><span class="pill">working＝tracks＝center</span><span class="pill">官方／UrbanRail 圖</span><span class="pill">骨架化六步驟</span><span class="pill">節點與邊分類</span>
+    </div>
+  </section>
+
+  <!-- 4b: trinity + official maps -->
+  <section class="slide" data-title="三鐵律與官方圖">
+    <div class="eyebrow"><span class="tag"><b>02b</b>工作地圖 · 軌道 · 官方圖</span><span class="rule"></span><span class="eng">MAPS · TRACKS · OFFICIAL</span></div>
+    <h1 class="title">抓的路線＝實際路線＝路線中線</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">metro-osm-fetch</span></div>
+    <div class="grid cols-3">
+      <div class="card blue"><div class="label">工作地圖 working</div><p><code class="mono">1-raw-maps/working/</code> 可編輯工作檔；與原始地圖 <code class="mono">1-raw-maps/source/</code>（原稱 OSM 地圖，唯讀備份）抓取／build 時必須寫成一模一樣。「回復」＝ source 覆寫 working。</p></div>
+      <div class="card blue"><div class="label">實際路線／中線 tracks · center</div><p><code class="mono">1-raw-maps/tracks/</code>、<code class="mono">1-raw-maps/center/</code>（同屬 step 1 的圖層，<strong>非獨立 step</strong>）與工作地圖<strong>同一系統 route_ref 集合必須一致</strong>。改線集合後必 <code class="mono">metro:synctracks</code>；用 <code class="mono">metro:verifytracks</code> 檢查。</p></div>
+      <div class="card blue"><div class="label">官方／UrbanRail official-route · urbanrail</div><p><code class="mono">1-raw-maps/official-route/</code>＋<code class="mono">1-raw-maps/urbanrail/</code>，總索引 <code class="mono">data/metro/maps/maps_index.json</code>——前端 OfficialMap <strong>仍使用</strong>。UrbanRail 槽只准 urbanrail.net 原圖，禁止 Commons／營運商圖充數。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;">中文城／國名＝台灣譯名（<code class="mono">cityNamesZh.json</code>）；介面用語＝台灣繁體（<code class="mono">ui-locale.md</code>）。</p>
+  </section>
+
+  <!-- 5: sources & query criteria -->
+  <section class="slide" data-title="資料來源">
+    <div class="eyebrow"><span class="tag"><b>03</b>資料來源與判準</span><span class="rule"></span><span class="eng">SOURCES &amp; CRITERIA</span></div>
+    <h1 class="title">五個資料來源，各司其職</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk"><span class="role">取得</span>metro-osm-fetch</span><span class="sk"><span class="role">驗證</span>metro-audit</span></div>
+    <p class="subtitle">判準只收 <code class="mono">route=subway</code>（地鐵）與 <code class="mono">route=light_rail</code>（輕軌/LRT）——不抓一般 <code class="mono">railway</code>、<code class="mono">route=train</code>、<code class="mono">route=tram</code>，也排除「直通運轉」覆蓋線 relation。</p>
+    <table class="tbl">
+      <tr><th>用途</th><th>來源</th></tr>
+      <tr><td>路線幾何＋車站＋屬性</td><td>OpenStreetMap，經 Overpass API</td></tr>
+      <tr><td>系統覆蓋率基準（哪些城市有地鐵）</td><td>Wikipedia「List of metro systems」</td></tr>
+      <tr><td>洲／國／城命名</td><td>Nominatim 反向地理編碼（以車站中心點座標為準）</td></tr>
+      <tr><td>官方網站連結</td><td>Wikidata P856（系統／營運商條目）；後備 OSM <code class="mono">website</code> tag、enwiki infobox（224 城已解 222）——僅作抓取來源，<code class="mono">wikidata</code>／<code class="mono">operator</code> 欄位已自資料全面移除（2026-07-31）</td></tr>
+      <tr><td>交叉驗證參考</td><td>Wikipedia 站數/線數 ＋ urbanrail.net</td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:14px;">Overpass 查詢固定套用營運中過濾條件 <code class="mono">LIFE</code>：<code class="mono">["state"!~"^(proposed|construction)$"][!"construction"][!"proposed"][!"disused"][!"abandoned"]</code>——已通車的路線必須全部收錄，未通車/建設中/規劃中/停用一律排除，這是不變式不是偏好。</p>
+  </section>
+
+  <!-- 6: city resolution & merging -->
+  <section class="slide" data-title="城市判定">
+    <div class="eyebrow"><span class="tag"><b>04</b>城市判定與合併</span><span class="rule"></span><span class="eng">CITY RESOLUTION</span></div>
+    <h1 class="title">「同一城市＝同一系統」的三層防護</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">metro-osm-fetch</span><span class="sk"><span class="role">城市規則</span>metro-cities</span></div>
+    <p class="subtitle">OSM 車站常無 network 標籤，城市名稱解析容易撞名（如 S-Bahn Frankfurt 的 bahn token 撞上 Berlin U-Bahn）——三層護欄避免抓錯城市。</p>
+    <div class="grid cols-3">
+      <div class="card blue"><div class="label">1 · token 黑名單</div><p>泛用交通詞（bahn／ubahn／sbahn／lrt／tram／verkehrsverbund…）不得參與城市名稱比對。</p></div>
+      <div class="card blue"><div class="label">2 · rebucket 距離護欄</div><p>member network 解析出的目標城市，須離群組重心 ≤250 km 才准搬家；全國性營運商（如 DB）重心無意義。</p></div>
+      <div class="card blue"><div class="label">3 · 線級距離護欄</div><p>解析出的 wiki 城市離該線重心 &gt;250 km ⇒ 改用線自身座標或原始反查城市，自成獨立系統檔。</p></div>
+    </div>
+    <div class="grid cols-2" style="margin-top:14px;">
+      <div class="card purple"><div class="label">都會圈合併 CITY_MERGE</div><p>鄰接行政市併成一城一檔（如桃園→台北）；被併城市在驗證時以 <code class="mono">covered_by</code> 標註通過。</p></div>
+      <div class="card purple"><div class="label">LRT 範圍規則</div><p>附掛輕軌的城市（台北／高雄／新加坡）附加收錄；整系統即為 LRT tagging 者（Vancouver SkyTrain）全收；純附掛輕軌原則剔除，但覆蓋率 &lt;0.6 時例外保留。</p></div>
+    </div>
+  </section>
+
+  <!-- 7: dataset scale -->
+  <section class="slide" data-title="資料集規模">
+    <div class="eyebrow"><span class="tag"><b>05</b>資料集規模</span><span class="rule"></span><span class="eng">GLOBAL DATASET</span></div>
+    <h1 class="title">599 個系統，六大洲，一份 GeoJSON 規格</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">metro-osm-fetch</span><span class="sk">metro-audit</span></div>
+    <p class="subtitle">每條路線是一個路段 feature（<code class="mono">MultiLineString</code>，重疊路段只畫一條）、每個車站是一個 <code class="mono">Point</code>（帶 <code class="mono">station_name</code>／<code class="mono">station_id</code>）。規模數字以 README／<code class="mono">index.json</code> 為準，會隨抓取／合併變動。</p>
+    <div class="grid cols-3">
+      <div class="card blue"><div class="big">599</div><p>都市軌道資料集（<code class="mono">index.json</code>：5,898 線／37,313 站；Wikipedia 基準 233 系統），涵蓋六大洲；模式：路面電車／地鐵／通勤鐵路（一系統可跨模式）。另 railway <strong>9</strong> 系統（台灣 2＋日本 7；173 線／4,808 站）、highway <strong>3</strong> 都會區（25 線／251 交流道）。</p></div>
+      <div class="card blue"><div class="big">城市樹</div><p><code class="mono">maps/{groupId}/{cityId}/{step}/{layer}/</code>：<code class="mono">maps/as-twn-taipei/as-twn-taipei/1-raw-maps/working/…</code>（群組＝資料夾，本體／地標 -lm／鐵路 -rail 等變體各自成城市夾）。</p></div>
+      <div class="card blue"><div class="big"><code class="mono" style="font-size:.6em;">index.json</code></div><p>總索引：id／城市／國家／洲／bbox／每城 <code class="mono">audit</code> 驗證結果，供前端 Info 面板直接顯示。</p></div>
+    </div>
+  </section>
+
+  <!-- 8a: geojson format -->
+  <section class="slide" data-title="資料格式：GeoJSON">
+    <div class="eyebrow"><span class="tag"><b>06</b>資料格式 · 每城一檔</span><span class="rule"></span><span class="eng">DATA FORMAT · GEOJSON</span></div>
+    <h1 class="title">一份 FeatureCollection：系統中繼資料＋兩種 feature</h1>
+    <p class="subtitle">每座城市一個 GeoJSON（城市樹：<code class="mono">maps/{groupId}/{cityId}/1-raw-maps/working/{cityId}-1-raw-maps-working.geojson</code>；舊 <code class="mono">networks/</code>／<code class="mono">metro-maps/</code>／<code class="mono">systems/</code> 寫法讀取時改寫）：頂層掛 <code class="mono">metro_system</code>，features 只有兩種——<strong>車站 Point</strong> 與 <strong>路段 MultiLineString</strong>。工作地圖（working）與原始地圖（source，唯讀 OSM 備份）必須一模一樣。<code class="mono">operator</code>／<code class="mono">wikidata</code> 欄位已全面移除（features＋metro_system＋index.json）；<code class="mono">wikipedia</code>／<code class="mono">official_website</code> 保留。</p>
+    <div class="codebox">{ <span class="k">"type"</span>: <span class="s">"FeatureCollection"</span>,
+  <span class="k">"metro_system"</span>: { <span class="k">"continent"</span>: <span class="s">"asia"</span>, <span class="k">"country"</span>: <span class="s">"Taiwan"</span>, <span class="k">"city"</span>: <span class="s">"Taipei"</span>,
+    <span class="k">"official_website"</span>: <span class="s">"…"</span>, <span class="k">"wikipedia"</span>: <span class="s">"…"</span>,
+    <span class="k">"line_count"</span>: 18, <span class="k">"segment_count"</span>: 20, <span class="k">"station_count"</span>: 197, <span class="k">"audit"</span>: { <span class="s">…逐城驗證結果</span> } },
+  <span class="k">"features"</span>: [ { <span class="s">…Point 車站</span> }, { <span class="s">…MultiLineString 路段</span> } ] }</div>
+    <div class="grid cols-3" style="margin-top:16px;">
+      <div class="card blue"><div class="label">幾何語意 1</div><p><strong>線永遠壓在站點上</strong>：路段幾何＝共站合併後的車站點依站序連線，每個折點、端點都是車站（跳站特快段例外，見 Stage 2）。</p></div>
+      <div class="card blue"><div class="label">幾何語意 2</div><p><strong>重疊路段只畫一條</strong>：相鄰車站對被多線共用時只輸出一個 feature，<code class="mono">routes</code> list 記行經路線——一條 route 的完整路徑＝所有含它的路段之聯集。</p></div>
+      <div class="card blue"><div class="label">幾何語意 3</div><p><strong>快車一律不抓</strong>：只跳站的快車（站點是慢車子集）不另成線——各停已涵蓋全部車站；像紐約 J/Z 交錯停站或獨立編號快線（香港 AEL）自然保留，跳過的站沿慢車走廊標 <code class="mono">pass</code> 畫共線。</p></div>
+    </div>
+  </section>
+
+  <!-- 8b: feature properties -->
+  <section class="slide" data-title="資料格式：欄位">
+    <div class="eyebrow"><span class="tag"><b>07</b>資料格式 · 欄位定義</span><span class="rule"></span><span class="eng">DATA FORMAT · PROPERTIES</span></div>
+    <h1 class="title">車站與路段的 properties</h1>
+    <div class="grid cols-2" style="margin-top:8px;">
+      <div>
+        <table class="tbl">
+          <tr><th colspan="2">車站 Point</th></tr>
+          <tr><td><code class="mono">station_id</code> / <code class="mono">station_name</code>(<code class="mono">_local</code>/<code class="mono">_en</code>)</td><td>穩定 id、<strong>在地語言</strong>站名（台繁／中簡／日日）＋英文名</td></tr>
+          <tr><td><code class="mono">routes[]</code> / <code class="mono">lines</code></td><td>此站的路線清單 <code class="mono">{ref, name, pass?}</code>——<code class="mono">pass:true</code>＝行經不停靠；<code class="mono">lines</code>＝停靠 refs（<strong>至少一條</strong>，空值即資料錯誤）</td></tr>
+          <tr><td><code class="mono">codes</code></td><td>官方站碼清單（台北車站 <code class="mono">[A1,BL12,R10]</code>）</td></tr>
+          <tr><td><code class="mono">station_role</code> / <code class="mono">is_interchange</code> / <code class="mono">is_terminus</code></td><td>interchange／terminus／normal 角色旗標</td></tr>
+          <tr><td><code class="mono">merged_from</code> / <code class="mono">merged_names</code></td><td>共站合併來源數；異名轉乘站保留全部成員站名</td></tr>
+          <tr><td><code class="mono">pass_count</code> / <code class="mono">station_degree</code></td><td>行經次數與相異鄰站數（驗證 interchange 規則用）</td></tr>
+          <tr><td><code class="mono">network</code>(<code class="mono">_local</code>) / <code class="mono">wikipedia</code></td><td>系統歸屬與外部鏈結（<code class="mono">operator</code>／<code class="mono">wikidata</code> 已於 2026-07-31 全面移除）</td></tr>
+        </table>
+      </div>
+      <div>
+        <table class="tbl">
+          <tr><th colspan="2">路段 MultiLineString</th></tr>
+          <tr><td><code class="mono">seg_id</code></td><td>路段 id（重疊已去重）</td></tr>
+          <tr><td><code class="mono">routes[]</code></td><td><strong>行經此路段的每條路線</strong>：<code class="mono">route_id</code>・<code class="mono">route_name</code>(<code class="mono">_local</code>)・<code class="mono">route_ref</code>（BL/R…）・<code class="mono">route_name_en</code>・<code class="mono">route_color</code>（#rrggbb 官方色）・<code class="mono">network</code>・<code class="mono">osm_route_ids</code>（<code class="mono">operator</code> 已移除）</td></tr>
+          <tr><td><code class="mono">routes[].stations</code></td><td>該線的<strong>完整行經序</strong> <code class="mono">{station_id, station_name, code?, pass?}</code>——pass 站就地標記、官方站碼排序（A1 在前）；下游拓撲取非 pass 項建圖</td></tr>
+          <tr><td><code class="mono">order_suspect</code></td><td>站序可疑旗標（wiki／urbanrail 人工核對）</td></tr>
+          <tr><td><code class="mono">route_count</code> / <code class="mono">route_refs</code> / <code class="mono">route_colors</code></td><td>共線摘要（交錯色線用；<strong>無單數 route_color</strong>——路段可多線）</td></tr>
+        </table>
+      </div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;">共站判定＝OSM <code class="mono">stop_area</code> ∪ 同名 ≤800 m ∪ 人工裁決 <code class="mono">_overrides/interchanges.json</code>（<strong>非</strong>「同名就共站」）；合併站座標取平均、lines 取聯集。</p>
+  </section>
+
+  <!-- 8c: index & derived files -->
+  <section class="slide" data-title="資料格式：衍生檔">
+    <div class="eyebrow"><span class="tag"><b>08</b>資料格式 · 索引與衍生檔</span><span class="rule"></span><span class="eng">DATA FORMAT · DERIVED FILES</span></div>
+    <h1 class="title">一棵城市資料樹：maps/{groupId}/{cityId}/{step}/{layer}/</h1>
+    <p class="subtitle">GeoJSON 之外，<code class="mono">data/metro/</code> 還有一整層「衍生與治理」——2026-07-31 起全部收進<strong>城市資料樹</strong>（根夾 <code class="mono">networks/</code> 已改名 <code class="mono">maps/</code>）：<code class="mono">data/metro/maps/{groupId}/{cityId}/{step}/{layer}/[{sub}/]{cityId}-{step}-{layer}[…].{ext}</code>。邏輯 key（<code class="mono">METRO_DIRS</code>）≠ 磁碟代碼；磁碟路徑一律由 <code class="mono">src/lib/metroNetworkLayout.js</code> 產生（命名鐵律，見下一節）。</p>
+    <table class="tbl">
+      <tr><th>實際路徑</th><th>內容與格式</th></tr>
+      <tr><td><code class="mono">index.json</code></td><td>系統總索引：599 系統清單（檔名／洲國城／線站數）＋全球統計（<code class="mono">line_total</code> 5,898／<code class="mono">station_total</code> 37,313）＋覆蓋率報告（<code class="mono">operator</code>／<code class="mono">wikidata</code> 欄位已移除）</td></tr>
+      <tr><td><code class="mono">1-raw-maps/working/</code> · <code class="mono">source/</code></td><td>工作地圖（可編輯）與原始地圖（原稱 OSM 地圖，唯讀備份；須一模一樣；工具列「回復」＝ source→working）</td></tr>
+      <tr><td><code class="mono">1-raw-maps/tracks/</code> · <code class="mono">center/</code></td><td>實際路線／路線中線（step 1 的圖層，非獨立 step）——與抓的路線<strong>同一系統 <code class="mono">route_ref</code> 集合必須一致</strong>（鐵律）；改線後 <code class="mono">metro:synctracks</code>／<code class="mono">metro:verifytracks</code></td></tr>
+      <tr><td><code class="mono">1-raw-maps/official-route/</code> · <code class="mono">urbanrail/</code></td><td>官方路線圖／UrbanRail 圖（OfficialMap 分頁仍使用；總索引 <code class="mono">maps/maps_index.json</code>）；UrbanRail 槽只准 urbanrail.net 原圖，禁止 Commons 充數</td></tr>
+      <tr><td><code class="mono">1-raw-maps/skeleton/</code></td><td>骨架地圖（<strong>2026-08-04 由 <code class="mono">2-gridding/skeleton/</code> 移入</strong>——只做拓撲收縮，不動格網；舊路徑由 <code class="mono">legacyNetworksRelToCurrent</code> 改寫）</td></tr>
+      <tr><td><code class="mono">2-gridding/grid/</code></td><td>網格地圖（離線縮圖一圖層一檔；改演算法須 bump <code class="mono">VIEWS_VERSION</code>）</td></tr>
+      <tr><td><code class="mono">2-gridding/llm-skeleton2grid/&lt;model&gt;/</code> · <code class="mono">llm-working2grid/&lt;model&gt;/</code></td><td>消融來源：<strong>LLM 骨架地圖網格化</strong>（資料夾 <code class="mono">llm-skeleton2grid</code>）／<strong>LLM 工作地圖網格化</strong>（<code class="mono">llm-working2grid</code>）<strong>×13 模型</strong>子夾（<code class="mono">opus5</code>／<code class="mono">fable5</code>／<code class="mono">sonnet5</code>／<code class="mono">haiku45</code>＋Cursor 代管 <code class="mono">gpt56sol</code>／<code class="mono">codex53</code>／<code class="mono">gemini31</code>／<code class="mono">grok45</code>／<code class="mono">composer25</code>／<code class="mono">kimik3</code>／<code class="mono">glm52</code>＋dsc <code class="mono">deepseekv4pro</code>／<code class="mono">deepseekv4flash</code>）</td></tr>
+      <tr><td><code class="mono">3-straightening/{來源}/[{模型}/]{鏈}/{子夾}/</code></td><td><strong>★ 佈局權威</strong>：<strong>三層容器</strong>——鏈資料夾不放檔，底下 <code class="mono">{鏈}/</code>（該鏈自己的結果）、<code class="mono">network-loop/</code>（程式網絡循環）、<code class="mono">llm-network-loop/</code> 各放一個圖。鏈＝論文①〜⑨ <code class="mono">algorithm-*</code> ＋ <code class="mono">llm-straighten</code>；來源＝<code class="mono">grid</code>／<code class="mono">llm-skeleton2grid</code>／<code class="mono">llm-working2grid</code>（後兩者再拆模型）。<code class="mono">hc</code> 基底快照已全數移除。Straighten／Frame 畫廊縮圖由此<strong>現畫</strong></td></tr>
+      <tr><td><code class="mono">{來源}/{鏈}/{鏈}/</code> · <code class="mono">{來源}/llm-shape/</code> · <code class="mono">{鏈}/llm-network-loop/</code> · <code class="mono">llm-working2straight/{模型}/</code></td><td>LLM 直線化（自動／指定對齊）／矩形／循環／直接完成結果——各自獨立資料夾，含 <code class="mono">fingerprint</code>、<code class="mono">transcript</code>、<code class="mono">elapsedMs</code> 與 provenance（<code class="mono">model</code>／<code class="mono">provider</code>／<code class="mono">executor</code>）</td></tr>
+      <tr><td><code class="mono">4-frame-maps/llm-eval/</code> · <code class="mono">llm-grid/</code> · <code class="mono">llm-compare/</code></td><td>LLM 評價 moves／互動權重／全結果比較（唯讀）</td></tr>
+      <tr><td><code class="mono">official_sites.json</code> · <code class="mono">city_coords.json</code></td><td>官方網站索引（<code class="mono">npm run metro:sites</code>，Info tab「官網」列）；城市座標</td></tr>
+      <tr><td><code class="mono">_overrides/</code> · <code class="mono">_cache/</code></td><td>人工裁決落地（重抓自動套用）；OSM／Wiki 快照（進版控＝可重現輸入）</td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:10px;">地標／鐵路等組合以<strong>變體城市夾</strong>存在（<code class="mono">as-twn-taipei-lm</code>／<code class="mono">-rail</code>／<code class="mono">-ty</code>…，同群組夾內）；矩形城市＝<code class="mono">&lt;id&gt;-shape-rect</code> 城市夾。railway／highway 資料樹尚未改制（仍為舊結構）。</p>
+  </section>
+
+  <!-- 8d: naming law -->
+  <section class="slide" data-title="命名鐵律與圖層代碼">
+    <div class="eyebrow"><span class="tag"><b>08b</b>命名鐵律 · 代碼對照</span><span class="rule"></span><span class="eng">NAMING LAW · LAYER CODES</span></div>
+    <h1 class="title">代碼＝tag＝資料夾＝檔名</h1>
+    <p class="subtitle">2026-07-31 裁決：每個 step／圖層只有<strong>一個代碼</strong>，同時是介面上的 code tag（<code class="mono">.code-tag</code>，/design 正式元件）、磁碟資料夾名、檔名 token。唯一對照表＝<code class="mono">src/lib/layerRegistry.js</code>（<code class="mono">STEP_CODES</code>／<code class="mono">LAYER_CODES</code>／<code class="mono">LAYER_SKILLS</code>），顯示在「資料流」分頁右欄「Layers / Skills」樹。</p>
+    <table class="tbl dense">
+      <tr><th>step（顯示名帶序號）</th><th>代碼＝資料夾</th><th>圖層代碼</th></tr>
+      <tr><td>1 RAW MAPS</td><td><code class="mono">1-raw-maps</code></td><td><code class="mono">working</code>（工作地圖）・<strong><code class="mono">skeleton</code>（骨架地圖，2026-08-04 移入）</strong>・<code class="mono">source</code>（原始地圖，原稱 OSM 地圖）・<code class="mono">tracks</code>・<code class="mono">center</code>・<code class="mono">official-route</code>（官方路線圖）・<code class="mono">urbanrail</code></td></tr>
+      <tr><td>2 GRIDDING</td><td><code class="mono">2-gridding</code></td><td><code class="mono">grid</code>（網格地圖）・<code class="mono">llm-skeleton2grid</code>（LLM 骨架地圖網格化）／<code class="mono">llm-working2grid</code>（LLM 工作地圖網格化）——各為<strong>統一一層</strong>，左側 list 切 13 個模型</td></tr>
+      <tr><td>3 STRAIGHTENING</td><td><code class="mono">3-straightening</code></td><td><code class="mono">algorithm-stroke</code>〜<code class="mono">algorithm-flex</code>（①〜⑨）・<code class="mono">llm-straighten</code>（LLM 直線化）・<code class="mono">llm-shape</code>・<code class="mono">network-loop</code>／<code class="mono">llm-network-loop</code>・<code class="mono">llm-working2straight</code>；movewise 步驟 <code class="mono">endpoint</code>・<code class="mono">linecompact</code>・<code class="mono">branchshift</code>・<code class="mono">gridmerge</code>・<code class="mono">loop</code>（<strong>不落檔</strong>，資料流上只是 step）。舊基底 <code class="mono">hc</code> 已全數退場</td></tr>
+      <tr><td>4 FRAME MAPS</td><td><code class="mono">4-frame-maps</code></td><td><code class="mono">frame</code>（版面畫線＋Frame 三個 LLM 工具）</td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:10px;"><code class="mono">metro-tracks</code>／<code class="mono">metro-landmarks</code> <strong>不是 step</strong>——tracks／center 是 step 1 的圖層、地標是變體城市（<code class="mono">-lm</code>）。檔名＝<code class="mono">{cityId}-{step}-{layer}[-{sub}].{ext}</code>，例：<code class="mono">as-twn-taipei-3-straightening-algorithm-stroke.json</code>、<code class="mono">as-twn-taipei-3-straightening-llm-skeleton2grid-opus5-llm.json</code>。</p>
+  </section>
+
+  <!-- 8b2: terminology rename map -->
+  <section class="slide" data-title="用語對照（更名後）">
+    <div class="eyebrow"><span class="tag"><b>08b2</b>用語對照 · 2026-08-02 更名</span><span class="rule"></span><span class="eng">TERMINOLOGY MAP</span></div>
+    <h1 class="title">名字要說出「它吃的是哪一層」</h1>
+    <p class="subtitle">2026-08-02 把「LLM 直接 X」一律改成「LLM ＜輸入是什麼＞網格化／直線化」。介面用語的單一真相＝<code class="mono">src/i18n/ui-locale.md</code>，鏈標籤＝<code class="mono">src/lib/frameCompacts.js</code> 的 <code class="mono">FRAME_COMPACT_ZH</code>／<code class="mono">_EN</code>。<strong>資料夾與檔名 token 與顯示名脫鉤</strong>（<code class="mono">llm-straighten</code>／<code class="mono">llm-skeleton2grid</code>／<code class="mono">llm-working2grid</code>；dev server 端點前綴仍是舊的 <code class="mono">/llm-straighten-align</code>），既有結果檔才不會失效。</p>
+    <table class="tbl dense">
+      <tr><th>內部 key</th><th>舊名（舊文件／截圖）</th><th>現行顯示名（zh／en）</th><th>位置</th></tr>
+      <tr><td><code class="mono">llm</code></td><td>LLM 直接對齊</td><td><strong>LLM 直線化</strong>／LLM straighten</td><td>3 STRAIGHTENING 鏈</td></tr>
+      <tr><td><code class="mono">llm-skeleton2grid</code></td><td>LLM 直接網格</td><td><strong>LLM 骨架地圖網格化</strong>／LLM skeleton-map gridding</td><td>2 GRIDDING 替代層</td></tr>
+      <tr><td><code class="mono">llm-working2grid</code></td><td>LLM 直接成圖</td><td><strong>LLM 工作地圖網格化</strong>／LLM working-map gridding</td><td>2 GRIDDING 替代層</td></tr>
+      <tr><td><code class="mono">llmshape</code></td><td>LLM 矩形</td><td>LLM 指定形狀／LLM prescribed shape</td><td>3 STRAIGHTENING 頭圖層</td></tr>
+      <tr><td><code class="mono">llm-network-loop</code>／<code class="mono">llm-working2straight</code></td><td>—</td><td>LLM 網絡循環／LLM 工作地圖直線化</td><td>旁路／oneshot</td></tr>
+      <tr><td><code class="mono">-shape-rect</code> 變體群</td><td>矩形城市</td><td><strong>限定線形</strong>／Prescribed line（畫廊分頁：限定線形城市）</td><td>變體維度</td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:10px;">「LLM 直線化」底下仍有兩個獨立入口：<strong>自動</strong>（不必下指示、起點固定＝該層 Gridding 結果、不可續跑）與<strong>指定對齊</strong>（一句話引導、起點＝目前顯示、可續跑）。</p>
+  </section>
+
+  <!-- 8e: single source of truth modules + dataflow/skills -->
+  <section class="slide" data-title="單一真相與資料流分頁">
+    <div class="eyebrow"><span class="tag"><b>08c</b>單一真相三模組 · 資料流＋Skills</span><span class="rule"></span><span class="eng">SINGLE SOURCE OF TRUTH</span></div>
+    <h1 class="title">三支對映模組，四個文件分頁</h1>
+    <p class="subtitle">命名鐵律靠三支模組機制化——顯示、視圖代碼、磁碟路徑各有<strong>唯一真相</strong>，三者若與 <code class="mono">layerRegistry</code> 對照表不一致就是 bug。</p>
+    <div class="grid cols-3">
+      <div class="card blue"><div class="label">src/lib/layerRegistry.js</div><h3>顯示對照＋skill 掛載</h3><p><code class="mono">STEP_CODES</code>／<code class="mono">LAYER_CODES</code>／<code class="mono">LAYER_SKILLS</code>＋<code class="mono">layerRegistryTable()</code>——資料流圖節點 code tag、圖層面板 chip、右欄「Layers / Skills」樹、Skill 呼叫圖卡片 tag 全部從這張表抓。</p></div>
+      <div class="card blue"><div class="label">src/lib/viewCodes.js</div><h3>公開視圖代碼 ↔ 內部 id</h3><p><code class="mono">publicViewId</code>／<code class="mono">internalViewId</code>：status.json 的 views、畫廊視圖 id 輸出公開代碼（<code class="mono">working</code>／<code class="mono">source</code>／<code class="mono">algorithm-*</code> 前綴…）；點擊／檔案路徑先轉回內部 id——內部 id 與持久化欄位<strong>不改名</strong>。</p></div>
+      <div class="card blue"><div class="label">src/lib/metroNetworkLayout.js</div><h3>磁碟路徑＋檔名</h3><p><code class="mono">NETWORK_STEPS</code>（帶序號 step 夾名）＋<code class="mono">networkMapsPath()</code>／<code class="mono">networkSkeletonPath()</code>／<code class="mono">networkAdjustPath()</code>／<code class="mono">networkStraighteningPath()</code>／<code class="mono">networkFramePath()</code>：唯一產生 <code class="mono">maps/</code> 樹路徑（共用的私有組裝器不對外匯出，檔名＝城市 id 起、串接沿途所有資料夾名）；舊 <code class="mono">networks/</code>／扁平路徑經 <code class="mono">legacyNetworksRelToCurrent</code>／<code class="mono">flatRelToNetworkRel</code> 改寫。</p></div>
+    </div>
+    <div class="grid cols-4" style="margin-top:14px;">
+      <div class="card green"><div class="label">資料流</div><p>流程圖：四 step 為欄，節點帶 code tag 與生成用 skill。單一真相＝<code class="mono">flowGraph.js</code>——圖與實作分叉就是 bug。</p></div>
+      <div class="card green"><div class="label">Skill 呼叫圖</div><p>同階段色／同 layer code，問<strong>每支 skill 何時被呼叫</strong>。卡片＝呼叫點；列 id＋摘要＋何時／被誰。66 支每支恰一次。</p></div>
+      <div class="card green"><div class="label">Skills</div><p><code class="mono">skillTree()</code> ← <code class="mono">layerRegistryTable()</code>：頂層＝階段；圖層兩支以上 skill 才成子群，只有一支就直接列（主標＝圖層名、子標＝skill id）。未掛圖層＝未分類，<code class="mono">checkSkillCatalog.mjs</code> 擋。</p></div>
+      <div class="card green"><div class="label">系統報告</div><p>根目錄報告 md 打包成 <code class="mono">reports/</code>；經文件選單開啟，與 skill 文件同殼。</p></div>
+    </div>
+  </section>
+
+  <!-- 8f: document page navigation -->
+  <section class="slide" data-title="文件頁導覽">
+    <div class="eyebrow"><span class="tag"><b>08d</b>文件頁 header 結構</span><span class="rule"></span><span class="eng">DOC MENU</span></div>
+    <h1 class="title">系統內容 ≠ 資料流／Skills</h1>
+    <p class="subtitle">文件頁（<code class="mono">/doc/</code>）header 結構的單一真相＝<code class="mono">src/lib/docMenu.js</code>。只在 <code class="mono">isLocalHost()</code> 露出；正式站不露文件鈕，直連 <code class="mono">/doc/</code>／<code class="mono">data/docs/**</code> 導回首頁。</p>
+    <div class="grid cols-4">
+      <div class="card blue"><div class="label">系統內容</div><h3>兩個靜態頁</h3><p><strong>系統介紹</strong>（本投影片）· <strong>系統架構</strong>（C4／UML 長文）。各開一個 dock tab（iframe）。</p></div>
+      <div class="card green"><div class="label">資料流／Skills</div><h3>四個操作分頁</h3><p><strong>資料流</strong> · <strong>Skill 呼叫圖</strong> · <strong>Skills</strong> · <strong>系統報告</strong>——獨立下拉，不是塞進「系統內容」。</p></div>
+      <div class="card purple"><div class="label">論文內容</div><h3>投影片／本文／改善／閱讀</h3><p>每項＝一個 dock tab；本文可切渲染與 .md 原文。</p></div>
+      <div class="card amber"><div class="label">設計</div><h3>單一按鈕 → 單一 tab</h3><p>左區塊七區／右 TOC＋內容；header <strong>不再</strong>拆七個設計項。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;">首頁 header 另有「匯入地圖／目前計算／文件」；文件頁<strong>沒有</strong>匯入地圖。兩邊都有相關連結／日夜／中英。</p>
+  </section>
+
+  <!-- 8g: skill call graph ↔ dataflow -->
+  <section class="slide" data-title="資料流與呼叫圖對應">
+    <div class="eyebrow"><span class="tag"><b>08e</b>資料流 ↔ Skill 呼叫圖</span><span class="rule"></span><span class="eng">FLOW ↔ CALL GRAPH</span></div>
+    <h1 class="title">兩張圖問不同問題，共用同一套代碼</h1>
+    <p class="subtitle">資料流回答「資料怎麼流、每個節點誰生成」；呼叫圖回答「每支 skill 掛在哪、何時跑」。對讀靠<strong>同一組階段色＋layerRegistry 圖層 code</strong>。</p>
+    <table class="tbl">
+      <tr><th></th><th>資料流圖</th><th>Skill 呼叫圖</th></tr>
+      <tr><td>問什麼</td><td>管線步驟與泳道（節點＝圖層／鏈）</td><td>呼叫點（卡片＝圖層或用途）× skill</td></tr>
+      <tr><td>方塊上的 tag</td><td>節點 <code class="mono">code</code>（＝資料夾名）</td><td>卡片上等寬 tag（同一 code）</td></tr>
+      <tr><td>skill 怎麼出現</td><td>節點下方可點的 id（生成該節點者）</td><td>每支專案 skill <strong>恰好一列</strong>（含管線外）</td></tr>
+      <tr><td>管線外（城市規則／鐵路／UI…）</td><td>不進圖（沒有下游節點）</td><td>虛線框＋「管線外」標籤，仍歸所屬階段欄</td></tr>
+      <tr><td>單一真相</td><td><code class="mono">flowGraph.js</code></td><td><code class="mono">skillCatalog.buildSkillCallGraph()</code> ← <code class="mono">skillTree()</code> ← <code class="mono">layerRegistryTable()</code></td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:12px;">現況 <strong>66</strong> 支＝資料流內約半、管線外／系統殼層約半；<code class="mono">checkSkillCatalog.mjs</code> 保證清單＝呼叫圖、階段與圖層表一致、零未分類。</p>
+  </section>
+
+  <!-- 8: cleaning rules -->
+  <section class="slide" data-title="資料清理">
+    <div class="eyebrow"><span class="tag"><b>09</b>資料清理總覽</span><span class="rule"></span><span class="eng">CLEANING RULES</span></div>
+    <h1 class="title">把雜亂的 OSM 變成可靠路網</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">metro-osm-fetch</span><span class="sk">metro-audit</span></div>
+    <p class="subtitle">抓取只是第一步——每座城市都要經過以下清理規則，才進入下游管線。</p>
+    <div class="grid cols-2">
+      <div class="stack" style="margin-top:4px;">
+        <div class="row"><span class="num-badge">1</span><div class="rowtext"><h4>只留營運中路線</h4><p>興建中／規劃中／停用線段一律移除，靠 lifecycle 標籤與站名括號註記雙重過濾。</p></div></div>
+        <div class="row"><span class="num-badge">2</span><div class="rowtext"><h4>共站合併（非「同名就合併」）</h4><p>依序：stop_area 權威分組 → 同名 ≤800m 輔助 → 人工裁決 <code class="mono">interchanges.json</code>，union-find 取聯集。</p></div></div>
+        <div class="row"><span class="num-badge">3</span><div class="rowtext"><h4>環狀線收尾</h4><p>真實閉環用 closeRing 補上最後一段，不斷開。</p></div></div>
+        <div class="row"><span class="num-badge">4</span><div class="rowtext"><h4>快車一律不抓</h4><p>只跳站的快車（子集）捨棄，各停站表為準；交錯停站（NYC J/Z）或獨立編號快線（AEL）自然保留、跳站標 pass 畫共線。</p></div></div>
+      </div>
+      <div class="stack" style="margin-top:4px;">
+        <div class="row"><span class="num-badge">5</span><div class="rowtext"><h4>機廠與機場接駁電車排除</h4><p>車輛段出入段線、旅客自動電車／APM／people mover 一律剔除；機場「快線」不受影響。</p></div></div>
+        <div class="row"><span class="num-badge">6</span><div class="rowtext"><h4>官方顏色・站碼・在地語言</h4><p>各線官方色、車站官方站碼（並依碼正規化站序，A1 在前）、站名/線名一律在地語言（台繁/中簡/日日）＋英文副標。</p></div></div>
+        <div class="row"><span class="num-badge">7</span><div class="rowtext"><h4>墓碑驗證</h4><p>站源殭屍（上游已刪節點）批次驗證存在性，死者拒收，避免頂點吸附誤撿。</p></div></div>
+        <div class="row"><span class="num-badge">8</span><div class="rowtext"><h4>對照 Wikipedia／urbanrail.net</h4><p>逐城比對線數與站名，抓漏抓多抓雜訊——收斂到全部通過才算完成。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9: city-specific exceptions -->
+  <section class="slide" data-title="城市專屬例外">
+    <div class="eyebrow"><span class="tag"><b>10</b>城市專屬例外案例</span><span class="rule"></span><span class="eng">CITY-SPECIFIC EXCEPTIONS</span></div>
+    <h1 class="title">通用規則之外，逐城落地的裁決</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk"><span class="role">索引</span>metro-cities</span><span class="sk"><span class="role">大城</span>metro-city-taipei · -tokyo · -germany · -newyork …</span></div>
+    <p class="subtitle">大城市各有專屬規則索引（台北／東京／德國五城／紐約各有獨立 skill），其餘城市的個案裁決集中登記，重跑資料時可直接查詢，不必每次重新調查。</p>
+    <table class="tbl">
+      <tr><th>類型</th><th>案例</th></tr>
+      <tr><td>定向刷新（上游更新不會自動生效）</td><td>香港觀塘綫／屯馬綫／東鐵綫漏 stop 成員；新加坡環狀線 2026 閉合段</td></tr>
+      <tr><td>人工站序補正</td><td>成都 10 號線高升桥中途插站；蘇州 7 號線南段 prepend；NYC 2 車 59 St–Columbus Circle</td></tr>
+      <tr><td>未開通站剔除</td><td>上海龙居路；北京红庙／福寿岭；成都天府机场航站樓；蘇州白荡南</td></tr>
+      <tr><td>站名裁決／統一異名節點</td><td>Seoul／Istanbul／Wuhan 等無名站補名；雪梨 Central 站 7 個異名節點統一</td></tr>
+      <tr><td>逐線 wiki 站數裁決</td><td>北京 1／4 號線貫通計法；成都 2／10／17／18 號線；蘇州 11 號線貫通運營</td></tr>
+      <tr><td>route=train 城市例外</td><td>德國五城 S-Bahn；雪梨 Sydney Trains（CityRail）市郊 T 線</td></tr>
+    </table>
+  </section>
+
+  <!-- 10: audit invariants -->
+  <section class="slide" data-title="驗證不變式">
+    <div class="eyebrow"><span class="tag"><b>11</b>驗證不變式</span><span class="rule"></span><span class="eng">VALIDATION INVARIANTS</span></div>
+    <h1 class="title">七項 error 級不變式，違反必修到 0</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">metro-audit</span></div>
+    <p class="subtitle">驗證一律對照 Wikipedia 與 urbanrail.net；error 全過才算通過，warn 不擋通過但一定列出。</p>
+    <table class="tbl">
+      <tr><th>檢查</th><th>等級</th><th>規則</th></tr>
+      <tr><td>system_exists</td><td class="err">error</td><td>Wikipedia 清單城市不可能沒資料</td></tr>
+      <tr><td>stations_named</td><td class="err">error</td><td>全部車站必須有名稱（100%），合成名即資料錯誤</td></tr>
+      <tr><td>stations_have_lines</td><td class="err">error</td><td>不可能有車站沒有路線</td></tr>
+      <tr><td>line_geometry_stations</td><td class="err">error</td><td>不可能有路線沒有車站；折點/端點必為車站</td></tr>
+      <tr><td>line_wiki_stations</td><td class="err">error</td><td>逐線站數以 wiki 為準（三段式判定，扣除未通車段）</td></tr>
+      <tr><td>interchange_rule</td><td class="err">error</td><td>interchange ⇔ 不同路線通過次數 ≥2</td></tr>
+      <tr><td>route_continuity</td><td class="err">error</td><td>每條線的路段聯集必為單一連通（hover 不得斷開；severity <code class="mono">broken</code>）</td></tr>
+      <tr><td>station_order</td><td class="warn">warn</td><td>站序須與 wiki／urbanrail 一致，可疑者標記人工核對</td></tr>
+    </table>
+  </section>
+
+  <!-- 11: fetch⇄audit loop -->
+  <section class="slide" data-title="驗證收斂迴圈">
+    <div class="eyebrow"><span class="tag"><b>12</b>fetch ⇄ audit 收斂迴圈</span><span class="rule"></span><span class="eng">CONVERGENCE LOOP</span></div>
+    <h1 class="title">逐城市 audit，未過就換招重試</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk"><span class="role">fetch</span>metro-osm-fetch</span><span class="sk"><span class="role">audit</span>metro-audit</span></div>
+    <p class="subtitle">全球底料一次批抓；「對不對」的判定與定向補抓都發生在逐城迴圈——每城獨立跑完，需要才抓、抓完立刻驗，直到全部通過或列入人工裁決清單。</p>
+    <div class="flowrow">
+      <div class="card blue fstep"><div class="label">缺系統</div><p>S1 綁定既有快取 → S2 定向補抓 40km → S3 放寬 80km → S4 單軌例外</p></div>
+      <div class="farrow">→</div>
+      <div class="card blue fstep"><div class="label">站數不足</div><p>Z0 併入鄰城 → Z1 定向補站 → Z2 由 stop 衍生 → Z3 定向刷新 relation</p></div>
+      <div class="farrow">→</div>
+      <div class="card blue fstep"><div class="label">仍未通過</div><p>metro:refetchfailed 全量刷新＋墓碑驗證 → 人工裁決落地 _overrides/</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:16px;">策略有限且每招只試一次 → 必然終止；未過城市留下「試過什麼、為何失敗」的完整紀錄，即人工裁決的工作清單。裁決落地後只重驗該城，不影響已通過的城市。</p>
+  </section>
+
+  <!-- 13: skeleton 6-step pipeline（屬 STEP 1；骨架地圖 2026-08-04 由 Gridding 移入 Raw Maps） -->
+  <section class="slide" data-title="骨架化流程">
+    <div class="eyebrow"><span class="tag"><b>13</b>骨架化六步驟</span><span class="rule"></span><span class="eng">TOPOLOGY SKELETON PIPELINE</span></div>
+    <h1 class="title">拓撲收縮，不拉直、不新增</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-skeleton-connect</span><span class="sk"><span class="role">實作</span>src/stores/skeleton.js</span></div>
+    <p class="subtitle">「路線圖轉換骨架2」把「選擇路線圖」的地理路網收成示意圖佈局用的骨架——保留地理折線矩形，只做拓撲收縮與標記，與早期「會拉直」的直線骨架不同。落檔在 <code class="mono">1-raw-maps/skeleton/</code>（<strong>2026-08-04 起屬 STEP 1</strong>：不動格網、不換座標系）。</p>
+    <table class="tbl">
+      <tr><th>步驟</th><th>內容</th></tr>
+      <tr><td>① 建圖、分節點</td><td>以 route 站序相鄰兩站建無向圖，依 degree 分類轉乘站／末端站／中途站</td></tr>
+      <tr><td>② 找真交叉</td><td>逐 route 對檢查線段是否內部相交，補合成交叉點（含同線自相交）</td></tr>
+      <tr><td>③ 收縮成邊</td><td>從轉乘／末端站沿 degree=2 中途站鏈直到下一節點，收成一條保留原折線的「邊」</td></tr>
+      <tr><td>④ 邊分類</td><td>共線合併紅底／環線綠／頭尾共點藍，沿真實 <code class="mono">edge.geom</code> 畫襯底</td></tr>
+      <tr><td>⑤ 切切斷站</td><td>頭尾共點邊弧長 1/2 處切 1 個切斷站；環線邊 1/3、2/3 處切 2 個切斷站</td></tr>
+      <tr><td>⑥ 標轉彎站／分隔站</td><td>代表性轉折（曲折度 &gt;1.25 且 Douglas–Peucker 篩選）標轉彎站；過長中途站段每 5 站分隔標分隔站</td></tr>
+    </table>
+  </section>
+
+  <!-- 14: node/edge legend -->
+  <section class="slide" data-title="節點與邊分類">
+    <div class="eyebrow"><span class="tag"><b>14</b>節點與邊分類</span><span class="rule"></span><span class="eng">NODE &amp; EDGE CLASSIFICATION</span></div>
+    <h1 class="title">九種節點類型，三種邊分類</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-skeleton-connect</span></div>
+    <p class="subtitle">分類依節點 degree（相異鄰站數），不是車站的 <code class="mono">station_role</code>——共軌段上多線一起過的站鄰居仍只有兩個，正確歸為中途站，不會整條共軌冒出一串轉乘站。語意記<strong>類型名</strong>；繪色可變。綠分兩種：中途控制點（綠）與形狀控制點（藍綠）。站 hover（地圖＋D3 同構）＝站名前<strong>類型色點</strong>＋下一行類型名（<code class="mono">popupHtml</code>／<code class="mono">nodeTypes</code>）。</p>
+    <div class="legend">
+      <div class="item"><span class="dot" style="background:#e11d48;"></span>轉乘站 · 分歧／轉乘（degree≥3，或兩側 route 不同的 degree-2）</div>
+      <div class="item"><span class="dot" style="background:#2563eb;"></span>末端站 · 真端點（degree≤1）</div>
+      <div class="item"><span class="dot" style="background:#eab308;"></span>交叉點</div>
+      <div class="item"><span class="dot" style="background:#7c3aed;"></span>切斷站 · 頭尾共點／環線切斷站</div>
+      <div class="item"><span class="dot" style="background:#ec4899;"></span>轉彎站 · 曲折邊的代表性轉彎</div>
+      <div class="item"><span class="dot" style="background:#94a3b8;"></span>分隔站 · 過長中途站段的分隔站</div>
+      <div class="item"><span class="dot" style="background:#81D8D0;"></span>形狀控制點 · 矩形導引角折（藍綠）</div>
+      <div class="item"><span class="dot" style="background:#22c55e;"></span>中途控制點 · OSM Map 手動</div>
+      <div class="item"><span class="dot" style="background:#ffffff;border:1px solid #94a3b8;"></span>中途站 · 直通中段站（degree=2 且兩側 route 相同）</div>
+    </div>
+    <div class="grid cols-2" style="margin-top:8px;">
+      <div class="card purple"><div class="label">邊分類（線底下的襯底）</div><h3>共線合併 · 環線 · 頭尾共點</h3><p>共線合併（≥2 相異色）標紅底；環線（自環）標綠、優先於頭尾共點；同對節點間 ≥2 條不同幾何邊標藍——都沿真實折線畫。</p></div>
+      <div class="card purple"><div class="label">核心原則</div><h3>線一律照原始畫法</h3><p>「原始怎麼畫，骨架就怎麼畫，只是共線變一條線」——絕不用「相鄰車站直線相連」畫線，避免特快跳站段被拉直成穿越空白的長直線。</p></div>
+    </div>
+  </section>
+
+  <!-- 15: express skip-stop special case -->
+  <section class="slide" data-title="特殊案例">
+    <div class="eyebrow"><span class="tag"><b>15</b>特殊案例</span><span class="rule"></span><span class="eng">EXPRESS SKIP-STOP HANDLING</span></div>
+    <h1 class="title">跳站特快：折點不一定是車站</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-skeleton-connect</span></div>
+    <p class="subtitle">多數折點是車站，但跳站特快段例外——特快沿本地線的真實走廊彎行卻不停中間站，那段線 feature 的幾何會有一串非車站折點（雪梨北岸線快車 Strathfield→Redfern 段有 11 個折點，只有頭尾兩個是停靠站）。</p>
+    <div class="grid cols-2">
+      <div class="card rose"><div class="label">建圖只看停靠站</div><p>拓撲（degree／route 集合）一律由 <code class="mono">routes[].stations</code>（停靠站）建圖，不受跳站折點影響。</p></div>
+      <div class="card rose"><div class="label">畫線一定用原始幾何</div><p>繪製一律用 feature 的原始幾何 <code class="mono">path(f)</code>，不可用「相鄰停靠站直線相連」——否則跳站段會被拉成橫越空白的長直線，骨架冒出原始沒有的線。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;"><strong>邊帶真實幾何 <code class="mono">edge.geom</code></strong>：依該路線的停靠站切段，特快邊因此擁有整段穿過中段站的多折點曲線，供邊分類襯底貼線畫。曾試過「把跳站特快途經的本地站插入特快站序」合併共軌走廊，會捏造岔口與邊——已否決，只做純顯示層的 pass/stop 標記。</p>
+  </section>
+
+  <!-- 12: DIVIDER II -->
+  <section class="slide divider" data-title="Gridding">
+    <div class="roman">II</div>
+    <div class="stagechip"><span class="sw" style="background:var(--purple);"></span>STEP 2 · 2 GRIDDING</div>
+    <h1 class="title">Gridding ——<br/>只做一件事：網格化</h1>
+    <p class="subtitle">把 STEP 1 收好的骨架吸附到整數格路網，交給下一階段最佳化。<strong>2026-08-04 起這一階只有「網格化」</strong>——骨架化已移進 1 RAW MAPS（見前三頁）；本階的圖層＝<code class="mono">grid</code> ＋兩條 LLM 替代層 <code class="mono">llm-skeleton2grid</code>／<code class="mono">llm-working2grid</code>。</p>
+    <div class="pillrow"><span class="pill">示意網格化</span><span class="pill">來源軸 grid／llm-skeleton2grid／llm-working2grid</span><span class="pill">cells 佈局權威</span></div>
+  </section>
+
+  <!-- 16: schematic gridding -->
+  <section class="slide" data-title="示意網格化">
+    <div class="eyebrow"><span class="tag"><b>16</b>示意網格化</span><span class="rule"></span><span class="eng">SCHEMATIC GRIDDING</span></div>
+    <h1 class="title">非中途站排出藍格排名，路線吸附到整數座標</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-skeleton-grid</span><span class="sk"><span class="role">實作</span>src/stores/schematicGrid.js</span></div>
+    <p class="subtitle">非中途站（所有 <code class="mono">stationClass ≠ 'black'</code>）用最密切法排出 x/y 排名，形成整數格；每條路線在非中途站切開，端點吸附、中途站在兩端之間平均放回。</p>
+    <div class="grid cols-4">
+      <div class="card purple"><div class="label">① 排名吸附</div><p>每兩個相鄰不同座標間下一條分隔線，一格至多一個非中途站，撞格用 Chebyshev 環狀外擴解衝突。</p></div>
+      <div class="card purple"><div class="label">② 邊界切線</div><p>每條路線在非中途站處切開，只在線內切、不跨線合併。</p></div>
+      <div class="card purple"><div class="label">③ 端點吸附</div><p>每段兩端吸到整數格 (欄, 列)，與預覽藍格同一套排名。</p></div>
+      <div class="card purple"><div class="label">④ 中途站均分</div><p>中段中途站沿新（拉直）小段平均放回，第 j 個站落在 j/(k+1) 處。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:16px;">格網規模依城市密度而異——<strong>台北約 68×68</strong>、<strong>北京約 169×169</strong>、<strong>紐約約 160×160</strong>；欄列是等距排名，不再保留真實地理距離比例，代價交由下游最佳化處理。Straightening 變體目前只算 <code class="mono">orig</code>（鍵 <code class="mono">rot</code> 已自 <code class="mono">STRAIGHTENING_DIRECTIONS</code> 移除）。另可<strong>旋轉後計算</strong>：獨立城市檔 <code class="mono">-l33</code>／<code class="mono">-r39</code>… 從骨架起整條管線吃投影角（規格 <code class="mono">route-city-rotation</code>；現役紐約／巴塞隆納／伊斯坦堡等）。</p>
+  </section>
+
+  <!-- 16b: source axes -->
+  <section class="slide" data-title="來源軸與消融">
+    <div class="eyebrow"><span class="tag"><b>16b</b>來源軸 · 格網／消融／矩形</span><span class="rule"></span><span class="eng">SOURCE AXES</span></div>
+    <h1 class="title">三條來源軸，決定 Straighten 泳道跑哪些鏈</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">llm-skeleton2grid</span><span class="sk">llm-working2grid</span><span class="sk">llm-shape</span></div>
+    <p class="subtitle">變體＝<code class="mono">&lt;dir&gt;</code>＋來源後綴＋可選 <code class="mono">-shape-rect</code>（限定線形）。<strong>UI 變體</strong>（<code class="mono">STRAIGHTENING_UI_SOURCES</code>）＝<code class="mono">orig</code>／<code class="mono">orig-llm-skeleton2grid</code>／<code class="mono">orig-llm-working2grid</code>（＋各自 <code class="mono">-shape-rect</code>）共 6 個；<strong>檔案變體</strong>（<code class="mono">STRAIGHTENING_FILE_SOURCES</code>）永遠帶模型——<code class="mono">orig-llm-skeleton2grid-opus5</code>／<code class="mono">orig-llm-working2grid-glm52</code>…（兩條消融來源各 13 模型）。UI 一層、檔案拆模型，是為了讓左側 list 在同一層切模型而不炸出 26 個圖層。</p>
+    <table class="tbl">
+      <tr><th>來源</th><th>意義</th><th>泳道鏈（straighteningCompactsFor）</th><th>資料</th></tr>
+      <tr><td><code class="mono">grid</code>（無後綴）</td><td>排名吸附網格化（輸入＝<code class="mono">1-raw-maps/skeleton/</code>）</td><td>①〜⑨＋<code class="mono">llm-straighten</code>（<code class="mono">-shape-rect</code> 變體再加頭圖層 <code class="mono">llm-shape</code>）</td><td><code class="mono">2-gridding/grid/</code>；泳道結果 <code class="mono">3-straightening/grid/{鏈}/</code></td></tr>
+      <tr><td><code class="mono">llm-skeleton2grid-&lt;model&gt;</code> ×13</td><td>LLM 骨架地圖網格化（消融；輸入＝骨架地圖）</td><td><strong>只</strong> <code class="mono">llm-straighten</code>（＋可選 <code class="mono">llm-shape</code>）；①〜⑨ 不跑</td><td><code class="mono">2-gridding/llm-skeleton2grid/&lt;model&gt;/</code>；泳道 <code class="mono">3-straightening/llm-skeleton2grid/&lt;model&gt;/llm-straighten/</code></td></tr>
+      <tr><td><code class="mono">llm-working2grid-&lt;model&gt;</code> ×13</td><td>LLM 工作地圖網格化（消融；輸入＝工作地圖，連骨架都跳）</td><td>同上，另加 <code class="mono">llm-working2straight</code>（一次 LLM 端到端）</td><td><code class="mono">2-gridding/llm-working2grid/&lt;model&gt;/</code>；泳道 <code class="mono">3-straightening/llm-working2grid/&lt;model&gt;/llm-straighten/</code></td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:12px;">Gridding 介面層 compact＝<code class="mono">llm-skeleton2grid</code>／<code class="mono">llm-working2grid</code>（統一一層，模型由 viewMode 決定；舊 per-model compact <code class="mono">llm-skeleton2grid-opus5</code>… 仍可辨識供遷移）。<strong>限定線形</strong>城市檔＝另一系統 id <code class="mono">&lt;id&gt;-shape-rect</code>（自成城市夾、與畫廊一致），不是舊後綴 <code class="mono">-shape</code>。模型 key 的唯一真相＝<code class="mono">llmSkeleton2GridModels.js</code>／<code class="mono">llmWorking2GridModels.js</code>，兩表 key 必須一致（<code class="mono">ablationSources.js</code> 載入時檢查）。</p>
+  </section>
+
+  <!-- 16c: cells authority -->
+  <section class="slide" data-title="佈局權威 cells">
+    <div class="eyebrow"><span class="tag"><b>16c</b>佈局權威</span><span class="rule"></span><span class="eng">STRAIGHTENING-CELLS</span></div>
+    <h1 class="title">權威在磁碟：一個 json 只存一個圖</h1>
+    <p class="subtitle">單城「計算接續地圖／重新計算」bake 到 <code class="mono">3-straightening/{來源}/[{模型}/]{鏈}/{子夾}/</code>（algo＝<code class="mono">hccells-v13</code>）。<strong>2026-08-03 裁決</strong>：鏈資料夾只是<strong>容器</strong>，底下每個子夾放一個圖——<code class="mono">{鏈}/</code>（該鏈自己的結果）、<code class="mono">network-loop/</code>（程式網絡循環）、<code class="mono">llm-network-loop/</code>（LLM 網絡循環，有跑才有）。會顯示出來的才落檔，中間過程（<code class="mono">endp</code>／<code class="mono">line</code>／<code class="mono">branch</code>／<code class="mono">gather</code>）要用時現算。<strong>有檔就開</strong>——指紋寫進檔內，Info 顯示相符／可能過期，不再拒載。不是 localStorage。</p>
+    <div class="grid cols-3">
+      <div class="card purple"><div class="label">檔名＝城市 id 起，串接沿途所有資料夾名</div><p><code class="mono">as-twn-taipei-3-straightening-grid-algorithm-stroke-algorithm-stroke.json</code><br/><code class="mono">…-grid-algorithm-stroke-network-loop.json</code><br/><code class="mono">…-llm-skeleton2grid-opus5-llm-straighten-llm-network-loop.json</code></p></div>
+      <div class="card purple"><div class="label">畫廊</div><p>骨架 ← <code class="mono">1-raw-maps/skeleton/</code>、網格 ← <code class="mono">2-gridding/grid/</code> 離線檔；Straighten／Frame ← cells <strong>現畫</strong>（<code class="mono">liveGalleryDocs.js</code>；gallery sidecar 寫入已停）。</p></div>
+      <div class="card purple"><div class="label">移動關口</div><p>任何演算法移動節點都經 <code class="mono">makeMover</code>（四硬規則＋FROZEN）；中途站事後 <code class="mono">placeBlacks</code> 平均放回。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:10px;"><strong>2026-08-07 裁決：衍生資料全球保留</strong>——所有 599 城的骨架／網格／直線化均已落檔（22,639 個 / 17.6 MB）。回歸基準 <code class="mono">scripts/frameParity.snapshot.json</code> 現為 <strong>980 組</strong>（全球）。</p>
+  </section>
+
+  <!-- 17: DIVIDER III -->
+  <section class="slide divider" data-title="Straighten">
+    <div class="roman">III</div>
+    <div class="stagechip"><span class="sw" style="background:var(--rose);"></span>STEP 3 · 3 STRAIGHTENING</div>
+    <h1 class="title">Straighten ——<br/>爬山參考＋直線鏈＋movewise</h1>
+    <p class="subtitle">Hill Climbing 僅畫廊參考（論文鏈<strong>不吃</strong> HC 輸出當輸入；②直角爬山是在 HC 結果上再爬的變體）。直線演算法＝論文①〜⑨＋<strong>LLM 直線化</strong>（格網來源命名共 11 條；LLM 骨架地圖／工作地圖網格化是來源軸，非第 10／11 條「演算法」）。每條泳道鏈再走 <strong>movewise 四步鏈</strong>循環壓網格；凡有 LLM 直線化的泳道另可跑 <strong>LLM 網絡循環</strong> 餵第二張 Frame。</p>
+    <div class="pillrow"><span class="pill">五項準則（HC）</span><span class="pill">硬規則與冷卻</span><span class="pill">論文①〜⑨</span><span class="pill">LLM 直線化</span><span class="pill">LLM 指定形狀</span><span class="pill">movewise 四步鏈</span><span class="pill">循環與逐步驗證</span><span class="pill">LLM 網絡循環／直接完成</span><span class="pill">cells 權威</span></div>
+  </section>
+
+  <!-- 18: hill climbing criteria -->
+  <section class="slide" data-title="爬山法準則">
+    <div class="eyebrow"><span class="tag"><b>17</b>多準則爬山法</span><span class="rule"></span><span class="eng">MULTICRITERIA OPTIMIZATION</span></div>
+    <h1 class="title">五項準則，逐頂點爬山</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-hillclimb</span><span class="sk"><span class="role">實作</span>src/stores/hillClimb.js</span></div>
+    <p class="subtitle">逐頂點掃描以自身為中心、半徑 R 內所有格點，取局部適應度最低且通過硬規則者移動；先算便宜的適應度，只有更優者才跑昂貴的幾何硬規則。<strong>論文①〜⑨／llm 的輸入是網格化（或消融）結果，不是本頁 HC 輸出</strong>——HC 供畫廊參考與②的起點。</p>
+    <table class="tbl">
+      <tr><th>準則</th><th>內容</th><th class="num">相對權重</th></tr>
+      <tr><td>c_N1 角解析度</td><td>相鄰邊夾角 → 趨近 2π/度數</td><td class="num">30000</td></tr>
+      <tr><td>c_N5 八方向</td><td>|sin(4θ)|，鼓勵八個標準方向</td><td class="num">9250</td></tr>
+      <tr><td>c_N2 邊長</td><td>每小段長 → hops × 理想格數 L（取初始長/hops 中位數，clamp 1–8）</td><td class="num">50</td></tr>
+      <tr><td>c_N3 平衡邊長</td><td>度 2 頂點兩側鄰段等長</td><td class="num">45</td></tr>
+      <tr><td>c_N4 平直</td><td>共路線相鄰段穿站直行（只算共享 route 的邊對）</td><td class="num">220</td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:14px;">權重差距懸殊（角解析度 30000 vs 平衡邊長 45）反映論文原始設計：先保證路口清楚可辨識，再談美觀微調。</p>
+  </section>
+
+  <!-- 19: hard rules, cooling, cluster moves -->
+  <section class="slide" data-title="硬規則與冷卻">
+    <div class="eyebrow"><span class="tag"><b>18</b>硬規則、冷卻與群集移動</span><span class="rule"></span><span class="eng">HARD RULES &amp; COOLING</span></div>
+    <h1 class="title">四條硬規則否決候選，半徑逐輪冷卻</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-hillclimb</span></div>
+    <div class="grid cols-2">
+      <div class="stack" style="margin-top:0;">
+        <div class="row"><span class="num-badge">1</span><div class="rowtext"><h4>邊界</h4><p>0 ≤ c &lt; cols、0 ≤ r &lt; rows，且一格一頂點。</p></div></div>
+        <div class="row"><span class="num-badge">2</span><div class="rowtext"><h4>相對位置</h4><p>對每個鄰居保持象限，符號不得翻轉。</p></div></div>
+        <div class="row"><span class="num-badge">3</span><div class="rowtext"><h4>無遮蔽</h4><p>候選點不落在他段上、移動後的段不吞掉其他頂點、不與不共端點的段相交。</p></div></div>
+        <div class="row"><span class="num-badge">4</span><div class="rowtext"><h4>邊環繞順序</h4><p>與每個鄰居的入射段依角度循環序，移動前後必須循環相等（度 ≤2 恆成立）。</p></div></div>
+      </div>
+      <div class="card rose">
+        <div class="label">冷卻與增量計算</div>
+        <h3>半徑 [2,1,1]，超長邊群集平移</h3>
+        <p>每站每輪最多 ±2 格，逐輪縮小；移動只重算受影響的節點項與鄰接小段。超長邊（段長 &gt;hops×L）以非超長邊做連通分量，每個真子集（≤200 頂點）整體平移，只檢查跨界硬規則。一整輪無改善即收斂。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 20: HV maximization overview -->
+  <section class="slide" data-title="直線演算法十一條鏈">
+    <div class="eyebrow"><span class="tag"><b>19</b>直線演算法：十一條對照</span><span class="rule"></span><span class="eng">RECTILINEAR REFINEMENT · 11 CHAINS</span></div>
+    <h1 class="title">論文①〜⑨＋LLM 直線化（命名十一條）</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk"><span class="role">總機構</span>route-paper-align</span><span class="sk"><span class="role">實作</span>src/stores/paperAlign.js</span></div>
+    <p class="subtitle">短距離移動非中途站讓水平/垂直段最多。「直線演算法」＝<strong>九篇論文正交化各一條（①〜⑨）＋LLM 直線化</strong>；格網來源再並列 <strong>LLM 骨架地圖網格化</strong> 當第二條 LLM 來源鏈，命名共 11 條對照（LLM 工作地圖網格化是葉節點、下游同 cell）。只算非中途站；中途站事後平均放回。共用硬規則與移動原語、各自迭代到不動點（上限 20）。</p>
+    <div class="grid cols-4">
+      <div class="card rose"><div class="label">① 筆畫法</div><h3>Stroke</h3><p>Li &amp; Dong 2010</p></div>
+      <div class="card rose"><div class="label">② 直角爬山</div><h3>Ortho HC</h3><p>Stott et al. 2011</p></div>
+      <div class="card rose"><div class="label">③ MILP規劃</div><h3>Mixed-Integer</h3><p>Nöllenburg &amp; Wolff 2011</p></div>
+      <div class="card rose"><div class="label">④ 力導向</div><h3>Force-Directed</h3><p>Hong et al. 2006</p></div>
+      <div class="card rose"><div class="label">⑤ 最小平方</div><h3>Least-Squares</h3><p>Wang &amp; Chi 2011</p></div>
+      <div class="card rose"><div class="label">⑥ 八向格網</div><h3>Octilinear Grid</h3><p>Bast et al. 2020</p></div>
+      <div class="card rose"><div class="label">⑦ 路徑簡化</div><h3>Path Simplification</h3><p>Merrick &amp; Gudmundsson 2007</p></div>
+      <div class="card rose"><div class="label">⑧ SAT規劃</div><h3>SAT Solver</h3><p>Fuchs 2022</p></div>
+      <div class="card rose"><div class="label">⑨ 彈性格網</div><h3>Flexible Grid</h3><p>Bast et al. 2021</p></div>
+      <div class="card green"><div class="label">— LLM 直線化</div><h3>llm-straighten</h3><p>非固定演算法</p></div>
+      <div class="card amber"><div class="label">來源 · 骨架地圖網格化</div><h3>llm-skeleton2grid ×13</h3><p>消融來源軸</p></div>
+      <div class="card amber"><div class="label">來源 · 工作地圖網格化</div><h3>llm-working2grid ×13</h3><p>下游同構（＋llm-working2straight）</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;">共用機構：WINDOW ±2、<code class="mono">clampTargets</code>、<code class="mono">finishBatches</code>、<code class="mono">snapAligned</code>、<code class="mono">scoreAlign</code>（HV 優先）、③⑧ 共用 <code class="mono">dirModel</code>。<strong>LLM 不可與①〜⑨並列成演算法效能比較</strong>（論文 3.7.4／6.4）。</p>
+  </section>
+
+  <!-- 20b: paper chains detail I (①〜④) -->
+  <section class="slide" data-title="論文鏈 ①〜④">
+    <div class="eyebrow"><span class="tag"><b>20</b>論文鏈細節 ①〜④</span><span class="rule"></span><span class="eng">PAPER CHAINS I</span></div>
+    <h1 class="title">筆畫、直角爬山、MILP、力導向</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk"><span class="role">①</span>route-stroke-align</span><span class="sk"><span class="role">②</span>route-ortho-polish</span><span class="sk"><span class="role">③</span>route-milp-align</span><span class="sk"><span class="role">④</span>route-force-align</span></div>
+    <table class="tbl">
+      <tr><th>鏈</th><th>文獻</th><th>做法</th></tr>
+      <tr><td><strong>① 筆畫法</strong><br/><code class="mono">stroke</code></td><td>Li &amp; Dong 2010</td><td>把段串成「筆畫」（同路線具名優先、剩餘段跨路線 every-best-fit）；依最大方向扭曲 &gt;45° 遞迴切子筆畫；各子筆畫先試 H/V、被擋才退 ±45°，成員頂點垂直投影到過錨點的定向直線，逐子筆畫當場套用。</td></tr>
+      <tr><td><strong>② 直角爬山</strong><br/><code class="mono">ortho</code></td><td>Stott et al. 2011</td><td>爬山的方向準則從八方向 <code class="mono">|sin4θ|</code> 換成直角 <code class="mono">|sin2θ|</code>（45° 變最貴），權重 ×3、半徑 [2,1,1] 在 Hill Climbing 結果上再爬，迭代到不動點（上限 20 次）。全網 H/V <strong>+42.9%</strong>。</td></tr>
+      <tr><td><strong>③ MILP規劃</strong><br/><code class="mono">milp</code></td><td>Nöllenburg &amp; Wolff 2011</td><td>每段給 3 個八方向候選（最近扇區 ±1），成本＝λ₁·同路線相鄰段彎折＋λ₂·偏離原方向，同頂點同向硬 veto；配對圖分連通元件，生成樹 DP＋feedback 段枚舉<strong>精確</strong>求解方向指派，再鬆弛重建座標＋量化。</td></tr>
+      <tr><td><strong>④ 力導向</strong><br/><code class="mono">force</code></td><td>Hong et al. 2006</td><td>引力 d/δ＋頂點對斥力 δ²/d²＋頂點×不相鄰邊斥力 (γ−d)²/d＋八方向磁場力（力偶垂直於邊），逐頂點在格空間跑 40 輪，位移過 PrEd 8 區域上限，量化後逐頂點批＋嚴格改善套用。</td></tr>
+    </table>
+  </section>
+
+  <!-- 20c: paper chains detail II (⑤〜⑧) -->
+  <section class="slide" data-title="論文鏈 ⑤〜⑧">
+    <div class="eyebrow"><span class="tag"><b>21</b>論文鏈細節 ⑤〜⑧</span><span class="rule"></span><span class="eng">PAPER CHAINS II</span></div>
+    <h1 class="title">最小平方、八向格網、路徑簡化、SAT</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk"><span class="role">⑤</span>route-lsq-align</span><span class="sk"><span class="role">⑥</span>route-octi-align</span><span class="sk"><span class="role">⑦</span>route-path-align</span><span class="sk"><span class="role">⑧</span>route-sat-align</span></div>
+    <table class="tbl">
+      <tr><th>鏈</th><th>文獻</th><th>做法</th></tr>
+      <tr><td><strong>⑤ 最小平方</strong><br/><code class="mono">lsq</code></td><td>Wang &amp; Chi 2011（Focus+Context）</td><td>每段目標向量＝目前邊向量旋到最近八方向、長度不變，解 <code class="mono">min Σ|(ṽᵢ−ṽⱼ)−f_ij|² ＋ w_g·Σ|ṽᵢ−vᵢ|²</code>（Gauss–Seidel 60 輪），量化後單批套用。</td></tr>
+      <tr><td><strong>⑥ 八向格網</strong><br/><code class="mono">octi</code></td><td>Bast et al. 2020</td><td>邊依線度數 ldeg 排序逐邊定案：未定案端點在半徑 WINDOW 內的空格候選中選一對，成本＝位移懲罰＋非八方向弦彎折＋站上同路線段線彎；定案格關閉（一格一站）。目標最接近四步鏈的「格子越少越好」。</td></tr>
+      <tr><td><strong>⑦ 路徑簡化</strong><br/><code class="mono">path</code></td><td>Merrick &amp; Gudmundsson 2007</td><td>每條路線的頂點鏈當折線，C=8 方向、ε-圓刺穿求最少 link 的 <strong>C-directed 簡化</strong>（reach＋BFS 分層）；頂點垂直投影到刺穿它的 link，路線依轉乘站數排序漸進、先處理的定案。</td></tr>
+      <tr><td><strong>⑧ SAT規劃</strong><br/><code class="mono">sat</code></td><td>Fuchs 2022</td><td>與 ③MILP <strong>完全同模型</strong>（每段 3 候選、一熱、同頂點同向硬子句、S1/S2 軟子句），求解器換成 <strong>DPLL 分支定界</strong>（most-constrained 優先、單元傳播 veto、目前最佳成本剪枝、節點上限 60000 超限退回原方向）。</td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:12px;">九條演算法鏈接受準則一律用 H/V/45°（countHVD），套用一律經同一套整數格精確幾何硬規則；違反者不採納。⑨彈性格網（Bast et al. 2021）＝⑥ 的延伸：候選改為八向 Hanan 格網節點。跑完可用 Frame「LLM 比較」評審（目前變體只算 orig）。</p>
+  </section>
+
+  <!-- 21a: flex + rect -->
+  <section class="slide" data-title="⑨彈性格網與矩形">
+    <div class="eyebrow"><span class="tag"><b>21b</b>⑨彈性格網 · LLM 指定形狀</span><span class="rule"></span><span class="eng">FLEXGRID &amp; PRESCRIBED SHAPE</span></div>
+    <h1 class="title">⑨是直線鏈；矩形是獨立入口</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk"><span class="role">⑨</span>route-flexgrid-align</span><span class="sk"><span class="role">矩形</span>llm-shape · route-shape-rect-align</span></div>
+    <div class="grid cols-2">
+      <div class="card rose"><div class="label">⑨ 彈性格網 <code class="mono">flex</code></div><h3>Bast et al. 2021 Flexible Base Grids</h3><p>路由核心（ldeg 排序、成本、貪婪定案）沿用 octi；候選改為過所有非中途站的 H/V/45°/135° Hanan 格網節點。與①〜⑧並列為論文直線鏈。</p></div>
+      <div class="card green"><div class="label">LLM 指定形狀（非鏈 #9）</div><h3>規定路段收成該城指定的形狀</h3><p>有指定形狀規定的城市（目前 12 城：11 方形＋維也納＋地標的 45°）才有；規定記在該城地圖 json 的 <code class="mono">metro_system.prescribed_shape</code>；只留 LLM 指定形狀一種入口，結果 <code class="mono">3-straightening/llm-shape/</code>。成方即餵下游直線演算法（執行調整已移除）；唯一暫停＝「重新計算」寫的 <code class="mono">shapeFeedCleared</code>。輸入一律 Gridding flow base，新一次不吃前次矩形。缺檔時資料流可代跑（LLM 唯一破例）。下游可動方形頂點但不得破方。</p></div>
+    </div>
+  </section>
+
+  <!-- 21: LLM align workflow -->
+  <section class="slide" data-title="LLM 直線化">
+    <div class="eyebrow"><span class="tag"><b>22</b>LLM 鏈 · 直線化</span><span class="rule"></span><span class="eng">LLM AS OPTIMIZER</span></div>
+    <h1 class="title">語言模型直接讀圖提案（有結果即套用）</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">llm-straighten</span><span class="sk">llm-network-loop</span></div>
+    <p class="subtitle">論文①〜⑨之外的 <strong>LLM 鏈</strong>（非固定演算法；2026-08-02 起介面稱「LLM 直線化」，資料夾＝<code class="mono">{來源}/{鏈}/{鏈}/</code>，結果在該檔的 <code class="mono">align</code> 子物件，取值一律 <code class="mono">alignOf(doc)</code>）——不用 API key，由 agent CLI 的模型當最佳化器。結果離線預算、存檔，網頁只載入。<strong>有結果即套用</strong>主視圖（自動／指定以 <code class="mono">generatedAt</code> 較新者顯示）；「執行調整」已移除。提案經與論文鏈相同硬規則 apply，淨 H/V 變差整批退回。</p>
+    <div class="flowrow">
+      <div class="card green fstep"><div class="label">1 · export</div><p>印出目前佈局：offSegs（未對齊）、hvSegs（已對齊鎖定）</p></div>
+      <div class="farrow">→</div>
+      <div class="card green fstep"><div class="label">2 · 模型推理</div><p>短距離提案移動（±1~3 格），寫 moves（含 model／note）</p></div>
+      <div class="farrow">→</div>
+      <div class="card green fstep"><div class="label">3 · apply</div><p>硬規則套用 → 寫 <code class="mono">3-straightening/{來源}/{鏈}/{鏈}/</code> 的 <code class="mono">align</code>（含 executor）</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;">重複到 H/V 不再進步，上限 10 輪。<strong>絕不手改</strong>結果檔。兩支 skill、<strong>同一份結果檔</strong>：<code class="mono">llm-straighten</code>（不必下指示、起點固定＝該層 Gridding 結果；<strong>模型由泳道 lane-lock 決定——grid 來源固定 Opus 5，消融泳道鎖來源模型，面板不給下拉</strong>）與 <code class="mono">llm-straighten-prompt</code>（一句話引導、起點＝目前顯示、可續跑、固定 Opus 5）。<strong>跑完接的是程式網絡循環</strong>（movewise：移點-移線-移枝-併格，程式自己算）；<code class="mono">llm-network-loop</code> 是另一條鏈、只多餵一張 Frame 版面，要跑由使用者自己按（CLI 寫 <code class="mono">--chain=loop</code>）。</p>
+  </section>
+
+  <!-- 22b: LLM nine chains overview -->
+  <section class="slide" data-title="LLM 九鏈總覽">
+    <div class="eyebrow"><span class="tag"><b>22b</b>LLM 九鏈</span><span class="rule"></span><span class="eng">NINE LLM ROUTES</span></div>
+    <h1 class="title">固定的只有 schema、驗證器、檔格式</h1>
+    <p class="subtitle">瀏覽器無 API key；dev server spawn 本機的 <strong>agent CLI</strong>——<code class="mono">claude</code>（Claude Code）或 <code class="mono">cursor-agent</code>（Cursor 代管的 GPT／Gemini／Grok／Composer／Kimi／GLM，先 <code class="mono">cursor-agent login</code>，同樣不用 API key）。哪一支由模型表的 <code class="mono">provider</code> 決定，參數一律經 <code class="mono">llmProviders.js</code> 的 <code class="mono">buildLlmSpawn</code> 組裝。九條路由各有 <code class="mono">/run</code>／<code class="mono">/status</code>／<code class="mono">/clear</code> 端點。GitHub Pages 只能讀已產生結果檔。</p>
+    <table class="tbl dense">
+      <tr><th>功能</th><th>skill／API</th><th>輸出目錄</th><th>套用</th></tr>
+      <tr><td>LLM 直線化（自動／指定）</td><td>llm-straighten · <code class="mono">/llm-straighten-align</code></td><td>3-straightening/{來源}/{鏈}/{鏈}/</td><td>有結果即套用（無執行調整）</td></tr>
+      <tr><td>LLM 網絡循環</td><td>llm-network-loop · <code class="mono">/llm-network-loop</code></td><td>3-straightening/{來源}/[{模型}/]{鏈}/llm-network-loop/</td><td>另餵一張 Frame（<code class="mono">llm-network-loop</code>）；不覆寫同容器的 <code class="mono">network-loop/</code></td></tr>
+      <tr><td>LLM 工作地圖直線化</td><td>llm-working2straight · <code class="mono">/llm-working2straight</code></td><td>3-straightening/llm-working2straight/{模型}/（非容器，單層）</td><td>一次 LLM 端到端；Frame <code class="mono">llm-working2straight</code></td></tr>
+      <tr><td>LLM 指定形狀</td><td>llm-shape · <code class="mono">/llm-shape</code></td><td>3-straightening/{來源}/llm-shape/（是<strong>輸入</strong>不是鏈結果，單層）</td><td>成方即餵下游；<strong>唯一可由資料流代跑</strong>的 LLM 鏈</td></tr>
+      <tr><td>LLM 骨架地圖網格化</td><td>llm-skeleton2grid · <code class="mono">/llm-skeleton2grid</code></td><td>2-gridding/llm-skeleton2grid/&lt;model&gt;/</td><td>寫指派；下游 llm＋movewise</td></tr>
+      <tr><td>LLM 工作地圖網格化</td><td>llm-working2grid · <code class="mono">/llm-working2grid</code></td><td>2-gridding/llm-working2grid/&lt;model&gt;/</td><td>同上，另加 <code class="mono">llm-working2straight</code></td></tr>
+      <tr><td>LLM 互動（欄列權重）</td><td>route-llm-grid · <code class="mono">/llm-grid</code></td><td>4-frame-maps/llm-grid/</td><td>按「執行調整」切換</td></tr>
+      <tr><td>LLM 評價</td><td>route-llm-eval · <code class="mono">/llm-eval</code></td><td>4-frame-maps/llm-eval/</td><td>按「執行調整」切換</td></tr>
+      <tr><td>LLM 比較</td><td>route-llm-compare · <code class="mono">/llm-compare</code></td><td>4-frame-maps/llm-compare/</td><td>唯讀、不動座標</td></tr>
+    </table>
+  </section>
+
+  <!-- 22b2: executors and model table -->
+  <section class="slide" data-title="執行器與模型表">
+    <div class="eyebrow"><span class="tag"><b>22b2</b>三支 CLI · 13 個模型</span><span class="rule"></span><span class="eng">EXECUTORS &amp; MODELS</span></div>
+    <h1 class="title">誰去跑：claude／cursor-agent／dsc</h1>
+    <div class="skillbar"><span class="sklabel">實作</span><span class="sk">src/lib/llmProviders.js</span></div>
+    <p class="subtitle">三支 CLI 的<strong>旗標不相容</strong>，所以模型表每一列都帶 <code class="mono">provider</code>，spawn 前一律由 <code class="mono">buildLlmSpawn</code> 組裝（勿在 spawn 點手寫參數）。單一 skill 模式下，<strong>SKILL.md 全文嵌入提示詞</strong>；claude 另以 <code class="mono">--disallowedTools Skill,Read(.claude/skills/**)</code> 確保子行程不叫別支 skill，新增鏈時提示詞照原格式寫即可。</p>
+    <table class="tbl dense">
+      <tr><th>provider</th><th>執行檔（env）</th><th>旗標</th><th>Skill 工具</th><th>登入</th></tr>
+      <tr><td><code class="mono">claude</code></td><td><code class="mono">claude</code>（<code class="mono">CLAUDE_BIN</code>）</td><td><code class="mono">-p --model --output-format stream-json --verbose --permission-mode acceptEdits --allowedTools … --disallowedTools Skill,Read(.claude/skills/**)</code></td><td><strong>無</strong>（disallowed）</td><td>Claude Code 既有登入</td></tr>
+      <tr><td><code class="mono">cursor</code></td><td><code class="mono">cursor-agent</code>（<code class="mono">CURSOR_AGENT_BIN</code>）</td><td><code class="mono">-p --model --output-format stream-json --force --trust</code>（無 <code class="mono">--verbose</code>；事件是 <code class="mono">tool_call</code>）</td><td><strong>無</strong></td><td><code class="mono">cursor-agent login</code>（OAuth、吃訂閱）</td></tr>
+      <tr><td><code class="mono">deepseek</code></td><td><code class="mono">dsc</code>（<code class="mono">DEEPSEEK_API_KEY</code>）</td><td><code class="mono">-yolo -new -no-duet -effort max</code>（<strong>單破折號</strong>；<code class="mono">-no-duet</code> 關閉 Two-Model Duet；<code class="mono">-new</code> 強迫新 session）</td><td><strong>無</strong></td><td><code class="mono">DEEPSEEK_API_KEY</code>（按用量計費）</td></tr>
+    </table>
+    <table class="tbl dense" style="margin-top:12px;">
+      <tr><th>key</th><th>模型</th><th>provider</th><th>CLI id</th></tr>
+      <tr><td><code class="mono">opus5</code>／<code class="mono">fable5</code>／<code class="mono">sonnet5</code>／<code class="mono">haiku45</code></td><td>Opus 5／Fable 5／Sonnet 5／Haiku 4.5</td><td>claude</td><td><code class="mono">claude-opus-5</code>／<code class="mono">claude-fable-5</code>／<code class="mono">claude-sonnet-5</code>／<code class="mono">claude-haiku-4-5-20251001</code></td></tr>
+      <tr><td><code class="mono">gpt56sol</code></td><td>GPT-5.6 Sol</td><td>cursor</td><td><code class="mono">gpt-5.6-sol-max</code></td></tr>
+      <tr><td><code class="mono">codex53</code></td><td>Codex 5.3</td><td>cursor</td><td><code class="mono">gpt-5.3-codex-xhigh</code></td></tr>
+      <tr><td><code class="mono">gemini31</code></td><td>Gemini 3.1 Pro</td><td>cursor</td><td><code class="mono">gemini-3.1-pro</code></td></tr>
+      <tr><td><code class="mono">grok45</code></td><td>Grok 4.5</td><td>cursor</td><td><code class="mono">cursor-grok-4.5-high</code></td></tr>
+      <tr><td><code class="mono">composer25</code>／<code class="mono">kimik3</code>／<code class="mono">glm52</code></td><td>Composer 2.5／Kimi K3／GLM 5.2</td><td>cursor</td><td><code class="mono">composer-2.5</code>／<code class="mono">kimi-k3-max</code>／<code class="mono">glm-5.2-max</code></td></tr>
+      <tr><td><code class="mono">deepseekv4pro</code>／<code class="mono">deepseekv4flash</code></td><td>DeepSeek V4 Pro／DeepSeek V4 Flash</td><td>deepseek</td><td><code class="mono">deepseek-v4-0709</code>／<code class="mono">deepseek-v4-0709-flash</code></td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:12px;">三條規則：Cursor 側<strong>只收非 Anthropic 模型</strong>；deepseek 直連官方 API（Cursor 目錄沒有它）；檔位一律取該模型<strong>可用的最高推理檔</strong>（混檔位＝論文上的混淆變項）。<code class="mono">llm-skeleton2grid</code>／<code class="mono">llm-working2grid</code> 依 compact 鎖定模型；<code class="mono">llm-straighten</code> 的模型由泳道決定（lane-locked），面板不給下拉。</p>
+  </section>
+
+  <!-- 22c: model enforcement -->
+  <section class="slide" data-title="模型標註保證">
+    <div class="eyebrow"><span class="tag"><b>22c</b>模型標註保證</span><span class="rule"></span><span class="eng">LLM_ENFORCED_MODEL</span></div>
+    <h1 class="title">--model 只宣告；enforced 才算對照</h1>
+    <p class="subtitle"><code class="mono">--model=</code> 旗標<strong>不挑執行者</strong>，只決定資料夾與標註字串——誰跑腳本就是誰在算（曾因此整批標錯）。真保證＝驅動程式決定模型 id、spawn <code class="mono">&lt;cli&gt; --model &lt;id&gt;</code>（cli＝claude 或 cursor-agent），並經 <code class="mono">LLM_ENFORCED_MODEL</code> 傳同一個 key。</p>
+    <div class="grid cols-3">
+      <div class="card green"><div class="label">executor: enforced</div><p><code class="mono">_llmProvenance.mjs</code> 有環境變數且相符 → 覆寫 model 標註並記 enforced；對不上拒絕寫檔。CLI 批次走 <code class="mono">llmChainBatch.mjs</code>；網頁面板走 <code class="mono">claudeSkillTrigger.js</code>。全部鏈都已接上。</p></div>
+      <div class="card amber"><div class="label">executor: declared</div><p>無該變數＝人工／編輯器 agent／子代理自跑，僅自律。設 <code class="mono">LLM_REQUIRE_ENFORCED=1</code> 可全面禁止自我宣告。<strong>論文模型對照只能用 enforced</strong>；2026-07-29 前檔無此欄＝declared。</p></div>
+      <div class="card rose"><div class="label">executor: batch</div><p><code class="mono">llmStraightenBatch.mjs</code> 的<strong>純程式啟發式</strong>（<code class="mono">model: batch-hvd</code>）——短距 H/V 優先、45° 次之，用來補滿畫廊空格，<strong>不是任何模型跑的</strong>。預設不覆蓋 enforced／declared 結果；論文對照與 LLM 成績都不可計入。</p></div>
+    </div>
+  </section>
+
+  <!-- 22d: who actually decides the coordinates -->
+  <section class="slide" data-title="座標由誰決定">
+    <div class="eyebrow"><span class="tag"><b>22d</b>座標由誰決定</span><span class="rule"></span><span class="eng">WHO MOVES THE POINTS</span></div>
+    <h1 class="title">程式挑 skill、模型算座標、程式驗證落檔</h1>
+    <div class="skillbar"><span class="sklabel">實作</span><span class="sk">src/lib/llmProviders.js</span><span class="sk">scripts/_llmProvenance.mjs</span></div>
+    <p class="subtitle">一次 LLM 執行分三層，責任界線就是論文可稽核性的界線：<strong>固定的只有第①③層</strong>（export schema、硬規則驗證器、結果檔格式），第②層每次都可能不一樣。</p>
+    <div class="flowrow">
+      <div class="card blue fstep"><div class="label">① 程式挑 skill</div><p>skill id 硬寫在 <code class="mono">vite/llmTriggers.js</code> 的提示詞與 <code class="mono">llmChainBatch.mjs</code> 的對照表——模型沒有選擇權</p></div>
+      <div class="farrow">→</div>
+      <div class="card green fstep"><div class="label">② 模型算座標</div><p>讀 SKILL.md 與 export 的 JSON，在自己的推理裡決定 (col,row)；管線<strong>沒有內建解算器</strong></p></div>
+      <div class="farrow">→</div>
+      <div class="card blue fstep"><div class="label">③ 程式驗證落檔</div><p>硬規則違反整批退回、量測 H/V 與格網、寫結果檔（含 fingerprint／transcript／executor）</p></div>
+    </div>
+    <div class="grid cols-2" style="margin-top:14px;">
+      <div class="card amber"><div class="label">模型可以現寫程式</div><p>agent CLI 有 <code class="mono">Bash(node:*)</code>，難的城市模型常自寫一次性搜尋腳本（並 <code class="mono">import</code> 專案的 <code class="mono">measureCells</code>／<code class="mono">edgeOrderViolations</code> 當 oracle）。這些腳本只准寫在 <code class="mono">.tmp-llmsizes/</code>、<strong>不進版控、下次不沿用</strong>——所以可稽核的是結果檔的 transcript 與指紋，不是腳本。</p></div>
+      <div class="card rose"><div class="label">程式端仍會動座標（四處，必須揭露）</div><p><strong>1</strong> <code class="mono">applyTargets</code> 軸向 fallback：目標被擋時改試只動 X／只動 Y，落點可能是模型沒提過的格。<strong>2</strong> <code class="mono">compactGridSafe</code> 刪空欄列後整體重編號。<strong>3</strong> LLM 指定形狀的讓位／貪心／回歸三段。<strong>4</strong> <code class="mono">batch-hvd</code> 純程式啟發式。中途站一律 <code class="mono">placeBlacks</code> 平均放回，模型不指派。</p></div>
+    </div>
+  </section>
+
+  <!-- 22: movewise chain -->
+  <section class="slide" data-title="movewise 四步鏈">
+    <div class="eyebrow"><span class="tag"><b>23</b>movewise 四步鏈</span><span class="rule"></span><span class="eng">MOVEWISE COMPACTION CHAIN</span></div>
+    <h1 class="title">每一個移動後，立即縮減網格</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-movewise-loop</span><span class="sk"><span class="role">跨距上限</span>route-span-cap</span></div>
+    <p class="subtitle">十一條鏈的結果再各走一條四步鏈：<strong>移點 → 移線 → 移枝 → 併格</strong>（移枝為 2026-08-07 新增）。「縮減網格」不是獨立步驟——<strong>每一個單一移動完成後就把整排/整欄沒有非中途站的欄列移除</strong>（movewise），網格隨時緻密、尺寸逐移動縮小。</p>
+    <div class="grid cols-4">
+      <div class="card rose"><div class="label">共同守則 1</div><h3>一次只移一格</h3><p>四個演算法一致；遠距離的對齊與合併靠「移一格→壓縮→再移一格」逐步完成。</p></div>
+      <div class="card rose"><div class="label">共同守則 2</div><h3>跨距上限與位移上限</h3><p>跨距：任何移動不得讓受影響段的兩個顏色點橫跨超過 n 格（Chebyshev；Straighten 工具列輸入、<strong>預設 4</strong>、改數字即重算——只約束爬山 movewise，Frame 畫線不用）。舊長段豁免、只准縮短，所以它不保證輸出跨距 ≤ 上限。位移：所有候選離「循環輸入」錨點不得超過 <strong>0.20</strong>（正規化歐氏距離）。</p></div>
+      <div class="card rose"><div class="label">共同守則 3</div><h3>拓撲鐵律</h3><p>所有移動走同一套硬規則：不壓點、不新增交叉、不產生路線重疊、象限與邊環繞序不變——怎麼壓，拓撲都不變。</p></div>
+      <div class="card rose"><div class="label">共同守則 4</div><h3>單調收斂</h3><p>每種移動各守一個嚴格單調量（H/V 數、網格欄列數…），不用能量函數也保證終止。</p></div>
+    </div>
+  </section>
+
+  <!-- 23: the three algorithms -->
+  <section class="slide" data-title="四個演算法">
+    <div class="eyebrow"><span class="tag"><b>24</b>四步鏈的四個演算法</span><span class="rule"></span><span class="eng">FOUR MOVE KINDS</span></div>
+    <h1 class="title">點移一格、線移一格、枝整團移、邊界兩兩合併</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk"><span class="role">1</span>route-endpoint-move</span><span class="sk"><span class="role">2</span>route-line-compact</span><span class="sk"><span class="role">3</span>route-branch-shift</span><span class="sk"><span class="role">4</span>route-grid-merge</span></div>
+    <div class="grid cols-4" style="margin-top:16px;">
+      <div class="card rose"><div class="label">1 · 移點 <code class="mono">endp</code></div><h3>每個非中途站移 1 格</h3><p>八方向含 45°。採納序：<strong>消交叉優先</strong> → 入射段 H/V 淨增最多 → 都沒有才挑入射段總長縮最多。<code class="mono">STRICT_NO_BEND</code>：本來已經是直線的不准變成不是直線（段層＋頂點層兩個層次）。</p></div>
+      <div class="card rose"><div class="label">2 · 移線 <code class="mono">line</code></div><h3>整條直線垂直平移 ±1</h3><p>「直線」＝同軸共線段跨相交點串接的連通元件（轉乘/交叉點被直穿就整條一起動）。水平線只上下移、垂直線只左右移；必須嚴格減少佔用欄列數、且全網 H/V 段數不減。</p></div>
+      <div class="card rose"><div class="label">3 · 移枝 <code class="mono">branch</code></div><h3>整團子圖剛體平移 1 格</h3><p>2026-08-07 新增。先找圖的<strong>橋（cut edge）</strong>，每座橋切出的一側是一個分枝，整團一次搬動；團內部所有段原封不動，唯一會變形的是那條橋，所以採納條件與移線共用。補的是前三者都搬不動的情形——靠一條長對角邊吊在網絡外的整團（新加坡＋LRT 的盛港／榜鵝環線）。</p></div>
+      <div class="card rose"><div class="label">4 · 併格 <code class="mono">gather</code></div><h3>row/col 兩兩合併</h3><p>合併 r|r+1＝「row&gt;r 的所有點整體上移一格」（半平面剛體平移、自帶壓縮），col 同理。合法性走與前三者相同的硬規則；附帶保證跨距只縮不增、H/V 只增不減。矩形城市另試成對縮方（45° 跳過）。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:16px;">收斂單調量分別是 <strong>(−H/V 數, 斜線長, 總長) 字典序</strong>、<strong>網格欄列數嚴格遞減</strong>、移枝與移線同一組、<strong>每次合併欄列數 −1</strong>——全部有界，保證終止。</p>
+  </section>
+
+  <!-- 24: loop & step verify -->
+  <section class="slide" data-title="循環與逐步驗證">
+    <div class="eyebrow"><span class="tag"><b>25</b>循環與逐步驗證</span><span class="rule"></span><span class="eng">ROUND-ROBIN &amp; STEP-THROUGH</span></div>
+    <h1 class="title">四個演算法各跑到不動點輪替；每一步都能重播</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk"><span class="role">循環</span>route-movewise-loop</span><span class="sk"><span class="role">逐步</span>route-step-verify</span></div>
+    <div class="grid cols-2">
+      <div class="card rose"><div class="label">循環</div><h3>算到不能動才換手，全靜止才停</h3><p>每輪＝移點跑到自己的<strong>不動點</strong> → 移線跑到不動點 → 移枝跑到不動點 → 併格跑到不動點 → 回到移點；某一輪四個演算法都沒有任何改動才停止（上限 200 輪、矩形凍結 40 輪）。收斂後再跑一次共用的 <code class="mono">loopPostConverge</code>（<strong>拉直 pass</strong>＋再壓縮）。Frame Maps 的底圖就是這個循環的收斂結果。</p></div>
+      <div class="card rose"><div class="label">逐步驗證</div><h3>下一步／下一小步／上一步</h3><p>「下一步」＝目前演算法掃一遍、掃完換下一個；「下一小步」＝這一遍中的下一個單一移動，圖上以<strong>前後比對</strong>標示（舊位置虛線空心圈、虛線軌跡、新位置橘色實圈、訊息附座標）；「上一步／上一小步」快照復原；<strong>四階段 chips</strong>顯示目前工作。面板位置＝底部「逐步檢視」分頁。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:16px;">逐步驗證全用大步跑到收斂的結果，與循環 tab <strong>完全一致</strong>——逐步不是示意動畫，就是同一個演算法被一步一步執行。</p>
+  </section>
+
+  <!-- 25: convergence stats -->
+  <section class="slide" data-title="收斂統計">
+    <div class="eyebrow"><span class="tag"><b>26</b>收斂結果與實測統計</span><span class="rule"></span><span class="eng">CONVERGENCE STATS</span></div>
+    <h1 class="title">全量實測，全數收斂<span style="font-size:.5em;font-weight:400;opacity:.7;">（599 系統）</span></h1>
+    <p class="subtitle">直線演算法十一條鏈各自迭代到不動點（上限 20 次）；四步鏈循環＝四個演算法各跑到不動點輪替到全靜止（上限 200 輪、矩形凍結 40 輪，實測普遍 2–5 輪）。全部確定性、無亂數。</p>
+    <table class="tbl">
+      <tr><th>項目</th><th>結果</th><th class="num">備註</th></tr>
+      <tr><td>②直角爬山鏈（迭代到不動點）</td><td>全網 H/V <strong>+42.9%</strong>、全數收斂</td><td class="num">比較基準；其餘鏈依方法各異</td></tr>
+      <tr><td>循環（599 系統全量）</td><td><strong>599/599 全數收斂</strong>，總計約 5 秒</td><td class="num">普遍 2–5 輪</td></tr>
+      <tr><td>壓縮幅度（例）</td><td>台北 68×68 → 約 14×13；NYC 160×160 → 約 31×34</td><td class="num">拓撲逐段驗證不變</td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:14px;">每一步的合法性都由同一套整數格精確幾何硬規則把關；「線段最大跨距」可在 Straighten 工具列調整（<strong>預設 4 格</strong>、只約束爬山 movewise），改數字即以新上限全部重算。</p>
+  </section>
+
+  <!-- 23: DIVIDER IV -->
+  <section class="slide divider" data-title="Frame Maps">
+    <div class="roman">IV</div>
+    <div class="stagechip"><span class="sw" style="background:var(--amber);"></span>STEP 4 · 4 FRAME MAPS</div>
+    <h1 class="title">Frame Maps ——<br/>版面路網畫線</h1>
+    <p class="subtitle">把 Straighten「循環」的收斂結果重繪成嚴格方向約束的折線（<strong>任意／4／8／16 方向</strong>，預設 H/V/45°）；方向約束以「畫面像素」為準，版面一變（resize／裝置模擬／權重／魚眼）就在新像素座標重新求解，圖隨板面變形。</p>
+    <div class="pillrow"><span class="pill">同軌路線合併</span><span class="pill">候選折線</span><span class="pill">方向級與選擇序</span><span class="pill">絕不交叉的多層消解</span><span class="pill">軟目標收尾</span><span class="pill">版面模擬與魚眼</span><span class="pill">流量權重</span><span class="pill">LLM 互動・評價・比較</span></div>
+  </section>
+
+  <!-- 24: parallel route merging -->
+  <section class="slide" data-title="同軌路線合併">
+    <div class="eyebrow"><span class="tag"><b>27</b>同軌路線合併</span><span class="rule"></span><span class="eng">PARALLEL SEG MERGING</span></div>
+    <h1 class="title">重疊就一條，不錯開成平行線<span style="font-size:.5em;color:#e11d48"> ⚠ 2026-08-10 已停用</span></h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-frame-draw</span><span class="sk"><span class="role">實作</span>src/stores/frameMap.js</span></div>
+    <p class="subtitle"><b>本機制已於 2026-08-10 停用</b>——使用者裁決「Frame 完全不可以改 3 直線化的結果」。合併會把同一對端點的兩條邊併成一條並刪掉其中一條，等於改動拓撲；而骨架插切斷站的用意正是「這兩條必須分開畫」（大阪天王寺↔交叉點即為此例）。`mergeParallelSegs` 現為 identity，以下保留原規格供回溯。</p>
+    <div class="grid cols-2">
+      <div class="card amber"><div class="label">(A) 同端點</div><h3>共用兩個 cut 端點</h3><p>快車直達＋普通車等共端點路線，站數最多的當代表、其餘 routes 併入，其 seg 丟棄。</p></div>
+      <div class="card amber"><div class="label">(B) 幾何重疊</div><h3>快車跨過中間轉乘節點</h3><p>快車邊整條 edge.geom 都貼在另一組邊的軌道上（偏差 &lt;10m），即使跳過中間 junction，仍併入這條鏈。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;"><strong>涵蓋性防呆（絕不可省）：</strong>只有當被併掉的邊每一站都已在保留路徑上才併——否則被丟掉的獨有站會孤立。一條獨立線（如 Sydney Metro）可以和市郊鐵路共軌但有自己的車站，這種一律不併。599 系統全量實測 <strong>0 孤立站</strong>。</p>
+  </section>
+
+  <!-- 25: candidate polylines -->
+  <section class="slide" data-title="候選折線">
+    <div class="eyebrow"><span class="tag"><b>28</b>候選折線與轉折優先序</span><span class="rule"></span><span class="eng">CANDIDATE ROUTING</span></div>
+    <h1 class="title">直線 &gt; 單折 &gt; 雙折 &gt; 多折，轉折數絕對優先</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-frame-draw</span></div>
+    <p class="subtitle">每段依轉折數由少到多產生候選折線：直線、單折（45° 或 L）、雙折兩家族（45–H–45／H–45–H，分點 1/2·1/4·3/4）、三折混合（axis–45–axis–45）、45° 與軸腿任意次交替的階梯（折數硬頂 ≤20）。方向判準以像素為準：Δy≈0→H、Δx≈0→V、|Δx|≈|Δy|→45°。</p>
+    <div class="bendrow">
+      <div class="bendcard"><svg viewBox="0 0 100 60"><path d="M10,30 H90" fill="none" stroke="#d97706" stroke-width="4" stroke-linecap="round"/><circle cx="10" cy="30" r="4" fill="#0f172a"/><circle cx="90" cy="30" r="4" fill="#0f172a"/></svg><div class="t">直線</div><div class="d">0 轉折・規則 0 鐵律：可直線且零衝突就鎖定</div></div>
+      <div class="bendcard"><svg viewBox="0 0 100 60"><path d="M10,15 H55 L90,50" fill="none" stroke="#d97706" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="15" r="4" fill="#0f172a"/><circle cx="90" cy="50" r="4" fill="#0f172a"/></svg><div class="t">單轉折</div><div class="d">L 形或 45°收尾</div></div>
+      <div class="bendcard"><svg viewBox="0 0 100 60"><path d="M10,15 L35,40 H65 L90,15" fill="none" stroke="#d97706" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="15" r="4" fill="#0f172a"/><circle cx="90" cy="15" r="4" fill="#0f172a"/></svg><div class="t">雙轉折</div><div class="d">45–H–45／H–45–H 兩家族</div></div>
+      <div class="bendcard"><svg viewBox="0 0 100 60"><path d="M10,50 L30,30 H50 L70,10 H90" fill="none" stroke="#d97706" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="50" r="4" fill="#0f172a"/><circle cx="90" cy="10" r="4" fill="#0f172a"/></svg><div class="t">交替階梯</div><div class="d">45° 與軸腿任意次交替</div></div>
+      <div class="bendcard"><svg viewBox="0 0 100 60"><path d="M10,10 L90,50" fill="none" stroke="#94a3b8" stroke-width="4" stroke-linecap="round" stroke-dasharray="5 4"/><circle cx="10" cy="10" r="4" fill="#0f172a"/><circle cx="90" cy="50" r="4" fill="#0f172a"/></svg><div class="t">兜底</div><div class="d">全衝突才用非法角度（實測全城 0）</div></div>
+    </div>
+    <div class="grid cols-2" style="margin-top:14px;">
+      <div class="card amber"><div class="label">45° 轉 45° 禁止</div><p>折線不得有兩條相鄰腿皆為斜線——斜腿一律被軸向直線隔開；H/V 線因此沒有合法單折繞行（唯一單折是被禁的 45-45 三角），只剩單折大繞行與雙折平行偏移。</p></div>
+      <div class="card amber"><div class="label">直角樓梯禁止</div><p>對角走向的段要用 45° 斜線，不畫一階一階的 H-V-H 樓梯（vh-vh-vh）；A* 救援在非正方版面只能走直角、產生的樓梯由收尾 destairPass 換回 45° 折線。</p></div>
+    </div>
+  </section>
+
+  <!-- 25b: direction levels & selection order -->
+  <section class="slide" data-title="方向級與選擇序">
+    <div class="eyebrow"><span class="tag"><b>29</b>方向級與候選選擇序</span><span class="rule"></span><span class="eng">DIRECTION LEVELS &amp; PICKBEST</span></div>
+    <h1 class="title">任意／4／8／16 方向：能用低一級就不用高一級</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-frame-draw</span></div>
+    <p class="subtitle">工具列「方向」下拉四選一（預設 8），四個方向級<strong>同一套判斷邏輯</strong>，差別只在允許的腿方向集合。方向級優先是 tie-break 不是硬閘：衝突數（含近距貼線）排在方向級之前——零衝突的 22.5° 贏過有重疊或貼線的 45°；兩者都乾淨時 45° 一定優先。決勝序 H/V → 45° → 22.5° → 任意角。</p>
+    <div class="grid cols-4">
+      <div class="card green"><div class="label">任意方向（不限角度）</div><p>任兩點直線恆為合法候選（<strong>直線優先</strong>，Rule 0 走廊含任意角）；被擋時先貼旁走、角度不變。衝突／貼線把任意角腿當獨立族處理。這是方向約束的<strong>消融端點</strong>——關掉八向約束看代價曲線。</p></div>
+      <div class="card amber"><div class="label">4 方向（只 H/V）</div><p>不產任何 45° 候選；對角段用同一組候選骨架、每條 45° 腿展開成 H/V，另直接生成真 Z 字（V–H–V／H–V–H，分點 50/25/75）；A* 純直角步進。實測全城 45°＝0。</p></div>
+      <div class="card amber"><div class="label">8 方向（預設）</div><p>＋45°。本節所述的完整候選折線規則。</p></div>
+      <div class="card amber"><div class="label">16 方向（＋22.5°/67.5°）</div><p>加 22.5° 族候選：單折、雙折（斜–軸–斜／軸–斜–軸）、45＋22.5 混合家族（同一條路可以 45 與 22.5 組合）；斜腿仍一律被軸向腿隔開。收尾 deskewPass 把走廊空出後的 22.5 段升回 45 級——折數可增（方向級優先於折數）。</p></div>
+    </div>
+    <div class="card blue" style="margin-top:14px;">
+      <div class="label">候選選擇序（pickBest，八鍵字典序）</div>
+      <p>① 衝突數最少 → ② 近距貼線最短（視覺上的貼線也是「重疊」）→ ③ 45 優於 22.5° → ④ 折數最少 → ⑤ 硬共線重疊最短 → ⑥ 分點 50%→25%→75% → ⑦ 軟共線最短 → ⑧ 路徑總長最短（線越短越好，最弱一階）。</p>
+    </div>
+  </section>
+
+  <!-- 26: conflict escalation -->
+  <section class="slide" data-title="絕不交叉">
+    <div class="eyebrow"><span class="tag"><b>30</b>絕不交叉的多層消解</span><span class="rule"></span><span class="eng">CONFLICT ESCALATION</span></div>
+    <h1 class="title">候選都衝突時，依序升級七個層級</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-frame-draw</span></div>
+    <p class="subtitle">「路線交叉絕不允許」是最高優先硬規則。衝突判定：共線重疊/平行貼線（累積 ≤25% 弧長硬上限）、線段相交（端點對端點除外，<strong>同一對線最多交叉一次</strong>）、壓過節點直接淘汰、<strong>節點環狀順序不可變</strong>（rotation system——同節點任兩條線不得互換位置）。</p>
+    <div class="stack" style="margin-top:8px;">
+      <div class="row"><span class="num-badge">1</span><div class="rowtext"><h4>衝突消減重掃 ＋ 成對線聯合重算</h4><p>重訪每條仍有衝突的線重選候選（至多 4 輪）；仍彼此交錯的一對直接偵測真交叉入場，兩條同時拆掉、聯合搜 bounded-bend 候選組合（方向級優先於總折數），深輪再升級成對 rip——「這對線到底有沒有不交叉畫法」的實質驗證，鎖定直線也解鎖讓路。</p></div></div>
+      <div class="row"><span class="num-badge">2</span><div class="rowtext"><h4>A* 格點佈線（大環繞禁止）</h4><p>半格 lattice 上找只穿過自由空間的路徑；限制在 S–T 走廊窗內、路徑成本設上限——寧可留下局部殘留衝突，也不畫繞整張圖的環繞線。正方格時斜步合法（8 方向）。</p></div></div>
+      <div class="row"><span class="num-badge">3</span><div class="rowtext"><h4>Rip-up &amp; Reroute</h4><p>PCB 佈線手法：被封死（Jordan 曲線圍死）時，拆掉最常撞到的牆線，先畫被關的段、再讓牆線改繞。</p></div></div>
+      <div class="row"><span class="num-badge">4</span><div class="rowtext"><h4>Restart-with-priority</h4><p>仍失敗的段下一輪全圖重排時最先繞線（牆還沒築起來），原牆線改繞它們；至多 6 輪。</p></div></div>
+      <div class="row"><span class="num-badge">5</span><div class="rowtext"><h4>窄縫救援 → 共線救援 → forced</h4><p>以 60% 貼線距離再 A* 一次；再不行放寬「共線/貼線」約束（交叉與壓點依然絕禁）——共線是可接受的次佳解。全部失敗才標 forced（琥珀殘留衝突＝深度 Jordan 封閉的極限案例）。</p></div></div>
+    </div>
+    <p class="subtitle" style="margin-top:12px;"><strong>599 系統全量實測：</strong>0 孤立站、0 非法角度兜底；成對聯合重算上線後殘留交叉對持續降低（多為紐約/東京 JR/巴黎等密網角落）。</p>
+  </section>
+
+  <!-- 27: soft goals -->
+  <section class="slide" data-title="軟目標收尾">
+    <div class="eyebrow"><span class="tag"><b>31</b>軟目標與收尾迭代</span><span class="rule"></span><span class="eng">SOFT GOALS &amp; FINISHING PASSES</span></div>
+    <h1 class="title">同名路線盡量不轉折，L 形能改 45° 就改</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-frame-draw</span></div>
+    <p class="subtitle">衝突消解後的微調，排在折數絕對優先序之後——不會為此增加共線或交叉。收尾迭代跑兩輪：〔A* 樓梯轉 45（destairPass）→ 22.5 升回 45（deskewPass）→ 壓短共線（移分點）→ 順接軟調整 → 降折到定點 → L→45（最後）〕，每步挪動走廊後回頭重撿。</p>
+    <div class="grid cols-2">
+      <div class="card amber"><div class="label">順接軟調整</div><h3>續接角評分</h3><p>同轉折數的候選間互換，分數＝與共站同路線折線的續接角——直線續接(180°) 最佳，依序 135°、90°、45°。</p></div>
+      <div class="card amber"><div class="label">降折到定點＋協商式拉直</div><h3>能少折就少折，能直線就直線</h3><p>降折不得讓軟共線變長；更直的畫法只被 1–2 條線擋住時，拆掉那些線、採用直畫法、擋路線改繞，全部乾淨才提交。變成直線時不設折數預算——已經彎的鄰線要多彎幾折都得讓。</p></div>
+      <div class="card amber"><div class="label">destairPass ＋ deskewPass</div><h3>樓梯換 45、22.5 升回 45</h3><p>A* 救援在非正方版面產生的直角樓梯子段用同一套候選重畫成 45° 折線；16 方向下衝突消解後走廊空出的 22.5 段升回乾淨的 45 級（折數可增，方向級優先於折數）。</p></div>
+      <div class="card amber"><div class="label">L→45（最後一步）</div><h3>能改就必須改</h3><p>純水平接垂直的單折 L 形，若改成「45°＋直線」不與任何線重疊就必須改——優先選同路線鄰段同方向 45° 的那端，結果不再被其他 pass 改動。</p></div>
+    </div>
+  </section>
+
+  <!-- 27b: frames & fisheye -->
+  <section class="slide" data-title="版面模擬與魚眼">
+    <div class="eyebrow"><span class="tag"><b>32</b>版面模擬與魚眼放大鏡</span><span class="rule"></span><span class="eng">DEVICE FRAMES &amp; FISHEYE</span></div>
+    <h1 class="title">同一份佈局，任何版面都重新求解</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-frame-draw</span><span class="sk"><span class="role">版面預設</span>src/lib/frameBoards.js</span></div>
+    <p class="subtitle">方向約束以「畫面像素」為準——欄寬 ≠ 列高是常態，格座標的對角線在畫面上不是 45°，所以折線永遠在<strong>當下畫布的像素空間</strong>重建；視窗或版面一變就重跑整個佈線器（同尺寸 render 用快取）。</p>
+    <div class="grid cols-2">
+      <div class="card amber"><div class="label">版面模擬（工具列「版面」下拉）</div><h3>類 Illustrator artboard 的裝置預設</h3><p>目前面板／網頁橫直（1920×1080…）／手機直橫（iPhone/Android/iPad）／IG（貼文正方、限時動態、直式、橫式）——以固定寬高當畫線座標系、SVG letterbox 置中，用來模擬 Frame 在各裝置的實際輸出。</p></div>
+      <div class="card amber"><div class="label">滑鼠放大鏡（魚眼變形）</div><h3>游標處放大網格，每幀重繞線</h3><p>游標所在細格為焦點，附近欄／列撐開、遠處壓扁（外框固定）；每幀在變形後的像素空間以 fast 模式重繞線（同權重動畫），停穩才 settle 到完整品質。footer 顯示游標座標與欄列。</p></div>
+    </div>
+  </section>
+
+  <!-- 28: traffic weight -->
+  <section class="slide" data-title="流量權重">
+    <div class="eyebrow"><span class="tag"><b>33</b>流量權重與響應式概括化</span><span class="rule"></span><span class="eng">WEIGHT-DRIVEN GENERALIZATION</span></div>
+    <h1 class="title">依流量放大主幹、隱藏次要站</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-frame-draw</span><span class="sk"><span class="role">權重→尺寸</span>src/stores/frameWeight.js</span></div>
+    <p class="subtitle">版面簡化不改拓撲——只把權重轉成非均勻的欄寬列高，在新像素座標重跑 Frame 繪線。weight 粒度＝相鄰兩站的 link，不是段的兩端點。</p>
+    <div class="grid cols-2">
+      <div class="card amber"><div class="label">非均勻欄列</div><h3>取 max 不取 sum</h3><p>欄寬列高由 link weight 取最忙那條決定；權重 0 的欄列不消失（保留 ≈0.25× 均勻寬的下限），外框固定。</p></div>
+      <div class="card amber"><div class="label">白點縮減（隱藏中途站）</div><h3>全域 cutoff 一致</h3><p>逐段算「均分後站距 ≥ 最小站距 pt 所需的 weight 差門檻」，取 max 為全域 cutoff T；任何中途站左右 link 差 ≤T 就隱藏，剩餘站沿弧長重新分配。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;">權重改變不瞬跳——~700ms 內內插起點到目標的格線位置，每幀用內插後座標重算並跑快速版 buildFrameMap，最後一幀走完整品質（settle 到無交叉版面）。</p>
+  </section>
+
+  <!-- 29: LLM grid -->
+  <section class="slide" data-title="LLM 互動">
+    <div class="eyebrow"><span class="tag"><b>34</b>LLM 互動工作流程</span><span class="rule"></span><span class="eng">NATURAL-LANGUAGE GRID WEIGHTS</span></div>
+    <h1 class="title">一句話，讓 AI 推理每欄每列的顯示權重</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk">route-llm-grid</span></div>
+    <p class="subtitle">第二種「權重＝大小」來源：使用者說「把市中心那幾欄拉開」，語言模型逐欄／逐列推理顯示權重——不搬任何站的整數格座標，只改顯示比例，不做任何幾何求解。跑完不自動套用，按「執行調整」才在新像素座標重畫。</p>
+    <div class="codebox">{ <span class="k">"model"</span>: <span class="s">"Fable 5"</span>, <span class="k">"colW"</span>: [1, 1, 4.5, 3, 1, 0.8], <span class="k">"rowW"</span>: [0.9, 1, 3.8, 1.2],
+  <span class="k">"note"</span>: <span class="s">"市中心兩欄放大 4.5x／3x，緊鄰一欄緩衝"</span>,
+  <span class="k">"userPrompt"</span>: <span class="s">"把市中心那幾欄拉開"</span> }</div>
+    <p class="subtitle" style="margin-top:14px;"><strong>規則：</strong>必須給全部區間權重、只能回區間 weight（不可回單點座標）；核心目標區間縮放要明顯（3–5 倍，至少一組 ≥3）；漸近而非單格尖峰——核心最大、緊鄰緩衝、外層回到 1。系統負責正規化外框與重畫，模型只決定意圖與強度。</p>
+  </section>
+
+  <!-- 29b: LLM eval & compare -->
+  <section class="slide" data-title="LLM 評價與比較">
+    <div class="eyebrow"><span class="tag"><b>35</b>LLM 評價與 LLM 比較</span><span class="rule"></span><span class="eng">LLM AS CRITIC &amp; JUDGE</span></div>
+    <h1 class="title">AI 評路網佈局，並在多條結果中選最佳</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk"><span class="role">評價</span>route-llm-eval</span><span class="sk"><span class="role">比較</span>route-llm-compare</span></div>
+    <p class="subtitle">與其他 LLM 鏈同一套「離線預算、存檔、網頁載入」——瀏覽器無 API key。評價／互動跑完寫檔後按「執行調整」才切換顯示；比較純評審。</p>
+    <div class="grid cols-2">
+      <div class="card green"><div class="label">LLM 評價（route-llm-eval）</div><h3>讀幾何寫評語＋轉成具體 moves</h3><p>模型讀縮減網格幾何脈絡，寫評價並把建議轉成 moves（優先消除銳角）。moves 經硬規則 apply 存 <code class="mono">4-frame-maps/llm-eval/</code>；「執行調整」只切換套用⇄恢復，不再跑 LLM。</p></div>
+      <div class="card green"><div class="label">LLM 比較（route-llm-compare）</div><h3>全結果評審選最佳</h3><p>比較當前變體下<strong>論文①〜⑨</strong>與可用的 LLM 直線化結果（rot 休眠時以 orig 為主；skill 仍支援 winnerOrig／winnerRot 欄位）。依方正／直線比例、轉折、平衡、硬失敗評分，選 winner 並列優缺點。純評審——不動座標。結果存 <code class="mono">4-frame-maps/llm-compare/</code>。</p></div>
+    </div>
+  </section>
+
+  <!-- 35b: LLM ablation baselines -->
+  <section class="slide" data-title="LLM 消融基線">
+    <div class="eyebrow"><span class="tag"><b>35b</b>消融基線</span><span class="rule"></span><span class="eng">ABLATION BASELINES</span></div>
+    <h1 class="title">把管線逐級交還給模型：兩個對照來源軸</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk"><span class="role">跳一階</span>llm-skeleton2grid</span><span class="sk"><span class="role">跳兩階</span>llm-working2grid</span></div>
+    <p class="subtitle">前面的 LLM 功能多半是「在演算法算好的佈局上微調」。這兩條<strong>來源軸</strong>反過來問：若讓模型做網格化（或連骨架都跳）會怎樣？各拆 <strong>13 個模型</strong>資料夾。交叉／壓點大多<strong>只量測不修復</strong>（修好了就沒有對照價值）；唯一硬退回＝邊環繞序。</p>
+    <div class="grid cols-2">
+      <div class="card amber"><div class="label">llm-skeleton2grid · LLM 骨架地圖網格化</div><h3>骨架照跑，網格化換成模型</h3><p>整數欄列由模型從零指派（取代排名吸附）。下游<strong>只接 LLM 直線化</strong>（＋可選 LLM 指定形狀）→ movewise → Frame；<strong>不跑論文①〜⑨</strong>。結果 <code class="mono">2-gridding/llm-skeleton2grid/&lt;model&gt;/</code>；介面統一一層 <code class="mono">llm-skeleton2grid</code>，左 list 切模型。</p></div>
+      <div class="card rose"><div class="label">llm-working2grid · LLM 工作地圖網格化</div><h3>跳過骨架化＋排名吸附（梯度最遠）</h3><p>模型依相對地理位置指派非中途站整數格；中途站不指派、顯示時 placeBlacks。下游與 cell <strong>同構</strong>（llm＋movewise＋Frame），另加 <code class="mono">llm-working2straight</code>（一次 LLM 端到端）。結果 <code class="mono">2-gridding/llm-working2grid/&lt;model&gt;/</code>；介面統一一層 <code class="mono">llm-working2grid</code>。（＋可選 LLM 指定形狀）</p></div>
+    </div>
+    <table class="tbl dense" style="margin-top:12px;">
+      <tr><th>系統</th><th class="num">骨架地圖網格化 段/交叉/壓點</th><th class="num">工作地圖網格化 段/交叉/壓點</th><th>觀察</th></tr>
+      <tr><td>台中</td><td class="num">4 / 0 / 0</td><td class="num">17 / 0 / 0</td><td>小系統兩者皆可</td></tr>
+      <tr><td>高雄</td><td class="num">20 / 0 / 0</td><td class="num">74 / 1 / 0</td><td>跳兩階開始出現交叉</td></tr>
+      <tr><td>東京</td><td class="num">157 / 0 / 0</td><td class="num">265 / 19 / 7</td><td>規模一大就崩</td></tr>
+      <tr><td>台北</td><td class="num">75 / 0 / 0</td><td class="num">191 / 62 / 20</td><td>交叉率 32.5%</td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:10px;">量測結論：<strong>骨架保留＝指派較易合法；跳過骨架／格網工程＝交叉隨規模爆炸</strong>——「先把圖工程做好，模型才有辦法工作」的直接證據。表為 <strong>2026-07 單一模型快照</strong>（四系統），論文對照只採 <code class="mono">executor: enforced</code> 的結果檔。<strong>2026-08-07 起衍生資料全球保留</strong>（599 城的 skeleton／gridding／straightening 全數到位），<code class="mono">2-gridding/llm-skeleton2grid|llm-working2grid/</code> 底下 <strong>13 個模型俱在</strong>，要重跑一律 <code class="mono">metro:llmchain</code>。</p>
+  </section>
+
+  <section class="slide" data-title="演算法 vs LLM">
+    <div class="eyebrow"><span class="tag"><b>35c</b>兩類求解者</span><span class="rule"></span><span class="eng">ALGORITHM vs LLM</span></div>
+    <h1 class="title">固定演算法與 LLM：各自的不可替代之處</h1>
+    <p class="subtitle">系統同時保有兩類求解者——<strong>九條確定性演算法鏈</strong>與<strong>LLM 鏈</strong>（九條功能；直線對照命名上含 LLM 直線化＋LLM 骨架地圖網格化）——吃同一輸入、受同一 harness、以同一組指標量測。差異不來自資料或評分標準，只來自求解者本身。關鍵前提：<strong>九個 LLM 功能沒有一個是固定演算法</strong>，系統固定的只有脈絡 schema、硬規則驗證器與結果檔格式，求解策略每次由模型自行構思。</p>
+    <table class="tbl dense" style="margin-top:12px;">
+      <tr><th>面向</th><th>固定演算法（①〜⑨）</th><th>LLM 鏈</th></tr>
+      <tr><td>可重現性</td><td>程序級：同輸入必得同輸出</td><td>快照級：可精確重繪稽核，重跑不保證相同</td></tr>
+      <tr><td>可說明性</td><td>偽碼即完整說明</td><td>事後自述，非可驗證的執行軌跡</td></tr>
+      <tr><td>成本</td><td>毫秒級、可全量跑 599 系統</td><td>分鐘級（台中約 1–2 分 → 台北十餘分），全量不可行</td></tr>
+      <tr><td>改善來源</td><td>明確的目標函數</td><td>利用<strong>沒被寫進目標函數</strong>的先驗</td></tr>
+      <tr><td>失敗模式</td><td>局部最佳、對目標函數過擬合</td><td>提案不合法、策略不穩定、上限難預測</td></tr>
+      <tr><td>規模行為</td><td>平順劣化、可預測</td><td>有斷崖：L1 零違規 → L2 交叉率 32.5%</td></tr>
+      <tr><td>正確性責任</td><td>演算法自身承擔</td><td>harness 承擔——模型不持有正確性</td></tr>
+    </table>
+    <div class="grid cols-2" style="margin-top:12px;">
+      <div class="card blue"><div class="label">演算法不可替代</div><h3>它是下界，也是唯一的基準</h3><p>提供與模型無關的品質保證；也是 LLM 唯一可靠的比較對象。只有毫秒級確定性鏈跑得動 599 系統全量比較（目前變體＝orig）。</p></div>
+      <div class="card amber"><div class="label">LLM 不可替代</div><h3>它能用沒被寫進規格的先驗</h3><p>排名吸附的 H/V 段數<strong>結構性為零</strong>（每個相異座標各配一欄，兩點永遠不同欄）。模型看出「這兩站幾乎同一條經線，該段其實是正南向」而把它們指進同一欄——這只需要「距離重要」這個先驗，而它從未被寫進排名吸附的規格。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:10px;">選用準則：<strong>目標可形式化、需全量、需程序級可重現 → 演算法</strong>；<strong>目標涉及難以形式化的判斷或使用者當下意圖 → LLM</strong>；兩者皆置於同一 harness 之下，使正確性不隨選擇而變。模型策略若反覆收斂（如「保距量化＋貪心吸附」），就循<strong>觀察—固化</strong>寫成程式碼，從右欄移到左欄。</p>
+  </section>
+
+  <!-- 30: system at a glance -->
+  <!-- DIVIDER V: PARALLEL PIPELINES -->
+  <section class="slide divider" data-title="並列資料管線">
+    <div class="roman">V</div>
+    <div class="stagechip"><span class="sw" style="background:var(--green);"></span>PARALLEL PIPELINES · 並列資料管線</div>
+    <h1 class="title">同一套演算法，<br/>三種路網</h1>
+    <p class="subtitle">前面四階段管線吃的是「路網」——不限地鐵。Adapt-Metro 有三條 <strong>schema 完全相同、下游共用</strong>的資料管線：Metro（地鐵/輕軌）、Railway（國家鐵路，含高鐵/新幹線）、Highway（高速公路）。railway 與 highway 是 metro 的「軌道／道路對應版」，概念一一對應，所以骨架化→爬山→畫線那一整套完全不用改就能吃三種資料。另有一個獨立的地標圖層。</p>
+    <div class="pillrow">
+      <span class="pill">一一對應的設計</span><span class="pill">Railway · JR 六社</span><span class="pill">Highway · 交流道</span><span class="pill">Landmark · 河流/面域</span>
+    </div>
+  </section>
+
+  <!-- parallel: correspondence -->
+  <section class="slide" data-title="三管線一一對應">
+    <div class="eyebrow"><span class="tag"><b>36</b>三管線一一對應</span><span class="rule"></span><span class="eng">ONE-TO-ONE CORRESPONDENCE</span></div>
+    <h1 class="title">系統單位不同，schema 相同</h1>
+    <p class="subtitle">三條管線輸出同一份 GeoJSON 規格（<code class="mono">seg_id</code>／<code class="mono">routes[]</code>／<code class="mono">stations[]</code>／<code class="mono">lines</code>…），系統中繼放各自的 <code class="mono">*_system</code> 並鏡射一份 <code class="mono">metro_system{kind}</code>，讓前端一律當 metro 圖層渲染。每條管線都有成對的取得／驗證 skill，互為 fetch⇄audit 迴圈。</p>
+    <table class="tbl">
+      <tr><th></th><th>Metro（地鐵/輕軌）</th><th>Railway（國家鐵路）</th><th>Highway（高速公路）</th></tr>
+      <tr><td>系統單位</td><td>一城市（一城一檔）</td><td>一國家（拆高鐵/一般兩檔）</td><td>一都會區（一都會區一檔）</td></tr>
+      <tr><td>OSM 判準</td><td><code class="mono">route=subway/light_rail</code></td><td><code class="mono">railway=rail</code> <code class="mono">usage=main|branch</code></td><td><code class="mono">highway=motorway</code>＋封閉式</td></tr>
+      <tr><td>「站」＝</td><td>地鐵站節點</td><td>車站吸附到軌道圖</td><td>交流道 <code class="mono">motorway_junction</code></td></tr>
+      <tr><td>取得 / 驗證 skill</td><td>metro-osm-fetch / metro-audit</td><td>railway-osm-fetch / railway-audit</td><td>highway-osm-fetch / highway-audit</td></tr>
+      <tr><td>資料規模</td><td class="num">599 系統 / 5,898 線 / 37,313 站</td><td class="num">9 系統 / 173 線 / 4,808 站</td><td class="num">3 都會區 / 25 線 / 251 交流道</td></tr>
+    </table>
+  </section>
+
+  <!-- parallel: railway -->
+  <section class="slide" data-title="Railway 國家鐵路">
+    <div class="eyebrow"><span class="tag"><b>37</b>Railway · 國家鐵路</span><span class="rule"></span><span class="eng">NATIONAL RAILWAYS</span></div>
+    <h1 class="title">一國拆高鐵/一般，日本再拆 JR 六社</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk"><span class="role">取得</span>railway-osm-fetch</span><span class="sk"><span class="role">驗證</span>railway-audit</span></div>
+    <p class="subtitle">收 <code class="mono">railway=rail</code> 幹線＋高鐵（新幹線／TGV／高鐵／KTX），不含地鐵/輕軌/路面電車；私鐵預設收、用 <code class="mono">_overrides</code> 兩層過濾逐國排除。<strong>2026-08-02 收斂為只留台灣與日本</strong>（日本 7＝新幹線＋JR 六社、台灣 2＝台鐵＋高鐵，共 <strong>9</strong> 系統）；中國／韓國／印尼的資料與 OSM 快取已刪（<code class="mono">git log</code> 可回溯）。依賴 railway 的 combined 系統（台北／高雄／台中＋鐵路、東京＋JR＋私鐵）全在保留範圍內。</p>
+    <div class="grid cols-3">
+      <div class="card green"><div class="label">一國拆兩檔</div><p>高鐵 <code class="mono">-hsr</code>／一般國鐵 <code class="mono">-rail</code> 各成圖層，上色依鐵路類別（高鐵 vs 一般）非每線一色。高鐵由 OSM <code class="mono">route=railway</code> 關聯的有序停站建以保證串接。</p></div>
+      <div class="card green"><div class="label">日本拆 JR 六社</div><p>一般國鐵拆成 JR 東日本/西日本/東海/北海道/四國/九州各自成系統；<strong>新幹線維持單一檔</strong>（顯示「日本 新幹線」不是「高鐵」）。跨社幹線依成員 way 佔比讓每社各拿自己的區間。</p></div>
+      <div class="card green"><div class="label">逐線串接（核心）</div><p>一條線的 way 在 18m grid 常裂成很多元件（山陰本線 1784 way→22 元件）；<strong>逐元件取 diameter 再依最近端點串接成一條完整主線</strong>（<code class="mono">CHAIN_GAP</code> 擋遠碎片假長線），山陰本線 61→158 站、對 wiki。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:14px;"><strong>railway-audit：</strong>結構不變式＋逐線對照當地語 Wikipedia infobox 站數（railway 因線名即條目標題、一線拆多社時跨社聚合比全線，嚴格相等）。我們＞wiki＝誤併多抓、我們＜wiki＝OSM 關聯不全。</p>
+  </section>
+
+  <!-- parallel: highway + landmark -->
+  <section class="slide" data-title="Highway 與 Landmark">
+    <div class="eyebrow"><span class="tag"><b>38</b>Highway ＋ Landmark</span><span class="rule"></span><span class="eng">HIGHWAYS &amp; LANDMARKS</span></div>
+    <h1 class="title">交流道＝站；河流＝骨架線</h1>
+    <div class="skillbar"><span class="sklabel">SKILL</span><span class="sk"><span class="role">高速</span>highway-osm-fetch · highway-audit · highway-cities</span><span class="sk"><span class="role">地標</span>landmark-osm-fetch</span></div>
+    <div class="grid cols-2">
+      <div class="card amber"><div class="label">HIGHWAY · 高速公路</div><h3>封閉式道路網，交流道當車站</h3><p>收國道 motorway ＋封閉式快速公路，交流道 <code class="mono">motorway_junction</code> 串成網絡。約 3 都會區／~25 線／~251 交流道（台北／台中／高雄）。國家專屬判準見 <code class="mono">highway-cities</code>。</p></div>
+      <div class="card green"><div class="label">LANDMARK · 地標圖層</div><h3>與路線/車站完全分離</h3><p><code class="mono">data/metro/metro-landmarks/</code>：<strong>河流＝骨架線</strong>、<strong>皇居／中央公園＝面域</strong>。可組合成 <code class="mono">*-lm</code> 變體。skill <code class="mono">landmark-osm-fetch</code>。</p></div>
+    </div>
+    <p class="subtitle" style="margin-top:16px;">三條管線＋地標，全部落在同一份 <code class="mono">index.json</code>／渲染器／示意圖管線之下——這就是「一一對應」設計最大的回報：<strong>寫一次演算法，三種路網共用。</strong></p>
+  </section>
+
+  <section class="slide" data-title="系統總覽">
+    <div class="eyebrow"><span class="tag"><b>39</b>系統總覽</span><span class="rule"></span><span class="eng">AT A GLANCE</span></div>
+    <h1 class="title">一個瀏覽器，跑完整條產線</h1>
+    <div class="grid cols-4">
+      <div class="card blue"><div class="big">599</div><p>都市軌道資料集<br/><span style="opacity:.75;font-size:.85em;">5,898 線 · 37,313 站 · ＋rail 9 · hwy 3</span></p></div>
+      <div class="card purple"><div class="big">4</div><p>圖層群組階段<br/><span style="opacity:.75;font-size:.85em;">＋來源軸 grid／skeleton-grid／working-grid</span></p></div>
+      <div class="card rose"><div class="big">11</div><p>直線對照鏈<br/><span style="opacity:.75;font-size:.85em;">①〜⑨＋llm（＋消融來源軸）</span></p></div>
+      <div class="card amber"><div class="big">66</div><p>Skill 契約<br/><span style="opacity:.75;font-size:.85em;">9 LLM 鏈 · 13 模型 · 三支 CLI</span></p></div>
+    </div>
+    <div class="grid cols-3" style="margin-top:16px;">
+      <div class="card"><div class="label">技術堆疊</div><h3>Vue 3 · Pinia · dockview · D3 · Vite 6</h3><p>地理底圖與示意圖 D3；佈局與畫線在瀏覽器純函式執行。部署 GitHub Pages；LLM／重算 API 僅 localhost。</p></div>
+      <div class="card"><div class="label">介面 · 圖層即產線</div><h3>畫廊＋cells 權威</h3><p>骨架／網格離線縮圖；Straighten／Frame 由 cells <strong>現畫</strong>（<code class="mono">liveGalleryDocs</code>）。文件頁「資料流／Skills」下拉＝資料流 · 呼叫圖 · Skills · 報告。</p></div>
+      <div class="card"><div class="label">不變式三條</div><h3>移動 · 視圖 · 命名</h3><p>節點移動只經 <code class="mono">makeMover</code>；視圖≡顯示（同源現畫）；代碼＝tag＝資料夾＝檔名（<code class="mono">layerRegistry</code>）。</p></div>
+    </div>
+  </section>
+
+  <!-- 39b: core invariants -->
+  <section class="slide" data-title="核心不變式">
+    <div class="eyebrow"><span class="tag"><b>39b</b>核心不變式</span><span class="rule"></span><span class="eng">HARD INVARIANTS</span></div>
+    <h1 class="title">違反就是 bug 的幾條鐵律</h1>
+    <p class="subtitle">細節見各 skill 與 <code class="mono">CLAUDE.md</code>；這裡只列系統介紹層級必須先建立的共識。</p>
+    <div class="grid cols-2">
+      <div class="card rose"><div class="label">唯一移動關口</div><h3><code class="mono">makeMover</code></h3><p>任何演算法移動節點都經 <code class="mono">src/stores/hillClimb.js</code> 的 <code class="mono">makeMover</code>——四條硬規則與 FROZEN 檢查只在這裡。中途站事後 <code class="mono">placeBlacks</code> 平均放回。</p></div>
+      <div class="card rose"><div class="label">視圖 ≡ 顯示</div><h3><code class="mono">liveGalleryDocs</code></h3><p>畫廊／圖層視圖／資料流節點縮圖與 D3 主視圖<strong>同源</strong>——從權威檔現畫，永不讀過期 gallery sidecar（寫入已停）。skill：<code class="mono">route-view-sync</code>。</p></div>
+      <div class="card blue"><div class="label">命名一一對應</div><h3>代碼＝tag＝資料夾＝檔名</h3><p><code class="mono">layerRegistry.js</code> 單一真相；資料流節點、呼叫圖卡片、圖層面板 chip、磁碟夾名必須一致。圖與碼分叉＝bug。</p></div>
+      <div class="card blue"><div class="label">結果檔紀律</div><h3>有檔就開 · 重跑先刪</h3><p>衍生 JSON 不再用 fingerprint 拒載；新一次 LLM 求解＝直接 <code class="mono">rm</code> 舊檔再寫。論文模型對照只能用 <code class="mono">executor === 'enforced'</code>。</p></div>
+      <div class="card green"><div class="label">三層必須搭配</div><h3>工作＝實際路線＝中線</h3><p>同一系統的 <code class="mono">route_ref</code> 集合在 working／tracks／center 必須一致；改線集合後必跑 <code class="mono">metro:synctracks</code>。</p></div>
+      <div class="card green"><div class="label">前端殼層</div><h3>Design · 日夜 · RWD</h3><p>元件／字色只准用 <code class="mono">/design</code> 已定義 token；跟 <code class="mono">store.dark</code>；窄屏同一操作。彈窗用 <code class="mono">AppModal</code>，禁 <code class="mono">window.confirm</code>。skill：<code class="mono">ui-responsive</code>。</p></div>
+    </div>
+  </section>
+
+  <!-- 35: literature & positioning -->
+  <section class="slide" data-title="演算法文獻與定位">
+    <div class="eyebrow"><span class="tag"><b>40</b>演算法文獻與定位</span><span class="rule"></span><span class="eng">RELATED WORK</span></div>
+    <h1 class="title">十篇核心文獻，九篇各成一條演算法鏈</h1>
+    <p class="subtitle"><code class="mono">data/thesis/</code> 收錄核心文獻 PDF 與逐篇中文演算法說明。<strong>九篇以「整數格短距離後處理」形式實作成 Straighten 的論文演算法鏈①〜⑨</strong>（tab 名帶論文圈號、與演算法說明一一對應；⑨彈性格網＝Bast et al. 2021，⑥的延伸），矩形導引（Batik et al. 2022）則掛在循環之後、不列入直線鏈編號。</p>
+    <table class="tbl">
+      <tr><th class="num">#</th><th>文獻</th><th>對應鏈 / 用途</th></tr>
+      <tr><td class="num">1</td><td>Li &amp; Dong 2010，Stroke-based schematic maps</td><td>直線鏈 <strong>①筆畫法</strong>（<code class="mono">route-stroke-align</code>）</td></tr>
+      <tr><td class="num">2</td><td><strong>Stott et al. 2011</strong>，Automatic Metro Map Layout Using Multicriteria Optimization (TVCG)</td><td><strong>Stage 3 爬山法主依據</strong>＋直線鏈 <strong>②直角爬山</strong>（<code class="mono">route-ortho-polish</code>）</td></tr>
+      <tr><td class="num">3</td><td>Nöllenburg &amp; Wolff 2011，Mixed-Integer Programming</td><td>直線鏈 <strong>③MILP規劃</strong>（<code class="mono">route-milp-align</code>）</td></tr>
+      <tr><td class="num">4</td><td>Hong et al. 2006，力導向自動視覺化</td><td>直線鏈 <strong>④力導向</strong>（<code class="mono">route-force-align</code>）</td></tr>
+      <tr><td class="num">5</td><td>Wang &amp; Chi 2011，Focus+Context Metro Maps</td><td>直線鏈 <strong>⑤最小平方</strong>（<code class="mono">route-lsq-align</code>）＋流量權重思路</td></tr>
+      <tr><td class="num">6</td><td>Bast et al. 2020，Octilinear Grid Graphs</td><td>直線鏈 <strong>⑥八向格網</strong>（<code class="mono">route-octi-align</code>；目標最接近四步鏈的「格子越少越好」）</td></tr>
+      <tr><td class="num">7</td><td>Merrick &amp; Gudmundsson 2007，Path Simplification</td><td>直線鏈 <strong>⑦路徑簡化</strong>（<code class="mono">route-path-align</code>）</td></tr>
+      <tr><td class="num">8</td><td>Fuchs 2022，SAT-based Octolinear Layouts</td><td>直線鏈 <strong>⑧SAT規劃</strong>（<code class="mono">route-sat-align</code>；與 #3 同模型換求解器）</td></tr>
+      <tr><td class="num">9</td><td>Bast et al. 2021，Metro Maps on Flexible Base Grids（SSTD）</td><td>直線鏈「⑨彈性格網」（route-flexgrid-align；⑥ 的延伸——Hanan 稀疏候選＋w∞ 鬆弛）</td></tr>
+      <tr><td class="num">—</td><td>Batik et al. 2022（Pacific Graphics 2022）</td><td><strong>矩形導引</strong>（<code class="mono">route-shape-rect-align</code>／LLM 指定形狀入口；掛在指定形狀泳道頭，非直線鏈編號）</td></tr>
+    </table>
+    <p class="subtitle" style="margin-top:12px;">LLM 直線化／九鏈其餘功能不對應論文編號、由模型當最佳化器（非固定演算法）。另有 <strong>Boeing 2019</strong> 方向熵（φ）與路網方位分析對應 <code class="mono">orientation.js</code>（建議旋轉＝H/V 佔比最大化；規格 <code class="mono">route-orientation</code>；Straightening 鍵 <code class="mono">rot</code> 休眠，互動「轉 n 度」仍用）。<strong>內建旋轉城市</strong>（<code class="mono">-l33</code>／<code class="mono">-r39</code>…）可旋轉後算完整管線，規格 <code class="mono">route-city-rotation</code>。</p>
+  </section>
+
+  <!-- 36: three-chain positioning -->
+  <section class="slide" data-title="四步鏈的定位">
+    <div class="eyebrow"><span class="tag"><b>41</b>四步鏈的定位</span><span class="rule"></span><span class="eng">POSITIONING</span></div>
+    <h1 class="title">犧牲最佳性，換取秒級速度與逐步可視化</h1>
+    <p class="subtitle">固定拓撲下的正交示意化＋面積最小化是經典 <strong>NP-hard</strong> 問題——TSM 框架的 orthogonal compaction、VLSI 1-D compaction、Misue et al. 的 orthogonal ordering 保持都是零件級近親。</p>
+    <div class="grid cols-2" style="margin-top:8px;">
+      <div class="card blue"><div class="label">本系統的做法</div><h3>Local search，非求解器</h3><p>每種移動各守一個嚴格單調不變式，且每個移動後立即全域壓縮（movewise）——用局部搜尋逼近最佳解，不依賴 ILP／SAT 求解器。</p></div>
+      <div class="card blue"><div class="label">換到的東西</div><h3>秒級全量速度＋逐步可視化</h3><p>全量約 5 秒收斂（599 系統）；犧牲最佳性換取速度，且每一個單一移動都可以在逐步驗證裡重播、比對前後——這是求解器路線（ILP/SAT）給不了的。</p></div>
+    </div>
+  </section>
+
+  <!-- 31: Closing -->
+  <section class="slide closing" data-title="查看實際運作">
+    <div class="eyebrow" style="justify-content:center;"><span class="eng">THANK YOU</span></div>
+    <h1 class="title">查看實際運作</h1>
+    <p class="subtitle">回到系統，逐一開啟 1 RAW MAPS → 2 GRIDDING → 3 STRAIGHTENING → 4 FRAME MAPS；或開文件頁「資料流／Skills」對讀資料流圖與 Skill 呼叫圖。</p>
+    <div class="cta">
+      <a class="btn primary" href="../../../../">回到系統</a>
+      <a class="btn ghost" href="../../../../doc/">文件頁 · 資料流</a>
+      <a class="btn ghost" href="./architecture/">系統架構</a>
+    </div>
+    <p class="subtitle" style="margin-top:18px;">本文件最後更新：<strong>2026-08-12</strong>（系統規模 599/5,898/37,313、三支 CLI（新增 deepseek/dsc）、13 個模型（新增 deepseekv4pro/flash）、DRIFT_CAP 0.20、frameParity 980、全球衍生資料保留、llm-straighten lane-locked、LLM 指定形狀家族含 SHAPE_DIAG）。</p>
+  </section>
+
+</div><!-- /stage -->
+</div><!-- /deck -->
+</div><!-- /workspace -->
+
+<!-- 導覽＝獨立 tool-bar；footer＝檔案位置＋更新時間（右下） -->
+<div class="tool-bar slide-seek doc-chrome" role="toolbar" aria-label="投影片導覽">
+  <button class="btn-icon" id="prevBtn" type="button" aria-label="上一頁" title="上一頁 (←)">‹</button>
+  <div class="seekbar" id="seekbar" title="點擊跳到該頁">
+    <div class="seek-fill" id="seekFill"></div>
+    <div class="seek-knob" id="seekKnob"></div>
+    <div class="seek-tip" id="seekTip"></div>
+  </div>
+  <button class="btn-icon" id="nextBtn" type="button" aria-label="下一頁" title="下一頁 (→)">›</button>
+  <span class="counter" id="counter">1 / 50</span>
+</div>
+<footer class="status-bar doc-chrome" id="docFooter"></footer>
+<script src="../../_shared/doc-footer.js"></script>
+<script>
+  AdaptMetroDocFooter.bind('#docFooter', {
+    path: 'data/docs/system/intro/index.html',
+    url: './index.html',
+    updated: '2026-08-04',
+  });
+</script>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var STORAGE_KEY = 'slides';
+  var PAGE_LS = 'adapt-metro:' + STORAGE_KEY + '-page';
+  // 頁碼：hash 優先，否則 localStorage（重新整理還原，同主頁 session 精神）
+  function savedPage1() {
+    var n = parseInt((location.hash || '').replace('#', ''), 10);
+    if (!isNaN(n) && n >= 1) return n;
+    try {
+      n = parseInt(localStorage.getItem(PAGE_LS) || '', 10);
+      if (!isNaN(n) && n >= 1) return n;
+    } catch (e) {}
+    if (window.AdaptMetroGSlides && AdaptMetroGSlides.readSavedPage) {
+      return AdaptMetroGSlides.readSavedPage(STORAGE_KEY, total);
+    }
+    return 1;
+  }
+  var idx = Math.max(0, Math.min(total - 1, savedPage1() - 1));
+
+  // 縮放／投影播放由 AdaptMetroGSlides（_shared/gslides.js）負責
+
+  // ---- 左側縮圖膠捲（Google Slides 式）：每頁一張實時等比縮小的 clone，可點跳頁 ----
+  var filmstrip = document.getElementById('filmstrip');
+  var thumbItems = [];
+  slides.forEach(function(s, i){
+    var item = document.createElement('div');
+    item.className = 'list-row filmstrip-item';
+    item.setAttribute('role', 'button');
+    item.title = (i + 1) + '　' + (s.getAttribute('data-title') || '');
+    var num = document.createElement('span');
+    num.className = 'fs-num'; num.textContent = (i + 1);
+    var thumb = document.createElement('div');
+    thumb.className = 'thumb';
+    var inner = document.createElement('div');
+    inner.className = 'thumb-inner';
+    var clone = s.cloneNode(true);
+    clone.removeAttribute('id');
+    inner.appendChild(clone);
+    thumb.appendChild(inner);
+    item.appendChild(num); item.appendChild(thumb);
+    item.addEventListener('click', function(){ go(i); });
+    filmstrip.appendChild(item);
+    thumbItems.push(item);
+  });
+  function scaleThumbs(){
+    thumbItems.forEach(function(item){
+      var thumb = item.querySelector('.thumb'), inner = item.querySelector('.thumb-inner');
+      var w = thumb.clientWidth; if (w) inner.style.transform = 'scale(' + (w / 1280) + ')';
+    });
+  }
+  window.addEventListener('resize', scaleThumbs);
+  scaleThumbs();
+
+  var seekFill = document.getElementById('seekFill');
+  var seekKnob = document.getElementById('seekKnob');
+  var seekbar = document.getElementById('seekbar');
+  var seekTip = document.getElementById('seekTip');
+  var counterEl = document.getElementById('counter');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+
+  function clamp(n){ return Math.max(0, Math.min(total - 1, n)); }
+
+  function render(){
+    slides.forEach(function(s, i){ s.classList.toggle('active', i === idx); });
+    if (slides[idx]) slides[idx].scrollTop = 0;
+    counterEl.textContent = (idx + 1) + ' / ' + total;
+    var pct = (total <= 1) ? 100 : (idx / (total - 1) * 100);
+    seekFill.style.width = pct + '%';
+    seekKnob.style.left = pct + '%';
+    prevBtn.disabled = idx === 0;
+    nextBtn.disabled = idx === total - 1;
+    thumbItems.forEach(function(item, i){ item.classList.toggle('active', i === idx); });
+    if (thumbItems[idx]) thumbItems[idx].scrollIntoView({ block: 'nearest' });
+    var title = slides[idx].getAttribute('data-title') || '';
+    document.title = (title ? title + ' · ' : '') + '系統介紹 · Adapt-Metro';
+    history.replaceState(null, '', '#' + (idx + 1));
+  }
+
+  function persistPage() {
+    try { localStorage.setItem(PAGE_LS, String(idx + 1)); } catch (e) {}
+    if (window.AdaptMetroGSlides && AdaptMetroGSlides.writeSavedPage) {
+      AdaptMetroGSlides.writeSavedPage(STORAGE_KEY, idx + 1);
+    }
+  }
+  function go(n){
+    idx = clamp(n);
+    render();
+    persistPage();
+  }
+  function next(){ go(idx + 1); }
+  function prev(){ go(idx - 1); }
+
+  // 很長的 seek bar：點哪一段就跳到那一張 slide；hover 顯示該位置的頁碼
+  function seekIndex(e){
+    var r = seekbar.getBoundingClientRect();
+    var f = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width));
+    return clamp(Math.round(f * (total - 1)));
+  }
+  seekbar.addEventListener('click', function(e){ go(seekIndex(e)); });
+  seekbar.addEventListener('mousemove', function(e){
+    var r = seekbar.getBoundingClientRect();
+    var n = seekIndex(e);
+    seekTip.textContent = (n + 1) + ' / ' + total;
+    seekTip.style.left = ((e.clientX - r.left)) + 'px';
+  });
+
+  render();
+  persistPage();
+  // 縮放可能在 flex 量完尺寸後才 is-fitted——再叫一次 fit
+  if (window.AdaptMetroGSlides && AdaptMetroGSlides.fit) {
+    requestAnimationFrame(function () { AdaptMetroGSlides.fit(); });
+  }
+
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+  // 簡報模式（全螢幕）：點畫布前進、右鍵後退（Google Slides present 行為）
+  // 縮放邏輯已搬到 _shared/gslides.js，但投影播放的翻頁仍綁在 deck 上——
+  // 這裡自己取一次元素（原本的 var deckEl 隨縮放邏輯一起搬走了）。
+  var deckEl = document.getElementById('deck');
+  if (deckEl) {
+    deckEl.addEventListener('click', function(){ if (document.fullscreenElement) next(); });
+    deckEl.addEventListener('contextmenu', function(e){ if (document.fullscreenElement) { e.preventDefault(); prev(); } });
+  }
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') { e.preventDefault(); go(0); }
+    else if (e.key === 'End') { e.preventDefault(); go(total - 1); }
+    else if (e.key === 'f' || e.key === 'F') {
+      if (window.AdaptMetroGSlides && AdaptMetroGSlides.toggleFullscreen) AdaptMetroGSlides.toggleFullscreen();
+    }
+    else if (e.key === 'Escape' && document.fullscreenElement) { document.exitFullscreen(); }
+  });
+
+  var touchStartX = null;
+  document.addEventListener('touchstart', function(e){ touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', function(e){
+    if (touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 44) { dx < 0 ? next() : prev(); }
+    touchStartX = null;
+  }, { passive: true });
+})();
+</script>
+
+<script src="../../_shared/table-col-resize.js"></script>
+</body>
+</html>
