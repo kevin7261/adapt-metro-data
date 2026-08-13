@@ -1,0 +1,1 @@
+{"failed":true,"error":"未寫出可用結果：loop","model":"DeepSeek V4 Pro","executor":"enforced","prompt":null,"finalOutput":"\n[stop: unknown err=Insufficient account balance; top up and retry.]\n","startedAt":1786470977710,"elapsedMs":7222,"generatedAt":1786470984932,"modifiedAt":1786470984932,"exitCode":0,"rounds":0}

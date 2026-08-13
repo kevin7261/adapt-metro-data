@@ -1,0 +1,25 @@
+{
+  "elements": [
+    {
+      "type": "node",
+      "id": 4498833449,
+      "lat": 25.0374683,
+      "lon": 121.5823111,
+      "tags": {
+        "name": "廣慈/奉天宮",
+        "name:en": "Guangci/Fengtian Temple",
+        "name:zh": "廣慈/奉天宮",
+        "name:zh-Hant": "廣慈/奉天宮",
+        "name:zh-Hans": "广慈/奉天宫",
+        "network": "臺北捷運",
+        "operator": "臺北大眾捷運股份有限公司",
+        "public_transport": "station",
+        "railway": "station",
+        "ref": "R01",
+        "station": "subway",
+        "subway": "yes",
+        "wikipedia": "zh:廣慈/奉天宮站"
+      }
+    }
+  ]
+}

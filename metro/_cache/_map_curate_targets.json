@@ -1,0 +1,695 @@
+[
+  {
+    "key": "asia/china/as-chn-jiaxing",
+    "city": "Jiaxing",
+    "country": "China",
+    "wikidata": "Q112704911",
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-denver",
+    "city": "Denver",
+    "country": "United States",
+    "wikidata": "Q7309183",
+    "map_file": null
+  },
+  {
+    "key": "europe/poland/eu-pol-cracow",
+    "city": "Cracow",
+    "country": "Poland",
+    "wikidata": "Q1784404",
+    "map_file": null
+  },
+  {
+    "key": "europe/poland/eu-pol-katowice",
+    "city": "Katowice",
+    "country": "Poland",
+    "wikidata": "Q124678630",
+    "map_file": null
+  },
+  {
+    "key": "europe/poland/eu-pol-lodz",
+    "city": "Lodz",
+    "country": "Poland",
+    "wikidata": "Q133202246",
+    "map_file": null
+  },
+  {
+    "key": "europe/poland/eu-pol-poznan",
+    "city": "Poznan",
+    "country": "Poland",
+    "wikidata": "Q9387124",
+    "map_file": null
+  },
+  {
+    "key": "europe/czechia/eu-cze-ostrava",
+    "city": "Ostrava",
+    "country": "Czechia",
+    "wikidata": "Q1741955",
+    "map_file": null
+  },
+  {
+    "key": "europe/netherlands/eu-ned-the-hague",
+    "city": "The Hague",
+    "country": "Netherlands",
+    "wikidata": "Q108718111",
+    "map_file": null
+  },
+  {
+    "key": "europe/ukraine/eu-ukr-odessa",
+    "city": "Odessa",
+    "country": "Ukraine",
+    "wikidata": "Q136566566",
+    "map_file": null
+  },
+  {
+    "key": "europe/ukraine/eu-ukr-kryvy-rih",
+    "city": "Kryvyi Rih",
+    "country": "Ukraine",
+    "wikidata": "Q106432002",
+    "map_file": null
+  },
+  {
+    "key": "europe/czechia/eu-cze-brno",
+    "city": "Brno",
+    "country": "Czechia",
+    "wikidata": "Q12020731",
+    "map_file": null
+  },
+  {
+    "key": "europe/croatia/eu-cro-zagreb",
+    "city": "Zagreb",
+    "country": "Croatia",
+    "wikidata": "Q136060",
+    "map_file": null
+  },
+  {
+    "key": "europe/switzerland/eu-sui-basel",
+    "city": "Basel",
+    "country": "Switzerland",
+    "wikidata": "Q1479394",
+    "map_file": null
+  },
+  {
+    "key": "europe/russia/eu-rus-ulyanovsk",
+    "city": "Ulyanovsk",
+    "country": "Russia",
+    "wikidata": null,
+    "map_file": null
+  },
+  {
+    "key": "asia/kazakhstan/as-kaz-ust-kamenogorsk",
+    "city": "Ust'-Kamenogorsk",
+    "country": "Kazakhstan",
+    "wikidata": null,
+    "map_file": null
+  },
+  {
+    "key": "europe/austria/eu-aut-graz",
+    "city": "Graz",
+    "country": "Austria",
+    "wikidata": "Q2341954",
+    "map_file": null
+  },
+  {
+    "key": "europe/austria/eu-aut-innsbruck",
+    "city": "Innsbruck",
+    "country": "Austria",
+    "wikidata": "Q1668732",
+    "map_file": null
+  },
+  {
+    "key": "europe/poland/eu-pol-torun",
+    "city": "Torun",
+    "country": "Poland",
+    "wikidata": "Q121863259",
+    "map_file": null
+  },
+  {
+    "key": "europe/romania/eu-rou-arad",
+    "city": "Arad",
+    "country": "Romania",
+    "wikidata": "Q121753777",
+    "map_file": null
+  },
+  {
+    "key": "europe/germany/eu-ger-jena",
+    "city": "Jena",
+    "country": "Germany",
+    "wikidata": "Q2516468",
+    "map_file": null
+  },
+  {
+    "key": "europe/russia/eu-rus-kolomna",
+    "city": "Kolomna",
+    "country": "Russia",
+    "wikidata": "Q124750727",
+    "map_file": null
+  },
+  {
+    "key": "europe/belgium/eu-bel-ghent",
+    "city": "Ghent",
+    "country": "Belgium",
+    "wikidata": "Q136716137",
+    "map_file": null
+  },
+  {
+    "key": "europe/poland/eu-pol-elblag",
+    "city": "Elblag",
+    "country": "Poland",
+    "wikidata": "Q121691512",
+    "map_file": null
+  },
+  {
+    "key": "asia/turkey/as-tur-kayseri",
+    "city": "Kayseri",
+    "country": "Turkey",
+    "wikidata": "Q117008305",
+    "map_file": null
+  },
+  {
+    "key": "asia/japan/as-jpn-nagasaki",
+    "city": "Nagasaki",
+    "country": "Japan",
+    "wikidata": "Q20780422",
+    "map_file": null
+  },
+  {
+    "key": "europe/united-kingdom/eu-gbr-sheffield",
+    "city": "Sheffield",
+    "country": "United Kingdom",
+    "wikidata": "Q113471568",
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-salt-lake-city",
+    "city": "Salt Lake City",
+    "country": "United States",
+    "wikidata": "Q962390",
+    "map_file": null
+  },
+  {
+    "key": "americas/canada/am-can-calgary",
+    "city": "Calgary",
+    "country": "Canada",
+    "wikidata": "Q1022321",
+    "map_file": null
+  },
+  {
+    "key": "europe/germany/eu-ger-brandenburg-havel",
+    "city": "Brandenburg (Havel",
+    "country": "Germany",
+    "wikidata": "Q315451",
+    "map_file": null
+  },
+  {
+    "key": "asia/india/as-ind-gurugram",
+    "city": "Gurugram",
+    "country": "India",
+    "wikidata": "Q271195",
+    "map_file": null
+  },
+  {
+    "key": "europe/germany/eu-ger-heilbronn",
+    "city": "Heilbronn",
+    "country": "Germany",
+    "wikidata": "Q121237874",
+    "map_file": null
+  },
+  {
+    "key": "europe/denmark/eu-den-aarhus",
+    "city": "Aarhus",
+    "country": "Denmark",
+    "wikidata": "Q12327094",
+    "map_file": null
+  },
+  {
+    "key": "europe/ukraine/eu-ukr-horlivka",
+    "city": "Horlivka",
+    "country": "Ukraine",
+    "wikidata": null,
+    "map_file": null
+  },
+  {
+    "key": "asia/turkey/as-tur-konya",
+    "city": "Konya",
+    "country": "Turkey",
+    "wikidata": "Q402232",
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-milwaukee",
+    "city": "Milwaukee",
+    "country": "United States",
+    "wikidata": "Q123244737",
+    "map_file": null
+  },
+  {
+    "key": "europe/germany/eu-ger-nordhausen",
+    "city": "Nordhausen",
+    "country": "Germany",
+    "wikidata": "Q120801440",
+    "map_file": null
+  },
+  {
+    "key": "europe/sweden/eu-swe-norrkoping",
+    "city": "Norrköping",
+    "country": "Sweden",
+    "wikidata": "Q107187377",
+    "map_file": null
+  },
+  {
+    "key": "africa/morocco/af-mar-rabat",
+    "city": "Rabat",
+    "country": "Morocco",
+    "wikidata": "Q948685",
+    "map_file": null
+  },
+  {
+    "key": "europe/spain/eu-esp-vitoria-gasteiz",
+    "city": "Vitoria-Gasteiz",
+    "country": "Spain",
+    "wikidata": "Q123955",
+    "map_file": null
+  },
+  {
+    "key": "europe/germany/eu-ger-gorlitz",
+    "city": "Görlitz",
+    "country": "Germany",
+    "wikidata": "Q121311074",
+    "map_file": null
+  },
+  {
+    "key": "africa/algeria/af-alg-sidi-bel-abbes",
+    "city": "Sidi Bel Abbès",
+    "country": "Algeria",
+    "wikidata": "Q16128083",
+    "map_file": null
+  },
+  {
+    "key": "europe/germany/eu-ger-strausberg",
+    "city": "Strausberg",
+    "country": "Germany",
+    "wikidata": "Q315451",
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-minneapolis-st-paul",
+    "city": "Minneapolis/St. Paul",
+    "country": "United States",
+    "wikidata": "Q3307442",
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-jacksonville",
+    "city": "Jacksonville",
+    "country": "United States",
+    "wikidata": "Q124803133",
+    "map_file": null
+  },
+  {
+    "key": "europe/russia/eu-rus-osinniki",
+    "city": "Osinniki",
+    "country": "Russia",
+    "wikidata": null,
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-oklahoma-city",
+    "city": "Oklahoma City",
+    "country": "United States",
+    "wikidata": "Q112864059",
+    "map_file": null
+  },
+  {
+    "key": "asia/turkey/as-tur-samsun",
+    "city": "Samsun",
+    "country": "Turkey",
+    "wikidata": "Q123362825",
+    "map_file": null
+  },
+  {
+    "key": "asia/japan/as-jpn-fukui",
+    "city": "Fukui",
+    "country": "Japan",
+    "wikidata": "Q3537109",
+    "map_file": null
+  },
+  {
+    "key": "asia/japan/as-jpn-enoshima-shonan",
+    "city": "Enoshima (Shonan",
+    "country": "Japan",
+    "wikidata": "Q841360",
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-tacoma",
+    "city": "Tacoma",
+    "country": "United States",
+    "wikidata": "Q2778618",
+    "map_file": null
+  },
+  {
+    "key": "africa/nigeria/af-ngr-abuja",
+    "city": "Abuja",
+    "country": "Nigeria",
+    "wikidata": "Q55683262",
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-las-vegas",
+    "city": "Las Vegas",
+    "country": "United States",
+    "wikidata": "Q935072",
+    "map_file": null,
+    "commons_file": null,
+    "source_url": null,
+    "license": null,
+    "artist": null,
+    "note": "2026-07-25 清除誤抓／已 skip：站景／鐵道照片，非路網圖"
+  },
+  {
+    "key": "europe/russia/eu-rus-lipetsk",
+    "city": "Lipetsk",
+    "country": "Russia",
+    "wikidata": null,
+    "map_file": null,
+    "commons_file": null,
+    "source_url": null,
+    "license": null,
+    "artist": null,
+    "note": "2026-07-25 清除誤抓／已 skip：已 skip（tram）；勿留圖"
+  },
+  {
+    "key": "americas/united-states/am-usa-little-rock",
+    "city": "Little Rock",
+    "country": "United States",
+    "wikidata": null,
+    "map_file": null
+  },
+  {
+    "key": "europe/italy/eu-ita-venezia-mestre",
+    "city": "Venezia-Mestre",
+    "country": "Italy",
+    "wikidata": "Q113671831",
+    "map_file": null
+  },
+  {
+    "key": "asia/israel/as-isr-jerusalem",
+    "city": "Jerusalem",
+    "country": "Israel",
+    "wikidata": "Q12406939",
+    "map_file": null
+  },
+  {
+    "key": "americas/argentina/am-arg-mendoza",
+    "city": "Mendoza",
+    "country": "Argentina",
+    "wikidata": "Q56346144",
+    "map_file": null
+  },
+  {
+    "key": "oceania/australia/oc-aus-gold-coast",
+    "city": "Gold Coast",
+    "country": "Australia",
+    "wikidata": "Q7833625",
+    "map_file": null
+  },
+  {
+    "key": "europe/spain/eu-esp-cadiz",
+    "city": "Cádiz",
+    "country": "Spain",
+    "wikidata": "Q5784325",
+    "map_file": null
+  },
+  {
+    "key": "asia/china/as-chn-sanya",
+    "city": "Sanya",
+    "country": "China",
+    "wikidata": "Q135932808",
+    "map_file": null
+  },
+  {
+    "key": "oceania/australia/oc-aus-canberra",
+    "city": "Canberra",
+    "country": "Australia",
+    "wikidata": "Q16927042",
+    "map_file": null
+  },
+  {
+    "key": "asia/japan/as-jpn-kitakyushu",
+    "city": "Kitakyushu",
+    "country": "Japan",
+    "wikidata": "Q5097496",
+    "map_file": null
+  },
+  {
+    "key": "asia/china/as-chn-huai-an",
+    "city": "Huai'an",
+    "country": "China",
+    "wikidata": "Q98199553",
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-el-paso",
+    "city": "El Paso",
+    "country": "United States",
+    "wikidata": "Q112818183",
+    "map_file": null
+  },
+  {
+    "key": "europe/austria/eu-aut-gmunden",
+    "city": "Gmunden",
+    "country": "Austria",
+    "wikidata": "Q2011605",
+    "map_file": null
+  },
+  {
+    "key": "asia/china/as-chn-huangshi",
+    "city": "Huangshi",
+    "country": "China",
+    "wikidata": "Q135234220",
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-kansas-city",
+    "city": "Kansas City",
+    "country": "United States",
+    "wikidata": "Q6364889",
+    "map_file": null
+  },
+  {
+    "key": "europe/united-kingdom/eu-gbr-liverpool",
+    "city": "Liverpool",
+    "country": "United Kingdom",
+    "wikidata": "Q1922100",
+    "map_file": null
+  },
+  {
+    "key": "europe/russia/eu-rus-tula",
+    "city": "Tula",
+    "country": "Russia",
+    "wikidata": "Q2638855",
+    "map_file": null
+  },
+  {
+    "key": "asia/turkey/as-tur-izmit",
+    "city": "Izmit",
+    "country": "Turkey",
+    "wikidata": "Q136228746",
+    "map_file": null
+  },
+  {
+    "key": "asia/china/as-chn-qiubei",
+    "city": "Qiubei",
+    "country": "China",
+    "wikidata": "Q97348092",
+    "map_file": null
+  },
+  {
+    "key": "europe/belgium/eu-bel-liege",
+    "city": "Liège",
+    "country": "Belgium",
+    "wikidata": "Q3512078",
+    "map_file": null
+  },
+  {
+    "key": "europe/latvia/eu-lat-liepaja",
+    "city": "Liepaja",
+    "country": "Latvia",
+    "wikidata": "Q22673722",
+    "map_file": null,
+    "commons_file": null,
+    "source_url": null,
+    "license": null,
+    "artist": null,
+    "note": "2026-07-25 清除誤抓／已 skip：已 skip（tram）；勿留圖"
+  },
+  {
+    "key": "europe/sweden/eu-swe-lund",
+    "city": "Lund",
+    "country": "Sweden",
+    "wikidata": "Q1934330",
+    "map_file": null
+  },
+  {
+    "key": "asia/japan/as-jpn-matsuyama",
+    "city": "Matsuyama",
+    "country": "Japan",
+    "wikidata": "Q140305924",
+    "map_file": null
+  },
+  {
+    "key": "asia/china/as-chn-mengzi",
+    "city": "Mengzi",
+    "country": "China",
+    "wikidata": "Q28415063",
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-morgantown",
+    "city": "Morgantown",
+    "country": "United States",
+    "wikidata": "Q3375714",
+    "map_file": null
+  },
+  {
+    "key": "europe/belarus/eu-blr-mozyr",
+    "city": "Mozyr",
+    "country": "Belarus",
+    "wikidata": "Q2632637",
+    "map_file": null
+  },
+  {
+    "key": "asia/japan/as-jpn-naha",
+    "city": "Naha",
+    "country": "Japan",
+    "wikidata": "Q993679",
+    "map_file": null
+  },
+  {
+    "key": "europe/belarus/eu-blr-novopolotsk",
+    "city": "Novopolotsk",
+    "country": "Belarus",
+    "wikidata": "Q121537929",
+    "map_file": null
+  },
+  {
+    "key": "europe/denmark/eu-den-odense",
+    "city": "Odense",
+    "country": "Denmark",
+    "wikidata": "Q112398566",
+    "map_file": null
+  },
+  {
+    "key": "africa/algeria/af-alg-oran",
+    "city": "Oran",
+    "country": "Algeria",
+    "wikidata": "Q136684540",
+    "map_file": null
+  },
+  {
+    "key": "africa/algeria/af-alg-ouargla",
+    "city": "Ouargla",
+    "country": "Algeria",
+    "wikidata": "Q16680954",
+    "map_file": null
+  },
+  {
+    "key": "europe/spain/eu-esp-parla",
+    "city": "Parla",
+    "country": "Spain",
+    "wikidata": "Q1637556",
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-santa-ana",
+    "city": "Santa Ana",
+    "country": "United States",
+    "wikidata": null,
+    "map_file": null
+  },
+  {
+    "key": "europe/germany/eu-ger-schoneiche",
+    "city": "Schöneiche",
+    "country": "Germany",
+    "wikidata": "Q315451",
+    "map_file": null
+  },
+  {
+    "key": "africa/algeria/af-alg-setif",
+    "city": "Sétif",
+    "country": "Algeria",
+    "wikidata": "Q17640146",
+    "map_file": null,
+    "commons_file": null,
+    "source_url": null,
+    "license": null,
+    "artist": null,
+    "note": "2026-07-25 清除誤抓／已 skip：站牌面板照片，非路網圖"
+  },
+  {
+    "key": "europe/portugal/eu-por-sintra",
+    "city": "Sintra",
+    "country": "Portugal",
+    "wikidata": "Q1546381",
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-tampa",
+    "city": "Tampa",
+    "country": "United States",
+    "wikidata": "Q110882440",
+    "map_file": null
+  },
+  {
+    "key": "asia/kazakhstan/as-kaz-temirtau",
+    "city": "Temirtau",
+    "country": "Kazakhstan",
+    "wikidata": "Q136606689",
+    "map_file": null,
+    "commons_file": null,
+    "source_url": null,
+    "license": null,
+    "artist": null,
+    "note": "2026-07-25 清除誤抓／已 skip：已 skip（tram）；勿留圖"
+  },
+  {
+    "key": "europe/france/eu-fra-tours",
+    "city": "Tours",
+    "country": "France",
+    "wikidata": "Q107543417",
+    "map_file": null,
+    "commons_file": null,
+    "source_url": null,
+    "license": null,
+    "artist": null,
+    "note": "2026-07-25 清除誤抓／已 skip：法國全國鐵路基礎設施圖，非 Tours 地鐵／tram 路網"
+  },
+  {
+    "key": "asia/japan/as-jpn-toyohashi",
+    "city": "Toyohashi",
+    "country": "Japan",
+    "wikidata": "Q11633880",
+    "map_file": null
+  },
+  {
+    "key": "americas/united-states/am-usa-tucson",
+    "city": "Tucson",
+    "country": "United States",
+    "wikidata": "Q7638399",
+    "map_file": null
+  },
+  {
+    "key": "europe/spain/eu-esp-zaragoza",
+    "city": "Zaragoza",
+    "country": "Spain",
+    "wikidata": "Q1584986",
+    "map_file": null,
+    "commons_file": null,
+    "source_url": null,
+    "license": null,
+    "artist": null,
+    "note": "2026-07-25 清除誤抓／已 skip：Mapillary 路口照片，非路網圖"
+  }
+]

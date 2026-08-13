@@ -1,0 +1,2581 @@
+{
+  "new_city_count": 288,
+  "with_issues": 154,
+  "issue_counts": {
+    "missing_official_map": 141,
+    "wrong_route_network": 8,
+    "wrong_official_map": 5,
+    "suspiciously_large": 4,
+    "misnamed_city": 1
+  },
+  "cities": [
+    {
+      "stem": "am-ecu-cuenca",
+      "city": "Cuenca",
+      "country": "Ecuador",
+      "lines": 1,
+      "stations": 17,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-buffalo",
+      "city": "Buffalo",
+      "country": "United States",
+      "lines": 1,
+      "stations": 14,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-el-paso",
+      "city": "El Paso",
+      "country": "United States",
+      "lines": 1,
+      "stations": 22,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-houston",
+      "city": "Houston",
+      "country": "United States",
+      "lines": 3,
+      "stations": 40,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-kansas-city",
+      "city": "Kansas City",
+      "country": "United States",
+      "lines": 1,
+      "stations": 18,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-little-rock",
+      "city": "Little Rock",
+      "country": "United States",
+      "lines": 2,
+      "stations": 11,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-memphis",
+      "city": "Memphis",
+      "country": "United States",
+      "lines": 3,
+      "stations": 26,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-milwaukee",
+      "city": "Milwaukee",
+      "country": "United States",
+      "lines": 2,
+      "stations": 13,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-oklahoma-city",
+      "city": "Oklahoma City",
+      "country": "United States",
+      "lines": 2,
+      "stations": 22,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-pittsburgh",
+      "city": "Pittsburgh",
+      "country": "United States",
+      "lines": 3,
+      "stations": 51,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-sacramento",
+      "city": "Sacramento",
+      "country": "United States",
+      "lines": 5,
+      "stations": 56,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-salt-lake-city",
+      "city": "Salt Lake City",
+      "country": "United States",
+      "lines": 4,
+      "stations": 58,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-san-diego",
+      "city": "San Diego",
+      "country": "United States",
+      "lines": 7,
+      "stations": 77,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "wrong_route_network",
+          "detail": [
+            "mtr"
+          ],
+          "networks": [
+            "Amtrak",
+            "NCTD",
+            "SDMTS",
+            "SPRINTER"
+          ]
+        },
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-tampa",
+      "city": "Tampa",
+      "country": "United States",
+      "lines": 6,
+      "stations": 18,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "am-usa-tucson",
+      "city": "Tucson",
+      "country": "United States",
+      "lines": 1,
+      "stations": 21,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-chn-huangshi",
+      "city": "Huangshi",
+      "country": "China",
+      "lines": 1,
+      "stations": 31,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-chn-mengzi",
+      "city": "Mengzi",
+      "country": "China",
+      "lines": 1,
+      "stations": 15,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-chn-qiubei",
+      "city": "Qiubei",
+      "country": "China",
+      "lines": 1,
+      "stations": 4,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-chn-sanya",
+      "city": "Sanya",
+      "country": "China",
+      "lines": 1,
+      "stations": 15,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-jpn-hakodate",
+      "city": "Hakodate",
+      "country": "Japan",
+      "lines": 2,
+      "stations": 26,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-jpn-kumamoto",
+      "city": "Kumamoto",
+      "country": "Japan",
+      "lines": 2,
+      "stations": 35,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-jpn-matsuyama",
+      "city": "Matsuyama",
+      "country": "Japan",
+      "lines": 1,
+      "stations": 25,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-jpn-okayama",
+      "city": "Okayama",
+      "country": "Japan",
+      "lines": 2,
+      "stations": 16,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-jpn-toyama",
+      "city": "Toyama",
+      "country": "Japan",
+      "lines": 3,
+      "stations": 24,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-jpn-utsunomiya",
+      "city": "Utsunomiya",
+      "country": "Japan",
+      "lines": 1,
+      "stations": 19,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-kaz-temirtau",
+      "city": "Temirtau",
+      "country": "Kazakhstan",
+      "lines": 1,
+      "stations": 17,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-kaz-ust-kamenogorsk",
+      "city": "Ust'-Kamenogorsk",
+      "country": "Kazakhstan",
+      "lines": 8,
+      "stations": 30,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-kor-uijeongbu",
+      "city": "Uijeongbu",
+      "country": "South Korea",
+      "lines": 1,
+      "stations": 16,
+      "official_map": "https://ko.wikipedia.org/wiki/의정부_경전철",
+      "local_map_files": 1,
+      "issues": [
+        {
+          "type": "wrong_route_network",
+          "detail": [
+            "Seoul Metropolitan"
+          ],
+          "networks": [
+            "(주)우진메트로",
+            "Seoul Metropolitan Subway",
+            "Seoul Metropolitan Subway System",
+            "Unknown",
+            "인천교통공사"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "as-prk-chongjin",
+      "city": "Chongjin",
+      "country": "North Korea",
+      "lines": 1,
+      "stations": 4,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-tur-eskisehir",
+      "city": "Eskisehir",
+      "country": "Turkey",
+      "lines": 7,
+      "stations": 55,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-tur-gaziantep",
+      "city": "Gaziantep",
+      "country": "Turkey",
+      "lines": 3,
+      "stations": 28,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-tur-kayseri",
+      "city": "Kayseri",
+      "country": "Turkey",
+      "lines": 7,
+      "stations": 74,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-tur-samsun",
+      "city": "Samsun",
+      "country": "Turkey",
+      "lines": 3,
+      "stations": 42,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "as-uzb-samarkand",
+      "city": "Samarkand",
+      "country": "Uzbekistan",
+      "lines": 2,
+      "stations": 21,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-aut-graz",
+      "city": "Graz",
+      "country": "Austria",
+      "lines": 9,
+      "stations": 105,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-bel-antwerp",
+      "city": "Antwerp",
+      "country": "Belgium",
+      "lines": 12,
+      "stations": 148,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-bel-charleroi",
+      "city": "Charleroi",
+      "country": "Belgium",
+      "lines": 11,
+      "stations": 56,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-bih-sarajevo",
+      "city": "Sarajevo",
+      "country": "Bosnia and Herzegovina",
+      "lines": 6,
+      "stations": 29,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-blr-mozyr",
+      "city": "Mozyr",
+      "country": "Belarus",
+      "lines": 2,
+      "stations": 20,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-blr-novopolotsk",
+      "city": "Novopolotsk",
+      "country": "Belarus",
+      "lines": 1,
+      "stations": 13,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-blr-vitebsk",
+      "city": "Vitebsk",
+      "country": "Belarus",
+      "lines": 7,
+      "stations": 51,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-cro-osijek",
+      "city": "Osijek",
+      "country": "Croatia",
+      "lines": 2,
+      "stations": 41,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-cze-liberec",
+      "city": "Liberec",
+      "country": "Czechia",
+      "lines": 4,
+      "stations": 39,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-cze-plzen",
+      "city": "Plzen",
+      "country": "Czechia",
+      "lines": 8,
+      "stations": 53,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-esp-cadiz",
+      "city": "Cádiz",
+      "country": "Spain",
+      "lines": 1,
+      "stations": 21,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-esp-murcia",
+      "city": "Murcia",
+      "country": "Spain",
+      "lines": 2,
+      "stations": 28,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-esp-tenerife",
+      "city": "Tenerife",
+      "country": "Spain",
+      "lines": 2,
+      "stations": 25,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-esp-vitoria-gasteiz",
+      "city": "Vitoria-Gasteiz",
+      "country": "Spain",
+      "lines": 2,
+      "stations": 28,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-est-tallinn",
+      "city": "Tallinn",
+      "country": "Estonia",
+      "lines": 5,
+      "stations": 42,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-fin-tampere",
+      "city": "Tampere",
+      "country": "Finland",
+      "lines": 2,
+      "stations": 33,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-fra-aubagne",
+      "city": "Aubagne",
+      "country": "France",
+      "lines": 3,
+      "stations": 31,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-fra-besancon",
+      "city": "Besançon",
+      "country": "France",
+      "lines": 2,
+      "stations": 31,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-fra-brest",
+      "city": "Brest",
+      "country": "France",
+      "lines": 2,
+      "stations": 39,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-fra-caen",
+      "city": "Caen",
+      "country": "France",
+      "lines": 3,
+      "stations": 37,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-fra-dijon",
+      "city": "Dijon",
+      "country": "France",
+      "lines": 2,
+      "stations": 34,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-gbr-nottingham",
+      "city": "Nottingham",
+      "country": "United Kingdom",
+      "lines": 2,
+      "stations": 46,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-gbr-sheffield",
+      "city": "Sheffield",
+      "country": "United Kingdom",
+      "lines": 4,
+      "stations": 51,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-brandenburg-havel",
+      "city": "Brandenburg (Havel",
+      "country": "Germany",
+      "lines": 2,
+      "stations": 34,
+      "official_map": "https://de.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg",
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "wrong_official_map",
+          "detail": "Berlin",
+          "url": "https://de.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-braunschweig",
+      "city": "Braunschweig",
+      "country": "Germany",
+      "lines": 6,
+      "stations": 82,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-cottbus",
+      "city": "Cottbus",
+      "country": "Germany",
+      "lines": 3,
+      "stations": 44,
+      "official_map": "https://de.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg",
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "wrong_official_map",
+          "detail": "Berlin",
+          "url": "https://de.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-dessau",
+      "city": "Dessau",
+      "country": "Germany",
+      "lines": 2,
+      "stations": 26,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-dusseldorf",
+      "city": "Düsseldorf",
+      "country": "Germany",
+      "lines": 17,
+      "stations": 264,
+      "official_map": "https://de.wikipedia.org/wiki/Verkehrsverbund_Rhein-Ruhr",
+      "local_map_files": 2,
+      "issues": [
+        {
+          "type": "wrong_route_network",
+          "detail": [
+            "Rheinbahn"
+          ],
+          "networks": [
+            "Rheinbahn",
+            "Rheinbahn AG",
+            "SWK Mobil",
+            "Unknown",
+            "VRR",
+            "Verkehrsverbund Rhein-Ruhr",
+            "Verkehrsverbund-Rhein Ruhr"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-halberstadt",
+      "city": "Halberstadt",
+      "country": "Germany",
+      "lines": 2,
+      "stations": 25,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-heilbronn",
+      "city": "Heilbronn",
+      "country": "Germany",
+      "lines": 3,
+      "stations": 84,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-karlsruhe",
+      "city": "Karlsruhe",
+      "country": "Germany",
+      "lines": 28,
+      "stations": 355,
+      "official_map": "https://de.wikipedia.org/wiki/Karlsruher_Verkehrsverbund",
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "suspiciously_large",
+          "stations": 355,
+          "lines": 28
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-potsdam",
+      "city": "Potsdam",
+      "country": "Germany",
+      "lines": 8,
+      "stations": 96,
+      "official_map": "https://de.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg",
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "wrong_official_map",
+          "detail": "Berlin",
+          "url": "https://de.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-saarbrucken",
+      "city": "Saarbrücken",
+      "country": "Germany",
+      "lines": 2,
+      "stations": 43,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-schoneiche",
+      "city": "Schöneiche",
+      "country": "Germany",
+      "lines": 1,
+      "stations": 20,
+      "official_map": "https://de.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg",
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "wrong_official_map",
+          "detail": "Berlin",
+          "url": "https://de.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-schwerin",
+      "city": "Schwerin",
+      "country": "Germany",
+      "lines": 4,
+      "stations": 36,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-strausberg",
+      "city": "Strausberg",
+      "country": "Germany",
+      "lines": 4,
+      "stations": 49,
+      "official_map": "https://de.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg",
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "wrong_route_network",
+          "detail": [
+            "Berliner Verkehrsbetriebe"
+          ],
+          "networks": [
+            "Berliner Verkehrsbetriebe",
+            "DB InfraGO AG",
+            "Unknown",
+            "Verkehrsverbund Berlin-Brandenburg"
+          ]
+        },
+        {
+          "type": "wrong_official_map",
+          "detail": "Berlin",
+          "url": "https://de.wikipedia.org/wiki/Verkehrsverbund_Berlin-Brandenburg"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ger-ulm",
+      "city": "Ulm",
+      "country": "Germany",
+      "lines": 2,
+      "stations": 39,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-hun-debrecen",
+      "city": "Debrecen",
+      "country": "Hungary",
+      "lines": 2,
+      "stations": 28,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-hun-miskolc",
+      "city": "Miskolc",
+      "country": "Hungary",
+      "lines": 3,
+      "stations": 25,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ita-firenze",
+      "city": "Firenze",
+      "country": "Italy",
+      "lines": 2,
+      "stations": 40,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ita-messina",
+      "city": "Messina",
+      "country": "Italy",
+      "lines": 1,
+      "stations": 18,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ita-padova",
+      "city": "Padova",
+      "country": "Italy",
+      "lines": 3,
+      "stations": 48,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ita-palermo",
+      "city": "Palermo",
+      "country": "Italy",
+      "lines": 4,
+      "stations": 43,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-lat-daugavpils",
+      "city": "Daugavpils",
+      "country": "Latvia",
+      "lines": 4,
+      "stations": 37,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-lat-riga",
+      "city": "Riga",
+      "country": "Latvia",
+      "lines": 7,
+      "stations": 121,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-lux-luxembourg",
+      "city": "Luxembourg",
+      "country": "Luxembourg",
+      "lines": 1,
+      "stations": 24,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "misnamed_city",
+          "detail": "Luxembourg"
+        },
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ned-the-hague",
+      "city": "The Hague",
+      "country": "Netherlands",
+      "lines": 15,
+      "stations": 224,
+      "official_map": "https://nl.wikipedia.org/wiki/RandstadRail_3",
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "wrong_route_network",
+          "detail": [
+            "mtr"
+          ],
+          "networks": [
+            "HTM",
+            "HTM;HTMBuzz",
+            "Haaglanden Stad",
+            "Nederlandse Spoorwegen",
+            "RR3",
+            "Rail Haaglanden",
+            "Stoomtrein Katwijk - Leiden",
+            "Tram 15",
+            "Unknown"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "eu-nor-bergen",
+      "city": "Bergen",
+      "country": "Norway",
+      "lines": 5,
+      "stations": 33,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-pol-bydgoszcz",
+      "city": "Bydgoszcz",
+      "country": "Poland",
+      "lines": 10,
+      "stations": 66,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-pol-cracow",
+      "city": "Cracow",
+      "country": "Poland",
+      "lines": 24,
+      "stations": 311,
+      "official_map": "https://pl.wikipedia.org/wiki/Tramwaje_w_Krakowie",
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "suspiciously_large",
+          "stations": 311,
+          "lines": 24
+        }
+      ]
+    },
+    {
+      "stem": "eu-pol-czestochowa",
+      "city": "Czestochowa",
+      "country": "Poland",
+      "lines": 3,
+      "stations": 31,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-pol-elblag",
+      "city": "Elblag",
+      "country": "Poland",
+      "lines": 5,
+      "stations": 36,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-pol-gorzow",
+      "city": "Gorzow",
+      "country": "Poland",
+      "lines": 5,
+      "stations": 33,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-pol-grudziadz",
+      "city": "Grudziadz",
+      "country": "Poland",
+      "lines": 2,
+      "stations": 18,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-pol-lodz",
+      "city": "Lodz",
+      "country": "Poland",
+      "lines": 23,
+      "stations": 256,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-pol-olsztyn",
+      "city": "Olsztyn",
+      "country": "Poland",
+      "lines": 5,
+      "stations": 32,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-pol-torun",
+      "city": "Torun",
+      "country": "Poland",
+      "lines": 7,
+      "stations": 89,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-pol-warsaw",
+      "city": "Warsaw",
+      "country": "Poland",
+      "lines": 28,
+      "stations": 539,
+      "official_map": "https://pl.wikipedia.org/wiki/Zarząd_Transportu_Miejskiego_w_Warszawie",
+      "local_map_files": 2,
+      "issues": [
+        {
+          "type": "wrong_route_network",
+          "detail": [
+            "Metro Warszawskie",
+            "Tramwaje Warszawskie"
+          ],
+          "networks": [
+            "Metro Warszawskie",
+            "Tramwaje Warszawskie",
+            "Unknown",
+            "Warsaw Metro",
+            "ZTM Warszawa"
+          ]
+        },
+        {
+          "type": "suspiciously_large",
+          "stations": 539,
+          "lines": 28
+        }
+      ]
+    },
+    {
+      "stem": "eu-pol-wroclaw",
+      "city": "Wroclaw",
+      "country": "Poland",
+      "lines": 25,
+      "stations": 195,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rou-arad",
+      "city": "Arad",
+      "country": "Romania",
+      "lines": 10,
+      "stations": 49,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rou-braila",
+      "city": "Braila",
+      "country": "Romania",
+      "lines": 4,
+      "stations": 28,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rou-bucharest",
+      "city": "Bucharest",
+      "country": "Romania",
+      "lines": 29,
+      "stations": 337,
+      "official_map": "https://ro.wikipedia.org/wiki/Metroul_din_București",
+      "local_map_files": 2,
+      "issues": [
+        {
+          "type": "wrong_route_network",
+          "detail": [
+            "Bucure",
+            "Metrorex"
+          ],
+          "networks": [
+            "Asociația de Dezvoltare Intercomunitară pentru Transport Public București – Ilfov",
+            "M3",
+            "Metrorex",
+            "STB",
+            "Societatea de Transport București",
+            "TPBI"
+          ]
+        },
+        {
+          "type": "suspiciously_large",
+          "stations": 337,
+          "lines": 29
+        }
+      ]
+    },
+    {
+      "stem": "eu-rou-cluj-napoca",
+      "city": "Cluj-Napoca",
+      "country": "Romania",
+      "lines": 4,
+      "stations": 39,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rou-craiova",
+      "city": "Craiova",
+      "country": "Romania",
+      "lines": 3,
+      "stations": 27,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rou-galati",
+      "city": "Galati",
+      "country": "Romania",
+      "lines": 6,
+      "stations": 22,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rou-oradea",
+      "city": "Oradea",
+      "country": "Romania",
+      "lines": 7,
+      "stations": 45,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rou-ploiesti",
+      "city": "Ploiesti",
+      "country": "Romania",
+      "lines": 2,
+      "stations": 18,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rou-resita",
+      "city": "Resita",
+      "country": "Romania",
+      "lines": 1,
+      "stations": 16,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rou-timisoara",
+      "city": "Timisoara",
+      "country": "Romania",
+      "lines": 9,
+      "stations": 72,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-achinsk",
+      "city": "Achinsk",
+      "country": "Russia",
+      "lines": 4,
+      "stations": 18,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-angarsk",
+      "city": "Angarsk",
+      "country": "Russia",
+      "lines": 5,
+      "stations": 41,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-barnaul",
+      "city": "Barnaul",
+      "country": "Russia",
+      "lines": 8,
+      "stations": 112,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-biysk",
+      "city": "Biysk",
+      "country": "Russia",
+      "lines": 3,
+      "stations": 46,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-chelyabinsk",
+      "city": "Chelyabinsk",
+      "country": "Russia",
+      "lines": 14,
+      "stations": 118,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-dzerzhinsk",
+      "city": "Dzerzhinsk*",
+      "country": "Russia",
+      "lines": 5,
+      "stations": 87,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-irkutsk",
+      "city": "Irkutsk",
+      "country": "Russia",
+      "lines": 7,
+      "stations": 43,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-izhevsk",
+      "city": "Izhevsk",
+      "country": "Russia",
+      "lines": 11,
+      "stations": 66,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-kemerovo",
+      "city": "Kemerovo",
+      "country": "Russia",
+      "lines": 5,
+      "stations": 75,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-kolomna",
+      "city": "Kolomna",
+      "country": "Russia",
+      "lines": 10,
+      "stations": 43,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-krasnodar",
+      "city": "Krasnodar",
+      "country": "Russia",
+      "lines": 16,
+      "stations": 135,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-krasnoyarsk",
+      "city": "Krasnoyarsk",
+      "country": "Russia",
+      "lines": 5,
+      "stations": 50,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-kursk",
+      "city": "Kursk",
+      "country": "Russia",
+      "lines": 4,
+      "stations": 72,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-lipetsk",
+      "city": "Lipetsk",
+      "country": "Russia",
+      "lines": 2,
+      "stations": 16,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-magnitogorsk",
+      "city": "Magnitogorsk",
+      "country": "Russia",
+      "lines": 34,
+      "stations": 146,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-nizhnekamsk",
+      "city": "Nizhnekamsk",
+      "country": "Russia",
+      "lines": 4,
+      "stations": 17,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-novocherkassk",
+      "city": "Novocherkassk",
+      "country": "Russia",
+      "lines": 3,
+      "stations": 42,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-novokuznetsk",
+      "city": "Novokuznetsk",
+      "country": "Russia",
+      "lines": 18,
+      "stations": 105,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-oryol",
+      "city": "Oryol",
+      "country": "Russia",
+      "lines": 3,
+      "stations": 39,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-prokopyevsk",
+      "city": "Prokopyevsk",
+      "country": "Russia",
+      "lines": 2,
+      "stations": 30,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-pyatigorsk",
+      "city": "Pyatigorsk",
+      "country": "Russia",
+      "lines": 8,
+      "stations": 52,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-rostov-on-don",
+      "city": "Rostov-on-Don",
+      "country": "Russia",
+      "lines": 4,
+      "stations": 51,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-salavat",
+      "city": "Salavat",
+      "country": "Russia",
+      "lines": 2,
+      "stations": 20,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-saratov",
+      "city": "Saratov",
+      "country": "Russia",
+      "lines": 2,
+      "stations": 39,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-smolensk",
+      "city": "Smolensk",
+      "country": "Russia",
+      "lines": 4,
+      "stations": 32,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-staryi-oskol",
+      "city": "Staryi Oskol",
+      "country": "Russia",
+      "lines": 3,
+      "stations": 19,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-taganrog",
+      "city": "Taganrog",
+      "country": "Russia",
+      "lines": 9,
+      "stations": 51,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-ufa",
+      "city": "Ufa",
+      "country": "Russia",
+      "lines": 7,
+      "stations": 70,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-ulan-ude",
+      "city": "Ulan-Ude",
+      "country": "Russia",
+      "lines": 6,
+      "stations": 49,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-ulyanovsk",
+      "city": "Ulyanovsk",
+      "country": "Russia",
+      "lines": 12,
+      "stations": 115,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-usolye-sibirskoye",
+      "city": "Usolye Sibirskoye",
+      "country": "Russia",
+      "lines": 4,
+      "stations": 25,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-vladivostok",
+      "city": "Vladivostok",
+      "country": "Russia",
+      "lines": 1,
+      "stations": 10,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-volchansk",
+      "city": "Volchansk",
+      "country": "Russia",
+      "lines": 2,
+      "stations": 9,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-volzhskiy",
+      "city": "Volzhskiy",
+      "country": "Russia",
+      "lines": 2,
+      "stations": 16,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-yaroslavl",
+      "city": "Yaroslavl",
+      "country": "Russia",
+      "lines": 4,
+      "stations": 32,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-rus-zlatoust",
+      "city": "Zlatoust",
+      "country": "Russia",
+      "lines": 3,
+      "stations": 45,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-srb-belgrade",
+      "city": "Belgrade",
+      "country": "Serbia",
+      "lines": 11,
+      "stations": 33,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-sui-basel",
+      "city": "Basel",
+      "country": "Switzerland",
+      "lines": 13,
+      "stations": 187,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-sui-zurich",
+      "city": "Zurich",
+      "country": "Switzerland",
+      "lines": 19,
+      "stations": 236,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-swe-norrkoping",
+      "city": "Norrköping",
+      "country": "Sweden",
+      "lines": 2,
+      "stations": 43,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ukr-avdiivka",
+      "city": "Avdiivka",
+      "country": "Ukraine",
+      "lines": 1,
+      "stations": 25,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ukr-druzhkivka",
+      "city": "Druzhkivka",
+      "country": "Ukraine",
+      "lines": 2,
+      "stations": 18,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ukr-horlivka",
+      "city": "Horlivka",
+      "country": "Ukraine",
+      "lines": 5,
+      "stations": 44,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ukr-kamianske",
+      "city": "Kamianske",
+      "country": "Ukraine",
+      "lines": 4,
+      "stations": 60,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ukr-konotop",
+      "city": "Konotop",
+      "country": "Ukraine",
+      "lines": 3,
+      "stations": 20,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ukr-kryvy-rih",
+      "city": "Kryvyi Rih",
+      "country": "Ukraine",
+      "lines": 20,
+      "stations": 84,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ukr-kyiv",
+      "city": "Kyiv",
+      "country": "Ukraine",
+      "lines": 19,
+      "stations": 230,
+      "official_map": "https://uk.wikipedia.org/wiki/Святошинсько-Броварська_лінія",
+      "local_map_files": 2,
+      "issues": [
+        {
+          "type": "wrong_route_network",
+          "detail": [
+            "Київський метро"
+          ],
+          "networks": [
+            "Unknown",
+            "КП «Київський метрополітен»",
+            "Київський автобус",
+            "Київський метрополітен",
+            "Київський трамвай",
+            "Київський швидкісний трамвай"
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "eu-ukr-mariupol",
+      "city": "Mariupol",
+      "country": "Ukraine",
+      "lines": 4,
+      "stations": 51,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ukr-odessa",
+      "city": "Odessa",
+      "country": "Ukraine",
+      "lines": 17,
+      "stations": 210,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ukr-vinnytsia",
+      "city": "Vinnytsia",
+      "country": "Ukraine",
+      "lines": 6,
+      "stations": 39,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    },
+    {
+      "stem": "eu-ukr-yevpatoria",
+      "city": "Yevpatoria",
+      "country": "Ukraine",
+      "lines": 4,
+      "stations": 42,
+      "official_map": null,
+      "local_map_files": 0,
+      "issues": [
+        {
+          "type": "missing_official_map"
+        }
+      ]
+    }
+  ],
+  "verify_flags_on_new": [
+    {
+      "severity": "order",
+      "stem": "eu-rou-bucharest",
+      "city": "Bucharest",
+      "note": "2 條線站序可疑（路徑長 > 1.6× MST）：Tram 7 2.03×、Tram 21 1.77×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-rus-magnitogorsk",
+      "city": "Magnitogorsk",
+      "note": "3 條線站序可疑（路徑長 > 1.6× MST）：Трамвай №23 1.68×、Трамвай №4Б 1.63×、Трамвай №8 1.63×，需以 Wikipedia 線路條目與 urb"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-pol-poznan",
+      "city": "Poznan",
+      "note": "3 條線站序可疑（路徑長 > 1.6× MST）：Linia tramwajowa nr 10 2.34×、Tram 24 1.94×、Tram 20 1.66×，需以 Wikipedia 線路條目與"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-swe-gothenburg",
+      "city": "Gothenburg",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Spårvagn: Lisebergslinjen 2×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-cze-ostrava",
+      "city": "Ostrava",
+      "note": "2 條線站序可疑（路徑長 > 1.6× MST）：19 1.93×、9 1.83×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-pol-bydgoszcz",
+      "city": "Bydgoszcz",
+      "note": "7 條線站序可疑（路徑長 > 1.6× MST）：Tramwaj 3 2.67×、Tramwaj 10 2.49×、Tramwaj 4 2.29×、Tramwaj 8 2.11×…，需以 Wikipe"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-ukr-lviv",
+      "city": "Lviv",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Трамвай 7 1.74×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-rou-iasi",
+      "city": "Iasi",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Tram 13 1.87×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "as-kaz-ust-kamenogorsk",
+      "city": "Ust'-Kamenogorsk",
+      "note": "3 條線站序可疑（路徑長 > 1.6× MST）：Tram 3 2.53×、Tram 1 1.83×、Tram 2 1.82×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-ger-chemnitz",
+      "city": "Chemnitz",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Tram 5 1.62×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-rou-oradea",
+      "city": "Oradea",
+      "note": "2 條線站序可疑（路徑長 > 1.6× MST）：3R 2.66×、1S 1.77×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-pol-olsztyn",
+      "city": "Olsztyn",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：5 1.8×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-rus-kemerovo",
+      "city": "Kemerovo",
+      "note": "5 條線站序可疑（路徑長 > 1.6× MST）：Трамвай № 1 2×、Трамвай № 10 1.87×、Трамвай № 3 1.85×、Трамвай № 5 1.76×…，需以 W"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-rus-smolensk",
+      "city": "Smolensk",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Трамвай №1: ул.Багратиона - Электроламповый завод 1.72×，需以 Wikipedia 線路條目與 "
+    },
+    {
+      "severity": "order",
+      "stem": "eu-nor-bergen",
+      "city": "Bergen",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Bybanen til Fyllingsdalen 1.94×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "as-jpn-toyama",
+      "city": "Toyama",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：2 1.78×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-rou-galati",
+      "city": "Galati",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：7 1.77×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "as-tur-kayseri",
+      "city": "Kayseri",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：T3: İldem 5 > Kumsmall AVM 2.41×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-lat-daugavpils",
+      "city": "Daugavpils",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：tram 3 1.83×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-rus-irkutsk",
+      "city": "Irkutsk",
+      "note": "2 條線站序可疑（路徑長 > 1.6× MST）：Volzhskaya Street 1.74×、Трамвай 6: ул. Волжская - Центральный рынок - м/р С"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-gbr-sheffield",
+      "city": "Sheffield",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Supertram Tram-Train 1.6×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-pol-czestochowa",
+      "city": "Czestochowa",
+      "note": "3 條線站序可疑（路徑長 > 1.6× MST）：Tram 1 1.75×、Tram 2 1.69×、Tram 3 1.62×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-ukr-horlivka",
+      "city": "Horlivka",
+      "note": "3 條線站序可疑（路徑長 > 1.6× MST）：Трамвай № 7 3.44×、Трамвай № 1 3.03×、Трамвай № 8 1.81×，需以 Wikipedia 線路條目與 ur"
+    },
+    {
+      "severity": "order",
+      "stem": "am-can-edmonton",
+      "city": "Edmonton",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：High Level Bridge Streetcar 1.63×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-fra-aubagne",
+      "city": "Aubagne",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Val'Tram Aubagne - La Bouilladisse 1.86×，需以 Wikipedia 線路條目與 urbanrail 人工確認站"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-ukr-kamianske",
+      "city": "Kamianske",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Трамвайний маршрут №3 2.32×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-ita-palermo",
+      "city": "Palermo",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Tram L4 1.95×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "as-tur-antalya",
+      "city": "Antalya",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：T2 Müze - Zerdailik tramvay Hattı 2.34×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-ger-nordhausen",
+      "city": "Nordhausen",
+      "note": "2 條線站序可疑（路徑長 > 1.6× MST）：Linie 2 Parkallee - Nordhausen-Ost 2.53×、Linie 1 Südharzklinikum-Bahnhof 1."
+    },
+    {
+      "severity": "order",
+      "stem": "eu-pol-grudziadz",
+      "city": "Grudziadz",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Tramwaj T2 2.63×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-cro-osijek",
+      "city": "Osijek",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Linija 1: Zeleno polje - Višnjevac 2.24×，需以 Wikipedia 線路條目與 urbanrail 人工確認站"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-hun-debrecen",
+      "city": "Debrecen",
+      "note": "2 條線站序可疑（路徑長 > 1.6× MST）：Tram 2 1.88×、Tram 1 1.81×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "am-usa-charlotte",
+      "city": "Charlotte",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：CityLynx Gold Line 3.15×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-fra-brest",
+      "city": "Brest",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Tram B 3.46×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-ukr-druzhkivka",
+      "city": "Druzhkivka",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Трамвайний маршрут №1 ЦМЛ - З/Д Вокзал 1.99×，需以 Wikipedia 線路條目與 urbanrail 人"
+    },
+    {
+      "severity": "order",
+      "stem": "as-chn-dujiangyan",
+      "city": "Dujiangyan",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：成都有轨电车蓉2号线（主线） 1.69×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "as-isr-jerusalem",
+      "city": "Jerusalem",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Red Line Jerusalem Light Rail 1.68×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "as-chn-huangshi",
+      "city": "Huangshi",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：黄石现代有轨电车 2×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-rus-krasnoturyinsk",
+      "city": "Krasnoturyinsk",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Bogoslovsky Aluminum Plant 1.83×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "eu-esp-soller",
+      "city": "Sóller",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Tranvía de Sóller 3.69×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "order",
+      "stem": "as-kaz-temirtau",
+      "city": "Temirtau",
+      "note": "1 條線站序可疑（路徑長 > 1.6× MST）：Tram 4 2.47×，需以 Wikipedia 線路條目與 urbanrail 人工確認站序"
+    },
+    {
+      "severity": "high",
+      "stem": "eu-ger-munich",
+      "city": "Munich",
+      "note": "站數偏多（388 vs wiki 96），可能混入輕軌"
+    },
+    {
+      "severity": "high",
+      "stem": "eu-rou-bucharest",
+      "city": "Bucharest",
+      "note": "站數偏多（337 vs wiki 64），可能混入輕軌"
+    },
+    {
+      "severity": "high",
+      "stem": "eu-bel-brussels",
+      "city": "Brussels",
+      "note": "站數偏多（215 vs wiki 59），可能混入輕軌"
+    },
+    {
+      "severity": "high",
+      "stem": "eu-ger-nuremberg",
+      "city": "Nuremberg",
+      "note": "站數偏多（206 vs wiki 49），可能混入輕軌"
+    },
+    {
+      "severity": "high",
+      "stem": "eu-ukr-kyiv",
+      "city": "Kyiv",
+      "note": "站數偏多（230 vs wiki 49），可能混入輕軌"
+    },
+    {
+      "severity": "high",
+      "stem": "eu-pol-warsaw",
+      "city": "Warsaw",
+      "note": "站數偏多（539 vs wiki 39），可能混入輕軌"
+    },
+    {
+      "severity": "high",
+      "stem": "eu-rus-nizhny-novgorod",
+      "city": "Nizhny Novgorod",
+      "note": "站數偏多（83 vs wiki 15），可能混入輕軌"
+    }
+  ]
+}

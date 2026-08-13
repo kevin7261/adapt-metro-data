@@ -1,0 +1,185 @@
+downloadMaps: 553 city groups [incremental]
+  [4/553] europe/poland/eu-pol-cracow: no map found
+  [5/553] europe/poland/eu-pol-katowice: no map found
+  [6/553] europe/poland/eu-pol-lodz: no map found
+  [9/553] europe/poland/eu-pol-poznan: no map found
+  [18/553] europe/czechia/eu-cze-ostrava: no map found
+  [21/553] europe/united-kingdom/eu-gbr-liverpool: no map found
+  [23/553] europe/netherlands/eu-ned-the-hague: no map found
+  [24/553] europe/ukraine/eu-ukr-odessa: no map found
+  [30/553] europe/ukraine/eu-ukr-kryvy-rih-krivoy-rog: no map found
+  [32/553] europe/czechia/eu-cze-brno: no map found
+  [34/553] europe/croatia/eu-cro-zagreb: no map found
+  [39/553] europe/switzerland/eu-sui-basel: no map found
+  [46/553] europe/poland/eu-pol-szczecin <- Map of tram system in Szczecin (Ukrainian).svg (602 KB, CC BY-SA 4.0)
+  [62/553] europe/russia/eu-rus-ulyanovsk: no map found
+  [65/553] asia/kazakhstan/as-kaz-ust-kamenogorsk: no map found
+  [68/553] europe/austria/eu-aut-graz: no map found
+  [71/553] europe/russia/eu-rus-tula: no map found
+  [79/553] europe/austria/eu-aut-innsbruck: no map found
+  [92/553] europe/poland/eu-pol-torun: no map found
+  [102/553] americas/united-states/am-usa-denver: no map found
+  [112/553] europe/romania/eu-rou-arad: no map found
+  [123/553] europe/russia/eu-rus-pyatigorsk <- Pyatigorsk tram system.svg (210 KB, CC BY-SA 2.0)
+  [124/553] europe/estonia/eu-est-tallinn <- Tallinn tram map as of April 2026.svg (2754 KB, CC BY-SA 4.0)
+  [125/553] europe/ukraine/eu-ukr-vinnytsia <- Map of tram system in Vinnytsia (uk).svg (82 KB, CC BY-SA 4.0)
+  [131/553] europe/russia/eu-rus-novotroitsk <- Novotroitsk tram map 2022-05.svg (605 KB, CC BY-SA 2.0)
+  [133/553] asia/japan/as-jpn-toyama <- Rail Tracks map Toyama Tram Toyama Station.svg (142 KB, CC BY-SA 4.0)
+  [136/553] europe/norway/eu-nor-bergen <- Bergen Tram Map.png (21 KB, CC BY-SA 4.0)
+  [137/553] europe/russia/eu-rus-angarsk <- Angarsk tram map 2022-04.svg (1009 KB, CC BY-SA 2.0)
+  [139/553] europe/germany/eu-ger-jena: no map found
+  [140/553] europe/russia/eu-rus-kolomna: no map found
+  [146/553] europe/switzerland/eu-sui-geneva <- Tram and rail network geneva.png (1703 KB, CC BY-SA 4.0)
+  [147/553] europe/belgium/eu-bel-ghent: no map found
+  [148/553] asia/turkey/as-tur-konya: no map found
+  [149/553] europe/russia/eu-rus-ufa <- Ufa tram map 2022-05.svg (1123 KB, CC BY-SA 2.0)
+  [150/553] europe/belarus/eu-blr-vitebsk <- Map of tram system in Vitebsk.svg (161 KB, CC BY-SA 4.0)
+  [156/553] europe/romania/eu-rou-galati <- Galati Tram Map 2025.png (1030 KB, CC BY-SA 4.0)
+  [158/553] europe/czechia/eu-cze-liberec <- Map of tram system in Liberec.svg (227 KB, CC BY-SA 4.0)
+  [160/553] europe/russia/eu-rus-yaroslavl <- Yaroslavl tram map 2020-04.svg (1133 KB, CC BY-SA 2.0)
+  [163/553] europe/latvia/eu-lat-daugavpils <- Map of tram system in Daugavpils.svg (130 KB, CC BY-SA 4.0)
+  [164/553] europe/poland/eu-pol-elblag: no map found
+  [165/553] asia/turkey/as-tur-kayseri: no map found
+  [166/553] europe/russia/eu-rus-krasnoyarsk <- Krasnoyarsk Tram System.svg (811 KB, CC BY-SA 2.0)
+  [167/553] asia/japan/as-jpn-nagasaki: no map found
+  [168/553] europe/czechia/eu-cze-plzen <- Map of tram system in Plzeň.svg (166 KB, CC BY-SA 4.0)
+  [170/553] europe/united-kingdom/eu-gbr-sheffield: no map found
+  [172/553] americas/united-states/am-usa-salt-lake-city: no map found
+  [173/553] americas/canada/am-can-calgary: no map found
+  [175/553] europe/hungary/eu-hun-szeged <- Metros hu Szeged map.svg (939 KB, CC0)
+  [181/553] europe/bosnia-and-herzegovina/eu-bih-sarajevo <- Sarajevo - tram map.png (6 KB, CC BY-SA 3.0)
+  [182/553] europe/russia/eu-rus-taganrog <- Taganrog tram map 2023.svg (8052 KB, CC0)
+  [192/553] europe/germany/eu-ger-brandenburg-havel: no map found
+  [194/553] europe/russia/eu-rus-kaliningrad <- Kaliningrad tram map 2022-04.svg (986 KB, CC BY-SA 2.0)
+  [195/553] europe/ukraine/eu-ukr-mariupol <- Map of tram system in Mariupol.svg (205 KB, CC BY-SA 4.0)
+  [196/553] europe/russia/eu-rus-novocherkassk <- Novocherkassk Tram System.svg (309 KB, CC BY-SA 2.0)
+  [197/553] europe/russia/eu-rus-smolensk <- Smolensk Tram System.svg (465 KB, CC BY-SA 2.0)
+  [198/553] europe/russia/eu-rus-usolye-sibirskoye <- Usolye Sibirskoye tram system.svg (197 KB, CC BY-SA 2.0)
+  [201/553] asia/india/as-ind-gurugram: no map found
+  [211/553] europe/poland/eu-pol-czestochowa <- Czestochowa tram network.svg (132 KB, Public domain)
+  [212/553] europe/russia/eu-rus-dzerzhinsk <- DzerzhinskiyTramSystem.png (78 KB, CC BY-SA 2.0)
+  [214/553] europe/germany/eu-ger-gotha <- Tram map of Gotha.svg (126 KB, CC BY-SA 4.0)
+  [215/553] europe/ukraine/eu-ukr-konotop <- Map of tram system in Konotop (uk).svg (172 KB, CC BY-SA 4.0)
+  [216/553] europe/russia/eu-rus-kursk <- Kursk Tram System.svg (2619 KB, CC BY-SA 2.0)
+  [218/553] europe/russia/eu-rus-novokuznetsk <- Novokuznetsk tram map 2020-10-09.svg (1148 KB, CC BY-SA 2.0)
+  [219/553] europe/germany/eu-ger-schwerin <- Tram map of Schwerin.svg (1697 KB, CC BY-SA 2.0)
+  [230/553] europe/poland/eu-pol-gorzow <- Tram System GorzowWielkopolski.svg (5485 KB, CC BY-SA 4.0)
+  [232/553] europe/russia/eu-rus-prokopyevsk <- ProkopyevskTramSystem.png (175 KB, CC BY-SA 2.0)
+  [233/553] europe/russia/eu-rus-zlatoust <- Zlatoust tram map 2022-04.svg (610 KB, CC BY-SA 2.0)
+  [236/553] europe/germany/eu-ger-heilbronn: no map found
+  [244/553] europe/denmark/eu-den-aarhus: no map found
+  [245/553] americas/united-states/am-usa-pittsburgh <- Pittsburgh Railway Map1959.png (948 KB, CC BY-SA 3.0)
+  [246/553] europe/france/eu-fra-aubagne <- Map Tram Aubagne 2022 08.svg (511 KB, CC BY-SA 4.0)
+  [247/553] europe/russia/eu-rus-biysk <- Biysk Tram System.svg (407 KB, CC BY-SA 2.0)
+  [248/553] europe/romania/eu-rou-braila <- Tram map of Braila 2025.svg (338 KB, ODbL)
+  [249/553] europe/germany/eu-ger-halberstadt <- Tram map of Halberstadt.svg (78 KB, CC BY-SA 4.0)
+  [250/553] europe/ukraine/eu-ukr-kamianske <- Map of tram system in Kamianske (uk).svg (157 KB, CC BY-SA 4.0)
+  [252/553] americas/united-states/am-usa-memphis <- Memphis Streetcar map 2026, colour.png (1488 KB, CC BY-SA 2.0)
+  [253/553] europe/czechia/eu-cze-most <- Map of tram system in Most and Litvínov.svg (218 KB, CC BY-SA 4.0)
+  [271/553] europe/finland/eu-fin-tampere <- Tram map of Tampere.svg (238 KB, CC BY-SA 4.0)
+  [278/553] europe/ukraine/eu-ukr-horlivka: no map found
+  [280/553] americas/united-states/am-usa-milwaukee: no map found
+  [282/553] europe/germany/eu-ger-nordhausen: no map found
+  [283/553] europe/sweden/eu-swe-norrkoping: no map found
+  [285/553] europe/russia/eu-rus-oryol <- Oryol tram map 2022-04.svg (535 KB, CC BY-SA 2.0)
+  [286/553] africa/morocco/af-mar-rabat: no map found
+  [289/553] europe/spain/eu-esp-vitoria-gasteiz: no map found
+  [304/553] asia/china/as-chn-dujiangyan <- Dujiangyan Tram Map.svg (368 KB, CC BY-SA 4.0)
+  [312/553] africa/morocco/af-mar-casablanca <- Light railway system in Casablanca, Morocco.jpg (4664 KB, CC BY-SA 4.0)
+  [313/553] europe/romania/eu-rou-craiova <- Map of tram system in Craiova.svg (109 KB, CC BY-SA 4.0)
+  [314/553] europe/germany/eu-ger-gera <- Tram map of Gera.svg (1230 KB, CC BY-SA 2.0)
+  [315/553] europe/germany/eu-ger-gorlitz: no map found
+  [316/553] europe/hungary/eu-hun-miskolc <- Tram map of Miskolc.png (727 KB, CC BY-SA 2.0)
+  [317/553] europe/russia/eu-rus-nizhnekamsk <- NizhnekamskTramSystem.png (76 KB, CC BY-SA 2.0)
+  [318/553] europe/croatia/eu-cro-osijek <- Osijek tramway network map.svg (2308 KB, CC BY-SA 3.0)
+  [320/553] africa/algeria/af-alg-sidi-bel-abbes: no map found
+  [321/553] europe/ukraine/eu-ukr-yevpatoria <- Map of tram system in Yevpatoria (uk).svg (188 KB, CC BY-SA 4.0)
+  [322/553] europe/germany/eu-ger-zwickau <- Tram map of Zwickau.png (925 KB, CC BY-SA 2.0)
+  [336/553] europe/germany/eu-ger-strausberg: no map found
+  [338/553] americas/united-states/am-usa-minneapolis-st-paul: no map found
+  [348/553] asia/china/as-chn-tianshui <- Tianshui Tram network map.svg (13 KB, CC0)
+  [350/553] asia/turkey/as-tur-izmit: no map found
+  [351/553] europe/russia/eu-rus-achinsk <- Map of tram system in Achinsk (Polish).svg (113 KB, CC BY-SA 4.0)
+  [353/553] europe/hungary/eu-hun-debrecen <- DebrecenTramwayNetwork1970.png (459 KB, CC BY-SA 2.0)
+  [354/553] europe/germany/eu-ger-dessau <- Tram map of Dessau.svg (73 KB, CC BY-SA 4.0)
+  [355/553] europe/poland/eu-pol-grudziadz <- Map of tram line 3 in Grudziądz.svg (11 KB, CC BY-SA 4.0)
+  [358/553] europe/ukraine/eu-ukr-yenakiieve <- Map of tram system in Yenakiieve (uk).svg (173 KB, CC BY-SA 4.0)
+  [359/553] americas/united-states/am-usa-jacksonville: no map found
+  [360/553] asia/japan/as-jpn-kagoshima <- Kagoshima City Tram map ja.png (139 KB, CC BY-SA 3.0)
+  [361/553] asia/japan/as-jpn-kumamoto <- Kumamoto city tram map JA.png (119 KB, CC BY-SA 3.0)
+  [362/553] europe/russia/eu-rus-osinniki: no map found
+  [363/553] europe/russia/eu-rus-orsk <- Orsk tram map 2022-05.svg (1254 KB, CC BY-SA 2.0)
+  [364/553] asia/japan/as-jpn-okayama <- Okayama Electric Tramway Linemap.svg (216 KB, CC BY-SA 4.0)
+  [365/553] americas/united-states/am-usa-oklahoma-city: no map found
+  [366/553] europe/romania/eu-rou-ploiesti <- Map of tram system in Ploiești.svg (110 KB, CC BY-SA 4.0)
+  [368/553] asia/turkey/as-tur-samsun: no map found
+  [369/553] europe/russia/eu-rus-staryi-oskol <- Staryi Oskol tram map 2022-04.svg (807 KB, CC BY-SA 2.0)
+  [386/553] asia/japan/as-jpn-fukui: no map found
+  [388/553] asia/japan/as-jpn-enoshima-shonan: no map found
+  [391/553] asia/japan/as-jpn-tama: no map found
+  [392/553] americas/united-states/am-usa-tacoma: no map found
+  [405/553] africa/nigeria/af-ngr-abuja: no map found
+  [408/553] americas/united-states/am-usa-charlotte <- Map Lynx light rail Charlotte.svg (752 KB, CC BY 3.0)
+  [420/553] europe/ukraine/eu-ukr-druzhkivka <- Map of tram system in Druzhkivka (uk).svg (223 KB, CC BY-SA 4.0)
+  [423/553] europe/russia/eu-rus-lipetsk <- Lipetsk tram map 2022-04.svg (727 KB, CC BY-SA 2.0)
+  [424/553] americas/united-states/am-usa-little-rock: no map found
+  [428/553] europe/italy/eu-ita-venezia-mestre: no map found
+  [429/553] asia/china/as-chn-qiubei: no map found
+  [430/553] europe/russia/eu-rus-salavat <- Salavat tram map 2022-05.svg (355 KB, CC BY-SA 2.0)
+  [431/553] asia/uzbekistan/as-uzb-samarkand <- Map of tram system in Samarkand.svg (85 KB, CC BY-SA 4.0)
+  [445/553] asia/israel/as-isr-jerusalem: no map found
+  [446/553] americas/argentina/am-arg-mendoza: no map found
+  [459/553] oceania/australia/oc-aus-gold-coast: no map found
+  [464/553] europe/spain/eu-esp-cadiz: no map found
+  [473/553] asia/china/as-chn-sanya: no map found
+  [480/553] oceania/australia/oc-aus-canberra: no map found
+  [483/553] asia/japan/as-jpn-kitakyushu: no map found
+  [486/553] asia/japan/as-jpn-utsunomiya <- Utsunomiya Haga Lightrail Line map.svg (1232 KB, CC BY-SA 4.0)
+  [487/553] asia/china/as-chn-huai-an: no map found
+  [500/553] africa/egypt/af-egy-alexandria <- Alexandria Tramway Map-Raml line-Arabic.png (603 KB, CC BY-SA 3.0)
+  [501/553] europe/ukraine/eu-ukr-avdiivka <- Map of tram system in Avdiivka (uk).svg (135 KB, CC BY-SA 4.0)
+  [506/553] africa/algeria/af-alg-constantine <- Map of the tramway system in Constantine, Algeria.png (900 KB, CC BY-SA 4.0)
+  [510/553] americas/united-states/am-usa-el-paso: no map found
+  [511/553] europe/austria/eu-aut-gmunden: no map found
+  [512/553] asia/china/as-chn-huangshi: no map found
+  [513/553] asia/china/as-chn-jiaxing: no map found
+  [514/553] americas/united-states/am-usa-kansas-city: no map found
+  [515/553] europe/russia/eu-rus-krasnoturyinsk <- Krasnoturyinsk Tram System.svg (57 KB, CC BY-SA 2.0)
+  [516/553] europe/belgium/eu-bel-kusttram <- Route Vlaamse Kusttram.png (5098 KB, CC BY-SA 4.0)
+  [517/553] americas/united-states/am-usa-las-vegas <- Rail Transport in Las Vegas-13.jpg (86 KB, CC BY-SA 3.0)
+  [518/553] europe/belgium/eu-bel-liege: no map found
+  [519/553] europe/latvia/eu-lat-liepaja <- Tram map of Liepaja.png (1176 KB, CC BY-SA 2.0)
+  [520/553] europe/sweden/eu-swe-lund: no map found
+  [521/553] europe/luxembourg/eu-lux-luxembourg <- Luxembourg T1 map-en.svg (3385 KB, CC BY-SA 4.0)
+  [522/553] asia/japan/as-jpn-matsuyama: no map found
+  [523/553] asia/china/as-chn-mengzi: no map found
+  [524/553] europe/italy/eu-ita-messina <- Messina mappa tranvia.svg (2241 KB, CC BY-SA 3.0)
+  [525/553] americas/united-states/am-usa-morgantown: no map found
+  [526/553] europe/belarus/eu-blr-mozyr: no map found
+  [527/553] asia/japan/as-jpn-naha: no map found
+  [528/553] europe/belarus/eu-blr-novopolotsk: no map found
+  [529/553] europe/denmark/eu-den-odense: no map found
+  [530/553] africa/algeria/af-alg-oran: no map found
+  [531/553] africa/algeria/af-alg-ouargla: no map found
+  [532/553] europe/italy/eu-ita-padova <- Padova mappa tranvia.svg (6335 KB, CC BY-SA 4.0)
+  [533/553] europe/spain/eu-esp-parla: no map found
+  [534/553] europe/romania/eu-rou-resita <- Resita tram map 2025.png (1421 KB, CC BY-SA 4.0)
+  [535/553] europe/france/eu-fra-rouen <- Rouen Transport Map.svg (85 KB, CC BY 3.0)
+  [536/553] americas/united-states/am-usa-santa-ana: no map found
+  [537/553] europe/germany/eu-ger-schoneiche: no map found
+  [538/553] africa/algeria/af-alg-setif <- Sétif tram route panel June 2024.jpg (7677 KB, CC BY-SA 4.0)
+  [539/553] europe/portugal/eu-por-sintra: no map found
+  [540/553] europe/spain/eu-esp-soller <- Tranvía de Sóller.svg (436 KB, Public domain)
+  [541/553] americas/united-states/am-usa-tampa: no map found
+  [542/553] asia/kazakhstan/as-kaz-temirtau <- Map of tram system in Temirtau (Kazakh).svg (81 KB, CC BY-SA 4.0)
+  [543/553] europe/france/eu-fra-tours <- Rail transport infrastructure map - France.svg (68225 KB, CC BY-SA 4.0)
+  [544/553] asia/japan/as-jpn-toyohashi: no map found
+  [545/553] europe/italy/eu-ita-trieste <- Tranvia Trieste-Opicina mappa.svg (2468 KB, CC BY-SA 2.0)
+  [546/553] europe/norway/eu-nor-trondheim <- Trondheim tramway network.svg (5 KB, CC BY-SA 3.0)
+  [547/553] americas/united-states/am-usa-tucson: no map found
+  [548/553] americas/chile/am-chi-valparaiso <- MetroValparaíso.svg (325 KB, CC BY-SA 4.0)
+  [549/553] europe/russia/eu-rus-vladivostok <- Vladivostok tram map 2022-04.svg (815 KB, CC BY-SA 2.0)
+  [550/553] europe/russia/eu-rus-volchansk <- Volchansk Tram System.svg (43 KB, CC BY-SA 2.0)
+  [551/553] europe/spain/eu-esp-zaragoza <- Tram crossing roundabout in Zaragoza (Spain) - Mapillary (TbZEhZsKjd6pJzyzdegmMA).jpg (152 KB, CC BY-SA 4.0)
+
+DONE: 94 downloaded, 371 kept, 88 without a map. -> /Users/kevincheng/Library/CloudStorage/Dropbox/__NTU/__Thesis/_website/adapt-metro/data/metro/maps

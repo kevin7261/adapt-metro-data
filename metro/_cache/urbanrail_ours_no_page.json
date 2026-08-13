@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-07-25T13:08:03.957Z",
+  "method": "live continent+country index scrape vs our base systems",
+  "live_paths": 745,
+  "counts": {
+    "ours": 554,
+    "live_match": 553,
+    "no_live": 0,
+    "mapped_but_not_in_index": 1
+  },
+  "no_live_page": [],
+  "mapped_but_not_in_live_index": [
+    {
+      "city": "Gurugram",
+      "country": "India",
+      "lines": 8,
+      "stations": 198,
+      "mapped_path": "as/in/delhi/gurugram-metro.htm",
+      "file": "metro-maps/asia/india/as-ind-gurugram/as-ind-gurugram.geojson"
+    }
+  ]
+}
