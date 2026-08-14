@@ -148,15 +148,38 @@ Metro Maps 分頁的圖層本身就是那份 geojson，才准退回 `layerData[l
 
 ```
 1-raw-maps/skeleton/
-├── index.json                              ← 版本清單
+├── index.json                                  ← 版本清單
 ├── 260814082034/
-│   └── as-twn-taipei-1-skeleton.json       ← 檔名固定，不帶時間
+│   ├── as-twn-taipei-1-skeleton.json           ← 結果（檔名固定，不帶時間）
+│   └── as-twn-taipei-1-working.geojson         ← **當下的來源地圖**
 └── 260814090512/
-    └── as-twn-taipei-1-skeleton.json
+    ├── as-twn-taipei-1-skeleton.json
+    └── as-twn-taipei-1-working.geojson
 ```
 
 **時間在資料夾名、不在檔名**——同一份圖的檔名到哪一版都一樣，路徑函式給的名字就是
 磁碟上的名字，匯出下載也不必再解析尾綴。**「歷史」就是那些時間戳資料夾。**
+
+**版本資料夾裡另存一份當下的來源地圖**（`sourceFile` 記的原檔名；沒記到就叫
+`source.geojson`）。結果 json 本身已經內嵌 `source`、單檔就自足——這份獨立檔是給**人**
+用的：一個版本資料夾＝一份完整快照，可以整夾拿走、也可以用「匯入檔案」逐檔打開比對，
+不必先把來源從結果檔裡挖出來。
+
+### 歷史分頁長什麼樣
+
+D3 左欄的「歷史」＝**一版一個可收合群組**，群組名是生成時間，裡面就是那個資料夾
+**實際有的兩個檔**，名稱一律用**圖層名**（與左側視圖列同一套）：
+
+```
+▼ 260814 090512  [目前]
+     工作地圖              ← 來源地圖：點了用「匯入檔案」那個檢視 modal 純看
+     骨架地圖   12 × 12    ← 這一版算出的圖：點了唯讀預覽
+▶ 260814 082034
+     工作地圖
+     骨架地圖   12 × 12
+```
+
+預覽期間 `persistStraighteningCells` 直接 return——**唯讀，不寫回任何檔**。
 
 - `index.json` 的 `latest` 與 `versions[].dir` 記的都是**版本夾名**。
 - 舊格式（同層帶戳檔 `…-YYMMDDHHMMSS.json`）**讀取端仍認得**；寫入時遇到無戳舊檔會依它
