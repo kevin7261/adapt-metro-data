@@ -38,7 +38,8 @@
 | `route-shape-rect-align` | `llm-shape` | `paper/shape.js` 等（入口仍只留 LLM 指定形狀 skill） |
 | `route-orientation` | `working` | `orientation.js`（方位玫瑰／建議旋轉；非旋轉變體休眠公式） |
 | `route-city-rotation` | `skeleton` | `cityRotation.js`／`buildRotatedVariants.mjs`（內建旋轉城市：旋轉後算完整管線） |
-| `data-file-layout` | `working` | `lib/embeddedSource.js`／`scripts/_embedSource.mjs`／`_jsonVersions.mjs`（geojson 與 json 各存什麼；每份 json 自足） |
+| `data-file-geojson` | `working` | `buildGeojson.mjs`／`_prescribedShape.mjs`（geojson 存什麼：站／線／`metro_system`；四個槽；覆蓋更新） |
+| `data-file-json` | `working` | `lib/embeddedSource.js`／`scripts/_embedSource.mjs`／`_jsonVersions.mjs`（結果 json 存什麼；每份 json 自足；版本化） |
 
 - 網站：`/doc` → 系統內容 → **系統說明**
 - 服務：`vite/serveSysNotes.js`
