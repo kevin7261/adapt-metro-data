@@ -33,44 +33,46 @@ LLM 直線化的結果另放在鏈檔的 `align` 子物件（讀取一律 `align
 **每一份 json 都要能單獨匯出、單獨匯入，而顯示完全不變，且不受任何其他檔變化的影響。**
 
 所以每一份落檔的 json 都在 `source` 欄位裡**原樣**帶著它畫圖要用的工作地圖 geojson。
-以下是**一份完整的結果檔**（骨架地圖，`1-raw-maps/skeleton/{戳}/as-twn-taipei-1-skeleton.json`）：
+
+### 內容範例①：骨架地圖（as-twn-taipei）
+
+`1-raw-maps/skeleton/{戳}/as-twn-taipei-1-skeleton.json`——由 `buildViews.mjs` 寫，
+幾何來自 `computeCityViews()`。欄位名與結構取自實際產出，只把長陣列截短（`…`）：
 
 ```jsonc
 {
   // ── 這一層是誰 ────────────────────────────────────────────────────
   "id": "as-twn-taipei",
-  "file": "maps/as-twn-taipei/as-twn-taipei/1-raw-maps/working/as-twn-taipei-1-working.geojson",
+  "file": "maps/as-twn-taipei/as-twn-taipei/1-raw-maps/working/as-twn-taipei-1-raw-maps-working.geojson",
   "city": "Taipei", "cityZh": "台北",
   "country": "Taiwan", "countryZh": "台灣",
   "continent": "asia",
   "line_count": 15, "station_count": 176,
-  "stage": "skeleton",                  // 這一份是哪一階（骨架／網格化）
-  "tilt": -6.2, "canRotate": true,      // 建議旋轉角（見 route-orientation）
-  // 指定形狀城市另有 "prescribed_shape": [ { shape, route, stations… } ]
+  "stage": "skeleton",                  // 這一份是哪一階（skeleton／grid）
+  "tilt": 6, "canRotate": true,         // 建議旋轉角（見 route-orientation）
+  // 指定形狀城市另有 "prescribed_shape": [ { shape, route, stations… } ]；台北沒有
 
   // ── 這一張圖 ──────────────────────────────────────────────────────
   "W": 200, "H": 200,                   // 這份幾何的畫布（縮圖直接照畫）
   "views": {
     "skeleton": {
-      "lines": [                        // 路線：已排版好的 SVG path
-        { "d": "M 12.3 40.1 L 88.0 40.1", "color": "#007ec7" }
+      "lines": [                        // 路線：已排版好的 SVG path（共線多色＝各一筆＋dash）
+        { "d": "M103.721,150.218L110.726,146.917L114.098,144.028…", "color": "#007ec7" },
+        …                               // 台北 17 筆
       ],
-      "dots": [                         // 節點：位置＋類型色
-        { "x": 12.3, "y": 40.1, "fill": "#ffffff" }
-      ],
-      "hl": [                           // 邊分類襯底（切斷／共線…）
-        { "d": "M 12.3 40.1 L 40.0 40.1", "color": "#f59e0b" }
-      ],
-      "grid": { "cols": 59, "rows": 59, "sep": [ … ] }   // 網格化那一階才有
+      "hl": [],                         // 邊分類襯底（切斷／共線…）；台北是空的
+      "dots": [                         // 節點：位置＋類型色（177 個＝176 站＋交叉點）
+        { "x": 143.5, "y": 109.7, "fill": "#e11d48" },   // 轉乘站
+        { "x": 181.7, "y": 107.6, "fill": "#ffffff" },   // 中途站
+        …
+      ]
+      // 有面域地標的城市（-lm）另有 "areas": [ … ]（填色面 path）
+      // **骨架不寫 `grid`**：它畫的是網格化前的地理位置，沒有格線
     }
   },
 
-  // 直線化那幾階不寫 `views`，改寫整數格座標：
-  //   "cellAfter": [["n3933501987", 3, 7], …], "cols": 12, "rows": 12, "stats": { … }
-  //   LLM 直線化的結果放在 `align` 子物件（讀取一律 alignOf(doc)）
-
   // ── 這一版 ────────────────────────────────────────────────────────
-  "_fp": "1k2j9f:v72",                  // 增量重算指紋（VIEWS_VERSION:內容雜湊）
+  "_fp": "1k2j9f:v72",                  // 增量重算指紋（`VIEWS_VERSION:內容雜湊`，見 buildViews.mjs）
   "generatedAt": 1786498238191,         // **這一版自己**的產生時間（不可沿用舊值）
   "modifiedAt": 1786498238191,
 
@@ -78,16 +80,62 @@ LLM 直線化的結果另放在鏈檔的 `align` 子物件（讀取一律 `align
   "source": {
     "type": "FeatureCollection",
     "metro_system": { "city": "Taipei", "line_count": 15, … },
-    "features": [ …站點 Point ＋ 路線 LineString… ]   // 見 data-file-geojson
+    "features": [ …176 個站點 Point ＋ 17 個路段 MultiLineString… ]   // 見 data-file-geojson
   },
-  "sourceHash": "1k2j9f.3m1",                      // 去重與稽核用
-  "sourceFile": "as-twn-taipei-1-working.geojson"  // 版本資料夾裡另存那一份的檔名
+  "sourceHash": "1k2j9f.3m1"            // 去重與稽核用（djb2＋長度）
+  // `sourceFile`（來源的原檔名）只有走 attachSourceFor() 的寫入端會記——buildViews 沒記，
+  // 所以版本資料夾裡那份來源副本叫 source.geojson（見下方「版本化」）
 }
 ```
 
 `dots` 只有 `x`／`y`／`fill`——**沒有 station_id、沒有站名**；`cellAfter` 也只有整數格座標。
 要知道那一點是誰、那條線什麼顏色、站叫什麼名字，都得回到 `source`。這就是每一份 json
 都要內嵌來源的原因。
+
+**網格地圖**（`2-gridding/grid/{戳}/as-twn-taipei-2-grid.json`）是同一支寫的同一種結構，
+差別只在 `stage: "grid"` 與 `views` 的兩個 key（`grid-orig-pre`／`grid-orig-post`），
+而且每個 view 多一個 `grid`——**格線的座標，不是格數**：
+
+```jsonc
+"grid": {
+  "xs": [14, 16.9, 19.8, …],   // 格線（分隔）x：60 條
+  "ys": [ … ],                 // 同上 y：60 條
+  "cx": [15.5, 18.4, 21.3, …], // 格心 x：59 個 → 台北是 59 × 59 格
+  "cy": [ … ]                  // **站點畫在格心，不是格線上**
+}
+```
+
+### 內容範例②：直線化的鏈檔（as-twn-taipei）
+
+`3-straightening/grid/algorithm-stroke/network-loop/{戳}/as-twn-taipei-3-grid-algorithm-stroke-network-loop.json`
+——由 `bakeStraighteningCells.mjs` 寫。這一階**不寫 `views`**，只寫整數格座標：
+
+```jsonc
+{
+  "algo": "hccells-v13",        // STRAIGHTENING_CELLS_ALGO（改了＝全球結果檔失效）
+  "fingerprint": "…",           // 來源指紋（`dataFingerprint(geojson):SKELETON_FP_SALT`）
+  "cityId": "as-twn-taipei", "variant": "orig", "isShapeCityFile": false,
+  "chain": "stroke", "stage": "loop",     // 哪一條鏈、哪一個子夾（post／loop）
+  "cellAfter": [["n3933501987", 3, 7], …],   // [站 id, 欄, 列]
+  "cols": 12, "rows": 12,
+  "stats": {
+    "hvBefore": …, "hvAfter": …,          // H/V 段數（越多越直）
+    "segs": …, "verts": …,
+    "moved": …, "lineMoved": …, "branchMoved": …, "gatherMoved": …,
+    "rounds": …, "roundCap": 10, "converged": true,
+    "fromCols": …, "fromRows": …, "cols": 12, "rows": 12,
+    "base": "grid"                        // 這份 cells 的直接輸入
+  },
+  "steps": [ { "n": 1, "stage": "endp", "text": "…" }, … ],   // 逐步表（只有循環結果有）
+  "generatedAt": …, "modifiedAt": …,
+  "source": { … }, "sourceHash": "…"      // 一樣自足
+}
+```
+
+**LLM 直線化寫的是同一個檔的 `align` 子物件**（`3-straightening/grid/opus5/opus5/…json`，
+讀取一律 `alignOf(doc)`）：裡面另有 `model`／`executor`／`skill`／`rounds`／`transcript[]`／
+`startedAt`／`endedAt`／`elapsedMs`／`usage`／`hvBefore`／`hvAfter`／`moved`，以及它自己那份
+`cellAfter`。整份重寫這個檔時**必須把 `align` 原封帶回**。
 
 ### 為什麼要原樣、不裁剪
 
@@ -191,11 +239,15 @@ Metro Maps 分頁的圖層本身就是那份 geojson，才准退回 `layerData[l
 ├── index.json                                  ← 版本清單
 ├── 260814082034/
 │   ├── as-twn-taipei-1-skeleton.json           ← 結果（檔名固定，不帶時間）
-│   └── as-twn-taipei-1-working.geojson         ← **當下的來源地圖**
-└── 260814090512/
+│   └── source.geojson                          ← **當下的來源地圖**
+└── 260814103458/
     ├── as-twn-taipei-1-skeleton.json
-    └── as-twn-taipei-1-working.geojson
+    └── source.geojson
 ```
+
+`index.json` ＝`{ base, latest, versions[] }`，`base` 是這一支的無戳檔名
+（`as-twn-taipei-1-skeleton.json`）、`latest` 與 `versions[].dir` 記的都是版本夾名，
+每項另帶 `stamp`／`files`（那一夾實際有的檔）／`modifiedAt`／`size`。
 
 **時間在資料夾名、不在檔名**——同一份圖的檔名到哪一版都一樣，路徑函式給的名字就是
 磁碟上的名字，匯出下載也不必再解析尾綴。**「歷史」就是那些時間戳資料夾。**
@@ -211,17 +263,19 @@ D3 左欄的「歷史」＝**一版一個可收合群組**，群組名是生成�
 **實際有的兩個檔**，名稱一律用**圖層名**（與左側視圖列同一套）：
 
 ```
-▼ 260814 090512  [目前]
+▼ 260814 103458  [目前]
      工作地圖              ← 來源地圖：點了用「匯入檔案」那個檢視 modal 純看
-     骨架地圖   12 × 12    ← 這一版算出的圖：點了唯讀預覽
+     骨架地圖              ← 這一版算出的圖：點了唯讀預覽
 ▶ 260814 082034
      工作地圖
-     骨架地圖   12 × 12
+     骨架地圖
 ```
+
+（有格網的那幾層底標一律帶 `n × n`，例如台北的網格地圖是 `59 × 59`；
+**骨架地圖不寫**——見 [[route-view-sync]]。）
 
 預覽期間 `persistStraighteningCells` 直接 return——**唯讀，不寫回任何檔**。
 
-- `index.json` 的 `latest` 與 `versions[].dir` 記的都是**版本夾名**。
 - 舊格式（同層帶戳檔 `…-YYMMDDHHMMSS.json`）**讀取端仍認得**；寫入時遇到無戳舊檔會依它
   自述的 `generatedAt` 收進對應日期的版本夾（取不到才退回檔案 mtime）。
 - **`generatedAt` ＝這一份版本檔自己的產生時間**，不可沿用舊檔的值。
