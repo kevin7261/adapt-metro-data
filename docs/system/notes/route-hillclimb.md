@@ -230,11 +230,11 @@ H/V 最大化的後處理＝論文①〜⑨＋LLM 直線化，且**全部都以�
 `metroChainCellsPath(cityId, variant, chain, shape, stage)` 產生
 （矩形城市檔＝另一個 id）。
 
-- **資料指紋只看資料**——資料沒變但**演算法變了**時，要 bump
-  `STRAIGHTENING_CELLS_ALGO`（目前是 `src/lib/straighteningCells.js` 裡的 `'hccells-v13'`；
-  對應的讀取白名單是 `STRAIGHTENING_CELLS_ALGO_READ`）。
-- 衍生 JSON **有檔就開**——指紋不再拒絕載入；資訊 tab 會顯示「與目前資料相符」／
-  「可能過期」。
+- **沒有指紋機制**（2026-08-14）：不比對「資料有沒有變」，也沒有「可能過期」的顯示。
+  演算法真的換了要標記世代時，bump 的是 `STRAIGHTENING_CELLS_ALGO`
+  （`src/lib/straighteningCells.js` 的 `'hccells-v13'`；讀取白名單＝`STRAIGHTENING_CELLS_ALGO_READ`）。
+- 衍生 JSON **有檔就開**；重算與否由使用者決定（`bakeStraighteningCells --force`）。
+  結果檔仍記 `baseCols`／`baseRows`（起算的格網），讀取一律走 `baseDimsOf()`。
 - **已經沒有 use-time 結構驗證**：`src/lib/straighteningCells.js` 只剩 `chainDocUsable`，
   而它現在就只是 `!!doc`（舊的 `cellsDocUsable` 已移除）。
 - 「重新計算」：LLM／矩形重跑會**先刪舊結果再寫**；cells 重算靠 bake `--force` 覆寫。

@@ -662,7 +662,7 @@ flowchart TB
   cool["冷卻：R 由 8 遞減至 1<br/>最多 5 輪"]
   cluster["超長邊群集移動<br/>整段節點群一起平移"]
   blacks["中途站沿新邊平均放回"]
-  save["saveStraightenCells<br/>algo=hccells-v13 ＋ dataFingerprint<br/>（指紋寫入；讀取端不拒載）"]
+  save["saveStraightenCells<br/>algo=hccells-v13<br/>（沒有指紋；有檔就開）"]
 
   input --> fit --> loop
   hard -.->|"每個候選都先過"| loop
@@ -764,7 +764,7 @@ stateDiagram-v2
     結果在 <code>3-straightening/llm-shape/</code>；成方即餵下游（可動方形頂點但不得破方）。矩形城市 id＝<code>&lt;id&gt;-shape-rect</code>（自成城市夾，不是 <code>-shape</code>）。
     <br/><br/>
     <b>LLM 鏈不是固定演算法</b>：固定的只有 export schema、硬規則驗證器、結果檔格式；求解策略每次由模型自行構思。
-    結果是快照級可重現（結果檔＋指紋＋transcript），重跑不保證相同——不可與①〜⑨並列成演算法效能比較。
+    結果是快照級可重現（結果檔＋transcript），重跑不保證相同——不可與①〜⑨並列成演算法效能比較。
     <br/><br/>
     <b>泳道差異</b>：<code>grid</code> 來源跑①〜⑨＋llm；<code>llm-skeleton2grid</code>／<code>llm-working2grid</code>（檔案層按模型拆：<code>orig-llm-*-grid-&lt;model&gt;</code>）來源<strong>只</strong>跑 llm（＋可選 llmshape 頭圖層），不跑論文①〜⑨（詳 §9b）；<code>llm-working2grid</code> 另加 <code>llm-working2straight</code>。凡有 llm 的泳道另可跑 <b>LLM 網絡循環</b>（<code>llm-network-loop</code>）餵第二張 Frame——**由使用者自行啟動**（面板分頁或 <code>--chain=loop</code>）；直線化跑完接的是**程式網絡循環**（movewise），<code>--chain=align</code> 不隱含 loop。舊稱 <code>cell</code>／<code>map</code> 僅遷移別名。
   </div>
@@ -1184,7 +1184,7 @@ erDiagram
   }
   CELLS_DOC {
     string algo "hccells-v13"
-    string fingerprint "寫入；讀取不拒載"
+    int baseCols "起算格網（畫布尺寸用）"
     string chain "algorithm-stroke|…|algorithm-flex|llm-straighten"
     string file "3-straightening/{來源}/{鏈}/{子夾}/{cityId}-….json"
     json cellAfter "節點 id → (col,row)；llm 在 align 子物件"
@@ -1206,7 +1206,7 @@ erDiagram
   }
   CITY_STATUS {
     string city
-    bool cellsUsable "有檔即可（指紋不拒載）"
+    bool cellsUsable "有檔即可"
   }
   OFFICIAL_MAP {
     string file "1-raw-maps/official-route/….png"
@@ -1215,7 +1215,7 @@ erDiagram
     </pre>
   </div>
   <div class="note">
-    <b>cells 讀取規則</b>：<b>有檔即可</b>（不再用 fingerprint 拒載；指紋仍寫進檔、資訊 tab 顯示「與目前資料相符／可能過期」）。讀到的鏈檔只看有沒有 <code>cellAfter</code>；2026-08-09 前的 <code>chainDocUsable()</code> 包裝已隨死碼清理移除。
+    <b>cells 讀取規則</b>：<b>有檔即可</b>——<b>沒有指紋機制</b>，不比對「資料有沒有變」，資訊 tab 也沒有「可能過期」。讀到的鏈檔只看有沒有 <code>cellAfter</code>；2026-08-09 前的 <code>chainDocUsable()</code> 包裝已隨死碼清理移除。
     LLM 直線化取值一律 <code>alignOf(doc)</code>（結果在 <code>align</code> 子物件；直接取頂層 <code>cellAfter</code> 恆為 undefined）。
     寫入 algo＝<code>hccells-v13</code>（字面值不可改）。
     重算＝覆蓋寫入；新一次 LLM 求解＝觸發端／CLI <b>直接 <code>rm</code> 舊檔</b>（舊 <code>{_fresh}</code> stub 已廢寫入，讀檔仍容忍）。
@@ -1311,7 +1311,7 @@ erDiagram
     <tr><td>executor</td><td>結果檔模型標註機制：<code>enforced</code>（驅動設了 <code>LLM_ENFORCED_MODEL</code>）／<code>declared</code>（自我宣告）。論文模型對照只用 enforced。</td></tr>
     <tr><td>「執行調整」</td><td>目前僅 grid／eval（及相關顯示切換）使用。align／shape 的執行調整已移除（2026-07-30）。</td></tr>
     <tr><td>epoch</td><td><code>metroDataEpoch</code> 之類的遞增計數器，用來驅動前端快取失效與元件 remount。</td></tr>
-    <tr><td>fingerprint</td><td><code>dataFingerprint</code>：寫進結果檔供資訊 tab 比對；2026-07-30 起讀取端<strong>不再</strong>用指紋拒載。</td></tr>
+    <tr><td>baseCols／baseRows</td><td>這一輪起算的格網（畫布尺寸與「執行調整」能否套用要用它）；讀取一律走 <code>baseDimsOf()</code>。指紋機制已整組移除。</td></tr>
     <tr><td>importCityChain</td><td>從畫廊／世界地圖一次匯入該城整組管線圖層（取代已廢的 AddD3／AddHillClimb／AddFrame 對話框）。</td></tr>
     <tr><td>skills（知識庫）</td><td><code>.claude/skills/*/SKILL.md</code>：管線規則、演算法規格、逐城裁決的長期記憶；亦部署到正式站。現為 <b>66 支</b>，在 header「<b>資料流／Skills</b>」下拉（與「系統內容」分開）：<b>資料流</b>（節點←→skill）、<b>Skill 呼叫圖</b>（每支 skill 何時被呼叫，每支恰出現一次）、<b>Skills</b>（圖層驅動的清單，<code>skillCatalog.skillTree()</code> ← <code>layerRegistryTable()</code>；未掛圖層者由 <code>scripts/checkSkillCatalog.mjs</code> 擋下）、<b>系統報告</b>。</td></tr>
   </table>

@@ -114,4 +114,4 @@ token——那是 CLI 對外吐的串流事件，只有**父行程**收得到。
 | `CityStatusList.vue` 的「Token 總數」欄 | 該城全部 LLM 圖層相加；部分量不到時補警告記號 |
 
 格式化只有一份：`fmtTokens`／`fmtElapsed`／`fmtTaipeiAt`（`src/lib/llmFormat.js`；
-時鐘＝`YYMMDD HHMMSS` 台北時間，缺值 `000000 000000`），**新的顯示點禁止自己再算**。
+時鐘＝`YY/MM/DD HH:MM:SS` 台北時間，缺值 `00/00/00 00:00:00`），**新的顯示點禁止自己再算**。

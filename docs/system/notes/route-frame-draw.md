@@ -515,7 +515,7 @@ system note `route-frame-weight`。
 
 - 結果檔是 `maps/…/4-frame-maps/{source}/llm-grid/{chain}/`——**`{chain}` 是自己獨立的一層資料夾**
   （`networkFramePath(..., { chain })`；論文①〜⑨ 在磁碟上是 `algorithm-<chain>`，見 `chainLayerDir`）。
-  裡面放 colW/rowW/model/note/userPrompt ＋指紋；路徑由
+  裡面放 colW/rowW/model/note/userPrompt ＋起算格網（`baseCols`／`baseRows`）；路徑由
   `metroLlmGridResultPath`／`networkFramePath` 產生，不是舊的扁平名
   `data/metro/frame-llm-grid/`。離線由 `scripts/llmGrid.mjs` 的 export/apply 產生，網頁只負責載入
   （GH Pages 上一樣）；dev 時執行按鈕（`llm.startExec`）會 POST `/llm-grid/run` 去 spawn 一個
@@ -526,8 +526,9 @@ system note `route-frame-weight`。
 - UI：它是 StylePanel 的 **`grid` 分頁**（`style.interactive`＝「LLM 互動」；一個一句話輸入框＋一個
   執行按鈕＋一份結果記錄）加上畫布覆蓋層（執行中的串流輸出／尚未產生時的輸入框）。
   **`D3Tab.vue` 裡沒有 `mode === 'frame-llm'`**——繪製仍留在一般的 `frame` 模式，權重只改 pixel 軸。
-  指紋仍然寫進檔案；資訊分頁顯示 `common.fpOk`（「與目前資料相符」）／`common.fpStale`（「可能過
-  期——資料已更新」）（2026-07-30：有檔就開，不再依指紋拒載）。
+  **有檔就開，沒有指紋機制**（2026-08-14 移除，連同資訊分頁的「可能過期」那一列）。
+  檔內的 `baseCols`／`baseRows` 記的是這組權重算在多大的格網上——與現在這張圖不一樣時
+  「執行調整」停用（舊網格的絕對格座標套到新網格會整個錯位），這是功能守門、不是新舊比對。
 
 ## 修改這個轉換時
 

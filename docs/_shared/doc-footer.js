@@ -4,7 +4,7 @@
  *   path     — 專案相對路徑，**完整顯示**（主站 footer 也是印整條路徑；
  *              只印檔名的話滿站都是 `index.html`，看不出這一頁是哪一支檔）
  *   url      — HEAD 取 Last-Modified 的 URL（預設 path）
- *   updated  — 後備字串（HEAD 失敗時用，例 260804 140500；沒資料＝000000 000000）
+ *   updated  — 後備字串（HEAD 失敗時用，例 26/08/04 14:05:00；沒資料＝00/00/00 00:00:00）
  */
 (function () {
   var TAIPEI_PARTS = new Intl.DateTimeFormat('en-GB', {
@@ -14,7 +14,7 @@
     hour12: false,
   })
 
-  var CLOCK_EMPTY = '000000 000000'
+  var CLOCK_EMPTY = '00/00/00 00:00:00'
 
   function fmtMs(ms) {
     if (!Number.isFinite(ms) || ms <= 0) return CLOCK_EMPTY
@@ -23,7 +23,7 @@
       var hit = parts.find(function (p) { return p.type === t })
       return String(hit && hit.value ? hit.value : '').padStart(2, '0')
     }
-    return g('year') + g('month') + g('day') + ' ' + g('hour') + g('minute') + g('second')
+    return g('year') + '/' + g('month') + '/' + g('day') + ' ' + g('hour') + ':' + g('minute') + ':' + g('second')
   }
 
   function ensureMeta(footer) {

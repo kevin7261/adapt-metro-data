@@ -749,7 +749,7 @@
       <div class="farrow">→</div>
       <div class="card green fstep"><div class="label">② 模型算座標</div><p>讀 SKILL.md 與 export 的 JSON，在自己的推理裡決定 (col,row)；管線<strong>沒有內建解算器</strong></p></div>
       <div class="farrow">→</div>
-      <div class="card blue fstep"><div class="label">③ 程式驗證落檔</div><p>硬規則違反整批退回、量測 H/V 與格網、寫結果檔（含 fingerprint／transcript／executor）</p></div>
+      <div class="card blue fstep"><div class="label">③ 程式驗證落檔</div><p>硬規則違反整批退回、量測 H/V 與格網、寫結果檔（含 transcript／executor／起算格網）</p></div>
     </div>
     <div class="grid cols-2" style="margin-top:14px;">
       <div class="card amber"><div class="label">模型可以現寫程式</div><p>agent CLI 有 <code class="mono">Bash(node:*)</code>，難的城市模型常自寫一次性搜尋腳本（並 <code class="mono">import</code> 專案的 <code class="mono">measureCells</code>／<code class="mono">edgeOrderViolations</code> 當 oracle）。這些腳本只准寫在 <code class="mono">.tmp-llmsizes/</code>、<strong>不進版控、下次不沿用</strong>——所以可稽核的是結果檔的 transcript 與指紋，不是腳本。</p></div>
@@ -1068,7 +1068,7 @@
       <div class="card rose"><div class="label">唯一移動關口</div><h3><code class="mono">makeMover</code></h3><p>任何演算法移動節點都經 <code class="mono">src/stores/hillClimb.js</code> 的 <code class="mono">makeMover</code>——四條硬規則與 FROZEN 檢查只在這裡。中途站事後 <code class="mono">placeBlacks</code> 平均放回。</p></div>
       <div class="card rose"><div class="label">視圖 ≡ 顯示</div><h3><code class="mono">liveGalleryDocs</code></h3><p>畫廊／圖層視圖／資料流節點縮圖與 D3 主視圖<strong>同源</strong>——從權威檔現畫，永不讀過期 gallery sidecar（寫入已停）。skill：<code class="mono">route-view-sync</code>。</p></div>
       <div class="card blue"><div class="label">命名一一對應</div><h3>代碼＝tag＝資料夾＝檔名</h3><p><code class="mono">layerRegistry.js</code> 單一真相；資料流節點、呼叫圖卡片、圖層面板 chip、磁碟夾名必須一致。圖與碼分叉＝bug。</p></div>
-      <div class="card blue"><div class="label">結果檔紀律</div><h3>有檔就開 · 重跑先刪</h3><p>衍生 JSON 不再用 fingerprint 拒載；新一次 LLM 求解＝直接 <code class="mono">rm</code> 舊檔再寫。論文模型對照只能用 <code class="mono">executor === 'enforced'</code>。</p></div>
+      <div class="card blue"><div class="label">結果檔紀律</div><h3>有檔就開 · 重跑先刪</h3><p>衍生 JSON 沒有指紋機制、有檔就開；新一次 LLM 求解＝先清版本指標再寫（歷史版本一份都不刪）。論文模型對照只能用 <code class="mono">executor === 'enforced'</code>。</p></div>
       <div class="card green"><div class="label">三層必須搭配</div><h3>工作＝實際路線＝中線</h3><p>同一系統的 <code class="mono">route_ref</code> 集合在 working／tracks／center 必須一致；改線集合後必跑 <code class="mono">metro:synctracks</code>。</p></div>
       <div class="card green"><div class="label">前端殼層</div><h3>Design · 日夜 · RWD</h3><p>元件／字色只准用 <code class="mono">/design</code> 已定義 token；跟 <code class="mono">store.dark</code>；窄屏同一操作。彈窗用 <code class="mono">AppModal</code>，禁 <code class="mono">window.confirm</code>。skill：<code class="mono">ui-responsive</code>。</p></div>
     </div>

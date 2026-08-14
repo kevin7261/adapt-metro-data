@@ -184,8 +184,8 @@ cos 35.7° ≈ 0.81，低估 19%），所以 `skeleton.js` 先做局部等角化
 - 分隔站的門檻＝`GRAY_MAX_SPAN_RATIO`（`skeleton.js` 匯出，現行 `0.10`）。度量用 `figXY`
   局部等角化後的弧長，分母＝全網對角線；`opts.grayMaxSpanRatio` 可覆寫，**只給實測掃描用，
   不是 UI 設定**（工具列的「河流分隔曲折度」早已整組移除，不要再加回可調參數）。
-- `skeleton.js` 另有 `SKELETON_FP_SALT`（指紋鹽，凍結字面值）；`grayInfo` 從未實作，
-  分隔站的 hover 說明由 `popupHtml.grayWhyText` 依門檻現算。
+- `grayInfo` 從未實作，分隔站的 hover 說明由 `popupHtml.grayWhyText` 依門檻現算。
+  （`skeleton.js` 本來還有一個指紋鹽 `SKELETON_FP_SALT`，隨指紋機制於 2026-08-14 一起移除。）
 - **hover**：分隔站的類型行下面會多一句「為什麼在這裡」，三種擇一——地標線＝
   `style.leg.nodeGrayWhySpan`（比例）、地鐵＝`style.leg.nodeGrayWhyMetro`（每 N 個）、
   `bend:` 合成折點＝`style.leg.nodeGrayWhyBend`（交叉修復，見 `route-skeleton-grid`）。
