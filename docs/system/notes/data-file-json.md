@@ -32,22 +32,62 @@ LLM 直線化的結果另放在鏈檔的 `align` 子物件（讀取一律 `align
 
 **每一份 json 都要能單獨匯出、單獨匯入，而顯示完全不變，且不受任何其他檔變化的影響。**
 
-所以每一份落檔的 json 都在 `source` 欄位裡**原樣**帶著它畫圖要用的工作地圖 geojson：
+所以每一份落檔的 json 都在 `source` 欄位裡**原樣**帶著它畫圖要用的工作地圖 geojson。
+以下是**一份完整的結果檔**（骨架地圖，`1-raw-maps/skeleton/{戳}/as-twn-taipei-1-skeleton.json`）：
 
 ```jsonc
 {
-  "id": "as-twn-taipei", "chain": "algorithm-lsq", "stage": "loop",
-  "cellAfter": [["n1", 3, 7], ["n2", 3, 9], …],   // 這張圖的座標
-  "stats": { … }, "cols": 12, "rows": 12,
-  "generatedAt": 1786498238191,
-  "source": {                                      // ← 畫得出來所需的全部來源
-    "type": "FeatureCollection",
-    "metro_system": { … },
-    "features": [ …站點 Point ＋ 路線 LineString… ]
+  // ── 這一層是誰 ────────────────────────────────────────────────────
+  "id": "as-twn-taipei",
+  "file": "maps/as-twn-taipei/as-twn-taipei/1-raw-maps/working/as-twn-taipei-1-working.geojson",
+  "city": "Taipei", "cityZh": "台北",
+  "country": "Taiwan", "countryZh": "台灣",
+  "continent": "asia",
+  "line_count": 15, "station_count": 176,
+  "stage": "skeleton",                  // 這一份是哪一階（骨架／網格化）
+  "tilt": -6.2, "canRotate": true,      // 建議旋轉角（見 route-orientation）
+  // 指定形狀城市另有 "prescribed_shape": [ { shape, route, stations… } ]
+
+  // ── 這一張圖 ──────────────────────────────────────────────────────
+  "W": 200, "H": 200,                   // 這份幾何的畫布（縮圖直接照畫）
+  "views": {
+    "skeleton": {
+      "lines": [                        // 路線：已排版好的 SVG path
+        { "d": "M 12.3 40.1 L 88.0 40.1", "color": "#007ec7" }
+      ],
+      "dots": [                         // 節點：位置＋類型色
+        { "x": 12.3, "y": 40.1, "fill": "#ffffff" }
+      ],
+      "hl": [                           // 邊分類襯底（切斷／共線…）
+        { "d": "M 12.3 40.1 L 40.0 40.1", "color": "#f59e0b" }
+      ],
+      "grid": { "cols": 59, "rows": 59, "sep": [ … ] }   // 網格化那一階才有
+    }
   },
-  "sourceHash": "1k2j9f.3m1"                       // 去重與稽核用
+
+  // 直線化那幾階不寫 `views`，改寫整數格座標：
+  //   "cellAfter": [["n3933501987", 3, 7], …], "cols": 12, "rows": 12, "stats": { … }
+  //   LLM 直線化的結果放在 `align` 子物件（讀取一律 alignOf(doc)）
+
+  // ── 這一版 ────────────────────────────────────────────────────────
+  "_fp": "1k2j9f:v72",                  // 增量重算指紋（VIEWS_VERSION:內容雜湊）
+  "generatedAt": 1786498238191,         // **這一版自己**的產生時間（不可沿用舊值）
+  "modifiedAt": 1786498238191,
+
+  // ── 畫得出來所需的全部來源（自足的關鍵）────────────────────────────
+  "source": {
+    "type": "FeatureCollection",
+    "metro_system": { "city": "Taipei", "line_count": 15, … },
+    "features": [ …站點 Point ＋ 路線 LineString… ]   // 見 data-file-geojson
+  },
+  "sourceHash": "1k2j9f.3m1",                      // 去重與稽核用
+  "sourceFile": "as-twn-taipei-1-working.geojson"  // 版本資料夾裡另存那一份的檔名
 }
 ```
+
+`dots` 只有 `x`／`y`／`fill`——**沒有 station_id、沒有站名**；`cellAfter` 也只有整數格座標。
+要知道那一點是誰、那條線什麼顏色、站叫什麼名字，都得回到 `source`。這就是每一份 json
+都要內嵌來源的原因。
 
 ### 為什麼要原樣、不裁剪
 

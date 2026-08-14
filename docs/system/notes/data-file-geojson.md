@@ -18,7 +18,7 @@ layer: working
 |---|---|---|
 | 存什麼 | **這座城市是什麼**——站點、路線、顏色、站名、經緯度 | **這一張圖長什麼樣**——格座標／繪圖幾何 |
 | 誰產生 | OSM 抓取與 build（`buildGeojson` 等） | 演算法管線（骨架化／網格化／直線化／各 LLM 鏈） |
-| 更新方式 | **覆蓋**（重抓就換掉） | **版本化，永不刪**（每次寫新的 `-YYMMDDHHMMSS.json`） |
+| 更新方式 | **覆蓋**（重抓就換掉） | **版本化，永不刪**（每次寫進新的 `{YYMMDDHHMMSS}/` 資料夾） |
 | 位置 | `1-raw-maps/{working,source,tracks,center}/` | `1-raw-maps/skeleton/`、`2-gridding/`、`3-straightening/`、`4-frame-maps/` |
 
 ## 檔案內容
@@ -31,6 +31,73 @@ layer: working
 | `features` 的 `LineString`／`MultiLineString` | 路線幾何——`route_colors`、`routes[]`、`route_ref` |
 | `features` 的 `Polygon` | 地標面域（皇居／中央公園）——地理視圖的填色原圖 |
 | `metro_system` | 系統層中介資料——`city`／`country`／`line_count`／`station_count`／`modes`／`audit`／`wiki`／`official_website`／`wikipedia`，以及 `prescribed_shape`（指定形狀規定的**權威**） |
+
+### 內容範例
+
+節錄自 `as-twn-taipei-1-working.geojson`（真實欄位，值有精簡）：
+
+```jsonc
+{
+  "type": "FeatureCollection",
+  "metro_system": {
+    "continent": "asia", "country": "Taiwan", "city": "Taipei",
+    "official_website": "http://www.trtc.com.tw/",
+    "wikipedia": "en:Taipei Metro", "wikipedia_zh": "zh:臺北捷運", "wiki": true,
+    "line_count": 15, "segment_count": 17, "station_count": 176,
+    "modes": ["metro", "tram"],
+    "audit": { "passed": true, "checks": [ … ] }
+    // 指定形狀城市另有 "prescribed_shape": [ { shape, route, stations… } ]
+  },
+  "features": [
+    {                                        // ← 車站
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [121.517, 25.046] },
+      "properties": {
+        "station_id": "n3933501987",
+        "station_name": "台北 / 臺北車站",   // 顯示名（日本城市＝name:ja）
+        "station_name_local": "台北 / 臺北車站",
+        "station_name_en": "Taipei",
+        "city": "Taipei", "country": "Taiwan",
+        "lines": ["BL", "R", "TY-A"],        // 經過這站的 route_ref
+        "codes": ["A1", …],                  // 站號
+        "is_terminus": false,
+        "merged_from": 7,                    // 共站合併：由幾個 OSM 節點併來
+        "merged_names": [ { "station_id": …, "station_name": "台北", … } ],
+        "wikipedia": "zh:臺北車站"
+      }
+    },
+    {                                        // ← 路段（一段可被多條路線共用）
+      "type": "Feature",
+      "geometry": { "type": "LineString", "coordinates": [[121.51, 25.04], …] },
+      "properties": {
+        "seg_id": "s12",
+        "route_count": 2,                    // 共線：這段有幾條路線走
+        "route_refs": ["BL", "R"],
+        "route_colors": ["#007ec7", "#e3002c"],   // 畫線用（多色＝交錯虛線）
+        "routes": [
+          {
+            "route_id": "rm9437778",
+            "route_name": "板南線", "route_name_en": "Bannan line",
+            "route_ref": "BL", "route_color": "#007ec7",
+            "osm_route_ids": [199038, 9437776],
+            "order_suspect": 0, "span_suspect": 0,   // audit 用的疑點計數
+            "stations": [                            // **站序**（整條線由頭到尾）
+              { "station_id": "n12183049886", "station_name": "頂埔", "code": "BL01" },
+              { "station_id": "n373399546", "station_name": "永寧", "code": "BL02" },
+              …
+              // 行經不停靠的站另有 "pass": true
+            ]
+          }
+        ],
+        "city": "Taipei", "country": "Taiwan"
+      }
+    }
+  ]
+}
+```
+
+**站序在 `routes[].stations`，不在幾何裡**——線的 `coordinates` 是真實線形（會轉彎、
+會繞路），站序是拓撲。骨架化讀的是站序，畫地理視圖讀的是 coordinates。
 
 **`metro_system` 是面板顯示的唯一來源**：城市標題的線站數、概要的官網與 Wikipedia、
 資料驗證記號，全部讀這裡（不可以回頭查 `index.json`／`official_sites.json`，見
