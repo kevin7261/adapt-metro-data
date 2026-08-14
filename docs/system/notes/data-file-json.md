@@ -23,7 +23,7 @@ layer: working
 | 2 GRIDDING | `2-gridding/grid/` | `views['grid-orig-pre'\|'grid-orig-post']`＝同上 |
 | 2 GRIDDING | `2-gridding/llm-{skeleton2grid,working2grid}/<model>/` | `cells`／`cellAfter`＋`llmGrid`（欄列數） |
 | 3 STRAIGHTENING | `3-straightening/{來源}/[{模型}/]{鏈}/{子夾}/` | `cellAfter`＝`[[id,c,r],…]`＋`stats`／`cols`／`rows` |
-| 4 FRAME MAPS | `4-frame-maps/llm-{eval,grid,compare}/` | 評價／權重／比較報告（Frame 路網本身不落檔，現畫） |
+| 4 FRAME MAPS | `4-frame-maps/{來源}/{鏈}/llm-{eval,grid}/`、`…/{來源}/llm-compare/` | 評價／權重／比較報告（Frame 路網本身不落檔，現畫） |
 
 `3-straightening` 的 `cellAfter` **只有整數格座標**——沒有站名、沒有拓撲、沒有顏色。
 LLM 直線化的結果另放在鏈檔的 `align` 子物件（讀取一律 `alignOf(doc)`）。
